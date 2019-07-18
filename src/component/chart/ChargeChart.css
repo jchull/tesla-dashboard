@@ -1,0 +1,9 @@
+.d3-chart {
+    width: 100%;
+    height: 600px;
+}
+
+.d3-chart .axis path,
+.d3-chart .axis line {
+    stroke: #999
+}

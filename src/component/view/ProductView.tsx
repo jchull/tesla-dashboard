@@ -1,27 +1,32 @@
 import React from 'react';
 import {ProductType} from '../../type/ProductType';
 import {ChargeChart} from '../chart/ChargeChart';
+import {QueryService} from '../../service/es/QueryService';
+import {ChargeDatum} from '../../type/Datum';
 
 interface ProductViewState {
-  product?: ProductType
+  product: ProductType
 }
 
+
 export const ProductView: React.SFC<ProductViewState> = (state) => {
-  // const [product, setProduct] = React.useState(state.product);
-  //
-  // React.useEffect(() => {
-  //   if (product) {
-  //     console.log(`Viewing: ${product.name}`);
-  //   }
-  // }, [product]);
+  const queryService = new QueryService();
+  const [chargeSessions, setChargeSessions] = React.useState([] as ChargeDatum[]);
+
+  React.useEffect(() => {
+    // TODO: promise
+    const chargeSessionsResult = queryService.getChargingSessions(state.product.id);
+    setChargeSessions(chargeSessionsResult);
+  }, []);
 
 
   return (
       <div>
         <span>{state.product && state.product.name}</span>
-        {state.product && state.product.type === 'CAR'?
-        <ChargeChart carName={state.product.name} data={[{d:101, date: new Date()}, {d:190, date: new Date( new Date().valueOf() - 100000)}]}/>
-        :''}
+        {state.product && state.product.type === 'CAR' ?
+            <ChargeChart product={state.product}
+                         data={chargeSessions}/>
+            : <div>No Charging Data</div>}
       </div>
   );
 };

@@ -1,8 +1,11 @@
+import {ProductType} from '../../type/ProductType';
+import {ChargeDatum} from '../../type/Datum';
+
 export class QueryService {
   constructor() {
   }
 
-  getProducts() {
+  getProducts(): ProductType[] {
     // return fetch(this.geoLookupUrl + zipcode + '.json')
     //     .then(response => response.json())
     //     .then(station => station.location.nearby_weather_stations.pws.station[0])
@@ -13,6 +16,59 @@ export class QueryService {
         {name: 'PowerWall 1', color: '#444444', id: '3338272', model: '123', type: 'POWERWALL'}
       ]
   };
+
+  getChargingSessions(productId: string) : ChargeDatum[]{
+    return [
+      {
+        chargingState: 'Charging',
+        chargerPower: 5,
+        batteryLevel: 76,
+        batteryRangeIdeal: 276.79,
+        batteryRangeEst: 276.79,
+        energyAdded: 21.22,
+        rangeAddedIdeal: 86.5,
+        rangeAddedEst: 90,
+        maxCurrent: 24,
+        requestedCurrent: 23,
+        actualCurrent: 23,
+        timeToFull: 1.17,
+        chargeRate: 19.5,
+        timestamp: new Date()
+      },
+      {
+        chargingState: 'Charging',
+        chargerPower: 5,
+        batteryLevel: 78,
+        batteryRangeIdeal: 276.79,
+        batteryRangeEst: 276.79,
+        energyAdded: 21.22,
+        rangeAddedIdeal: 86.5,
+        rangeAddedEst: 90,
+        maxCurrent: 24,
+        requestedCurrent: 23,
+        actualCurrent: 23,
+        timeToFull: 1.17,
+        chargeRate: 19.5,
+        timestamp: new Date(new Date().valueOf() - 10000)
+      },
+      {
+        chargingState: 'Charging',
+        chargerPower: 5,
+        batteryLevel: 81,
+        batteryRangeIdeal: 276.79,
+        batteryRangeEst: 276.79,
+        energyAdded: 21.22,
+        rangeAddedIdeal: 89.5,
+        rangeAddedEst: 92,
+        maxCurrent: 24,
+        requestedCurrent: 23,
+        actualCurrent: 23,
+        timeToFull: 1,
+        chargeRate: 19.1,
+        timestamp: new Date(new Date().valueOf() - 20000)
+      }
+    ]
+  }
 }
 
 
