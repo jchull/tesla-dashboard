@@ -14,17 +14,19 @@ export const ProductView: React.SFC<ProductViewState> = (state) => {
   const [chargeSessions, setChargeSessions] = React.useState([] as ChargeDatum[]);
 
   React.useEffect(() => {
-    queryService.getLastChargingSession(state.product.id)
-        .then((result) => {
-          setChargeSessions(result);
-        });
+    if (state.product.id) {
+      queryService.getLastChargingSession(state.product.id)
+                  .then((result) => {
+                    setChargeSessions(result);
+                  });
+    }
   }, [state.product]);
 
 
   return (
       <div>
         <span>{state.product && state.product.name}</span>
-        {state.product && state.product.type === 'CAR' ?
+        {state.product && chargeSessions.length ?
             <ChargeChart product={state.product}
                          data={chargeSessions}/>
             : <div>No Charging Data</div>}

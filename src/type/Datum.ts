@@ -12,5 +12,5 @@ export interface ChargeDatum {
   actualCurrent: number,
   timeToFull: number,
   chargeRate: number,
-  timestamp: Date
+  timestamp: number
 }

@@ -45,12 +45,9 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
   const [innerHeight, setInnerHeight] = React.useState(config.height - config.margin.top - config.margin.bottom);
   const svg = d3.select(container.current);
 
-  // @ts-ignore
-  const xDomain = d3.extent(d3.extent(props.data.map(d => d.timestamp)));
   const yDomainLeft = [0, 250];
   const yDomainRight = [0, 310];
   const xScale = d3.scaleTime()
-                   .domain(xDomain)
                    .range([0, innerWidth]);
   const yScaleLeft = d3.scaleLinear()
                        .domain(yDomainLeft)
@@ -81,6 +78,9 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
         console.log('update chart');
         if (props.data && config && container.current) {
 
+          const xDomain = d3.extent(props.data, (d: ChargeDatum) => d.timestamp);
+          // @ts-ignore
+          xScale.domain(xDomain);
 
           xAxis.transition()
                .call(d3.axisBottom(xScale)
@@ -119,10 +119,9 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
              .attr('d', rangeLine)
              .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
-
         }
       },
-      [props.data, props.product, config, container.current]);
+      [props.data, config]);
 
   return (
       <div>

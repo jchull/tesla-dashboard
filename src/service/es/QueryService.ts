@@ -15,13 +15,14 @@ export class QueryService {
   }
 
   async getProducts(): Promise<ProductType[]> {
-    const result = await axios(`${ENDPOINT}/products`);
+    const result = await axios(`${ENDPOINT}/product`);
     return result && result.data;
   };
 
   async getLastChargingSession(productId: string): Promise<ChargeDatum[]> {
     console.log('getting product: ' + productId);
-    const result = await axios(`${ENDPOINT}/products/${productId}/charging?session=latest`);
+    const result = await axios(`${ENDPOINT}/product/${productId}/charging?session=latest`);
     return result && result.data;
   };
 }
+
