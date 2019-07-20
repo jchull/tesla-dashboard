@@ -7,3 +7,19 @@
 .d3-chart .axis line {
     stroke: #999
 }
+
+.line {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.line.charge-power {
+    stroke: #046404;
+}
+
+.line.battery-range {
+    stroke: #ffa000;
+}
+

@@ -14,10 +14,11 @@ export const ProductView: React.SFC<ProductViewState> = (state) => {
   const [chargeSessions, setChargeSessions] = React.useState([] as ChargeDatum[]);
 
   React.useEffect(() => {
-    // TODO: promise
-    const chargeSessionsResult = queryService.getChargingSessions(state.product.id);
-    setChargeSessions(chargeSessionsResult);
-  }, []);
+    queryService.getLastChargingSession(state.product.id)
+        .then((result) => {
+          setChargeSessions(result);
+        });
+  }, [state.product]);
 
 
   return (

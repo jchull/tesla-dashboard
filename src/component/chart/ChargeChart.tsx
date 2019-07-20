@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import './ChargeChart.css';
 import {ProductType} from '../../type/ProductType';
 import {ChargeDatum} from '../../type/Datum';
 
@@ -29,8 +30,8 @@ type ChargeChartState = {
 }
 
 const defaultConfig = {
-  width: 600,
-  height: 300,
+  width: 800,
+  height: 500,
   margin: {top: 20, bottom: 20, left: 100, right: 100},
   barWidth: 25,
   xAxisHeight: 100,
@@ -43,34 +44,31 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
   const [innerWidth, setInnerWidth] = React.useState(config.width - config.margin.left - config.margin.right);
   const [innerHeight, setInnerHeight] = React.useState(config.height - config.margin.top - config.margin.bottom);
   const svg = d3.select(container.current);
-  const chart = svg
-      .append('g')
-      .attr('class', 'bars')
-      .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
-  const yDomain = [0, 100]; // TODO: scale for different y value source, configuration
-
-  const colors = d3.scaleLinear()
-                   .domain(yDomain)
-                   .range(['#17a14e', '#ff5945'] as any[]);
-  const timeExtents = d3.extent(props.data.map(d => d.timestamp));
   // @ts-ignore
-  const xDomain = d3.extent(timeExtents);
+  const xDomain = d3.extent(d3.extent(props.data.map(d => d.timestamp)));
+  const yDomainLeft = [0, 250];
+  const yDomainRight = [0, 310];
   const xScale = d3.scaleTime()
                    .domain(xDomain)
                    .range([0, innerWidth]);
-  const yScale = d3.scaleLinear()
-                   .domain(yDomain)
-                   .range([innerHeight - config.xAxisHeight, 0]);
+  const yScaleLeft = d3.scaleLinear()
+                       .domain(yDomainLeft)
+                       .range([innerHeight - config.xAxisHeight, 0]);
+  const yScaleRight = d3.scaleLinear()
+                        .domain(yDomainRight)
+                        .range([innerHeight - config.xAxisHeight, 0]);
   const xAxis = svg.append('g')
                    .attr('class', 'axis axis-x')
                    .attr('transform', `translate(${config.margin.left}, ${innerHeight + config.margin.top - config.xAxisHeight})`);
-  const yAxis = svg.append('g')
-                   .attr('class', 'axis axis-y')
-                   .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`)
-                   .call(d3.axisLeft(yScale));
-
-
+  const yAxisLeft = svg.append('g')
+                       .attr('class', 'axis axis-y')
+                       .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`)
+                       .call(d3.axisLeft(yScaleLeft));
+  const yAxisRight = svg.append('g')
+                        .attr('class', 'axis axis-y right')
+                        .attr('transform', `translate(${config.margin.left + innerWidth} , ${config.margin.top})`)
+                        .call(d3.axisRight(yScaleRight));
 
   React.useEffect(() => {
     console.log('init chart');
@@ -80,40 +78,48 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
 
   React.useEffect(() => {
-    console.log('update chart');
+        console.log('update chart');
         if (props.data && config && container.current) {
 
 
           xAxis.transition()
                .call(d3.axisBottom(xScale)
-                       // .ticks(15)
+                   // .ticks(15)
                )
                .selectAll('text')
                .style('text-anchor', 'end')
                .attr('dx', '-.8em')
                .attr('dy', '.15em')
                .attr('transform', 'rotate(-65)');
-          yAxis.transition()
-               .call(d3.axisLeft(yScale));
+          yAxisLeft.transition()
+                   .call(d3.axisLeft(yScaleLeft));
+
+          yAxisRight.transition()
+                    .call(d3.axisRight(yScaleRight));
 
 
-          const bars = chart.selectAll('.bar')
-                            .data(props.data);
-          bars.enter()
-              .append('rect')
-              .attr('class', 'bar')
-              .attr('x', (d: ChargeDatum) => xScale(d.timestamp))
-              .attr('y', yScale(0))
-              .attr('width', config.barWidth)
-              .attr('height', 0)
-              .style('fill', (d: ChargeDatum) => colors(d.chargerPower))
-              .transition()
-              .delay((d: ChargeDatum, i: number) => i * 4)
-              .attr('y', (d: ChargeDatum) => yScale(d.chargeRate))
-              .attr('height', (d: ChargeDatum) => innerHeight - config.xAxisHeight - yScale(d.chargeRate));
+          const powerLine = d3.line()
+                              // @ts-ignore
+                              .x((d: ChargeDatum) => xScale(d.timestamp))
+                              .y((d: ChargeDatum) => yScaleLeft(d.chargerPower));
+          svg.append('path')
+             .datum(props.data)
+             .attr('class', 'line charge-power')
+             .attr('d', powerLine)
+             .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
-          bars.exit()
-              .remove();
+
+          const rangeLine = d3.line()
+                              // @ts-ignore
+                              .x((d: ChargeDatum) => xScale(d.timestamp))
+                              .y((d: ChargeDatum) => yScaleRight(d.batteryRangeEst));
+          svg.append('path')
+             .datum(props.data)
+             .attr('class', 'line battery-range')
+             .attr('d', rangeLine)
+             .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+
         }
       },
       [props.data, props.product, config, container.current]);

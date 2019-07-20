@@ -15,17 +15,20 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
 
   const defaultProduct: ProductType = {
     id: '',
-    name: 'No Product Selected',
+    name: 'No Product',
     type: ''
   };
   const [selectedProduct, setSelectedProduct] = React.useState(defaultProduct);
 
   const productSelectionHandler = (product: ProductType) => setSelectedProduct(Object.assign({}, product));
 
-  React.useEffect(() => {
-    // TODO: promise/subscribe
-    const productList = queryService.getProducts();
-    setProducts(productList);
+  React.useEffect( () => {
+    const fetchProductList = async () => {
+      const productList = await queryService.getProducts();
+      setProducts(productList);
+    };
+
+    fetchProductList();
   }, []);
 
   React.useEffect(() => {
@@ -37,7 +40,7 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
   return (
       <div className="products">
         <div>
-          {products.map(product => <ProductListItem product={product}
+          {products && products.map(product => <ProductListItem product={product}
                                                     key={product.id}
                                                     handleSelection={productSelectionHandler}
                                                     selected={selectedProduct && selectedProduct.id === product.id}/>)}
