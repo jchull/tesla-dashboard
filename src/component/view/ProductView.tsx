@@ -5,32 +5,32 @@ import {QueryService} from '../../service/es/QueryService';
 import {ChargeDatum} from '../../type/Datum';
 
 interface ProductViewState {
-  product: ProductType
+    product: ProductType;
 }
 
 
 export const ProductView: React.SFC<ProductViewState> = (state) => {
-  const queryService = new QueryService();
-  const [chargeSessions, setChargeSessions] = React.useState([] as ChargeDatum[]);
+    const queryService = new QueryService();
+    const [chargeSessions, setChargeSessions] = React.useState([] as ChargeDatum[]);
 
-  React.useEffect(() => {
-    if (state.product.id) {
-      queryService.getLastChargingSession(state.product.id)
-                  .then((result) => {
+    React.useEffect(() => {
+        if (state.product.id) {
+            queryService.getLastChargingSession(state.product.id)
+                .then((result) => {
                     setChargeSessions(result);
-                  });
-    }
-  }, [state.product]);
+                });
+        }
+    }, [state.product]);
 
 
-  return (
-      <div>
-        <span>{state.product && state.product.name}</span>
-        {state.product && chargeSessions.length ?
-            <ChargeChart product={state.product}
-                         data={chargeSessions}/>
-            : <div>No Charging Data</div>}
-      </div>
-  );
+    return (
+        <div>
+            <span>{state.product && state.product.name}</span>
+            {state.product && chargeSessions.length ?
+                <ChargeChart product={state.product}
+                    data={chargeSessions}/>
+                : <div>No Charging Data</div>}
+        </div>
+    );
 };
 

@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/d3": "^5.7.2",
-    "@types/react": "^16.8.23",
     "axios": "^0.19.0",
     "d3": "^5.9.7",
     "react": "^16.8.6",
@@ -15,10 +13,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{ts,tsx}'"
   },
   "browserslist": {
     "production": [
@@ -33,7 +29,12 @@
     ]
   },
   "devDependencies": {
+    "@types/d3": "^5.7.2",
+    "@types/react": "^16.8.23",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "eslint-config-react": "^1.1.7",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }
