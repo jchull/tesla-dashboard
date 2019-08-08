@@ -1,4 +1,4 @@
-import { QueryService }  from './QueryService';
+import { QueryService } from './QueryService';
 
 it('should initialize service', () => {
   const service = new QueryService();

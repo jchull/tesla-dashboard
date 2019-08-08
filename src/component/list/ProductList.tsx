@@ -1,11 +1,11 @@
 import React from 'react';
-import {ProductType} from '../../type/ProductType';
 import {ProductListItem} from './ProductListItem';
-import {ProductView} from '../view/ProductView';
-import {QueryService} from '../../service/es/QueryService';
+import {QueryService} from '../../service/QueryService';
+import {IVehicle} from '../../type/Vehicle';
+import {VehicleView} from '../view/VehicleView';
 
 interface ProductListState {
-    products: ProductType[];
+    products?: Array<IVehicle>;
     selectedProductId?: string;
 }
 
@@ -13,14 +13,9 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
     const [products, setProducts] = React.useState(props.products);
     const queryService = new QueryService();
 
-    const defaultProduct: ProductType = {
-        id: '',
-        name: 'No Product',
-        type: ''
-    };
-    const [selectedProduct, setSelectedProduct] = React.useState(defaultProduct);
+    const [selectedProduct, setSelectedProduct] = React.useState({} as IVehicle);
 
-    const productSelectionHandler = (product: ProductType) => setSelectedProduct(Object.assign({}, product));
+    const productSelectionHandler = (product: IVehicle) => setSelectedProduct(Object.assign({}, product));
 
     React.useEffect( () => {
         const fetchProductList = async () => {
@@ -33,7 +28,8 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
 
     React.useEffect(() => {
         if (selectedProduct) {
-            console.log(`selected product: ${selectedProduct.name}`);
+            // @ts-ignore
+            console.log(`selected product: ${selectedProduct && selectedProduct.name || 'none'}`);
         }
     }, [selectedProduct]);
 
@@ -41,11 +37,14 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
         <div className="products">
             <div>
                 {products && products.map(product => <ProductListItem product={product}
-                    key={product.id}
+                    key={product.id_s}
                     handleSelection={productSelectionHandler}
-                    selected={selectedProduct && selectedProduct.id === product.id}/>)}
+                    selected={selectedProduct && selectedProduct.id_s === product.id_s}/>)}
             </div>
-            <ProductView product={selectedProduct}/>
+            {products && <VehicleView vehicle={selectedProduct}/> ||
+            <span>No Products</span>
+            }
+
         </div>
 
     );

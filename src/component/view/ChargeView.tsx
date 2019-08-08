@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ChargeViewState {
-    name: string;
+    display_name: string;
 }
 
 export class ChargeView extends React.Component<ChargeViewState> {
@@ -14,7 +14,7 @@ export class ChargeView extends React.Component<ChargeViewState> {
     render() {
         return (
             <div className="charging">
-          Charging View {this.props.name}
+          Charging View {this.props.display_name}
             </div>
         );
     }

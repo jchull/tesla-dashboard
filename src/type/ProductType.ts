@@ -1,7 +1,6 @@
 export interface ProductType {
-    id: string;
+    id_s: string;
     type: string;
-    name: string;
-    model?: string;
+    display_name: string;
     color?: string;
 }

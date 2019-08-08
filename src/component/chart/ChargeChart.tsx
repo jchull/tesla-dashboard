@@ -1,8 +1,9 @@
 import React from 'react';
 import * as d3 from 'd3';
 import './ChargeChart.css';
-import {ProductType} from '../../type/ProductType';
-import {ChargeDatum} from '../../type/Datum';
+import {IChargeSession} from '../../type/ChargeSession';
+import {IVehicle} from '../../type/Vehicle';
+import {IChargeState} from '../../type/ChargeState';
 
 
 interface Margin {
@@ -22,10 +23,9 @@ interface ChartConfig {
 }
 
 interface ChargeChartState {
-    product: ProductType;
-    energyAdded?: number;
-    durationMinutes?: number;
-    data: ChargeDatum[];
+    vehicle: IVehicle;
+    session: IChargeSession;
+    states: Array<IChargeState>;
     config?: ChartConfig;
 }
 
@@ -76,9 +76,10 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
     React.useEffect(() => {
         console.log('update chart');
-        if (props.data && config && container.current) {
-
-            const xDomain = d3.extent(props.data, (d: ChargeDatum) => d.timestamp);
+        if (props.states && config && container.current) {
+            const startTime = Date.parse(''+props.session.first.timestamp);
+            const endTime = Date.parse(''+props.session.last.timestamp);
+            const xDomain = [startTime, endTime];
             // @ts-ignore
             xScale.domain(xDomain);
 
@@ -100,10 +101,10 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
             const powerLine = d3.line()
             // @ts-ignore
-                .x((d: ChargeDatum) => xScale(d.timestamp))
-                .y((d: ChargeDatum) => yScaleLeft(d.chargerPower));
+                .x((d: IChargeState) => xScale(Date.parse(''+ d.timestamp)))
+                .y((d: IChargeState) => yScaleLeft(d.charger_power));
             svg.append('path')
-                .datum(props.data)
+                .datum(props.states)
                 .attr('class', 'line charge-power')
                 .attr('d', powerLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
@@ -111,17 +112,17 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
             const rangeLine = d3.line()
             // @ts-ignore
-                .x((d: ChargeDatum) => xScale(d.timestamp))
-                .y((d: ChargeDatum) => yScaleRight(d.batteryRangeEst));
+                .x((d: IChargeState) => xScale(Date.parse(''+ d.timestamp)))
+                .y((d: IChargeState) => yScaleRight(d.est_battery_range));
             svg.append('path')
-                .datum(props.data)
+                .datum(props.states)
                 .attr('class', 'line battery-range')
                 .attr('d', rangeLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
         }
     },
-    [props.data, config]);
+    [props.states, config]);
 
     return (
         <div>
