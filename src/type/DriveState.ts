@@ -3,7 +3,7 @@ import {IDriveSession} from './DriveSession';
 export interface IDriveState {
   _id: string;
   id_s: string,
-  gps_as_of: Date,
+  gps_as_of: number,
   heading: number,
   latitude: number,
   longitude: number,
@@ -11,7 +11,7 @@ export interface IDriveState {
   shift_state: string,
   speed: number,
   odometer: number,
-  timestamp: Date,
+  timestamp: number,
   battery_heater: boolean,
   battery_level: number,
   est_battery_range: number,

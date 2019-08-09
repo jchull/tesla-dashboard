@@ -15,11 +15,11 @@
     stroke-linejoin: round;
 }
 
-.line.charge-power {
-    stroke: #046404;
+.line.est_battery_range {
+    stroke: lightblue;
 }
 
-.line.battery-range {
-    stroke: #ffa000;
+.line.battery_level {
+    stroke: steelblue;
 }
 

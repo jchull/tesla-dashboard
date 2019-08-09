@@ -3,6 +3,7 @@ import {ProductListItem} from './ProductListItem';
 import {QueryService} from '../../service/QueryService';
 import {IVehicle} from '../../type/Vehicle';
 import {VehicleView} from '../view/VehicleView';
+import './ProductList.css';
 
 interface ProductListState {
     products?: Array<IVehicle>;
@@ -35,12 +36,10 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
 
     return (
         <div className="products">
-            <div>
                 {products && products.map(product => <ProductListItem product={product}
                     key={product.id_s}
                     handleSelection={productSelectionHandler}
                     selected={selectedProduct && selectedProduct.id_s === product.id_s}/>)}
-            </div>
             {products && <VehicleView vehicle={selectedProduct}/> ||
             <span>No Products</span>
             }

@@ -5,6 +5,7 @@ import {IVehicle} from '../../type/Vehicle';
 import {ChargeChart} from '../chart/ChargeChart';
 import {IChargeState} from '../../type/ChargeState';
 import {QueryService} from '../../service/QueryService';
+import './ChargeList.css';
 
 interface ChargeListState {
   chargeSessions: Array<IChargeSession>;
@@ -26,36 +27,33 @@ export const ChargeList: React.SFC<ChargeListState> = (props: ChargeListState) =
 
 
   React.useEffect(() => {
-    if (selectedSession) {
-      // @ts-ignore
-      console.log(`selected session: ${selectedSession && selectedSession.start_time || 'none'}`);
+    if (selectedSession._id && props.vehicle.id_s) {
       queryService.getChargingStates(props.vehicle.id_s, selectedSession._id)
                   .then(chargingStates => {
                     setChargeStates(chargingStates);
 
                   });
     }
-  }, [selectedSession]);
+  }, [selectedSession, props.vehicle.id_s]);
 
+  // TODO: move off props below
   return (
-      <div>
-
+      <ul>
         {props.chargeSessions && props.chargeSessions.map(chargeSession =>
-            <button onClick={() => chargeSelectionHandler(chargeSession)}
-                    key={chargeSession._id}
-            >
+            <li key={chargeSession._id}
+                onClick={() => chargeSelectionHandler(chargeSession)}>
               <ChargeSessionCard chargeSession={chargeSession}
                                  key={chargeSession._id}
               />
-            </button>)}
+            </li>)}
 
         {chargeStates && selectedSession._id ?
             <ChargeChart vehicle={props.vehicle}
                          session={selectedSession}
                          states={chargeStates}/>
-            : <div>No Charging Data</div>}
+            : <div></div>}
 
-      </div>
+      </ul>
   );
 };
 

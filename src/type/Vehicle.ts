@@ -10,6 +10,11 @@ export interface IVehicle extends ProductType {
   color?: string;
   calendar_enabled: boolean;
   api_version: number;
+  odometer?: number;
+  timestamp: number;
+  car_type: string;
+  battery_level: number;
+  state: string;
 }
 
 

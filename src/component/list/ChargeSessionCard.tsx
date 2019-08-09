@@ -1,5 +1,7 @@
 import React from 'react';
 import {IChargeSession} from '../../type/ChargeSession';
+import './ChargeSessionCard.css';
+import numbro from 'numbro';
 
 interface ChargeSessionCardState {
   chargeSession: IChargeSession;
@@ -7,16 +9,21 @@ interface ChargeSessionCardState {
 
 export const ChargeSessionCard: React.SFC<ChargeSessionCardState> = (props: ChargeSessionCardState) => {
 
-  const startTime = Date.parse(''+props.chargeSession.start_date)
-                               .valueOf();
-    const endTime = Date.parse(''+props.chargeSession.end_date)
-                          .valueOf();
 
   return (
       <div className="charge card">
-        {props.chargeSession.start_date}
+        {new Date(props.chargeSession.start_date).toLocaleString()}
         <div>
-            duration { (endTime - startTime) / (60 * 1000)} minutes
+          {numbro((props.chargeSession.end_date - props.chargeSession.start_date) / (60 * 1000))
+              .format('1.0')} minutes
+        </div>
+        <div>
+          {numbro(props.chargeSession.last.est_battery_range - props.chargeSession.first.est_battery_range)
+              .format('0,2')} miles added
+        </div>
+        <div>
+          {props.chargeSession.last._id !== props.chargeSession.first._id ? props.chargeSession.last.charge_energy_added : 0} kWh
+          {numbro(props.chargeSession.last.charge_energy_added * 1.10 * 0.11).formatCurrency()}
         </div>
       </div>
   );

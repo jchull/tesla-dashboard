@@ -3,8 +3,8 @@ import {IChargeState} from './ChargeState';
 export interface IChargeSession {
   _id: string;
   id_s: string,
-  start_date: Date,
-  end_date: Date,
+  start_date: number,
+  end_date: number,
   latitude?: number,
   longitude?: number,
   charge_current_request_max?: number,

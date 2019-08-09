@@ -1,0 +1,11 @@
+ul {
+    list-style: none;
+}
+
+li {
+    width: 300px;
+}
+
+li button {
+    width: 100%;
+}

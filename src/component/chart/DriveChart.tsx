@@ -1,9 +1,9 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './ChargeChart.css';
-import {IChargeSession} from '../../type/ChargeSession';
+import './DriveChart.css';
+import {IDriveSession} from '../../type/DriveSession';
 import {IVehicle} from '../../type/Vehicle';
-import {IChargeState} from '../../type/ChargeState';
+import {IDriveState} from '../../type/DriveState';
 
 
 interface Margin {
@@ -22,10 +22,10 @@ interface ChartConfig {
     margin: Margin;
 }
 
-interface ChargeChartState {
+interface DriveChartState {
     vehicle: IVehicle;
-    session: IChargeSession;
-    states: Array<IChargeState>;
+    session: IDriveSession;
+    states: Array<IDriveState>;
     config?: ChartConfig;
 }
 
@@ -38,7 +38,7 @@ const defaultConfig = {
     yAxisWidth: 25
 };
 
-export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState) => {
+export const DriveChart: React.SFC<DriveChartState> = (props: DriveChartState) => {
     const container = React.useRef(null);
     const [config, setConfig] = React.useState(props.config || defaultConfig);
     const [innerWidth, setInnerWidth] = React.useState(config.width - config.margin.left - config.margin.right);
@@ -111,22 +111,22 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
             const powerLine = d3.line()
             // @ts-ignore
-                .x((d: IChargeState) => xScale(new Date(d.timestamp)))
-                .y((d: IChargeState) => yScaleLeft(d.charger_power));
+                .x((d: IDriveState) => xScale(new Date(d.timestamp)))
+                .y((d: IDriveState) => yScaleLeft(d.battery_level));
             svg.append('path')
                 .datum(props.states)
-                .attr('class', 'line charge-power')
+                .attr('class', 'line battery_level')
                 .attr('d', powerLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
 
             const rangeLine = d3.line()
             // @ts-ignore
-                .x((d: IChargeState) => xScale(new Date(d.timestamp)))
-                .y((d: IChargeState) => yScaleRight(d.est_battery_range));
+                .x((d: IDriveState) => xScale(new Date(d.timestamp)))
+                .y((d: IDriveState) => yScaleRight(d.est_battery_range));
             svg.append('path')
                 .datum(props.states)
-                .attr('class', 'line battery-range')
+                .attr('class', 'line est_battery_range')
                 .attr('d', rangeLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 

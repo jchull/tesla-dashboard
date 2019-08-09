@@ -21,7 +21,7 @@ export interface IChargeState {
   est_battery_range: number,
   ideal_battery_range: number,
   time_to_full_charge: number,
-  timestamp: Date,
+  timestamp: number,
   driver_temp_setting: number,
   fan_status: number,
   inside_temp: number,

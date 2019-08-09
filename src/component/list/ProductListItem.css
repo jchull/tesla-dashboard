@@ -1,0 +1,21 @@
+.product {
+    font-weight: 700;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    height: 50px;
+    width: 300px;
+    color: #444444;
+}
+
+.product:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #777777;
+}
+
+.product:active {
+    transform: translate(1px, 1px);
+}
+
+
+.row {
+
+}
