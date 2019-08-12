@@ -30,8 +30,8 @@ interface DriveChartState {
 }
 
 const defaultConfig = {
-    width: 1200,
-    height: 800,
+    width: 1000,
+    height: 600,
     margin: {top: 20, bottom: 20, left: 100, right: 100},
     barWidth: 25,
     xAxisHeight: 100,

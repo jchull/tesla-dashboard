@@ -5,17 +5,18 @@ import numbro from 'numbro';
 
 interface DriveSessionCardState {
   driveSession: IDriveSession;
+  selected: string;
 }
 
 export const DriveSessionCard: React.SFC<DriveSessionCardState> = (props: DriveSessionCardState) => {
 
 
   return (
-      <div className="drive card">
+      <div className={props.selected === props.driveSession._id ? 'drive card selected' : 'drive card'}>
         {new Date(props.driveSession.start_date).toLocaleString()}
         <div>
           {numbro((props.driveSession.end_date - props.driveSession.start_date) / (60 * 1000))
-            .format('1.0')} minutes
+              .format('1.0')} minutes
         </div>
         <div>
           {numbro(props.driveSession.last.est_battery_range - props.driveSession.first.est_battery_range)

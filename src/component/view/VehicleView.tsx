@@ -18,11 +18,11 @@ export const VehicleView: React.SFC<VehicleViewState> = (props) => {
 
   React.useEffect(() => {
     if (props.vehicle.id_s) {
-      queryService.getRecentChargingSessions(props.vehicle.id_s, 5)
+      queryService.getRecentChargingSessions(props.vehicle.id_s, 8)
                   .then((result) => {
                     setChargeSessions(result);
                   });
-      queryService.getRecentDrivingSessions(props.vehicle.id_s, 5)
+      queryService.getRecentDrivingSessions(props.vehicle.id_s, 8)
                   .then((result) => {
                     setDriveSessions(result);
                   });

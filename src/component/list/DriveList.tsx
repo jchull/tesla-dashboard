@@ -36,24 +36,50 @@ export const DriveList: React.SFC<DriveListState> = (props: DriveListState) => {
     }
   }, [selectedSession, props.vehicle.id_s]);
 
-  // TODO: move off props below
+  React.useEffect(() => {
+    setDriveSessions(props.driveSessions);
+  }, [props.driveSessions]);
+
   return (
-      <ul>
-        {props.driveSessions && props.driveSessions.map(driveSession =>
-            <li key={driveSession._id}
-                onClick={() => driveSelectionHandler(driveSession)}>
-              <DriveSessionCard driveSession={driveSession}
-                                key={driveSession._id}
-              />
-            </li>)}
+      <div className="drive-list-container">
+        <h4>Driving</h4>
+        <div className="drive-list">
+          {
+            driveSessions && driveSessions.map(driveSession =>
+                <div key={driveSession._id}
+                     onClick={() => driveSelectionHandler(driveSession)}>
+                  <DriveSessionCard driveSession={driveSession} selected={selectedSession._id}/>
+                </div>)
+          }
 
-        {driveStates && selectedSession._id ?
-            <DriveChart vehicle={props.vehicle}
-                        session={selectedSession}
-                        states={driveStates}/>
-            : <div></div>}
+        </div>
+        {
+          driveStates && selectedSession._id ?
+              <div className="drive-chart-container">
+                <DriveChart vehicle={props.vehicle}
+                            session={selectedSession}
+                            states={driveStates}/>
+              </div>
+              : <div></div>}
+      </div>
 
-      </ul>
+      //
+      // <ul>
+      //   {driveStates && props.driveSessions.map(driveSession =>
+      //       <li key={driveSession._id}
+      //           onClick={() => driveSelectionHandler(driveSession)}>
+      //         <DriveSessionCard driveSession={driveSession}
+      //                           key={driveSession._id}
+      //         />
+      //       </li>)}
+      //
+      //   {driveStates && selectedSession._id ?
+      //       <DriveChart vehicle={props.vehicle}
+      //                   session={selectedSession}
+      //                   states={driveStates}/>
+      //       : <div></div>}
+      //
+      // </ul>
   );
 };
 

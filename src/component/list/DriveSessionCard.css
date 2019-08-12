@@ -1,3 +1,7 @@
 .drive {
-    border: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.drive.selected {
+    background: rgba(0,0,0,0.08);
 }

@@ -31,29 +31,33 @@ export const ChargeList: React.SFC<ChargeListState> = (props: ChargeListState) =
       queryService.getChargingStates(props.vehicle.id_s, selectedSession._id)
                   .then(chargingStates => {
                     setChargeStates(chargingStates);
-
                   });
     }
   }, [selectedSession, props.vehicle.id_s]);
 
   // TODO: move off props below
   return (
-      <ul>
-        {props.chargeSessions && props.chargeSessions.map(chargeSession =>
-            <li key={chargeSession._id}
-                onClick={() => chargeSelectionHandler(chargeSession)}>
-              <ChargeSessionCard chargeSession={chargeSession}
-                                 key={chargeSession._id}
-              />
-            </li>)}
+      <div className="charge-list-container">
+        <h4>Charging</h4>
+        <div className="charge-list">
+          {
+            props.chargeSessions.map(chargeSession =>
+                <div key={chargeSession._id}
+                     onClick={() => chargeSelectionHandler(chargeSession)}>
+                  <ChargeSessionCard chargeSession={chargeSession}
+                                     selected={selectedSession._id}/>
+                </div>)
+          }
 
+        </div>
         {chargeStates && selectedSession._id ?
-            <ChargeChart vehicle={props.vehicle}
-                         session={selectedSession}
-                         states={chargeStates}/>
+            <div className="charge-chart-container">
+              <ChargeChart vehicle={props.vehicle}
+                           session={selectedSession}
+                           states={chargeStates}/>
+            </div>
             : <div></div>}
-
-      </ul>
+      </div>
   );
 };
 

@@ -1,19 +1,37 @@
+body,
+#root,
+.app {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 
 .app .header {
-  background-color: #333333;
-  text-transform: uppercase;
-  max-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  line-height: 50px;
-  color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    line-height: 50px;
+    color: white;
+}
+
+.app .content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 60px;
 }
 
 a {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 

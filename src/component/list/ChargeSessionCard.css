@@ -1,3 +1,8 @@
 .charge {
-    border: 1px solid steelblue;
+    border-bottom: 1px solid steelblue;
+}
+
+
+.charge.selected {
+    background: rgba(0,0,0,0.08);
 }

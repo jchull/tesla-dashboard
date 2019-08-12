@@ -22,6 +22,10 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
         const fetchProductList = async () => {
             const productList = await queryService.getProducts();
             setProducts(productList);
+            if(productList && productList.length){
+                setSelectedProduct(productList[0]);
+
+            }
         };
 
         fetchProductList();

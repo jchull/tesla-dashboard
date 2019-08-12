@@ -30,8 +30,8 @@ interface ChargeChartState {
 }
 
 const defaultConfig = {
-    width: 1200,
-    height: 800,
+    width: 1000,
+    height: 600,
     margin: {top: 20, bottom: 20, left: 100, right: 100},
     barWidth: 25,
     xAxisHeight: 100,
@@ -64,7 +64,7 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
         if (props.states && config && container.current) {
             const yDomainLeft = [0, 100];
-            const yDomainRight = [0, 310];
+            const yDomainRight = [0, 320];
             const xScale = d3.scaleTime()
                              .range([0, innerWidth]);
             const yScaleLeft = d3.scaleLinear()
@@ -108,11 +108,52 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
             yAxisRight.transition()
                 .call(d3.axisRight(yScaleRight));
 
+            const chargeLimitLine = d3.line()
+                                // @ts-ignore
+                                .x((d: IChargeState) => xScale(new Date(d.timestamp)))
+                                .y((d: IChargeState) => yScaleLeft(props.session.charge_limit_soc || 80));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line charge_limit_soc')
+               .attr('d', chargeLimitLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+            const chargeMaxLimitLine = d3.line()
+                                      // @ts-ignore
+                                      .x((d: IChargeState) => xScale(new Date(d.timestamp)))
+                                      .y((d: IChargeState) => yScaleLeft(props.session.charge_limit_soc_std || 80));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line charge_limit_soc_std')
+               .attr('d', chargeMaxLimitLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+            const chargeMinLimitLine = d3.line()
+                                      // @ts-ignore
+                                      .x((d: IChargeState) => xScale(new Date(d.timestamp)))
+                                      .y((d: IChargeState) => yScaleLeft(props.session.charge_limit_soc_min || 20));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line charge_limit_soc_min')
+               .attr('d', chargeMinLimitLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+            const batteryLevelLine = d3.line()
+                                      // @ts-ignore
+                                      .x((d: IChargeState) => xScale(new Date(d.timestamp)))
+                                      .y((d: IChargeState) => yScaleLeft(d.battery_level));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line battery_level')
+               .attr('d', batteryLevelLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+
 
             const powerLine = d3.line()
             // @ts-ignore
                 .x((d: IChargeState) => xScale(new Date(d.timestamp)))
-                .y((d: IChargeState) => yScaleLeft(d.charger_power));
+                .y((d: IChargeState) => yScaleRight(d.charger_power));
             svg.append('path')
                 .datum(props.states)
                 .attr('class', 'line charge-power')

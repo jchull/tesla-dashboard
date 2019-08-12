@@ -18,7 +18,9 @@ export const App: React.SFC<AppState> = () => {
             <header className="header">
           Tesla Dashboard
             </header>
+          <div className="content">
             <ProductList products={state.products}/>
+          </div>
         </div>
     );
 };

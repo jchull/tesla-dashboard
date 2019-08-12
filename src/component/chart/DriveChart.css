@@ -1,6 +1,6 @@
 .d3-chart {
     width: 100%;
-    height: 800px;
+    height: 600px;
 }
 
 .d3-chart .axis path,
@@ -10,16 +10,17 @@
 
 .line {
     fill: none;
-    stroke-width: 2;
+    stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 .line.est_battery_range {
-    stroke: lightblue;
+    stroke-width: 2;
+    stroke: #2cade6;
 }
 
 .line.battery_level {
-    stroke: steelblue;
+    stroke: #188007;
 }
 

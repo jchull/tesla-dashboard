@@ -5,13 +5,14 @@ import numbro from 'numbro';
 
 interface ChargeSessionCardState {
   chargeSession: IChargeSession;
+  selected: string;
 }
 
 export const ChargeSessionCard: React.SFC<ChargeSessionCardState> = (props: ChargeSessionCardState) => {
 
 
   return (
-      <div className="charge card">
+      <div className={props.selected === props.chargeSession._id ? 'charge card selected' : 'charge card'}>
         {new Date(props.chargeSession.start_date).toLocaleString()}
         <div>
           {numbro((props.chargeSession.end_date - props.chargeSession.start_date) / (60 * 1000))
