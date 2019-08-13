@@ -1,26 +1,26 @@
-.d3-chart {
+.drive-chart {
     width: 100%;
     height: 600px;
 }
 
-.d3-chart .axis path,
-.d3-chart .axis line {
+.drive-chart .axis path,
+.drive-chart .axis line {
     stroke: #999
 }
 
-.line {
+.drive-chart .line {
     fill: none;
-    stroke-width: 1;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-.line.est_battery_range {
-    stroke-width: 2;
-    stroke: #2cade6;
-}
+/*.drive-chart .line.est_battery_range {*/
+/*    stroke-width: 2;*/
+/*    stroke: #2cade6;*/
+/*}*/
 
-.line.battery_level {
-    stroke: #188007;
-}
+/*.drive-chart .line.battery_level {*/
+/*    stroke: #188007;*/
+/*}*/
 

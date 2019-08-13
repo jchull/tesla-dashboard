@@ -64,7 +64,7 @@ export const DriveChart: React.SFC<DriveChartState> = (props: DriveChartState) =
 
         if (props.states && config && container.current) {
             const yDomainLeft = [0, 100];
-            const yDomainRight = [0, 310];
+            const yDomainRight = [0, 1000];
             const xScale = d3.scaleTime()
                              .range([0, innerWidth]);
             const yScaleLeft = d3.scaleLinear()
@@ -121,13 +121,23 @@ export const DriveChart: React.SFC<DriveChartState> = (props: DriveChartState) =
 
 
             const rangeLine = d3.line()
+                                // @ts-ignore
+                                .x((d: IDriveState) => xScale(new Date(d.timestamp)))
+                                .y((d: IDriveState) => yScaleRight(d.battery_range));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line battery_range')
+               .attr('d', rangeLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+            const estRangeLine = d3.line()
             // @ts-ignore
                 .x((d: IDriveState) => xScale(new Date(d.timestamp)))
                 .y((d: IDriveState) => yScaleRight(d.est_battery_range));
             svg.append('path')
                 .datum(props.states)
                 .attr('class', 'line est_battery_range')
-                .attr('d', rangeLine)
+                .attr('d', estRangeLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
         }
@@ -137,7 +147,7 @@ export const DriveChart: React.SFC<DriveChartState> = (props: DriveChartState) =
     return (
         <div>
             <svg
-                className="d3-chart"
+                className="d3-chart drive-chart"
                 width={config.width}
                 height={config.height}
                 ref={container}

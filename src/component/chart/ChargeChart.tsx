@@ -64,7 +64,7 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
 
         if (props.states && config && container.current) {
             const yDomainLeft = [0, 100];
-            const yDomainRight = [0, 320];
+            const yDomainRight = [0, Math.max(props.session.last.est_battery_range, 320)];
             const xScale = d3.scaleTime()
                              .range([0, innerWidth]);
             const yScaleLeft = d3.scaleLinear()
@@ -138,6 +138,9 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
                .attr('d', chargeMinLimitLine)
                .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
+
+
+
             const batteryLevelLine = d3.line()
                                       // @ts-ignore
                                       .x((d: IChargeState) => xScale(new Date(d.timestamp)))
@@ -148,28 +151,35 @@ export const ChargeChart: React.SFC<ChargeChartState> = (props: ChargeChartState
                .attr('d', batteryLevelLine)
                .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
-
-
             const powerLine = d3.line()
             // @ts-ignore
                 .x((d: IChargeState) => xScale(new Date(d.timestamp)))
                 .y((d: IChargeState) => yScaleRight(d.charger_power));
             svg.append('path')
                 .datum(props.states)
-                .attr('class', 'line charge-power')
+                .attr('class', 'line charger_power')
                 .attr('d', powerLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
-
 
             const rangeLine = d3.line()
             // @ts-ignore
                 .x((d: IChargeState) => xScale(new Date(d.timestamp)))
-                .y((d: IChargeState) => yScaleRight(d.est_battery_range));
+                .y((d: IChargeState) => yScaleRight(d.battery_range));
             svg.append('path')
                 .datum(props.states)
-                .attr('class', 'line battery-range')
+                .attr('class', 'line battery_range')
                 .attr('d', rangeLine)
                 .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+
+            const estRangeLine = d3.line()
+                                // @ts-ignore
+                                .x((d: IChargeState) => xScale(new Date(d.timestamp)))
+                                .y((d: IChargeState) => yScaleRight(d.est_battery_range));
+            svg.append('path')
+               .datum(props.states)
+               .attr('class', 'line est_battery_range')
+               .attr('d', estRangeLine)
+               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
         }
     },

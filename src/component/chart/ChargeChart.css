@@ -9,28 +9,41 @@
 }
 
 .line {
+    stroke: #333333;
     fill: none;
     stroke-width: 1;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-.line.charge-power {
+.line.charger_power {
     stroke: #e6574f;
+    stroke-width: 2;
 }
 
-.line.battery-range {
+.line.battery_range {
     stroke-width: 2;
     stroke: #2a9de6;
-}
+    stroke-dasharray: 6px;
 
-.line.charge_limit_soc {
-    stroke: #00b32a;
 }
 
 .line.battery_level {
     stroke-width: 2;
-    stroke: #1ec6c4;
+    stroke: #199f07;
+}
+
+.line.est_battery_range {
+    stroke: #d885ff;
+    stroke-width: 2;
+    stroke-dasharray: 6px;
+
+}
+
+
+
+.line.charge_limit_soc {
+    stroke: #00b32a;
 }
 
 .line.charge_limit_soc_min {

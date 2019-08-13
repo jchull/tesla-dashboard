@@ -1,16 +1,17 @@
 __This is a work in-progress__
 
-Dashboard to visualize data collected from Tesla owner API, currently stored in Elasticsearch by my other project 
-[tesla-es-poller](https://github.com/jchull/tesla-es-poller) with the backend in-development 
+Dashboard to visualize data collected from Tesla owner API, initially stored in Elasticsearch by my other project 
+[tesla-es-poller](https://github.com/jchull/tesla-es-poller) 
+
+The backend is now provided by my other, other project, using Express and MongoDB
 [tesla-dashboard-server](https://github.com/jchull/tesla-dashboard-server).
 
 Just getting started on this, and refreshing my React skills, learning the power of TypeScript, 
 and getting more-comfortable with D3. The plan is to have an easy-to-use 
-dashboard that can display the most-common charts and statistics. Right now that is just charging, and the services are not 
-completed, so it is not useful in any way right now. 
+dashboard that can display the most-common charts and statistics.  
 
-Here is some fake data, just getting the basics going
-![fake_data](./images/BasicFakeDataScreenshot.png)
+Here is some REAL data, just getting the basics going
+![starting_to_take_shape](./images/Tesla-Dashboard-001.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

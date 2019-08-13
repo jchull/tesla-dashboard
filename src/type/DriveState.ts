@@ -15,6 +15,7 @@ export interface IDriveState {
   battery_heater: boolean,
   battery_level: number,
   est_battery_range: number,
+  battery_range: number,
   ideal_battery_range: number,
   usable_battery_level: number,
   driver_temp_setting: number,
