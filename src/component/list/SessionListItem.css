@@ -1,0 +1,38 @@
+.list-item {
+    padding: 6px;
+    border-bottom: 1px solid #333333;
+}
+
+.list-item.drive h5 {
+    color: #333333;
+}
+.list-item.drive i.material-icons {
+    color: #555555;
+}
+
+
+.list-item.charge i.material-icons {
+    color: #00b32a;
+}
+
+.list-item.charge h5 {
+    color: #ffffff;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: darkgreen;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+}
+
+.list-item.selected {
+    background: rgba(0,0,0,0.08);
+}
+
+
+.smtxt {
+    padding-left: 4px;
+    padding-right: 4px;
+}

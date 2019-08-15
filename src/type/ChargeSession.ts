@@ -1,10 +1,7 @@
 import {IChargeState} from './ChargeState';
+import {IVehicleSession} from './VehicleSession';
 
-export interface IChargeSession {
-  _id: string;
-  id_s: string,
-  start_date: number,
-  end_date: number,
+export interface IChargeSession extends IVehicleSession {
   latitude?: number,
   longitude?: number,
   charge_current_request_max?: number,
@@ -28,7 +25,6 @@ export interface IChargeSession {
   scheduled_charging_pending?: boolean,
   scheduled_charging_start_time?: number,
   trip_charging?: boolean,
-  tags: [string],
   first: IChargeState,
-  last: IChargeState
+  last?: IChargeState
 }

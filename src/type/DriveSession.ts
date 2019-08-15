@@ -1,13 +1,8 @@
 import {IDriveState} from './DriveState';
+import {IVehicleSession} from './VehicleSession';
 
-export interface IDriveSession {
-  _id: string;
-  id_s: string,
-  start_date: number,
-  end_date: number,  // end of trip
+export interface IDriveSession extends IVehicleSession {
   distance?: number,  // end of trip
-  tags: [string],
   first: IDriveState,
-  last: IDriveState
+  last?: IDriveState
 }
-

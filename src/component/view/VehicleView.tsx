@@ -1,10 +1,8 @@
 import React from 'react';
 import {QueryService} from '../../service/QueryService';
 import {IVehicle} from '../../type/Vehicle';
-import {IChargeSession} from '../../type/ChargeSession';
-import {ChargeList} from '../list/ChargeList';
-import {DriveList} from '../list/DriveList';
-import {IDriveSession} from '../../type/DriveSession';
+import {IVehicleSession} from '../../type/VehicleSession';
+import {SessionList} from '../list/SessionList';
 
 interface VehicleViewState {
   vehicle: IVehicle;
@@ -13,18 +11,13 @@ interface VehicleViewState {
 
 export const VehicleView: React.SFC<VehicleViewState> = (props) => {
   const queryService = new QueryService();
-  const [chargeSessions, setChargeSessions] = React.useState([] as Array<IChargeSession>);
-  const [driveSessions, setDriveSessions] = React.useState([] as Array<IDriveSession>);
+  const [sessions, setSessions] = React.useState([] as Array<IVehicleSession>);
 
   React.useEffect(() => {
     if (props.vehicle.id_s) {
-      queryService.getRecentChargingSessions(props.vehicle.id_s, 8)
+      queryService.getRecentSessions(props.vehicle.id_s, 20)
                   .then((result) => {
-                    setChargeSessions(result);
-                  });
-      queryService.getRecentDrivingSessions(props.vehicle.id_s, 8)
-                  .then((result) => {
-                    setDriveSessions(result);
+                    setSessions(result);
                   });
     }
   }, [props.vehicle]);
@@ -32,10 +25,8 @@ export const VehicleView: React.SFC<VehicleViewState> = (props) => {
 
   return (
       <div>
-        {chargeSessions && <ChargeList chargeSessions={chargeSessions}
-                                       vehicle={props.vehicle}/>}
-        {driveSessions && <DriveList driveSessions={driveSessions}
-                                     vehicle={props.vehicle}/>}
+        {sessions && <SessionList sessions={sessions}
+                                  vehicle={props.vehicle}/>}
 
       </div>
   );

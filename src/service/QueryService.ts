@@ -22,18 +22,14 @@ export class QueryService {
         return result && result.data;
     }
 
-    async getRecentChargingSessions(productId: string, limit: number = 1): Promise<Array<IChargeSession>> {
-        const result = await axios(`${ENDPOINT}/vehicle/${productId}/charge?limit=${limit}`);
+
+    async getRecentSessions(productId: string, limit: number = 1): Promise<Array<IChargeSession>> {
+        const result = await axios(`${ENDPOINT}/vehicle/${productId}/session?limit=${limit}`);
         return result && result.data;
     }
 
     async getChargingStates(vehicleId: string, chargeSessionId: string): Promise<Array<IChargeState>> {
         const result = await axios(`${ENDPOINT}/vehicle/${vehicleId}/charge/${chargeSessionId}`);
-        return result && result.data;
-    }
-
-    async getRecentDrivingSessions(productId: string, limit: number = 1): Promise<Array<IDriveSession>> {
-        const result = await axios(`${ENDPOINT}/vehicle/${productId}/drive?limit=${limit}`);
         return result && result.data;
     }
 
