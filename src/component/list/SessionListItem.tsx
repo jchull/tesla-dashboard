@@ -3,6 +3,7 @@ import './SessionListItem.css';
 import {IVehicleSession} from '../../type/VehicleSession';
 import moment from 'moment';
 import {isDriveSession} from '../../type/util';
+import numbro from 'numbro';
 
 interface SessionListItemState {
   session: IVehicleSession;
@@ -18,7 +19,8 @@ export const SessionListItem: React.SFC<SessionListItemState> = (props: SessionL
   const sessionType = isDriveSession(props.session) ? 'Drive' : 'Charge';
 
   // const rangeAdded = props.chargeSession.last.battery_range - props.chargeSession.first.battery_range;
-  // const chargingDuration = (props.chargeSession.end_date - props.chargeSession.start_date) / 60000;
+  const duration = moment.duration(moment(props.session.end_date)
+      .diff(moment(props.session.start_date)));
   // const avgChargingSpeed = rangeAdded / (chargingDuration / 60);
   // let costPerKwh = 0.11; // 11 cents home charging cost
   // if(props.chargeSession.fast_charger_brand === 'Tesla'){
@@ -35,9 +37,13 @@ export const SessionListItem: React.SFC<SessionListItemState> = (props: SessionL
   return (
       <div className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}
            onClick={() => props.selectionHandler(props.session)}>
-        <i className="material-icons">{sessionType === 'Drive' ? 'directions_car' : 'battery_std'}</i>
-        {displayDate}
-
+        <div className="row">
+          <i className="material-icons">{sessionType === 'Drive' ? 'directions_car' : 'battery_std'}</i>
+          <div className="date">{displayDate}</div>
+          <div className="duration">
+            {duration.toJSON()}
+          </div>
+        </div>
       </div>
   );
 };

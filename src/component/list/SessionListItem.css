@@ -1,6 +1,7 @@
 .list-item {
     padding: 6px;
     border-bottom: 1px solid #333333;
+    flex-direction: row;
 }
 
 .list-item.drive h5 {
@@ -29,6 +30,23 @@
 
 .list-item.selected {
     background: rgba(0,0,0,0.08);
+}
+
+.list-item .row {
+    display: flex;
+    line-height: 30px;
+}
+
+.date {
+    margin: 0 4px;
+    vertical-align: bottom;
+}
+
+.duration {
+    flex: auto;
+    font-style: oblique;
+    text-align: end;
+    margin: 0 4px;
 }
 
 
