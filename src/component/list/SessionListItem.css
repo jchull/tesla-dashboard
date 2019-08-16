@@ -37,17 +37,22 @@
     line-height: 30px;
 }
 
-.date {
+.list-item .row span {
+    margin-right: 6px;
+}
+
+.start {
     margin: 0 4px;
     vertical-align: bottom;
 }
 
-.duration {
+.end {
     flex: auto;
-    font-style: oblique;
     text-align: end;
     margin: 0 4px;
 }
+
+
 
 
 .smtxt {

@@ -5,26 +5,41 @@ import './ProductListItem.css';
 import numbro from 'numbro';
 
 interface ProductListItemState {
-    product: IVehicle;
-    handleSelection: (product: IVehicle) => void;
-    selected?: boolean;
+  product: IVehicle;
+  handleSelection: (product: IVehicle) => void;
+  selected?: boolean;
 }
 
 export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductListItemState) => {
-    return (
-        <div className="product list card"
-             onClick={() => props.handleSelection(props.product)}>
-            <div className="row">
-                <div className="name">{props.product.display_name}</div>
-              <div className="status">{props.product.state}</div>
-            </div>
-            <div className="row">
-              <div className="odometer">{numbro(props.product.odometer).format('0,0.00')} miles</div>
-              <div className="battery_level">{props.product.battery_level}%</div>
 
-            </div>
+  let icon = 'local_parking';
+  if(props.product.state === 'Charging'){
+      icon = 'battery_charging_full';
+  } else if(props.product.state === 'Driving'){
+    icon = 'directions_car';
+  }
+  return (
+      <div className="list-item"
+           onClick={() => props.handleSelection(props.product)}>
+        <div className="row">
+          <h3 className="name">{props.product.display_name}</h3>
+          <div className="battery_level end">
+            {props.product.battery_level}%
+            <i className={`material-icons ${props.product.state.toLowerCase()}`}>
+              {icon}</i>
+            {numbro(props.product.battery_range)
+                .format('0,0.00')} mi
+          </div>
+        </div>
+        <div className="row">
+          <div className="odometer start">{numbro(props.product.odometer)
+              .format('0,0.00')} miles
+          </div>
+
 
         </div>
-    );
+
+      </div>
+  );
 };
 

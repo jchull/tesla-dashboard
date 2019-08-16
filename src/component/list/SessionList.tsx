@@ -54,6 +54,11 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
           {selectedSession && selectedDatum && selectedDatum.length && <LineChart vehicle={props.vehicle}
                                                                                   session={selectedSession}
                                                                                   states={selectedDatum}/>}
+
+        </div>
+        <div className="chart-toolbar">
+          <i className="material-icons">filter_list</i>
+
         </div>
       </div>
   );

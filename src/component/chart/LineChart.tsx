@@ -16,7 +16,6 @@ interface Margin {
 interface ChartConfig {
   width: number;
   height: number;
-  barWidth: number;
   xAxisHeight: number;
   yAxisWidth: number;
   margin: Margin;
@@ -30,11 +29,11 @@ interface LineChartState {
 }
 
 const defaultConfig = {
-  width: 1000,
+  width: 900,
   height: 600,
-  margin: {top: 20, bottom: 20, left: 100, right: 100},
+  margin: {top: 40, bottom: 20, left: 40, right: 40},
   barWidth: 25,
-  xAxisHeight: 100,
+  xAxisHeight: 140,
   yAxisWidth: 25
 };
 
@@ -65,13 +64,13 @@ export const LineChart: React.SFC<LineChartState> = (props: LineChartState) => {
         if (props.states && config && container.current) {
           const yDomainLeft = [0, 100];
           const yDomainRight = d3.extent(props.states.map(vehicleState => vehicleState.est_battery_range)
-              .concat([0,320])) as Array<number>;
+                                              .concat([0, 320])) as Array<number>;
           const xScale = d3.scaleTime()
                            .range([0, innerWidth]);
           const yScaleLeft = d3.scaleLinear()
                                .domain(yDomainLeft)
                                .range([innerHeight - config.xAxisHeight, 0]);
-            const yScaleRight = d3.scaleLinear()
+          const yScaleRight = d3.scaleLinear()
                                 .domain(yDomainRight)
                                 .range([innerHeight - config.xAxisHeight, 0]);
           const xAxis = svg.append('g')
@@ -189,12 +188,16 @@ export const LineChart: React.SFC<LineChartState> = (props: LineChartState) => {
 
   return (
       <div>
-        <svg
-            className="d3-chart"
-            width={config.width}
-            height={config.height}
-            ref={container}
-        />
+        <div className="chart-container">
+          <svg
+              className="d3-chart"
+              width={config.width}
+              height={config.height}
+              ref={container}
+          />
+        </div>
+        <div className="chart-legend">
+        </div>
       </div>
   );
 };

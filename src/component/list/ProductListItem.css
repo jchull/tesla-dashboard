@@ -1,7 +1,7 @@
 .product {
     font-weight: 700;
     box-shadow: 1px 1px 1px #aaaaaa;
-    height: 50px;
+    height: 100px;
     width: 300px;
     color: #444444;
 }
@@ -15,7 +15,25 @@
     transform: translate(1px, 1px);
 }
 
+.products .list-item .name {
+    padding-top: 2px;
+}
 
-.row {
+.battery_level {
+    padding-top: 0;
+}
 
+.battery_level i {
+    line-height: 30px;
+}
+
+.battery_level i.charging {
+    transform: rotate(90deg);
+    padding-left: 4px;
+    width: 40px;
+    font-size: 180%;
+}
+
+.battery_level i.charging {
+    color: #00b32a;
 }

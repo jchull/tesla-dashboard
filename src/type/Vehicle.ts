@@ -15,6 +15,7 @@ export interface IVehicle extends ProductType {
   car_type: string;
   battery_level: number;
   state: string;
+  battery_range: number;
 }
 
 

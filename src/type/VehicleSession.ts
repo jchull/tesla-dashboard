@@ -7,7 +7,7 @@ export interface IVehicleSession {
   end_date?: number,
   tags: [string],
   first: IVehicleState,
-  last?: IVehicleState
+  last: IVehicleState
 }
 
 

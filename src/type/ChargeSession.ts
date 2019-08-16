@@ -26,5 +26,5 @@ export interface IChargeSession extends IVehicleSession {
   scheduled_charging_start_time?: number,
   trip_charging?: boolean,
   first: IChargeState,
-  last?: IChargeState
+  last: IChargeState
 }
