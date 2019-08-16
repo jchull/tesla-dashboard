@@ -18,6 +18,24 @@
     min-height: 100%;
 }
 
+.chart-toolbar {
+    display: flex;
+}
+
+.chart-toolbar i {
+    padding: 6px;
+}
+
+.chart-toolbar i.off {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.chart-toolbar i.on:hover,
+.chart-toolbar i.off:hover {
+    cursor: pointer;
+    color: #2a9de6;
+}
+
 h3 {
     margin: 6px;
 }
