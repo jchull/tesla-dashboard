@@ -1,0 +1,69 @@
+/*.list-item {*/
+/*    padding: 6px;*/
+/*    border-bottom: 1px solid rgb(153,154,156);*/
+/*    flex-direction: row;*/
+/*}*/
+
+/*.list-item.drive h5 {*/
+/*    color: rgb(102, 102, 102);*/
+/*}*/
+
+/*.list-item.drive.selected i.material-icons {*/
+/*}*/
+
+/*.list-item.drive i.material-icons {*/
+/*    color: rgb(174, 176, 178);*/
+/*}*/
+
+
+/*.list-item.charge i.material-icons {*/
+/*    color: #00b32a;*/
+/*}*/
+
+/*.list-item.charge h5 {*/
+/*    color: #ffffff;*/
+/*    display: block;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    border-radius: 10px;*/
+/*    background: darkgreen;*/
+/*    text-align: center;*/
+/*    padding-top: 3px;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.list-item.selected {*/
+/*    background: #f4f4f4;;*/
+/*}*/
+
+/*.list-item .row {*/
+/*    display: flex;*/
+/*    line-height: 30px;*/
+/*}*/
+
+/*.list-item .row span {*/
+/*    margin-right: 6px;*/
+/*}*/
+
+/*.start {*/
+/*    margin: 0 4px;*/
+/*    vertical-align: bottom;*/
+/*}*/
+
+/*.end {*/
+/*    flex: auto;*/
+/*    text-align: end;*/
+/*    margin: 0 4px;*/
+/*}*/
+
+
+/*.smtxt {*/
+/*    padding-left: 4px;*/
+/*    padding-right: 4px;*/
+/*}*/
+
+.battery-icon {
+    display: inline-block;
+    width: 36px;
+    margin: 0 4px;
+}

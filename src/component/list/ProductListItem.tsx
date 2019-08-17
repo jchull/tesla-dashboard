@@ -2,6 +2,7 @@ import React from 'react';
 import {IVehicle} from '../../type/Vehicle';
 import './ProductListItem.css';
 import numbro from 'numbro';
+import {BatteryLevelIcon} from '../common/BatteryLevelIcon';
 
 interface ProductListItemState {
   product: IVehicle;
@@ -12,9 +13,9 @@ interface ProductListItemState {
 export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductListItemState) => {
 
   let icon = 'local_parking';
-  if(props.product.state === 'Charging'){
-      icon = 'battery_charging_full';
-  } else if(props.product.state === 'Driving'){
+  if (props.product.state === 'Charging') {
+    icon = 'battery_charging_full';
+  } else if (props.product.state === 'Driving') {
     icon = 'directions_car';
   }
   return (
@@ -23,12 +24,12 @@ export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductL
         <div className="row">
           <h2 className="name">{props.product.display_name}</h2>
           <div className="battery_level end">
-            {props.product.battery_level}%
-            <i className="material-icons charging">
-              battery_charging_full
-            </i>
-            {numbro(props.product.battery_range)
-                .format('0,0.00')} mi
+            <span>            {props.product.battery_level}%</span>
+            <BatteryLevelIcon battery_level={props.product.battery_level}
+                              battery_range={props.product.battery_range}
+                              charging_state={props.product.charging_state}/>
+            <span>{numbro(props.product.battery_range)
+                .format('0,0.0')} mi</span>
           </div>
         </div>
         <div className="row">

@@ -3,7 +3,7 @@
 
 .session-list {
     max-height: 600px;
-    width: 320px;
+    width: 336px;
     display: inline-block;
     vertical-align: top;
     overflow-y: auto;
@@ -11,8 +11,13 @@
 }
 
 .session-list .list-item:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 1px rgb(113, 114, 115);
+    transition-duration: 150ms;
+    box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+    transform: translate3d(1px, -1px, 3px);
+}
+
+.session-list .list-item:active {
+    transform: translate(-1px, 1px);
 }
 
 .selected-view {

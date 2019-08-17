@@ -5,27 +5,39 @@
     height: 48px;
     width: 80%;
     border-radius: 24px;
-    margin: 2px 10%;
+    margin: 4px 10%;
     line-height: 48px;
     box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .1);
 }
 
-.chart-toolbar i {
-    padding: 6px;
+.chart-toolbar button {
+    border-radius: 20px;
+    width: 42px;
+    height: 42px;
     margin: 5px 3px;
     transition-duration: 300ms;
 }
 
-.chart-toolbar i.on {
+.chart-toolbar button i {
+    padding: 1px 2px;
+}
+
+.chart-toolbar button:active {
+    transform: translate(1px, 1px);
+}
+
+.chart-toolbar button.on {
     color: #3f6ae1;
 }
 
-.chart-toolbar i.off {
+.chart-toolbar button.off {
     color: rgb(201, 203, 204);
 }
 
-.chart-toolbar i:hover {
-    cursor: pointer;
+.chart-toolbar button:hover {
+    /*cursor: pointer;*/
+    border: 1px solid rgb(227, 25, 55);
     transition-duration: 150ms;
-    transform: translate3d(1px, -2px, -3px);
+    box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+    transform: translate3d(1px, -1px, 3px);
 }

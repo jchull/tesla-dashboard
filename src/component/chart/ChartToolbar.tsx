@@ -11,14 +11,25 @@ export const ChartToolbar: React.SFC<ChartToolbarState> = (props: ChartToolbarSt
 
   return (
       <div className="chart-toolbar">
-        <i className="material-icons on">battery_charging_full</i>
-        <i className="material-icons on">directions_car</i>
-        <i className="material-icons off">date_range</i>
-        <i className="material-icons off">update</i>
-        <i className="material-icons off">label</i>
-
+        <button className="on">
+          <i className="material-icons">battery_charging_full</i>
+        </button>
+        <button className="on">
+          <i className="material-icons">directions_car</i>
+        </button>
+        <button className="off">
+          <i className="material-icons">date_range</i>
+        </button>
+        <button className="off">
+          <i className="material-icons">update</i>
+        </button>
+        <button className="off">
+          <i className="material-icons">label</i>
+        </button>
         <div className="end">
-          <i className="material-icons off">system_update</i>
+          <button className="off">
+            <i className="material-icons">system_update</i>
+          </button>
         </div>
 
       </div>

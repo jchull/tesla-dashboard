@@ -16,6 +16,7 @@ export const App: React.SFC<AppState> = () => {
   return (
       <div className="app">
         <header className="header">
+          <div className="logo"></div>
           Energy Dashboard
           <div className="main-menu">
             <i className="material-icons">menu</i>
