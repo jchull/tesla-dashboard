@@ -19,7 +19,7 @@
 }
 
 .product.list-item .name {
-    padding: 4px;
+    padding: 0 2px;
 }
 
 .product.list-item .battery_level span {
