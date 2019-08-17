@@ -2,16 +2,16 @@
 }
 
 .chart-container {
-   display: inline-block;
+    display: inline-block;
 }
 
 .d3-chart .axis path,
 .d3-chart .axis line {
-    stroke: #999
+    stroke: rgb(102,102,102)
 }
 
 .line {
-    stroke: #333333;
+    stroke: rgb(102,102,102);
     fill: none;
     stroke-width: 1;
     stroke-linecap: round;
@@ -19,7 +19,7 @@
 }
 
 .line.charger_power {
-    stroke: #e6574f;
+    stroke: rgb(227, 25, 55);
     stroke-width: 2;
 }
 
@@ -43,7 +43,6 @@
 }
 
 
-
 .line.charge_limit_soc {
     stroke: #00b32a;
 }
@@ -57,12 +56,10 @@
 }
 
 
-.chart-toolbar {
-    background: #CCCCCC;
-}
+
 
 .chart-legend {
-    background: #CCCCCC;
+    background: #3f6ae1;
     display: inline-flex;
     flex: max-content;
 

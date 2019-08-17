@@ -10,8 +10,11 @@ Just getting started on this, and refreshing my React skills, learning the power
 and getting more-comfortable with D3. The plan is to have an easy-to-use 
 dashboard that can display the most-common charts and statistics.  
 
-Here is some REAL data, just getting the basics going
-![starting_to_take_shape](./images/Tesla-Dashboard-001.png)
+Here is some charging data, just getting the basics going
+![starting_to_take_shape](./images/EnergyDashboard-001.png)
+
+Here is a drive over a high pass and down for 57 minutes using 0Wh
+![thousands_of_feet_elevation_change](./images/EnergyDashboard-002.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

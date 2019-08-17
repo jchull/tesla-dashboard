@@ -1,14 +1,18 @@
 .list-item {
     padding: 6px;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid rgb(153,154,156);
     flex-direction: row;
 }
 
 .list-item.drive h5 {
-    color: #333333;
+    color: rgb(102, 102, 102);
 }
+
+.list-item.drive.selected i.material-icons {
+}
+
 .list-item.drive i.material-icons {
-    color: #555555;
+    color: rgb(174, 176, 178);
 }
 
 
@@ -29,7 +33,7 @@
 }
 
 .list-item.selected {
-    background: rgba(0,0,0,0.08);
+    background: #f4f4f4;;
 }
 
 .list-item .row {
@@ -51,8 +55,6 @@
     text-align: end;
     margin: 0 4px;
 }
-
-
 
 
 .smtxt {

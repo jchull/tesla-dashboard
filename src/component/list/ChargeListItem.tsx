@@ -39,8 +39,10 @@ export const ChargeListItem: React.SFC<ChargeListItemState> = (props: ChargeList
         </div>
         {durationMinutes > 3 &&
         <div className="row">
-          {numbro(avgChargingSpeed)
-              .format('0,0.2')} mph avg charging speed
+          <div className="start">
+            {numbro(avgChargingSpeed)
+                .format('0,0.2')} mph avg charging speed
+          </div>
         </div>
         }
       </div>

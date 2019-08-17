@@ -3,6 +3,7 @@ import {QueryService} from '../../service/QueryService';
 import {IVehicle} from '../../type/Vehicle';
 import {IVehicleSession} from '../../type/VehicleSession';
 import {SessionList} from '../list/SessionList';
+import {ChartToolbar} from '../chart/ChartToolbar';
 
 interface VehicleViewState {
   vehicle: IVehicle;
@@ -27,6 +28,7 @@ export const VehicleView: React.SFC<VehicleViewState> = (props) => {
       <div>
         {sessions && <SessionList sessions={sessions}
                                   vehicle={props.vehicle}/>}
+        <ChartToolbar/>
 
       </div>
   );

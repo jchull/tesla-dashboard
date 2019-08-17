@@ -1,0 +1,31 @@
+.chart-toolbar {
+    display: flex;
+    padding: 0 20px;
+    background: #f4f4f4;
+    height: 48px;
+    width: 80%;
+    border-radius: 24px;
+    margin: 2px 10%;
+    line-height: 48px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.chart-toolbar i {
+    padding: 6px;
+    margin: 5px 3px;
+    transition-duration: 300ms;
+}
+
+.chart-toolbar i.on {
+    color: #3f6ae1;
+}
+
+.chart-toolbar i.off {
+    color: rgb(201, 203, 204);
+}
+
+.chart-toolbar i:hover {
+    cursor: pointer;
+    transition-duration: 150ms;
+    transform: translate3d(1px, -2px, -3px);
+}

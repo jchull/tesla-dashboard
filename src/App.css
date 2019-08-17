@@ -1,12 +1,12 @@
 body,
 #root,
 .app {
-  margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
 div {
@@ -14,33 +14,50 @@ div {
 }
 
 .app .header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #222;
     text-transform: uppercase;
     position: fixed;
     width: 100%;
+    height: 52px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
+    font-size: 24px;
     line-height: 50px;
-    color: white;
+    color: rgb(255, 255, 255);
     letter-spacing: 1px;
-    text-shadow: 1px 2px 2px rgba(0,0,0,0.5);
+    word-spacing: 10px;
+    font-family: "Gotham Medium", system, sans-serif;
+    font-weight: 400;
+    border-bottom: 1px solid #000000;
 }
 
 .app .content {
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-top: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-
-a {
-    color: #61dafb;
-}
-
 
 .card {
     padding: 5px;
 }
 
+
+.header .main-menu {
+    float: right;
+    position: absolute;
+    right: 30px;
+    padding: 6px;
+    top: -2px;
+}
+
+.header .main-menu:hover {
+    color: hsla(0, 0%, 100%, .5);
+    cursor: pointer;
+
+}

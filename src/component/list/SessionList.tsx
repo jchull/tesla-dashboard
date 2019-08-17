@@ -39,7 +39,6 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
 
   return (
       <div className="session-list-container">
-        <h4>Charging and Driving</h4>
         <div className="session-list">
           {
             props.sessions.map(session =>
@@ -56,18 +55,7 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
                                                                                   states={selectedDatum}/>}
 
         </div>
-        <div className="chart-toolbar">
-          <i className="material-icons on">battery_charging_full</i>
-          <i className="material-icons on">directions_car</i>
-          <i className="material-icons off">date_range</i>
-          <i className="material-icons off">update</i>
-          <i className="material-icons off">label</i>
 
-          <div className="end">
-            <i className="material-icons off">system_update</i>
-          </div>
-
-        </div>
       </div>
   );
 };

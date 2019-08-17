@@ -1,22 +1,25 @@
 .product {
-    font-weight: 700;
-    box-shadow: 1px 1px 1px #aaaaaa;
+    font-weight: 400;
+    box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.5);
     height: 100px;
     width: 300px;
-    color: #444444;
+    color: #222222;
+    transition-duration: 300ms;
+
 }
 
 .product:hover {
     cursor: pointer;
-    box-shadow: 1px 1px 1px #777777;
+    transition-duration: 150ms;
+    transform: translate3d(1px, -2px, -3px);
 }
 
 .product:active {
     transform: translate(1px, 1px);
 }
 
-.products .list-item .name {
-    padding-top: 2px;
+.product.list-item .name {
+    padding: 4px;
 }
 
 .battery_level {
@@ -24,7 +27,7 @@
 }
 
 .battery_level i {
-    line-height: 30px;
+    line-height: 16px;
 }
 
 .battery_level i.charging {
@@ -36,4 +39,11 @@
 
 .battery_level i.charging {
     color: #00b32a;
+}
+
+.product.list-item.red_pinwheel18 {
+    background: url("/images/tm3_red_pinwheel18.png") #f7f7f7;
+    background-size: 160px;
+    background-repeat: no-repeat;
+    background-position: 175px 25px;
 }
