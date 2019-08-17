@@ -12,19 +12,13 @@ interface ProductListItemState {
 
 export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductListItemState) => {
 
-  let icon = 'local_parking';
-  if (props.product.state === 'Charging') {
-    icon = 'battery_charging_full';
-  } else if (props.product.state === 'Driving') {
-    icon = 'directions_car';
-  }
   return (
       <div className="list-item product red_pinwheel18"
            onClick={() => props.handleSelection(props.product)}>
         <div className="row">
           <h2 className="name">{props.product.display_name}</h2>
           <div className="battery_level end">
-            <span>            {props.product.battery_level}%</span>
+            <span>{props.product.battery_level}%</span>
             <BatteryLevelIcon battery_level={props.product.battery_level}
                               battery_range={props.product.battery_range}
                               charging_state={props.product.charging_state}/>

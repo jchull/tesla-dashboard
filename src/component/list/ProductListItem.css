@@ -19,19 +19,16 @@
 }
 
 .product.list-item .name {
-    padding: 0 2px;
+    padding: 2px;
 }
 
 .product.list-item .battery_level span {
-    font-size: 20px;
+    font-size: 21px;
     line-height: 25px;
-    vertical-align: top;
-    margin-right: 0;
+    vertical-align: baseline;
+    padding: 1px 0 0 0;
 }
 
-.battery_level .battery-icon {
-    padding: 2px 0;
-}
 
 .product.list-item.red_pinwheel18 {
     background: url("/images/tm3_red_pinwheel18.png") #f7f7f7;
