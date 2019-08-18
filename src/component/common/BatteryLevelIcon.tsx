@@ -49,8 +49,8 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
                                   .attr('class', 'battery');
 
         batteryOutline.append('rect')
-                      .attr('x', 4)
-                      .attr('y', 4)
+                      .attr('x', 5)
+                      .attr('y', 5)
                       .attr('width', 180)
                       .attr('height', 90);
 
@@ -59,12 +59,12 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
                       .attr('height', 40)
                       .attr('x', 186)
                       .attr('y', 28);
-        if (props.charging_state === 'Charging') {
+        // if (props.charging_state === 'Charging') {
           const bolt = svg.append('path')
                           .attr('class', 'bolt')
                           .attr('fill', '#fff')
                           .attr('d', 'M 33.593226,39.265319 75.900912,39.265319 75.900912,23.880706 133.59323,54.649933 91.285531,54.649933 91.285531,70.034546 33.593226,39.265319 Z');
-        }
+        // }
       },
       [props]);
 

@@ -1,8 +1,8 @@
 
 .battery-icon {
     display: inline-block;
-    width: 42px;
-    margin: 1px 4px 0 0;
+    width: 48px;
+    margin: 0;
 }
 
 .battery-icon .battery {
@@ -11,6 +11,11 @@
     stroke: #222;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+.battery-icon .bolt {
+    stroke: #024006;
+    stroke-width: 5px;
 }
 
 

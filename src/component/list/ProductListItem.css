@@ -1,32 +1,33 @@
-.product {
+.product.list-item {
+    border: none;
+    margin: 6px;
     font-weight: 400;
     box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.2);
     height: 100px;
-    width: 300px;
+    width: 360px;
     color: #222222;
     transition-duration: 300ms;
-
 }
 
-.product:hover {
+.product.list-item:hover {
     transition-duration: 150ms;
     box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
     transform: translate3d(1px, -1px, 3px);
 }
 
-.product:active {
+.product.list-item:active {
     transform: translate(-1px, 1px);
 }
 
 .product.list-item .name {
-    padding: 2px;
+    padding: 0 2px;
 }
 
 .product.list-item .battery_level span {
     font-size: 21px;
-    line-height: 25px;
-    vertical-align: baseline;
-    padding: 1px 0 0 0;
+    line-height: 21px;
+    vertical-align: top;
+    padding: 0 0 0 2px;
 }
 
 
@@ -34,5 +35,5 @@
     background: url("/images/tm3_red_pinwheel18.png") #f7f7f7;
     background-size: 160px;
     background-repeat: no-repeat;
-    background-position: 175px 25px;
+    background-position: 215px 25px;
 }
