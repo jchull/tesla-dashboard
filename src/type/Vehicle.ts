@@ -16,8 +16,9 @@ export interface IVehicle extends ProductType {
   battery_level: number;
   state: string;
   battery_range: number;
-  charging_state: string;
-
+  charging_state?: string;
+  time_to_full_charge?: number;
+  charge_limit_soc?: number;
 }
 
 

@@ -2,8 +2,7 @@ import React from 'react';
 import './SessionListItem.css';
 import {IVehicleSession} from '../../type/VehicleSession';
 import moment from 'moment';
-import {isDriveSession} from '../../type/util';
-import numbro from 'numbro';
+import {isDriveSession, isoDurationToHuman} from '../../type/util';
 import {ChargeListItem} from './ChargeListItem';
 import {IChargeSession} from '../../type/ChargeSession';
 import {DriveListItem} from './DriveListItem';
@@ -24,21 +23,7 @@ export const SessionListItem: React.SFC<SessionListItemState> = (props: SessionL
 
   const duration = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)));
-  const durationString = duration.toISOString();
-  const hours = durationString.match(/(\d+)H/);
-  const minutes = durationString.match(/(\d+)M/);
-  const seconds = durationString.match(/(\d+)(\.\d+)?S/);
-
-  let displayDuration = numbro((seconds && seconds[1]) || 0)
-      .format('00');
-  if (minutes || hours) {
-    displayDuration = numbro((minutes && minutes[1]) || 0)
-        .format('00') + ':' + displayDuration;
-    if (hours) {
-      displayDuration = hours[1] + ':' + displayDuration;
-    }
-  }
-
+  const displayDuration = isoDurationToHuman(duration.toISOString());
 
   return (
       <div className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}

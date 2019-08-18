@@ -5,7 +5,8 @@ import './BatteryLevelIcon.css';
 interface BatteryLevelState {
   battery_level: number,
   battery_range: number,
-  charging_state: string
+  charge_limit?: number,
+  charging_state?: string
 }
 
 
@@ -25,46 +26,61 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
 
         let fillColor = '#00b32a';
 
-        if (props.battery_level < 11) {
-          fillColor = '#ff0000';
-        } else if (props.battery_level < 21) {
-          fillColor = '#ffae0c';
+        const low_charge = 20;
+
+        if (props.battery_level < low_charge) {
+          fillColor = '#ff8c02';
+        // } else if (props.battery_level < 21) {
+        //   fillColor = '#ffae0c';
         } else if (props.battery_level > 89) {
           fillColor = '#3f6ae1';
         }
 
+        // the stroke width of the battery outline needs to be taken into account
         const batteryLevelBar = svg.append('g')
                                    .attr('class', 'battery-level-bar')
                                    .append('rect')
-                                   .attr('x', 0)
-                                   .attr('y', 0)
+                                   .attr('x', 10)
+                                   .attr('y', 10)
                                    .attr('width', 0)
-                                   .attr('height', 88)
+                                   .attr('height', 80)
                                    .style('fill', fillColor)
                                    .transition()
                                    .delay(300)
-                                   .attr('width', d => scale(props.battery_level));
+                                   .attr('width', scale(props.battery_level));
 
         const batteryOutline = svg.append('g')
                                   .attr('class', 'battery');
 
+        // main battery body
         batteryOutline.append('rect')
                       .attr('x', 5)
                       .attr('y', 5)
                       .attr('width', 180)
                       .attr('height', 90);
 
+        // positive terminal
         batteryOutline.append('rect')
                       .attr('width', 20)
                       .attr('height', 40)
                       .attr('x', 186)
                       .attr('y', 28);
-        // if (props.charging_state === 'Charging') {
+
+        if (props.charge_limit) {
+          batteryOutline.append('rect')
+                        .attr('class', 'charge_limit')
+                        .attr('x', scale(low_charge) + 10)
+                        .attr('y', 5)
+                        .attr('width', scale(props.charge_limit - low_charge) - 10)
+                        .attr('height', 90);
+        }
+
+        if (props.charging_state === 'Charging') {
           const bolt = svg.append('path')
                           .attr('class', 'bolt')
                           .attr('fill', '#fff')
                           .attr('d', 'M 33.593226,39.265319 75.900912,39.265319 75.900912,23.880706 133.59323,54.649933 91.285531,54.649933 91.285531,70.034546 33.593226,39.265319 Z');
-        // }
+        }
       },
       [props]);
 
