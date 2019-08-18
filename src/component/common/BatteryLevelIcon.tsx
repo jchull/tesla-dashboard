@@ -71,7 +71,7 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
                         .attr('class', 'charge_limit')
                         .attr('x', scale(low_charge) + 10)
                         .attr('y', 5)
-                        .attr('width', scale(props.charge_limit - low_charge) - 10)
+                        .attr('width', scale(props.charge_limit - low_charge) - 15)
                         .attr('height', 90);
         }
 

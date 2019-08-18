@@ -1,0 +1,36 @@
+
+.tag {
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 34px;
+    margin: 2px;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.tag span {
+    vertical-align: top;
+}
+
+.tag button {
+    width: 24px;
+    height: 24px;
+    border-radius: 24px;
+    padding: 0;
+    background: #f7f7f7;
+    margin: 3px 0 3px 10px;
+    font-size: 24px;
+}
+
+.tag button:hover {
+    color: #2a9de6;
+}
+
+.tag button i {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+    background: none;
+}
+
