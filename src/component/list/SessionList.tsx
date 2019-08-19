@@ -7,6 +7,7 @@ import {QueryService} from '../../service/QueryService';
 import {isDriveSession} from '../../type/util';
 import {IVehicleState} from '../../type/VehicleState';
 import {LineChart} from '../chart/LineChart';
+import {TagList} from '../common/TagList';
 
 interface SessionListState {
   sessions: Array<IVehicleSession>,
@@ -48,13 +49,15 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
                                  key={session._id}/>)
           }
         </div>
-
+        {selectedSession && selectedDatum && selectedDatum.length &&
         <div className="selected-view">
-          {selectedSession && selectedDatum && selectedDatum.length && <LineChart vehicle={props.vehicle}
-                                                                                  session={selectedSession}
-                                                                                  states={selectedDatum}/>}
+          <LineChart vehicle={props.vehicle}
+                     session={selectedSession}
+                     states={selectedDatum}/>
+          <TagList tags={selectedSession.tags}/>
 
         </div>
+        }
 
       </div>
   );
