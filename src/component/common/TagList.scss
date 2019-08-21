@@ -68,12 +68,14 @@
 }
 
 .tag-input input.hide {
-    transition-duration: 250ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
     width: 0;
     border-color: transparent;
 }
 
 .tag-input input.show {
-    transition-duration: 250ms;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
     width: 200px;
 }

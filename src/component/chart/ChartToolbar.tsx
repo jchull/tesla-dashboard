@@ -1,6 +1,6 @@
 import React from 'react';
 import {IVehicle} from '../../type/Vehicle';
-import './ChartToolbar.css';
+import './ChartToolbar.scss';
 
 interface ChartToolbarState {
   product?: IVehicle;

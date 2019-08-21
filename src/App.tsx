@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './App.css';
+import './App.scss';
 import {ProductList} from './component/list/ProductList';
-import {ProductType} from './type/ProductType';
+import {IVehicle} from './type/Vehicle';
 
 interface AppState {
-  products: ProductType[];
+  products: Array<IVehicle>;
 }
 
-export const App: React.FC<AppState> = () => {
+export const App: React.FC<AppState> = (props: AppState) => {
   const [state] = React.useState({
-    products: []
+    products: props.products
   });
 
   return (

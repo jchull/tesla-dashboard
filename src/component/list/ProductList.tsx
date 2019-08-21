@@ -3,7 +3,7 @@ import {ProductListItem} from './ProductListItem';
 import {QueryService} from '../../service/QueryService';
 import {IVehicle} from '../../type/Vehicle';
 import {VehicleView} from '../view/VehicleView';
-import './ProductList.css';
+import './ProductList.scss';
 
 interface ProductListState {
   products?: Array<IVehicle>;
@@ -34,7 +34,7 @@ export const ProductList: React.FC<ProductListState> = (props: ProductListState)
   React.useEffect(() => {
     if (selectedProduct.id_s) {
       // @ts-ignore
-      console.log(`selected product: ${selectedProduct && selectedProduct.display_name || 'none'}`);
+      console.log(`selected product: ${selectedProduct.display_name}`);
     }
   }, [selectedProduct]);
 

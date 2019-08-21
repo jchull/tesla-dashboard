@@ -7,11 +7,11 @@
 
 .d3-chart .axis path,
 .d3-chart .axis line {
-    stroke: rgb(102,102,102)
+    stroke: rgb(102, 102, 102)
 }
 
 .line {
-    stroke: rgb(102,102,102);
+    stroke: rgb(102, 102, 102);
     fill: none;
     stroke-width: 1;
     stroke-linecap: round;
@@ -44,18 +44,16 @@
 
 
 .line.charge_limit_soc {
-    stroke: #00b32a;
+    stroke: rgba(23, 179, 6, 0.5);
 }
 
 .line.charge_limit_soc_min {
-    stroke: #ee9b11;
+    stroke: rgba(238, 137, 7, 0.5);
 }
 
 .line.charge_limit_soc_std {
-    stroke: #188007;
+    stroke: rgba(63, 106, 225, 0.5);
 }
-
-
 
 
 .chart-legend {

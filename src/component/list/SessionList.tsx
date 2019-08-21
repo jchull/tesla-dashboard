@@ -1,6 +1,6 @@
 import React from 'react';
 import {IVehicle} from '../../type/Vehicle';
-import './SessionList.css';
+import './SessionList.scss';
 import {IVehicleSession} from '../../type/VehicleSession';
 import {SessionListItem} from './SessionListItem';
 import {QueryService} from '../../service/QueryService';

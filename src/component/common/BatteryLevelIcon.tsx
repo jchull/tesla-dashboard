@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import './BatteryLevelIcon.css';
+import './BatteryLevelIcon.scss';
 
 interface BatteryLevelState {
   battery_level: number,

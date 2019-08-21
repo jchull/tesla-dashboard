@@ -1,5 +1,5 @@
 import React from 'react';
-import './TagList.css';
+import './TagList.scss';
 import {Tag} from './Tag';
 import {TagInput} from './TagInput';
 

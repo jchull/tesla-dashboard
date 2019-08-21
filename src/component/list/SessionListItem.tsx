@@ -1,5 +1,5 @@
 import React from 'react';
-import './SessionListItem.css';
+import './SessionListItem.scss';
 import {IVehicleSession} from '../../type/VehicleSession';
 import moment from 'moment';
 import {isDriveSession, isoDurationToHuman} from '../../type/util';
@@ -11,7 +11,7 @@ import {IDriveSession} from '../../type/DriveSession';
 interface SessionListItemState {
   session: IVehicleSession;
   selected: boolean;
-  selectionHandler: Function;
+  selectionHandler(session: IVehicleSession): any;
 }
 
 export const SessionListItem: React.FC<SessionListItemState> = (props: SessionListItemState) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {IVehicle} from '../../type/Vehicle';
-import './ProductListItem.css';
+import './ProductListItem.scss';
 import numbro from 'numbro';
 import {BatteryLevelIcon} from '../common/BatteryLevelIcon';
 import moment from 'moment';

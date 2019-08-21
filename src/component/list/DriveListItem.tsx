@@ -1,5 +1,5 @@
 import React from 'react';
-import './SessionListItem.css';
+import './SessionListItem.scss';
 import moment from 'moment';
 import {IDriveSession} from '../../type/DriveSession';
 import numbro from 'numbro';
