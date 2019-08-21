@@ -49,3 +49,31 @@
     background: none;
 }
 
+
+.tag-input {
+    display: inline-block;
+}
+
+.tag-input input:focus {
+    outline: none;
+}
+
+.tag-input input {
+    border-radius: 20px;
+    line-height: 24px;
+    vertical-align: bottom;
+    font-size: 20px;
+    padding: 4px 10px;
+    margin: 0 4px;
+}
+
+.tag-input input.hide {
+    transition-duration: 250ms;
+    width: 0;
+    border-color: transparent;
+}
+
+.tag-input input.show {
+    transition-duration: 250ms;
+    width: 200px;
+}

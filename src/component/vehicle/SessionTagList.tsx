@@ -12,22 +12,25 @@ export const SessionTagList: React.FC<SessionTagListProps> = (props: SessionTagL
 
   const queryService = new QueryService();
 
-  const addListener = async (tag: string) => {
+  function tagsToDisplay(tags: Array<string>): Array<string> {
+    return tags.map(tag => tag.replace('_', ' '));
+  }
+
+  async function addListener(tag: string): Promise<any> {
     const newTags = await queryService.addTag(props.vehicleId, props.sessionId, tag);
     setTags(tagsToDisplay(newTags));
-  };
+  }
 
-  const removeListener = async (tag: string) => {
+  async function removeListener(tag: string): Promise<any> {
     const newTags = await queryService.removeTag(props.vehicleId, props.sessionId, tag);
     setTags(tagsToDisplay(newTags));
-  };
+  }
 
-  const tagsToDisplay = (tags : Array<string>) => tags.map(tag => tag.replace('_', ' '));
 
   const [tags, setTags] = React.useState(props.tags || []);
 
   React.useEffect(() => {
-      setTags(tagsToDisplay(props.tags));
+    setTags(tagsToDisplay(props.tags));
   }, [props.sessionId]);
 
 

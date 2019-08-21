@@ -3,7 +3,7 @@ import React from 'react';
 interface TagState {
   value: string;
   color?: string;
-  removeListener?: Function;
+  removeListener(tag:string): any;
 }
 
 export const Tag: React.FC<TagState> = (props: TagState) => {
