@@ -2,7 +2,7 @@
     display: flex;
     padding: 0 20px;
     background: #f4f4f4;
-    height: 48px;
+    height: 52px;
     width: 80%;
     border-radius: 24px;
     margin: 4px 10%;
@@ -35,9 +35,11 @@
 }
 
 .chart-toolbar button:hover {
-    /*cursor: pointer;*/
-    border: 1px solid rgb(227, 25, 55);
     transition-duration: 150ms;
     box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
     transform: translate3d(1px, -1px, 3px);
+}
+
+.chart-toolbar button:focus {
+    outline: none;
 }

@@ -6,6 +6,7 @@
     margin: 0;
 }
 
+/* These stroke widths should not be touched, might as well move them to code */
 .battery-icon .battery {
     fill: none;
     stroke-width: 10;
@@ -16,7 +17,6 @@
 
 .battery-icon .bolt,
 .battery-icon .charge_limit {
-    stroke: rgba(0,0,0, 0.8);
     stroke-width: 5px;
 }
 

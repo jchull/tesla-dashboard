@@ -8,7 +8,7 @@ interface DriveListItemState {
   session: IDriveSession;
 }
 
-export const DriveListItem: React.SFC<DriveListItemState> = (props: DriveListItemState) => {
+export const DriveListItem: React.FC<DriveListItemState> = (props: DriveListItemState) => {
 
   const durationHours = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)))

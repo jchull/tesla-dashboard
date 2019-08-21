@@ -15,18 +15,12 @@
     color: rgb(174, 176, 178);
 }
 
-
-.list-item.charge i.material-icons {
-    color: #00b32a;
-}
-
 .list-item.charge h5 {
     color: #ffffff;
     display: block;
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background: darkgreen;
     text-align: center;
     padding-top: 3px;
     box-sizing: border-box;

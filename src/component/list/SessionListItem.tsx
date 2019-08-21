@@ -14,7 +14,7 @@ interface SessionListItemState {
   selectionHandler: Function;
 }
 
-export const SessionListItem: React.SFC<SessionListItemState> = (props: SessionListItemState) => {
+export const SessionListItem: React.FC<SessionListItemState> = (props: SessionListItemState) => {
 
   const displayDate = moment(props.session.start_date)
       .calendar();
@@ -25,11 +25,19 @@ export const SessionListItem: React.SFC<SessionListItemState> = (props: SessionL
       .diff(moment(props.session.start_date)));
   const displayDuration = isoDurationToHuman(duration.toISOString());
 
+  let color = '#3f6ae1';
+  if (!isDriveSession(props.session)) {
+    // @ts-ignore
+    color = props.session.fast_charger_present ? 'red' : '#00dc31';
+  }
+  const iconStyle = {color};
+
   return (
       <div className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}
            onClick={() => props.selectionHandler(props.session)}>
         <div className="row">
-          <i className="material-icons">{sessionType === 'Drive' ? 'directions_car' : 'battery_charging_full'}</i>
+          <i className="material-icons"
+             style={iconStyle}>{sessionType === 'Drive' ? 'directions_car' : 'battery_charging_full'}</i>
           <div className="start">{displayDate}</div>
           <div className="end">
             {displayDuration}

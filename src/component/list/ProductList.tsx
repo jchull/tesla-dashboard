@@ -10,7 +10,7 @@ interface ProductListState {
   selectedProductId?: string;
 }
 
-export const ProductList: React.SFC<ProductListState> = (props: ProductListState) => {
+export const ProductList: React.FC<ProductListState> = (props: ProductListState) => {
   const [products, setProducts] = React.useState(props.products);
   const queryService = new QueryService();
 
@@ -24,17 +24,17 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
       setProducts(productList);
       if (productList && productList.length) {
         setSelectedProduct(productList[0]);
-
       }
     };
 
     fetchProductList();
+    setInterval(fetchProductList, 60000);
   }, []);
 
   React.useEffect(() => {
-    if (selectedProduct) {
+    if (selectedProduct.id_s) {
       // @ts-ignore
-      console.log(`selected product: ${selectedProduct && selectedProduct.name || 'none'}`);
+      console.log(`selected product: ${selectedProduct && selectedProduct.display_name || 'none'}`);
     }
   }, [selectedProduct]);
 
@@ -47,8 +47,7 @@ export const ProductList: React.SFC<ProductListState> = (props: ProductListState
                                                                 selected={selectedProduct && selectedProduct.id_s === product.id_s}/>)}
         </div>
         <div className="product-view">
-          {products && <VehicleView vehicle={selectedProduct}/> ||
-          <span>No Products</span>
+          {products && selectedProduct &&<VehicleView vehicle={selectedProduct}/>
           }
         </div>
       </div>

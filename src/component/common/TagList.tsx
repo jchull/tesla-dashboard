@@ -2,22 +2,29 @@ import React from 'react';
 import './TagList.css';
 import {Tag} from './Tag';
 
-interface TagListState {
+interface TagListProps {
   tags: Array<string>;
-  addListener?: Function;
+
+  addListener(tag: string): any;
+
+  removeListener(tag: string): any;
 }
 
-export const TagList: React.FC<TagListState> = (props: TagListState) => {
-
-  const removeTag = (tag: string) => console.log(`redux action todo remove tag: ${tag}`);
+export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
 
   const tags = props.tags.map(tag => <Tag value={tag}
-                                          removeListener={removeTag}
+                                          removeListener={props.removeListener}
                                           key={tag}/>);
-
+// TODO: show input before addListener
   return (
       <div className="tag-list">
         {tags}
+        {props.addListener &&
+        <button className="add"
+                onClick={() => props.addListener && props.addListener('abc 123')}>
+          <i className="material-icons">add</i>
+        </button>
+        }
       </div>
   );
 };

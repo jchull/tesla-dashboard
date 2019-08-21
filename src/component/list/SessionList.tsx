@@ -7,7 +7,7 @@ import {QueryService} from '../../service/QueryService';
 import {isDriveSession} from '../../type/util';
 import {IVehicleState} from '../../type/VehicleState';
 import {LineChart} from '../chart/LineChart';
-import {TagList} from '../common/TagList';
+import {SessionTagList} from '../vehicle/SessionTagList';
 
 interface SessionListState {
   sessions: Array<IVehicleSession>,
@@ -15,7 +15,7 @@ interface SessionListState {
 }
 
 
-export const SessionList: React.SFC<SessionListState> = (props: SessionListState) => {
+export const SessionList: React.FC<SessionListState> = (props: SessionListState) => {
   const [selectedSession, setSelectedSession] = React.useState({} as IVehicleSession);
   const [selectedDatum, setSelectedDatum] = React.useState([] as Array<IVehicleState>);
 
@@ -23,17 +23,19 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
   const queryService = new QueryService();
 
   React.useEffect(() => {
-    if (isDriveSession(selectedSession)) {
-      queryService.getDrivingStates(props.vehicle.id_s, selectedSession._id)
-                  .then((result) => {
-                    setSelectedDatum(result);
-                  });
-    } else {
-      queryService.getChargingStates(props.vehicle.id_s, selectedSession._id)
-                  .then((result) => {
-                    setSelectedDatum(result);
+    if (selectedSession._id) {
+      if (isDriveSession(selectedSession)) {
+        queryService.getDrivingStates(props.vehicle.id_s, selectedSession._id)
+                    .then((result) => {
+                      setSelectedDatum(result);
+                    });
+      } else {
+        queryService.getChargingStates(props.vehicle.id_s, selectedSession._id)
+                    .then((result) => {
+                      setSelectedDatum(result);
 
-                  });
+                    });
+      }
     }
 
   }, [selectedSession]);
@@ -49,14 +51,20 @@ export const SessionList: React.SFC<SessionListState> = (props: SessionListState
                                  key={session._id}/>)
           }
         </div>
-        {selectedSession && selectedDatum && selectedDatum.length &&
-        <div className="selected-view">
-          <LineChart vehicle={props.vehicle}
-                     session={selectedSession}
-                     states={selectedDatum}/>
-          <TagList tags={selectedSession.tags}/>
+        {selectedSession && selectedDatum && selectedDatum.length > 0 ?
+            <div className="selected-view">
+              <LineChart vehicle={props.vehicle}
+                         session={selectedSession}
+                         states={selectedDatum}/>
+              <SessionTagList vehicleId={props.vehicle.id_s}
+                              sessionId={selectedSession._id}
+                              tags={selectedSession.tags}/>
 
-        </div>
+            </div>
+            :
+            <div className="selected-view message">
+              Product Summary Here
+            </div>
         }
 
       </div>

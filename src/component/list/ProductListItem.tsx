@@ -4,7 +4,6 @@ import './ProductListItem.css';
 import numbro from 'numbro';
 import {BatteryLevelIcon} from '../common/BatteryLevelIcon';
 import moment from 'moment';
-import {isoDurationToHuman} from '../../type/util';
 
 interface ProductListItemState {
   product: IVehicle;
@@ -12,9 +11,9 @@ interface ProductListItemState {
   selected?: boolean;
 }
 
-export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductListItemState) => {
+export const ProductListItem: React.FC<ProductListItemState> = (props: ProductListItemState) => {
 
-  const timeToFull = isoDurationToHuman(moment.duration(props.product.time_to_full_charge || 0, 'hours').toISOString());
+  const timeToFull = moment.duration(props.product.time_to_full_charge || 0, 'hours').humanize();
   return (
       <div className="list-item product red_pinwheel18"
            onClick={() => props.handleSelection(props.product)}>
@@ -32,7 +31,7 @@ export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductL
         </div>
         <div className="row">
           <div className="odometer start">{numbro(props.product.odometer)
-              .format('0,0.00')} miles
+              .format('0,0.0')} miles
           </div>
 
 
@@ -41,8 +40,10 @@ export const ProductListItem: React.SFC<ProductListItemState> = (props: ProductL
         <div className="row">
           <div className="status start">
             {
-              props.product.charging_state === 'Charging' &&
+              props.product.charging_state === 'Charging' ?
               `${timeToFull} remaining`
+                  :
+                  props.product.state
             }
           </div>
 

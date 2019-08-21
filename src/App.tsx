@@ -8,7 +8,7 @@ interface AppState {
   products: ProductType[];
 }
 
-export const App: React.SFC<AppState> = () => {
+export const App: React.FC<AppState> = () => {
   const [state] = React.useState({
     products: []
   });

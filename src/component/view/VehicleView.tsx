@@ -10,13 +10,13 @@ interface VehicleViewState {
 }
 
 
-export const VehicleView: React.SFC<VehicleViewState> = (props) => {
+export const VehicleView: React.FC<VehicleViewState> = (props) => {
   const queryService = new QueryService();
   const [sessions, setSessions] = React.useState([] as Array<IVehicleSession>);
 
   React.useEffect(() => {
     if (props.vehicle.id_s) {
-      queryService.getRecentSessions(props.vehicle.id_s, 50)
+      queryService.getRecentSessions(props.vehicle.id_s, 100)
                   .then((result) => {
                     setSessions(result);
                   });
@@ -26,10 +26,12 @@ export const VehicleView: React.SFC<VehicleViewState> = (props) => {
 
   return (
       <div>
-        {sessions && <SessionList sessions={sessions}
-                                  vehicle={props.vehicle}/>}
-        <ChartToolbar/>
-
+        {sessions && <div>
+          <SessionList sessions={sessions}
+                       vehicle={props.vehicle}/>
+          <ChartToolbar/>
+        </div>
+        }
       </div>
   );
 };

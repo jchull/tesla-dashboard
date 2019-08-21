@@ -8,7 +8,7 @@ interface ChargeListItemState {
   session: IChargeSession;
 }
 
-export const ChargeListItem: React.SFC<ChargeListItemState> = (props: ChargeListItemState) => {
+export const ChargeListItem: React.FC<ChargeListItemState> = (props: ChargeListItemState) => {
 
   const durationMinutes = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)))

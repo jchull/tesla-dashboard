@@ -6,7 +6,7 @@ interface ChartToolbarState {
   product?: IVehicle;
 }
 
-export const ChartToolbar: React.SFC<ChartToolbarState> = (props: ChartToolbarState) => {
+export const ChartToolbar: React.FC<ChartToolbarState> = (props: ChartToolbarState) => {
 
 
   return (

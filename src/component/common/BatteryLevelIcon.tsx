@@ -10,7 +10,7 @@ interface BatteryLevelState {
 }
 
 
-export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLevelState) => {
+export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLevelState) => {
   const container = React.useRef(null);
   const svg = d3.select(container.current);
 
@@ -24,16 +24,16 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
                         .domain(domain)
                         .range([0, 180]);
 
-        let fillColor = '#00b32a';
+        let fillColor = '#00dc31';
 
         const low_charge = 20;
 
         if (props.battery_level < low_charge) {
-          fillColor = '#ff8c02';
+          fillColor = '#ffa748';
         // } else if (props.battery_level < 21) {
         //   fillColor = '#ffae0c';
         } else if (props.battery_level > 89) {
-          fillColor = '#3f6ae1';
+          fillColor = '#4370f8';
         }
 
         // the stroke width of the battery outline needs to be taken into account
@@ -71,7 +71,7 @@ export const BatteryLevelIcon: React.SFC<BatteryLevelState> = (props: BatteryLev
                         .attr('class', 'charge_limit')
                         .attr('x', scale(low_charge) + 10)
                         .attr('y', 5)
-                        .attr('width', scale(props.charge_limit - low_charge) - 15)
+                        .attr('width', scale(props.charge_limit - low_charge) - 12)
                         .attr('height', 90);
         }
 
