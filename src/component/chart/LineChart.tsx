@@ -67,7 +67,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
             const yDomainRight = d3.extent(props.states.map(vehicleState => vehicleState.est_battery_range)
                                                 .concat([0, 320])) as Array<number>;
             const xScale = d3.scaleTime()
-                             .range([0, innerWidth]);
+                             .range([0, innerWidth - 4]);
             const yScaleLeft = d3.scaleLinear()
                                  .domain(yDomainLeft)
                                  .range([innerHeight - config.xAxisHeight, 0]);
@@ -83,7 +83,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                  .call(d3.axisLeft(yScaleLeft));
             const yAxisRight = svg.append('g')
                                   .attr('class', 'axis axis-y right')
-                                  .attr('transform', `translate(${config.margin.left + innerWidth} , ${config.margin.top})`)
+                                  .attr('transform', `translate(${config.margin.left + innerWidth - 4} , ${config.margin.top})`)
                                   .call(d3.axisRight(yScaleRight));
 
             const startTime = new Date(props.session.first.timestamp);
@@ -117,7 +117,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line charge_limit_soc')
                // @ts-ignore
                .attr('d', chargeLimitLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
             const chargeMaxLimitLine = d3.line()
                                          .x((d: any) => xScale(new Date(d.timestamp)))
@@ -128,7 +128,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line charge_limit_soc_std')
                // @ts-ignore
                .attr('d', chargeMaxLimitLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
             const chargeMinLimitLine = d3.line()
                                          .x((d: any) => xScale(new Date(d.timestamp)))
@@ -139,7 +139,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line charge_limit_soc_min')
                // @ts-ignore
                .attr('d', chargeMinLimitLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
 
             const batteryLevelLine = d3.line()
@@ -151,7 +151,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line battery_level')
                // @ts-ignore
                .attr('d', batteryLevelLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
             const powerLine = d3.line()
                                 .x((d: any) => xScale(new Date(d.timestamp)))
@@ -161,7 +161,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line charger_power')
                // @ts-ignore
                .attr('d', powerLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
             const rangeLine = d3.line()
                                 .x((d: any) => xScale(new Date(d.timestamp)))
@@ -171,7 +171,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line battery_range')
                // @ts-ignore
                .attr('d', rangeLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
             const estRangeLine = d3.line()
                                    .x((d: any) => xScale(new Date(d.timestamp)))
@@ -181,7 +181,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('class', 'line est_battery_range')
                // @ts-ignore
                .attr('d', estRangeLine)
-               .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+               .attr('transform', `translate(${config.margin.left + 1}, ${config.margin.top})`);
 
           }
       },

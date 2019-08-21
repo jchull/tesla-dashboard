@@ -28,7 +28,7 @@ export const SessionListItem: React.FC<SessionListItemState> = (props: SessionLi
   let color = '#3f6ae1';
   if (!isDriveSession(props.session)) {
     // @ts-ignore
-    color = props.session.fast_charger_present ? 'red' : '#00dc31';
+    color = props.session.fast_charger_present ? '#E31937' : '#00dc31';
   }
   const iconStyle = {color};
 
