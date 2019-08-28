@@ -3,6 +3,7 @@ import {IVehicleSession} from './VehicleSession';
 export interface IVehicleState {
   _id: string,
   id_s: string,
+  is_key_state: boolean,
   vehicle_id: number,
   battery_heater_on: boolean,
   battery_level: number,

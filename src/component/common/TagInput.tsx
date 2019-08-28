@@ -29,12 +29,14 @@ export const TagInput: React.FC<TagInputProps> = (props: TagInputProps) => {
   return (
       <div className="tag-input">
         <button className="add"
+                aria-label="Show new tag entry"
                 onClick={() => props.addListener && setInputExpanded(!inputExpanded)}>
           <i className="material-icons">add</i>
         </button>
         <input onKeyDown={handleKeyDown}
                className={inputExpanded ? 'show' : 'hide'}
-               ref={tagInput}/>
+               ref={tagInput}
+               aria-label="Enter new tag"/>
       </div>
   );
 };

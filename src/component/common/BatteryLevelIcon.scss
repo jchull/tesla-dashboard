@@ -1,15 +1,12 @@
 
 .battery-icon {
     display: inline-block;
-    width: 48px;
-    height: 24px;
     margin: 0;
 }
 
 /* These stroke widths should not be touched, might as well move them to code */
 .battery-icon .battery {
     fill: none;
-    stroke-width: 10;
     stroke: #222;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -17,7 +14,7 @@
 
 .battery-icon .bolt,
 .battery-icon .charge_limit {
-    stroke-width: 5px;
+    stroke: #222;
 }
 
 

@@ -63,7 +63,7 @@ export const SessionList: React.FC<SessionListState> = (props: SessionListState)
             </div>
             :
             <div className="selected-view message">
-              Product Summary Here
+              Nothing selected
             </div>
         }
 
