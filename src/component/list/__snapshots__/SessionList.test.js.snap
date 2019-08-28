@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders empty session list 1`] = `
+"<div class=\\"session-list-container\\">
+  <div class=\\"session-list\\"></div>
+  <div class=\\"selected-view message\\">No product selected</div>
+</div>"
+`;

@@ -1,18 +1,24 @@
-import React                              from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act }                            from 'react-dom/test-utils';
-import { ProductListItem }                from './ProductListItem';
+import React                      from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
+import pretty                     from 'pretty';
 
-let container = null;
+
+import { ProductListItem } from './ProductListItem';
+
+let wrapper;
+
 beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
@@ -41,10 +47,10 @@ it('renders product list item', () => {
   const handler = (selectedProduct) => console.log(selectedProduct.display_name);
 
   act(() => {
-    render(<ProductListItem selected={false}
-                            product={product}
-                            handleSelection={handler}/>, container);
+    wrapper = render(<ProductListItem selected={false}
+                                      product={product}
+                                      handleSelection={handler}/>);
   });
-  // expect(container.innerHTML)
-  //   .toMatchInlineSnapshot();
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });

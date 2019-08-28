@@ -1,28 +1,34 @@
-import React                              from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act }                            from 'react-dom/test-utils';
-import { SessionTagList }                 from './SessionTagList';
+import React                      from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
+import pretty                     from 'pretty';
 
-let container = null;
+
+import { SessionTagList } from './SessionTagList';
+
+let wrapper;
+
 beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
 it('renders empty tag list', () => {
   act(() => {
-    render(<SessionTagList tags={[]}
-                           sessionId="xyz1"
-                           vehicleId="abc1"/>, container);
+    wrapper = render(<SessionTagList tags={[]}
+                                     sessionId="xyz1"
+                                     vehicleId="abc1"/>);
   });
-  // expect(container.innerHTML)
-  //   .toMatchInlineSnapshot();
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });
 

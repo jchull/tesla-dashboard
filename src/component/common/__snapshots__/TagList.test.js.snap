@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders empty tag list 1`] = `
+"<div class=\\"tag-list\\">
+  <div class=\\"tag-input\\"><button class=\\"add\\" aria-label=\\"Show new tag entry\\"><i class=\\"material-icons\\">add</i></button><input class=\\"hide\\" aria-label=\\"Enter new tag\\"></div>
+</div>"
+`;
+
+exports[`renders simple tag list 1`] = `
+"<div class=\\"tag-list\\">
+  <div class=\\"tag\\" style=\\"border: 2px solid #f4f4f4;\\"><span>item_1</span><button class=\\"remove\\"><i class=\\"material-icons\\">remove</i></button></div>
+  <div class=\\"tag\\" style=\\"border: 2px solid #f4f4f4;\\"><span>item_2</span><button class=\\"remove\\"><i class=\\"material-icons\\">remove</i></button></div>
+  <div class=\\"tag-input\\"><button class=\\"add\\" aria-label=\\"Show new tag entry\\"><i class=\\"material-icons\\">add</i></button><input class=\\"hide\\" aria-label=\\"Enter new tag\\"></div>
+</div>"
+`;

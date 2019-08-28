@@ -1,10 +1,61 @@
+import pretty               from 'pretty';
 import React                from 'react';
-import ReactDOM             from 'react-dom';
 import { BatteryLevelIcon } from './BatteryLevelIcon';
+import { act, render }      from '@testing-library/react';
+
+let wrapper;
+
+beforeEach(() => {
+});
+
+afterEach(() => {
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
+});
+
 
 it('renders empty battery', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<BatteryLevelIcon battery_level={0}
-                                    battery_range={0}/>, div);
-  ReactDOM.unmountComponentAtNode(div);
+  let batteryLevel = 0;
+  act(() => {
+    wrapper = render(<BatteryLevelIcon battery_level={batteryLevel}
+                                       width={100}/>);
+  });
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });
+
+it('renders low battery', () => {
+  let batteryLevel = 10;
+
+  act(() => {
+    wrapper = render(<BatteryLevelIcon battery_level={batteryLevel}
+                                       width={100}/>);
+  });
+  expect(pretty(wrapper.getByLabelText('Battery Level').innerHTML))
+    .toMatchSnapshot();
+});
+
+it('renders normal battery', () => {
+  act(() => {
+    wrapper = render(<BatteryLevelIcon battery_level={50}
+                                       width={100}/>);
+  });
+  expect(pretty(wrapper.getByLabelText('Battery Level').innerHTML))
+    .toMatchSnapshot();
+});
+
+it('renders high battery', () => {
+  act(() => {
+    wrapper = render(<BatteryLevelIcon battery_level={99}
+                                       width={100}/>);
+  });
+  expect(pretty(wrapper.getByLabelText('Battery Level').innerHTML))
+    .toMatchSnapshot();
+});
+

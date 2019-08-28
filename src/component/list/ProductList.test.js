@@ -1,26 +1,32 @@
-import React                              from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act }                            from 'react-dom/test-utils';
-import { ProductList }                    from './ProductList';
+import React                      from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
+import pretty                     from 'pretty';
 
-let container = null;
+
+import { ProductList } from './ProductList';
+
+let wrapper;
+
 beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
 it('renders empty product list', () => {
   act(() => {
-    render(<ProductList products={[]}/>, container);
+    wrapper = render(<ProductList products={[]}/>);
   });
-  // expect(container.innerHTML)
-  //   .toMatchInlineSnapshot();
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });
 

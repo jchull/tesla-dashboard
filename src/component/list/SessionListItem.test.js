@@ -1,39 +1,47 @@
-import React                              from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act }                            from 'react-dom/test-utils';
-import { SessionListItem }                from './SessionListItem';
+import React                      from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
+import pretty                     from 'pretty';
 
-let container = null;
+
+import { SessionListItem } from './SessionListItem';
+
+let wrapper;
+
 beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
 it('renders session list item', () => {
   const session = {
     _id: 'test1',
+    start_date: 1566773736152,
+    end_date: 1566773789552,
     first: {
       odometer: 75
     },
     last: {
-      odometer: 100
+      odometer: 77.2
     }
   };
 
   const handler = (session) => console.log(session._id);
 
   act(() => {
-    render(<SessionListItem selected={false}
-                            session={session}
-                            selectionHandler={handler}/>, container);
+    wrapper = render(<SessionListItem selected={false}
+                                      session={session}
+                                      selectionHandler={handler}/>);
   });
-  // expect(container.innerHTML)
-  //   .toMatchInlineSnapshot();
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });

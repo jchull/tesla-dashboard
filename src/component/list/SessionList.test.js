@@ -1,26 +1,32 @@
-import React                              from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act }                            from 'react-dom/test-utils';
-import { SessionList }                    from './SessionList';
+import React                      from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
+import pretty                     from 'pretty';
 
-let container = null;
+
+import { SessionList } from './SessionList';
+
+let wrapper;
+
 beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
+    }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
 it('renders empty session list', () => {
   act(() => {
-    render(<SessionList sessions={[]}/>, container);
+    wrapper = render(<SessionList sessions={[]}/>);
   });
-  // expect(container.innerHTML)
-  //   .toMatchInlineSnapshot();
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });
 
