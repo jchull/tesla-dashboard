@@ -9,8 +9,8 @@
     "moment": "^2.24.0",
     "numbro": "^2.1.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
+    "react-dom": "^16.9.0",
+    "tesla-dashboard-api": "latest"},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

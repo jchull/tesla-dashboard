@@ -2,7 +2,7 @@ import React from 'react';
 import './SessionListItem.scss';
 import moment from 'moment';
 import numbro from 'numbro';
-import {IChargeSession} from '../../type/ChargeSession';
+import { IChargeSession } from 'tesla-dashboard-api';
 
 interface ChargeListItemState {
   session: IChargeSession;
@@ -13,24 +13,25 @@ export const ChargeListItem: React.FC<ChargeListItemState> = (props: ChargeListI
   const durationMinutes = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)))
                                 .asMinutes();
-  const rangeAdded = props.session.last.charge_miles_added_rated;
+  const last = props.session.last || props.session.first;
+  const rangeAdded = last.charge_miles_added_rated;
   const avgChargingSpeed = rangeAdded / durationMinutes * 60;
   let costPerKwh = 0.12; // 11 cents home charging cost plus 10% loss ~12 cents
   if (props.session.fast_charger_brand === 'Tesla') {
     costPerKwh = 0.28; // 28 cents for superchargers charged by kWh added to battery?
   }
-  const estChargingCost = props.session.last.charge_energy_added * costPerKwh;
+  const estChargingCost = last.charge_energy_added * costPerKwh;
 
-  const estBatteryRange = props.session.last.est_battery_range;
+  const estBatteryRange = last.est_battery_range;
 
 
   return (
       <div>
         <div className="row">
           <div className="start">
-            <span>{props.session.last._id !== props.session.first._id ? props.session.last.charge_energy_added : 0} kWh</span>
+            <span>{last._id !== props.session.first._id ? last.charge_energy_added : 0} kWh</span>
           </div>
-          <span>{props.session.last._id !== props.session.first._id ? props.session.last.charge_miles_added_rated : 0} miles</span>
+          <span>{last._id !== props.session.first._id ? last.charge_miles_added_rated : 0} miles</span>
           <div className="end">
 
             {numbro(estChargingCost)

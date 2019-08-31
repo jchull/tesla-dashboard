@@ -1,9 +1,9 @@
 import React from 'react';
 import {ProductListItem} from './ProductListItem';
 import {QueryService} from '../../service/QueryService';
-import {IVehicle} from '../../type/Vehicle';
 import {VehicleView} from '../view/VehicleView';
 import './ProductList.scss';
+import { IVehicle } from 'tesla-dashboard-api';
 
 interface ProductListState {
   products?: Array<IVehicle>;

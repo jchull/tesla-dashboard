@@ -1,9 +1,5 @@
 import axios from 'axios';
-import {IChargeSession} from '../type/ChargeSession';
-import {IVehicle} from '../type/Vehicle';
-import {IChargeState} from '../type/ChargeState';
-import {IDriveState} from '../type/DriveState';
-
+import {IVehicle, IChargeSession, IChargeState, IDriveState} from 'tesla-dashboard-api';
 // TODO: get from config
 const ENDPOINT = 'http://localhost:3001';
 

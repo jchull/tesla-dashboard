@@ -1,6 +1,6 @@
 import React from 'react';
-import {IVehicle} from '../../type/Vehicle';
 import './ChartToolbar.scss';
+import { IVehicle } from 'tesla-dashboard-api';
 
 interface ChartToolbarState {
   product?: IVehicle;

@@ -1,8 +1,8 @@
 import React from 'react';
 import './SessionListItem.scss';
 import moment from 'moment';
-import {IDriveSession} from '../../type/DriveSession';
 import numbro from 'numbro';
+import {IDriveSession} from 'tesla-dashboard-api';
 
 interface DriveListItemState {
   session: IDriveSession;
@@ -15,7 +15,7 @@ export const DriveListItem: React.FC<DriveListItemState> = (props: DriveListItem
                               .asHours();
   // const rangeUsed = props.session.first.battery_range - props.session.last.battery_range;
 
-  const distanceTraveled = props.session.last.odometer - props.session.first.odometer;
+  const distanceTraveled = props.session.last ? props.session.last.odometer - props.session.first.odometer : 0;
 
   const averageSpeed = distanceTraveled / durationHours;
 

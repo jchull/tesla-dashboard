@@ -1,9 +1,8 @@
 import React from 'react';
 import {QueryService} from '../../service/QueryService';
-import {IVehicle} from '../../type/Vehicle';
-import {IVehicleSession} from '../../type/VehicleSession';
 import {SessionList} from '../list/SessionList';
 import {ChartToolbar} from '../chart/ChartToolbar';
+import { IVehicle, IVehicleSession } from 'tesla-dashboard-api';
 
 interface VehicleViewState {
   vehicle: IVehicle;

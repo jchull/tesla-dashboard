@@ -1,12 +1,10 @@
 import React from 'react';
 import './SessionListItem.scss';
-import {IVehicleSession} from '../../type/VehicleSession';
 import moment from 'moment';
 import {isDriveSession, isoDurationToHuman} from '../../type/util';
 import {ChargeListItem} from './ChargeListItem';
-import {IChargeSession} from '../../type/ChargeSession';
 import {DriveListItem} from './DriveListItem';
-import {IDriveSession} from '../../type/DriveSession';
+import { IVehicleSession, IDriveSession, IChargeSession } from 'tesla-dashboard-api';
 
 interface SessionListItemState {
   session: IVehicleSession;

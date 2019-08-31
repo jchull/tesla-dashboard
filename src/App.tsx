@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.scss';
 import {ProductList} from './component/list/ProductList';
-import {IVehicle} from './type/Vehicle';
+import { IVehicle } from 'tesla-dashboard-api';
 
 interface AppState {
   products: Array<IVehicle>;

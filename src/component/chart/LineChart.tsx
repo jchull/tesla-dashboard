@@ -1,9 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import './LineChart.scss';
-import {IVehicle} from '../../type/Vehicle';
-import {IVehicleSession} from '../../type/VehicleSession';
-import {IVehicleState} from '../../type/VehicleState';
+import { IVehicle, IVehicleSession, IVehicleState } from 'tesla-dashboard-api';
 
 
 interface Margin {
@@ -44,15 +42,8 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
   const [innerHeight, setInnerHeight] = React.useState(config.height - config.margin.top - config.margin.bottom);
 
 
-  React.useEffect(() => {
-    console.log('init chart');
 
-
-  }, []);
-
-
-  React.useEffect(() => {
-          console.log('update chart');
+  React.useLayoutEffect(() => {
           const svg = d3.select(container.current);
 
           // clean up existing x-axis or lines
@@ -64,9 +55,10 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
 
           if (props.states && config && container.current) {
             const yDomainLeft = [0, 100];
-            const maxValRight = d3.max(props.states.map(vehicleState => vehicleState.est_battery_range));
+            // @ts-ignore
+            const maxValRight = d3.max(props.states.map(vehicleState => vehicleState.charger_power + 10 || 150));
 
-            const yDomainRight = d3.extent([0, maxValRight || 0, 310]) as Array<number>;
+            const yDomainRight = d3.extent([0, maxValRight]) as Array<number>;
             const xScale = d3.scaleTime()
                              .range([0, innerWidth]);
             const yScaleLeft = d3.scaleLinear()
@@ -86,11 +78,9 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                   .attr('class', 'axis axis-y right')
                                   .attr('transform', `translate(${config.margin.left + innerWidth} , ${config.margin.top})`)
                                   .call(d3.axisRight(yScaleRight));
-            if(maxValRight  && maxValRight > 310){
-              yAxisRight.attr('stroke', 'red');
-            }
+
             const startTime = new Date(props.session.first.timestamp);
-            const endTime = new Date(props.session.last.timestamp || Date.now());
+            const endTime = new Date(props.session.last? props.session.last.timestamp : Date.now());
             const xDomain = [startTime, endTime];
             xScale.domain(xDomain);
 
@@ -154,35 +144,18 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                .attr('d', batteryLevelLine)
                .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
+            // TODO: this will cause console errors for now when showing a driving session,
+            // rather than fix it here, the datum abstraction will solve it
+            // default chargerpower to 0 for now :)
             const powerLine = d3.line()
                                 .x((d: any) => xScale(new Date(d.timestamp)))
-                                .y((d: any) => yScaleRight(d.charger_power));
+                                .y((d: any) => yScaleRight(d.charger_power || 0));
             svg.append('path')
                .datum(props.states)
                .attr('class', 'line charger_power')
                // @ts-ignore
                .attr('d', powerLine)
                .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
-
-            // const rangeLine = d3.line()
-            //                     .x((d: any) => xScale(new Date(d.timestamp)))
-            //                     .y((d: any) => yScaleRight(d.battery_range));
-            // svg.append('path')
-            //    .datum(props.states)
-            //    .attr('class', 'line battery_range')
-            //    // @ts-ignore
-            //    .attr('d', rangeLine)
-            //    .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
-            //
-            // const estRangeLine = d3.line()
-            //                        .x((d: any) => xScale(new Date(d.timestamp)))
-            //                        .y((d: any) => yScaleRight(d.est_battery_range));
-            // svg.append('path')
-            //    .datum(props.states)
-            //    .attr('class', 'line est_battery_range')
-            //    // @ts-ignore
-            //    .attr('d', estRangeLine)
-            //    .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
           }
       },
@@ -199,7 +172,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
             height={config.height}
             ref={container}
           />
-          < div className='chart-legend'>
+          <div className='chart-legend'>
           </div>
         </div>
 

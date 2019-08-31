@@ -1,13 +1,11 @@
 import React from 'react';
-import {IVehicle} from '../../type/Vehicle';
 import './SessionList.scss';
-import {IVehicleSession} from '../../type/VehicleSession';
 import {SessionListItem} from './SessionListItem';
 import {QueryService} from '../../service/QueryService';
 import {isDriveSession} from '../../type/util';
-import {IVehicleState} from '../../type/VehicleState';
 import {LineChart} from '../chart/LineChart';
 import {SessionTagList} from '../vehicle/SessionTagList';
+import { IVehicleSession, IVehicle, IVehicleState } from 'tesla-dashboard-api';
 
 interface SessionListState {
   sessions: Array<IVehicleSession>,
