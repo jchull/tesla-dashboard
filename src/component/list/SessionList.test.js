@@ -11,22 +11,22 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  if(wrapper) {
-    if(wrapper.unmount) {
-      wrapper.unmount();
+    if(wrapper) {
+        if(wrapper.unmount) {
+            wrapper.unmount();
+        }
+        if(wrapper.container) {
+            wrapper.container = null;
+        }
     }
-    if(wrapper.container) {
-      wrapper.container = null;
-    }
-  }
 });
 
 
 it('renders empty session list', () => {
-  act(() => {
-    wrapper = render(<SessionList sessions={[]}/>);
-  });
-  expect(pretty(wrapper.container.innerHTML))
-    .toMatchSnapshot();
+    act(() => {
+        wrapper = render(<SessionList sessions={[]}/>);
+    });
+    expect(pretty(wrapper.container.innerHTML))
+        .toMatchSnapshot();
 });
 

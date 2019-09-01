@@ -4,20 +4,20 @@ import {AuthenticationService} from '../service/AuthenticationService';
 
 
 interface PrivateRouteProps {
-  location: string;
+    location: string;
 }
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = (props: PrivateRouteProps, ...rest) => {
 
-  const authenticationService = new AuthenticationService();
+    const authenticationService = new AuthenticationService();
 
-  return (
-      <Route {...rest} render={props => {
-        if (!authenticationService.loggedIn()) {
-          return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
-        }
-        return <Component {...props} />;
-      }}/>
-  );
+    return (
+        <Route {...rest} render={props => {
+            if (!authenticationService.loggedIn()) {
+                return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
+            }
+            return <Component {...props} />;
+        }}/>
+    );
 };
 

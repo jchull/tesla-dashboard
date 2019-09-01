@@ -11,24 +11,24 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  if(wrapper) {
-    if(wrapper.unmount) {
-      wrapper.unmount();
+    if(wrapper) {
+        if(wrapper.unmount) {
+            wrapper.unmount();
+        }
+        if(wrapper.container) {
+            wrapper.container = null;
+        }
     }
-    if(wrapper.container) {
-      wrapper.container = null;
-    }
-  }
 });
 
 
 it('renders empty tag list', () => {
-  act(() => {
-    wrapper = render(<SessionTagList tags={[]}
-                                     sessionId="xyz1"
-                                     vehicleId="abc1"/>);
-  });
-  expect(pretty(wrapper.container.innerHTML))
-    .toMatchSnapshot();
+    act(() => {
+        wrapper = render(<SessionTagList tags={[]}
+            sessionId="xyz1"
+            vehicleId="abc1"/>);
+    });
+    expect(pretty(wrapper.container.innerHTML))
+        .toMatchSnapshot();
 });
 

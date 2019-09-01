@@ -11,20 +11,20 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  if(wrapper) {
-    if(wrapper.unmount) {
-      wrapper.unmount();
+    if(wrapper) {
+        if(wrapper.unmount) {
+            wrapper.unmount();
+        }
+        if(wrapper.container) {
+            wrapper.container = null;
+        }
     }
-    if(wrapper.container) {
-      wrapper.container = null;
-    }
-  }
 });
 
 
 it('renders without crashing', () => {
-  act(() => {
-    wrapper = render(<App products={[]}/>);
-  });
+    act(() => {
+        wrapper = render(<App products={[]}/>);
+    });
 
 });
