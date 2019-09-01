@@ -18,27 +18,42 @@ Here is a drive over a high pass and down for 57 minutes using 0Wh
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Installing
 
-### `npm start`
+__This is still REALLY rough__
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. MongoDB
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+    `docker run -d --name tesladb -p 29019:27017 --auth`
 
-### `npm test`
+`db.createUser({ user: 'tsla_admin', pwd: 'XXXXX', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });`
+`db.createUser({ user: 'user_admin', pwd: 'YYYYYYY', roles: ['readWrite', 'dbAdmin'] });`
+`db.createUser({ user: 'tsla', pwd: 'ZZZZZZZZZ', roles: ['readWrite', 'dbAdmin'] });`
+    
+2. Server and UI components
+    
+`git`
+`cd tesla-dashboard-api`
+`npm i`
+`npm run build`
+`npm link`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`cd ..`
+`git`
+`cd tesla-dashboard-server`
+`npm link tesla-dashboard-api`
+`npm i`
+`npm run build`
 
-### `npm run build`
+Copy/edit config file: 'tesla-dashboard-server/config/sample.env' and save in same directory as '.env'
+Update DB connection string:
+DB_CONN=mongodb://tsla:$PASSWORD@$HOST:$PORT/tesladb
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm start`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Now the DB and REST API should be running. In the future this will all come preconfigured.
+
+Since the new user UI is not complete, to create a new user, the user service must be used with postman.
+Note that this is STILL not secured. 
+
