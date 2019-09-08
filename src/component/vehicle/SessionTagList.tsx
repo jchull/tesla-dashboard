@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {TagList} from '../common/TagList';
-import {QueryService} from '../../service/QueryService';
+import {QueryService} from '@service/QueryService';
 
 interface SessionTagListProps {
     vehicleId: string;
@@ -27,9 +27,9 @@ export const SessionTagList: React.FC<SessionTagListProps> = (props: SessionTagL
     }
 
 
-    const [tags, setTags] = React.useState(props.tags || []);
+    const [tags, setTags] = useState(props.tags || []);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTags(tagsToDisplay(props.tags));
     }, [props.sessionId]);
 
