@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "paths": {
+      "@service/*": ["service/*"],
+      "@component/*": ["component/*"]
+
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,8 +25,5 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react"
-  },
-  "include": [
-    "src"
-  ]
+  }
 }

@@ -20,7 +20,8 @@
     "html-webpack-plugin": "4.0.0-beta.5",
     "identity-obj-proxy": "3.0.0",
     "is-wsl": "^1.1.0",
-    "jwt-decode": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "latest",
     "material-icons": "^0.3.1",
     "mini-css-extract-plugin": "0.5.0",
     "moment": "^2.24.0",
@@ -34,7 +35,6 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.9.0",
     "react-app-polyfill": "^1.0.2",
-    "react-dev-utils": "^9.0.3",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "resolve": "1.12.0",
@@ -68,6 +68,7 @@
     "@testing-library/react": "^9.1.3",
     "@types/d3": "^5.7.2",
     "@types/jest": "^24.0.18",
+    "@types/jsonwebtoken": "^8.3.3",
     "@types/jwt-decode": "^2.2.1",
     "@types/node": "^12.7.3",
     "@types/react": "^16.9.2",
@@ -92,6 +93,7 @@
     "jest-watch-typeahead": "0.3.1",
     "node-sass": "^4.12.0",
     "pretty": "^2.0.0",
+    "react-dev-utils": "^9.0.3",
     "terser-webpack-plugin": "1.4.1",
     "typescript": "^3.6.2",
     "url-loader": "2.1.0",
@@ -155,5 +157,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
