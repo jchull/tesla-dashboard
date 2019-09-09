@@ -1,23 +1,24 @@
-import React from 'react';
+import React, {FC, useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './App.scss';
 import {ProductList} from '@component/list/ProductList';
-import {IVehicle} from 'tesla-dashboard-api';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {LoginComponent} from './auth/Login';
 import {AccountComponent} from '@component/account/Account';
-import { PrivateRoute } from './auth/PrivateRoute';
-
-interface AppState {
-  products: [IVehicle];
-}
+import {PrivateRoute} from './auth/PrivateRoute';
+import {TeslaAccountComponent} from '@component/account/TeslaAccount';
+import {AppState} from './type/state';
+import {Home} from '@component/view/Home';
+import {LogoutComponent} from './auth/Logout';
+import {authenticationService} from '@service/Services';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
 
-export const App: React.FC<AppState> = (props: AppState) => {
-  const [state] = React.useState({
-    products: props.products
+export const App: FC<AppState> = (props: AppState) => {
+  const [state] = useState({
+    products: props.products,
+    username: authenticationService.getUsername()
   });
 
   const routing = (
@@ -25,8 +26,16 @@ export const App: React.FC<AppState> = (props: AppState) => {
         <Switch>
           <Route path="/login"
                  component={LoginComponent}/>
+          <Route path="/logout"
+                 component={LogoutComponent}/>
           <Route path={'/account'}
                  component={AccountComponent}/>
+
+          <PrivateRoute exact
+                        path='/'
+                        component={Home}/>
+          <PrivateRoute path={'/tesla-account'}
+                        component={TeslaAccountComponent}/>
           <PrivateRoute path="/products"
                         component={ProductList}/>
           <Route component={NotFound}/>

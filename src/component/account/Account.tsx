@@ -1,14 +1,12 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {IUser} from 'tesla-dashboard-api';
-import {UserService} from '@service/UserService';
+import {userService} from '@service/Services';
 
 import './Account.scss';
 
 interface AccountProps {
   user?: IUser;
 }
-
-const userService = new UserService();
 
 export const AccountComponent: FC<AccountProps> = (props: AccountProps) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

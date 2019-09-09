@@ -1,16 +1,11 @@
 import React from 'react';
-import {QueryService} from '../../service/QueryService';
+import {queryService} from '@service/Services';
 import {SessionList} from '../list/SessionList';
 import {ChartToolbar} from '../chart/ChartToolbar';
 import { IVehicle, IVehicleSession } from 'tesla-dashboard-api';
-
-interface VehicleViewState {
-    vehicle: IVehicle;
-}
-
+import {VehicleViewState} from '../../type/state';
 
 export const VehicleView: React.FC<VehicleViewState> = (props) => {
-    const queryService = new QueryService();
     const [sessions, setSessions] = React.useState([] as IVehicleSession[]);
 
     React.useEffect(() => {

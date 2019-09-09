@@ -2,6 +2,7 @@ import axios, {AxiosInstance} from 'axios';
 
 import {ConfigurationService} from '@service/ConfigurationService';
 import decode from 'jwt-decode';
+import { IUser } from 'tesla-dashboard-api';
 
 const configurationService = new ConfigurationService();
 
@@ -10,6 +11,7 @@ const jwtCookieRegex = /jwt=(.+);?/;
 export class AuthenticationService {
   private readonly endpoint: string;
   private readonly api: AxiosInstance;
+  private username: string | undefined;
 
   constructor() {
     this.endpoint = configurationService.get('REACT_APP_API_ROOT') || '/';
@@ -52,6 +54,10 @@ export class AuthenticationService {
     // );
   }
 
+  getUsername(): string | undefined {
+    return this.username;
+  }
+
   async login(username: string, password: string): Promise<boolean> {
     const response = await this.api.post('/login',
         `username=${username}&password=${password}`,
@@ -60,6 +66,7 @@ export class AuthenticationService {
       // @ts-ignore
       const token = jwtCookieRegex.exec(document.cookie)[1];
       this.setToken(token);
+      this.username = username;
       return true;
     }
     return false;
@@ -75,6 +82,8 @@ export class AuthenticationService {
     }
     try {
       const decoded = decode(token);
+      // @ts-ignore
+      this.username = decoded.username;
       // @ts-ignore
       return decoded.exp > Date.now() / 1000;
     } catch (err) {

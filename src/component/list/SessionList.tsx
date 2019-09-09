@@ -1,16 +1,13 @@
 import React from 'react';
 import './SessionList.scss';
 import {SessionListItem} from './SessionListItem';
-import {QueryService} from '../../service/QueryService';
+import {queryService} from '@service/Services';
 import {isDriveSession} from '../../type/util';
 import {LineChart} from '../chart/LineChart';
 import {SessionTagList} from '../vehicle/SessionTagList';
-import { IVehicleSession, IVehicle, IVehicleState } from 'tesla-dashboard-api';
+import { IVehicleSession, IVehicleState } from 'tesla-dashboard-api';
+import {SessionListState} from '../../type/state';
 
-interface SessionListState {
-    sessions: IVehicleSession[];
-    vehicle: IVehicle;
-}
 
 
 export const SessionList: React.FC<SessionListState> = (props: SessionListState) => {
@@ -18,7 +15,6 @@ export const SessionList: React.FC<SessionListState> = (props: SessionListState)
     const [selectedDatum, setSelectedDatum] = React.useState([] as IVehicleState[]);
 
     const sessionSelectionHandler = (session: IVehicleSession) => setSelectedSession(Object.assign({}, session));
-    const queryService = new QueryService();
 
     React.useEffect(() => {
         if (selectedSession._id) {

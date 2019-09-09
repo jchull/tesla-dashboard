@@ -1,16 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {TagList} from '../common/TagList';
-import {QueryService} from '@service/QueryService';
-
-interface SessionTagListProps {
-    vehicleId: string;
-    sessionId: string;
-    tags: string[];
-}
+import {queryService} from '@service/Services';
+import {SessionTagListProps} from '../../type/state';
 
 export const SessionTagList: React.FC<SessionTagListProps> = (props: SessionTagListProps) => {
-
-    const queryService = new QueryService();
 
     function tagsToDisplay(tags: string[]): string[] {
         return tags.map(tag => tag.replace('_', ' '));
