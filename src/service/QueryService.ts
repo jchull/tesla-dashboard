@@ -1,36 +1,45 @@
-import axios from 'axios';
+import axios, {AxiosInstance} from 'axios';
 import {IVehicle, IChargeSession, IChargeState, IDriveState} from 'tesla-dashboard-api';
-// TODO: get from config
-const ENDPOINT = 'http://localhost:3001';
-
+import {configurationService} from '@service/Services';
 
 
 export class QueryService {
 
-    endpoint: string;
+    private readonly endpoint: string;
+    private readonly api: AxiosInstance;
 
-    constructor(endpoint: string = ENDPOINT) {
-        this.endpoint = endpoint;
+    constructor() {
+        this.endpoint = configurationService.get('REACT_APP_API_ROOT') || '';
+
+        this.api = axios.create({
+            withCredentials: true,
+            baseURL: this.endpoint,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Origin': 'localhost'
+            }
+        });
     }
 
     async getProducts(): Promise<[IVehicle]> {
-        const result = await axios(`${ENDPOINT}/vehicle`, {headers:{'Cache-Control': 'no-cache'}});
+        const result = await this.api.get('/vehicle', {headers:{'Cache-Control': 'no-cache'}});
         return result && result.data;
     }
 
 
     async getRecentSessions(productId: string, limit: number = 1): Promise<IChargeSession[]> {
-        const result = await axios(`${ENDPOINT}/vehicle/${productId}/session?limit=${limit}`);
+        const result = await axios(`${this.endpoint}/vehicle/${productId}/session?limit=${limit}`);
         return result && result.data;
     }
 
     async getChargingStates(vehicleId: string, chargeSessionId: string): Promise<IChargeState[]> {
-        const result = await axios(`${ENDPOINT}/vehicle/${vehicleId}/charge/${chargeSessionId}`);
+        const result = await this.api.get(`/vehicle/${vehicleId}/charge/${chargeSessionId}`);
         return result && result.data;
     }
 
     async getDrivingStates(vehicleId: string, driveSessionId: string): Promise<IDriveState[]> {
-        const result = await axios(`${ENDPOINT}/vehicle/${vehicleId}/drive/${driveSessionId}`);
+        const result = await this.api.get(`/vehicle/${vehicleId}/drive/${driveSessionId}`);
         return result && result.data;
     }
 
@@ -39,7 +48,7 @@ export class QueryService {
             throw Error('tags must contain only letters, numbers, and spaces')
         }
         const sanitizedTag = tag.replace(' ', '_').toLowerCase();
-        const result = await axios.post(`${ENDPOINT}/vehicle/${vehicleId}/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
+        const result = await this.api.post(`/vehicle/${vehicleId}/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
         return result && result.data;
     }
 
@@ -48,7 +57,7 @@ export class QueryService {
             throw Error('tags must contain only letters, numbers, and spaces')
         }
         const sanitizedTag = tag.replace(' ', '_').toLowerCase();
-        const result = await axios.delete(`${ENDPOINT}/vehicle/${vehicleId}/session/${sessionId}/tag/${sanitizedTag}`);
+        const result = await this.api.delete(`/vehicle/${vehicleId}/session/${sessionId}/tag/${sanitizedTag}`);
         return result && result.data;
     }
 }

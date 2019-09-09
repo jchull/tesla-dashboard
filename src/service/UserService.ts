@@ -1,8 +1,7 @@
 import {IUser} from 'tesla-dashboard-api';
 import axios from 'axios';
-import {ConfigurationService} from '@service/ConfigurationService';
+import {configurationService} from '@service/./Services';
 
-const configurationService = new ConfigurationService();
 
 export class UserService {
   private readonly endpoint: string;

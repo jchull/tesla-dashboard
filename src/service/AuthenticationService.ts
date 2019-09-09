@@ -5,6 +5,7 @@ import decode from 'jwt-decode';
 
 const configurationService = new ConfigurationService();
 
+const jwtCookieRegex = /jwt=(.+);?/;
 
 export class AuthenticationService {
   private readonly endpoint: string;
@@ -18,7 +19,7 @@ export class AuthenticationService {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'X-Access-Token': JSON.stringify(sessionStorage.getItem('access_token'))
+        'Access-Control-Allow-Origin': 'localhost'
       }
     });
 
@@ -55,9 +56,9 @@ export class AuthenticationService {
     const response = await this.api.post('/login',
         `username=${username}&password=${password}`,
         {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
-    if (response && response.hasOwnProperty('token')) {
+    if (response) {
       // @ts-ignore
-      const token = response.token;
+      const token = jwtCookieRegex.exec(document.cookie)[1];
       this.setToken(token);
       return true;
     }
@@ -75,7 +76,7 @@ export class AuthenticationService {
     try {
       const decoded = decode(token);
       // @ts-ignore
-      return decoded.exp < Date.now() / 1000;
+      return decoded.exp > Date.now() / 1000;
     } catch (err) {
       return false;
     }

@@ -1,11 +1,10 @@
 import React, {ChangeEvent} from 'react';
-import {AuthenticationService} from '@service/AuthenticationService';
+import {authenticationService} from '@service/Services';
 
 
 export const LoginComponent: React.FC = () => {
 
     const [credentials, setCredentials] = React.useState({username:'', password:''});
-    const authService = new AuthenticationService();
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         const {username, password} = Object.assign({}, credentials, {[event.target.name]: event.target.value});
@@ -15,7 +14,10 @@ export const LoginComponent: React.FC = () => {
     async function handleSubmit(event: any){
         event.preventDefault();
         const{username, password} = credentials;
-        await authService.login(username, password);
+        const loggedIn = await authenticationService.login(username, password);
+        if(loggedIn){
+console.log("logged in!");
+        }
 
     }
 
