@@ -1,57 +1,14 @@
-import axios, {AxiosInstance} from 'axios';
-
-import {ConfigurationService} from '@service/ConfigurationService';
+import {AxiosInstance} from 'axios';
 import decode from 'jwt-decode';
-import { IUser } from 'tesla-dashboard-api';
-
-const configurationService = new ConfigurationService();
 
 const jwtCookieRegex = /jwt=(.+);?/;
 
 export class AuthenticationService {
-  private readonly endpoint: string;
   private readonly api: AxiosInstance;
   private username: string | undefined;
 
-  constructor() {
-    this.endpoint = configurationService.get('REACT_APP_API_ROOT') || '/';
-    this.api = axios.create({
-      withCredentials: true,
-      baseURL: this.endpoint,
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': 'localhost'
-      }
-    });
-
-    // this.api.interceptors.response.use(
-    //     response => response,
-    //     error => {
-    //       const originalRequest = error.config;
-    //
-    //       if (error.response.status === 401) {
-    //         const refresh_token = localStorage.getItem('refresh_token');
-    //
-    //         return this.api
-    //                    .post('/access-tokens/refresh', {refresh_token}, {})
-    //                    .then(({data}) => {
-    //                      localStorage.setItem('access_token', data.jwt);
-    //
-    //                      this.api.defaults.headers['X-Access-Token'] = data.jwt;
-    //                      originalRequest.headers['X-Access-Token'] = data.jwt;
-    //
-    //                      return axios(originalRequest);
-    //                    })
-    //                    .catch(err => {
-    //                      console.error(err)
-    //                      ;
-    //                    });
-    //       }
-    //
-    //       return Promise.reject(error);
-    //     }
-    // );
+  constructor(api: AxiosInstance) {
+    this.api = api;
   }
 
   getUsername(): string | undefined {
@@ -102,7 +59,6 @@ export class AuthenticationService {
   logout() {
     sessionStorage.removeItem('access_token');
   }
-
 
 
 }

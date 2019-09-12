@@ -1,22 +1,25 @@
-import {IUser} from 'tesla-dashboard-api';
-import axios from 'axios';
-import {configurationService} from '@service/./Services';
+import {ITeslaAccount, IUser} from 'tesla-dashboard-api';
+import axios, {AxiosInstance} from 'axios';
 
 
 export class UserService {
-  private readonly endpoint: string;
+  private readonly api: AxiosInstance;
 
-  constructor() {
-    this.endpoint = configurationService.get('REACT_APP_API_ROOT') + '/signup';
+
+  constructor(api: AxiosInstance) {
+    this.api = api;
   }
 
   async create(username: string, email: string, password: string) {
-    // res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
-    const response = await axios.post(this.endpoint, {username, email, password});
+    const response = await this.api.post('/signup', {username, email, password});
     if (response) {
       console.log(response);
     }
 
+  }
+
+  async updateTeslaAccount(account: ITeslaAccount) {
+    this.api.post('/tesla-accountxxxxxx', account);
   }
 
 //: Promise<IUser>
