@@ -24,7 +24,7 @@ export const LoginComponent = withRouter((props) => {
         {loggedIn ?
             <Redirect to="/"/>
             :
-            <div className="login">
+            <div className="centered">
               <h3>Login</h3>
               <form>
                 <input

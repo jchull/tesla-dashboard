@@ -1,76 +1,108 @@
 body,
 #root,
 .app {
-    margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 div {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.app .header .logo {
-    position: absolute;
-    left: 20px;
-    top: 0;
-    width: 100px;
-    height: 50px;
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTMiPjxwYXRoIGQ9Ik0wIDBjLjMgMS4xIDEuMyAyLjMgMi42IDIuNmg0LjFsLjIuMVYxM2gyLjVWMi43bC4yLS4xaDQuMWMxLjQtLjQgMi4zLTEuNSAyLjYtMi42SDB6bTc3LjggMTNjMS4zLS41IDItMS41IDIuMi0yLjZINjguN1YtLjFoLTIuNXYxM2gxMS42ek00Ny4zIDIuNmg5YzEuMy0uNCAyLjUtMS40IDIuNy0yLjZINDQuOHY3LjdoMTEuNnYyLjdoLTkuMWMtMS40LjQtMi42IDEuNC0zLjIgMi42SDU5VjUuMkg0Ny4zVjIuNnptMzguMSAyLjZWMTNIODhWNy44aDkuMVYxM2gyLjZWNS4yTTI1LjIgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjEgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuNCAyLjcgMi42TTg3LjcgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42SDg1Yy4zIDEuMiAxLjMgMi40IDIuNyAyLjYiIGZpbGw9IiNGRkYiLz48L3N2Zz4=") no-repeat 50%;
-}
 
-.app .header {
-    background-color: #222;
-    text-transform: uppercase;
-    position: fixed;
-    width: 100%;
-    height: 52px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    line-height: 50px;
-    color: rgb(255, 255, 255);
-    letter-spacing: 1px;
-    word-spacing: 10px;
-    font-family: "Gotham Medium", system, sans-serif;
-    font-weight: 400;
-    border-bottom: 1px solid #000000;
-}
+.app {
 
-.app .content {
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
+  .header {
+      background-color: #222;
+      text-transform: uppercase;
+      position: fixed;
+      width: 100%;
+      height: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      line-height: 50px;
+      color: rgb(255, 255, 255);
+      letter-spacing: 1px;
+      word-spacing: 10px;
+      font-family: "Gotham Medium", system, sans-serif;
+      font-weight: 400;
+      border-bottom: 1px solid #000000;
 
-.card {
+      .logo {
+          position: absolute;
+          left: 20px;
+          top: 0;
+          width: 100px;
+          height: 50px;
+          background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTMiPjxwYXRoIGQ9Ik0wIDBjLjMgMS4xIDEuMyAyLjMgMi42IDIuNmg0LjFsLjIuMVYxM2gyLjVWMi43bC4yLS4xaDQuMWMxLjQtLjQgMi4zLTEuNSAyLjYtMi42SDB6bTc3LjggMTNjMS4zLS41IDItMS41IDIuMi0yLjZINjguN1YtLjFoLTIuNXYxM2gxMS42ek00Ny4zIDIuNmg5YzEuMy0uNCAyLjUtMS40IDIuNy0yLjZINDQuOHY3LjdoMTEuNnYyLjdoLTkuMWMtMS40LjQtMi42IDEuNC0zLjIgMi42SDU5VjUuMkg0Ny4zVjIuNnptMzguMSAyLjZWMTNIODhWNy44aDkuMVYxM2gyLjZWNS4yTTI1LjIgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjEgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuNCAyLjcgMi42TTg3LjcgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42SDg1Yy4zIDEuMiAxLjMgMi40IDIuNyAyLjYiIGZpbGw9IiNGRkYiLz48L3N2Zz4=") no-repeat 50%;
+      }
+
+      .main-menu {
+          float: right;
+          position: absolute;
+          right: 17px;
+          padding: 6px;
+          top: -2px;
+
+          :hover {
+              color: hsla(0, 0%, 100%, .5);
+              cursor: pointer;
+          }
+      }
+  }
+    .content {
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .centered {
+        width: 400px;
+        margin: 40px auto;
+      }
+
+      form {
+        margin: 20px;
+
+        input {
+          display: block;
+          line-height: 24px;
+          border-radius: 4px;
+          margin: 6px;
+          width: 320px;
+        }
+
+        button {
+          line-height: 24px;
+          border-radius: 12px;
+          width: 160px;
+          margin: 4px;
+        }
+      }
+    }
+
+
+
+  .card {
     padding: 5px;
-}
+  }
 
 
-.header .main-menu {
-    float: right;
-    position: absolute;
-    right: 17px;
-    padding: 6px;
-    top: -2px;
-}
-
-.header .main-menu:hover {
-    color: hsla(0, 0%, 100%, .5);
-    cursor: pointer;
-
-}
-
-.not-found {
+  .not-found {
     padding: 200px;
+  }
+
 }
+
+
+

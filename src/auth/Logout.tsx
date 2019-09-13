@@ -11,7 +11,7 @@ export const LogoutComponent: FC = () => {
 
   return (
       <div>
-        <div className="login">
+        <div className="centered">
           <h2>You are logged out</h2>
           <NavLink to="/login">Log in again</NavLink>
         </div>

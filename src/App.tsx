@@ -11,6 +11,7 @@ import {AppState} from './type/state';
 import {Home} from '@component/view/Home';
 import {LogoutComponent} from './auth/Logout';
 import {authenticationService} from '@service/Services';
+import {UserPreferences} from '@component/account/UserPreferences';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
@@ -36,6 +37,8 @@ export const App: FC<AppState> = (props: AppState) => {
                         component={Home}/>
           <PrivateRoute path={'/tesla-account'}
                         component={TeslaAccountComponent}/>
+          <PrivateRoute path={'/preferences'}
+                        component={UserPreferences}/>
           <PrivateRoute path="/products"
                         component={ProductList}/>
           <Route component={NotFound}/>
@@ -46,7 +49,7 @@ export const App: FC<AppState> = (props: AppState) => {
   return (
       <div className="app">
         <header className="header">
-          <div className="logo"></div>
+          <div className="logo"/>
           Energy Dashboard
           <div className="main-menu">
             <i className="material-icons">menu</i>

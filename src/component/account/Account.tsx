@@ -2,8 +2,6 @@ import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react
 import {IUser} from 'tesla-dashboard-api';
 import {userService} from '@service/Services';
 
-import './Account.scss';
-
 interface AccountProps {
   user?: IUser;
 }
@@ -49,45 +47,54 @@ export const AccountComponent: FC<AccountProps> = (props: AccountProps) => {
   }
 
   return (
-      <div className="account">
+      <div className="centered">
         <h3>Create Account</h3>
-        <form onSubmit={handleSubmit}>
-          <input
-              placeholder="Username"
-              name="username"
-              type="text"
-              onChange={handleChange}
-          />
-          <input
-              placeholder="Email"
-              name="email"
-              type="email"
-              onChange={handleChange}
-          />
-          <input
-              placeholder="Password"
-              name="password"
-              type="password"
-              onChange={handleChange}
-          />
-          <input
-              placeholder="Verify Password"
-              name="password2"
-              type="password"
-              onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword2(event.target.value)}
-          />
-          <div>
-            <button value="SUBMIT"
-                    type="submit"
-                    disabled={!formValid}>
-              Submit
-            </button>
-            <button type="reset"
-                    onClick={resetForm}>
-              Reset
-            </button>
-          </div>
-        </form>
+        {
+          user ?
+              <form onSubmit={handleSubmit}>
+                <input
+                    placeholder="Username"
+                    name="username"
+                    type="text"
+                    value={user.username}
+                    onChange={handleChange}
+                />
+                <input
+                    placeholder="Email"
+                    name="email"
+                    type="email"
+                    value={user.email}
+                    onChange={handleChange}
+                />
+                <input
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                    value={user.password}
+                    onChange={handleChange}
+                />
+                <input
+                    placeholder="Verify Password"
+                    name="password2"
+                    type="password"
+                    value={password2}
+                    onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword2(event.target.value)}
+                />
+                <div>
+                  <button value="SUBMIT"
+                          type="submit"
+                          disabled={!formValid}>
+                    Submit
+                  </button>
+                  <button type="reset"
+                          onClick={resetForm}>
+                    Reset
+                  </button>
+                </div>
+              </form>
+              :
+              <span>User does not exist</span>
+        }
       </div>
   );
 };
