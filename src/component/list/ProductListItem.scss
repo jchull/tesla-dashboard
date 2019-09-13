@@ -1,47 +1,47 @@
 .product.list-item {
-    border: none;
-    margin: 6px;
-    font-weight: 400;
-    box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.2);
-    height: 100px;
-    width: 360px;
-    color: #222222;
-    transition-duration: 300ms;
-}
+  border: none;
+  display: inline-block;
+  margin: 6px;
+  font-weight: 400;
+  box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.2);
+  height: 100px;
+  width: 360px;
+  color: #222222;
+  transition-duration: 300ms;
 
-.product.list-item:hover {
+  :hover {
     transition-duration: 150ms;
     box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
     transform: translate3d(1px, -1px, 3px);
-}
+  }
 
-.product.list-item:active {
+  :active {
     transform: translate(-1px, 1px);
-}
+  }
 
-.product.list-item .name {
+  .name {
     padding: 0 2px;
-}
+  }
 
-.product.list-item .battery_level span {
+  .battery_level span {
     font-size: 21px;
     line-height: 21px;
     vertical-align: top;
     padding: 0 0 0 2px;
+  }
 }
 
-
 .product.list-item.red_pinwheel18 {
-    background: url("/images/tm3_red_pinwheel18.png") #f7f7f7;
-    background-size: 160px;
-    background-repeat: no-repeat;
-    background-position: 215px 25px;
+  background: url("/images/tm3_red_pinwheel18.png") #f7f7f7;
+  background-size: 160px;
+  background-repeat: no-repeat;
+  background-position: 215px 25px;
 }
 
 .better {
-    color: #199f07;
+  color: #199f07;
 }
 
 .worse {
-    color: rgb(227, 25, 55);
+  color: rgb(227, 25, 55);
 }
