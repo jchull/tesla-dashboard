@@ -3,19 +3,19 @@ import {ITeslaAccount} from 'tesla-dashboard-api';
 
 
 interface TeslaAccountProps {
-  account?: ITeslaAccount;
+  account: ITeslaAccount;
 }
 
 
 export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccountProps) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const [account, setAccount] = React.useState(props.account);
+  const [account, setAccount] = React.useState(props.account || {});
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const {email, access_token, refresh_token, token_expires_in, token_created_at} = Object.assign({}, account, {[event.target.name]: event.target.value});
-    setAccount({email, access_token, refresh_token, token_expires_in, token_created_at});
+    const {email, access_token, refresh_token} = Object.assign({}, account, {[event.target.name]: event.target.value});
+    setAccount({email, access_token, refresh_token});
   }
 
   async function handleSubmit(event: SyntheticEvent) {
@@ -26,12 +26,9 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
   }
 
   useEffect(() => {
-    // check passwords match
-    // const pv = user && user.password && user.password.length > 9 && user.password === password2 || false;
-    // setPasswordsValid(pv);
     // // check form valid
-    // const fv = pv && user && user.username && user.email && emailRegex.test(user.email) || false;
-    // setFormValid(fv);
+    const fv = account && account.access_token && account.refresh_token && account.email && emailRegex.test(account.email) || false;
+    setFormValid(fv);
 
   }, [account]);
 
@@ -46,29 +43,32 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
   }
 
   return (
-      <div className="account">
+      <div className="centered">
         <h3>Tesla Account</h3>
         <form onSubmit={handleSubmit}>
           <input
               placeholder="Email"
               name="email"
               type="email"
+              value={account.email}
               onChange={handleChange}
           />
           <input
               placeholder="Token"
               name="token"
               type="password"
+              value={account.access_token}
               onChange={handleChange}
           />
           <input
               placeholder="Refresh Token"
               name="refresh_token"
               type="password"
+              value={account.refresh_token}
               onChange={handleChange}
           />
           <button
-            onClick={getTokens}>
+              onClick={getTokens}>
             Get Tokens
           </button>
 
