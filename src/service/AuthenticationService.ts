@@ -16,15 +16,20 @@ export class AuthenticationService {
   }
 
   async login(username: string, password: string): Promise<boolean> {
-    const response = await this.api.post('/login',
-        `username=${username}&password=${password}`,
-        {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
-    if (response) {
-      // @ts-ignore
-      const token = jwtCookieRegex.exec(document.cookie)[1];
-      this.setToken(token);
-      this.username = username;
-      return true;
+    try {
+      const response = await this.api.post('/login',
+          `username=${username}&password=${password}`,
+          {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
+      if (response) {
+        const token = jwtCookieRegex.exec(document.cookie);
+        if (token && token[1]) {
+          this.setToken(token[1]);
+          this.username = username;
+          return true;
+        }
+      }
+    } catch (e) {
+      return false;
     }
     return false;
   }
@@ -38,11 +43,12 @@ export class AuthenticationService {
       return false;
     }
     try {
-      const decoded = decode(token);
-      // @ts-ignore
+      const decoded = decode(token) as { username: string, sub: string, exp: number, client: string };
       this.username = decoded.username;
-      // @ts-ignore
-      return decoded.exp > Date.now() / 1000;
+      if (decoded.sub !== 'tesla-dashboard' || !decoded.client) {
+        return false;
+      }
+      return decoded.exp >= Date.now() / 1000;
     } catch (err) {
       return false;
     }
@@ -58,6 +64,7 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.removeItem('access_token');
+    this.api.get('/logout');
   }
 
 
