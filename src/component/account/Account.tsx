@@ -6,10 +6,12 @@ interface AccountProps {
   user?: IUser;
 }
 
-export const AccountComponent: FC<AccountProps> = (props: AccountProps) => {
+const DEFAULT_USER = {username: '', password: '', email: '', role: 0};
+
+export const AccountComponent: FC<AccountProps> = props => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const [user, setUser] = React.useState(props.user);
+  const [user, setUser] = React.useState(props.user || DEFAULT_USER);
   const [password2, setPassword2] = useState('');
   const [passwordsValid, setPasswordsValid] = useState(false);
   const [formValid, setFormValid] = useState(false);
@@ -42,9 +44,10 @@ export const AccountComponent: FC<AccountProps> = (props: AccountProps) => {
 
 
   function resetForm() {
-    setUser(undefined);
+    setUser(DEFAULT_USER); // TODO: will have to handle existing users
     setPassword2('');
   }
+
 
   return (
       <div className="centered">
