@@ -29,7 +29,7 @@ export const App: FC<AppState> = (props: AppState) => {
                  component={LoginComponent}/>
           <Route path="/logout"
                  component={LogoutComponent}/>
-          <Route path={'/account'}
+          <Route path={'/signup'}
                  component={AccountComponent}/>
 
           <PrivateRoute exact
@@ -52,7 +52,9 @@ export const App: FC<AppState> = (props: AppState) => {
           <div className="logo"/>
           Energy Dashboard
           <div className="main-menu">
-            <i className="material-icons">menu</i>
+            <a href="/">
+              <i className="material-icons">menu</i>
+            </a>
           </div>
         </header>
         <div className="content">
