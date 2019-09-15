@@ -1,12 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
 import {authenticationService} from '@service/Services';
-import {Redirect, withRouter} from 'react-router';
+import {Redirect} from 'react-router';
 
 
-export const LoginComponent = withRouter((props) => {
+export const LoginComponent = () => {
 
   const [credentials, setCredentials] = useState({username: '', password: ''});
   const [loggedIn, setLoggedIn] = useState(authenticationService.loggedIn());
+  const [message, setMessage] = useState();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const {username, password} = Object.assign({}, credentials, {[event.target.name]: event.target.value});
@@ -16,7 +17,11 @@ export const LoginComponent = withRouter((props) => {
   async function handleSubmit(event: any) {
     event.preventDefault();
     const {username, password} = credentials;
-    setLoggedIn(await authenticationService.login(username, password));
+    const result = await authenticationService.login(username, password);
+    if (!result) {
+      setMessage('Login failed');
+    }
+    setLoggedIn(result);
   }
 
   return (
@@ -48,9 +53,14 @@ export const LoginComponent = withRouter((props) => {
                     onClick={handleSubmit}
                 />
               </form>
+              <a href='/signup'>Create Account</a>
             </div>
         }
+        <div className="centered">
+          {message &&
+          <h5>{message}</h5>}
+        </div>
       </div>
   );
-});
+};
 
