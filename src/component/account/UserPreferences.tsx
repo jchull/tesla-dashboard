@@ -10,7 +10,7 @@ interface PreferencesState {
 
 export const UserPreferences: FC<PreferencesState> = props => {
 
-  const [preferences, setPreferences] = React.useState(props.preferences || DEFAULT_PREFERENCES);
+  const [preferences, setPreferences] = useState(props.preferences || DEFAULT_PREFERENCES);
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
