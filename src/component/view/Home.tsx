@@ -20,7 +20,7 @@ export const Home: React.FC<AppState> = (props) => {
           {authenticationService.getUsername()}
         </h3>
         <NavLink to="/account">Account</NavLink>
-        <NavLink to="/tesla-account">Tesla Account</NavLink>
+        <NavLink to="/tesla-account">Tesla Accounts</NavLink>
         <NavLink to="/preferences">Preferences</NavLink>
 
         <NavLink to="/products">Products</NavLink>

@@ -1,5 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {ITeslaAccount} from 'tesla-dashboard-api';
+import {authenticationService, userService} from '@service/Services';
 
 
 interface TeslaAccountProps {
@@ -7,10 +8,10 @@ interface TeslaAccountProps {
 }
 
 
-export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccountProps) => {
+export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const [account, setAccount] = React.useState(props.account || {});
+  const [account, setAccount] = useState(props.account || {});
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -42,10 +43,20 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
 //TODO: get tokens from tesla service, requires password
   }
 
+
+  useEffect(() => {
+    const username = authenticationService.getUsername();
+    if (username) {
+      // userService.getTeslaAccounts(username)
+      //            .then((data: ITeslaAccount | undefined) => data && setAccount(data));
+    }
+  }, []);
+
   return (
       <div className="centered">
         <h3>Tesla Account</h3>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
           <input
               placeholder="Email"
               name="email"
@@ -53,6 +64,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
               value={account.email}
               onChange={handleChange}
           />
+          <label htmlFor="token">Token</label>
           <input
               placeholder="Token"
               name="token"
@@ -60,6 +72,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
               value={account.access_token}
               onChange={handleChange}
           />
+          <label htmlFor="refresh_token">Refresh Token</label>
           <input
               placeholder="Refresh Token"
               name="refresh_token"
@@ -69,7 +82,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
           />
           <button
               onClick={getTokens}>
-            Get Tokens
+            Get Tokens From Tesla
           </button>
 
           <div>
