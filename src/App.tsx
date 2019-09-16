@@ -6,12 +6,12 @@ import {ProductList} from '@component/list/ProductList';
 import {LoginComponent} from './auth/Login';
 import {AccountComponent} from '@component/account/Account';
 import {PrivateRoute} from './auth/PrivateRoute';
-import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 import {AppState} from './type/state';
 import {Home} from '@component/view/Home';
 import {LogoutComponent} from './auth/Logout';
 import {authenticationService} from '@service/Services';
 import {UserPreferences} from '@component/account/UserPreferences';
+import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
@@ -36,7 +36,7 @@ export const App: FC<AppState> = (props: AppState) => {
                         path='/'
                         component={Home}/>
           <PrivateRoute path={'/tesla-account'}
-                        component={TeslaAccountComponent}/>
+                        component={TeslaAccountListComponent}/>
           <PrivateRoute path={'/preferences'}
                         component={UserPreferences}/>
           <PrivateRoute path="/products"

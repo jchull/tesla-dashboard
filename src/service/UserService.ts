@@ -18,6 +18,13 @@ export class UserService {
 
   }
 
+  async getTeslaAccounts(username: string):Promise<[ITeslaAccount] | undefined> {
+    const response = await this.api.get(`/user/${username}/tesla-account`);
+    if(response){
+      return response.data;
+    }
+  }
+
   async updateTeslaAccount(account: ITeslaAccount) {
     this.api.post('/tesla-accountxxxxxx', account);
   }

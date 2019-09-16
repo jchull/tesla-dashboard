@@ -26,7 +26,7 @@ export const UserPreferences: FC<PreferencesState> = props => {
       charging_pollingIntervalsSeconds
     } = Object.assign({}, preferences, {[event.target.name]: event.target.value});
     setPreferences({
-      user: 'default',//TODO: remove this!!
+      username: 'default',
       display_distanceUnits,
       display_currencyCode,
       display_tempUnits,
