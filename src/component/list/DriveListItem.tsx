@@ -4,7 +4,7 @@ import moment from 'moment';
 import numbro from 'numbro';
 import {DriveListItemState} from '../../type/state';
 
-export const DriveListItem: React.FC<DriveListItemState> = (props: DriveListItemState) => {
+export const DriveListItem: React.FC<DriveListItemState> = props => {
 
   const durationHours = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)))

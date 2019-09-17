@@ -8,7 +8,7 @@ import {IChargeSession, IDriveSession} from 'tesla-dashboard-api';
 import {SessionListItemState} from '../../type/state';
 
 
-export const SessionListItem: React.FC<SessionListItemState> = (props: SessionListItemState) => {
+export const SessionListItem: React.FC<SessionListItemState> = props => {
 
   const displayDate = moment(props.session.start_date)
       .calendar();

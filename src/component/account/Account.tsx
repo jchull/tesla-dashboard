@@ -29,7 +29,7 @@ export const AccountComponent: FC<AccountProps> = props => {
     }
 
     // TODO: for updates, check for _id?
-    await userService.create(user.username, user.email, user.password);
+    await userService.createUser(user.username, user.email, user.password);
   }
 
   useEffect(() => {

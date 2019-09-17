@@ -16,7 +16,7 @@ import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
 
-export const App: FC<AppState> = (props: AppState) => {
+export const App: FC<AppState> = props => {
   const [state] = useState({
     products: props.products,
     username: authenticationService.getUsername()

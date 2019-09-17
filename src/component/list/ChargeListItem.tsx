@@ -4,7 +4,7 @@ import moment from 'moment';
 import numbro from 'numbro';
 import {ChargeListItemState} from '../../type/state';
 
-export const ChargeListItem: React.FC<ChargeListItemState> = (props: ChargeListItemState) => {
+export const ChargeListItem: React.FC<ChargeListItemState> = props => {
 
   const durationMinutes = moment.duration(moment(props.session.end_date)
       .diff(moment(props.session.start_date)))

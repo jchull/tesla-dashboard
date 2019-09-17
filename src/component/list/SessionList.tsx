@@ -10,7 +10,7 @@ import {SessionListState} from '../../type/state';
 
 
 
-export const SessionList: React.FC<SessionListState> = (props: SessionListState) => {
+export const SessionList: React.FC<SessionListState> = props => {
     const [selectedSession, setSelectedSession] = React.useState({} as IVehicleSession);
     const [selectedDatum, setSelectedDatum] = React.useState([] as IVehicleState[]);
 

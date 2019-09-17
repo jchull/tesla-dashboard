@@ -7,7 +7,7 @@ import {IVehicle} from 'tesla-dashboard-api';
 import {ProductListState} from '../../type/state';
 
 
-export const ProductList: React.FC<ProductListState> = (props: ProductListState) => {
+export const ProductList: React.FC<ProductListState> = props => {
   const [products, setProducts] = React.useState(props.products);
 
   const [selectedProduct, setSelectedProduct] = React.useState({} as IVehicle);
@@ -29,8 +29,8 @@ export const ProductList: React.FC<ProductListState> = (props: ProductListState)
 
   React.useEffect(() => {
     if (selectedProduct.id_s) {
-      // @ts-ignore
-      console.log(`selected product: ${selectedProduct.display_name}`);
+      // TODO: action upon product selection
+      // maybe start data refresh for that product only or something
     }
   }, [selectedProduct]);
 

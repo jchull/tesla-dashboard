@@ -6,7 +6,7 @@ import moment from 'moment';
 import {ProductListItemState} from '../../type/state';
 
 
-export const ProductListItem: React.FC<ProductListItemState> = (props: ProductListItemState) => {
+export const ProductListItem: React.FC<ProductListItemState> = props => {
 
   const timeToFull = moment.duration(props.product.time_to_full_charge || 0, 'hours')
                            .humanize();

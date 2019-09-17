@@ -3,7 +3,7 @@ import {TagList} from '../common/TagList';
 import {queryService} from '@service/Services';
 import {SessionTagListProps} from '../../type/state';
 
-export const SessionTagList: React.FC<SessionTagListProps> = (props: SessionTagListProps) => {
+export const SessionTagList: React.FC<SessionTagListProps> = props => {
 
     function tagsToDisplay(tags: string[]): string[] {
         return tags.map(tag => tag.replace('_', ' '));

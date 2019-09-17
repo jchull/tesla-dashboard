@@ -1,17 +1,11 @@
 import React from 'react';
-import {IVehicleSession} from 'tesla-dashboard-api';
 import {AppState} from '../../type/state';
 import {NavLink} from 'react-router-dom';
 import {authenticationService} from '@service/Services';
 
 import './Home.scss';
 
-export const Home: React.FC<AppState> = (props) => {
-  const [sessions, setSessions] = React.useState([] as IVehicleSession[]);
-
-  React.useEffect(() => {
-
-  }, []);
+export const Home: React.FC<AppState> = () => {
 
 
   return (

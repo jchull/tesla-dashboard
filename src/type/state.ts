@@ -3,7 +3,7 @@ import {IChargeSession, IDriveSession, IVehicle, IVehicleSession} from 'tesla-da
 
 export interface AppState {
   products?: [IVehicle];
-  username: string;
+  username?: string;
 }
 
 

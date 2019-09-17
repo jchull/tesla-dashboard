@@ -10,15 +10,12 @@ export class UserService {
     this.api = api;
   }
 
-  async create(username: string, email: string, password: string): Promise<IUser> {
+  async createUser(username: string, email: string, password: string): Promise<IUser> {
     return await this.api.post('/signup', {username, email, password});
   }
 
   async getTeslaAccounts(username: string): Promise<[ITeslaAccount] | undefined> {
-    const response = await this.api.get(`/user/${username}/tesla-account`);
-    if (response) {
-      return response.data;
-    }
+    return await this.api.get(`/user/${username}/tesla-account`);
   }
 
   async updateTeslaAccount(account: ITeslaAccount): Promise<ITeslaAccount> {
@@ -26,7 +23,7 @@ export class UserService {
   }
 
 //: Promise<IUser>
-  async update(user: IUser) {
+  async updateUser(user: IUser) {
 
   }
 
