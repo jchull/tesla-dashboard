@@ -1,5 +1,5 @@
 import {ITeslaAccount, IUser} from 'tesla-dashboard-api';
-import axios, {AxiosInstance} from 'axios';
+import {AxiosInstance} from 'axios';
 
 
 export class UserService {
@@ -10,23 +10,19 @@ export class UserService {
     this.api = api;
   }
 
-  async create(username: string, email: string, password: string) {
-    const response = await this.api.post('/signup', {username, email, password});
-    if (response) {
-      console.log(response);
-    }
-
+  async create(username: string, email: string, password: string): Promise<IUser> {
+    return await this.api.post('/signup', {username, email, password});
   }
 
-  async getTeslaAccounts(username: string):Promise<[ITeslaAccount] | undefined> {
+  async getTeslaAccounts(username: string): Promise<[ITeslaAccount] | undefined> {
     const response = await this.api.get(`/user/${username}/tesla-account`);
-    if(response){
+    if (response) {
       return response.data;
     }
   }
 
-  async updateTeslaAccount(account: ITeslaAccount) {
-    this.api.post('/tesla-accountxxxxxx', account);
+  async updateTeslaAccount(account: ITeslaAccount): Promise<ITeslaAccount> {
+    return this.api.put(`/user/${account.username}/tesla-account/${account._id}`, account);
   }
 
 //: Promise<IUser>

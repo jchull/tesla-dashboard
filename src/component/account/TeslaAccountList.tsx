@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {ITeslaAccount, IUser} from 'tesla-dashboard-api';
+import {ITeslaAccount} from 'tesla-dashboard-api';
 import {authenticationService, userService} from '@service/Services';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
@@ -35,16 +35,16 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
         <button onClick={() => addTeslaAccount()} disabled={selectedAccount && !selectedAccount.hasOwnProperty('_id')}>Add Account</button>
         {
           accounts ?
-              <div>
+              (<div>
                 {accounts.map(account => <div key={account.email}
                                               onClick={() => setSelectedAccount(account)}>{account.email || 'New Account'}</div>)}
-              </div>
+              </div>)
               :
               <span>No Accounts Configured</span>
         }
 
         {
-          accounts && selectedAccount ?
+          selectedAccount && selectedAccount._id ?
               <TeslaAccountComponent account={selectedAccount}/>
               :
               <span>Select an Account</span>

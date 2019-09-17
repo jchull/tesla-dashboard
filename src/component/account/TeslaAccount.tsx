@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {ITeslaAccount} from 'tesla-dashboard-api';
-import {authenticationService, userService} from '@service/Services';
+import {userService} from '@service/Services';
 
 
 interface TeslaAccountProps {
@@ -15,15 +15,14 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    const {email, access_token, refresh_token} = Object.assign({}, account, {[event.target.name]: event.target.value});
-    setAccount({email, access_token, refresh_token});
+    const {_id, username, email, access_token, refresh_token} = Object.assign({}, account, {[event.target.name]: event.target.value});
+    setAccount({_id, username, email, access_token, refresh_token});
   }
 
   async function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
-
-    // TODO: for updates, check for _id?
-    //await userService.create(user.username, user.email, user.password);
+    // TODO: Validation
+    await userService.updateTeslaAccount(account);
   }
 
   useEffect(() => {
@@ -35,22 +34,12 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
 
 
   function resetForm() {
-    // setUser(undefined);
-    // setPassword2('');
+    setAccount(props.account || {});
   }
 
   function getTokens() {
 //TODO: get tokens from tesla service, requires password
   }
-
-
-  useEffect(() => {
-    const username = authenticationService.getUsername();
-    if (username) {
-      // userService.getTeslaAccounts(username)
-      //            .then((data: ITeslaAccount | undefined) => data && setAccount(data));
-    }
-  }, []);
 
   return (
       <div className="centered">
