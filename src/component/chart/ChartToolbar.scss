@@ -1,45 +1,45 @@
 .chart-toolbar {
-    display: flex;
-    padding: 0 20px;
-    background: #f4f4f4;
-    height: 52px;
-    width: 80%;
-    border-radius: 24px;
-    margin: 4px 10%;
-    line-height: 48px;
-    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .1);
+  display: flex;
+  padding: 0 20px;
+  background: #f4f4f4;
+  height: 52px;
+  width: 80%;
+  border-radius: 24px;
+  margin: 4px 10%;
+  line-height: 48px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, .1);
 }
 
 .chart-toolbar button {
-    border-radius: 20px;
-    width: 42px;
-    height: 42px;
-    margin: 5px 3px;
-    transition-duration: 300ms;
+  border-radius: 20px;
+  width: 42px;
+  height: 42px;
+  margin: 5px 3px;
+  transition-duration: 300ms;
 }
 
 .chart-toolbar button i {
-    padding: 1px 2px;
+  padding: 1px 2px;
 }
 
 .chart-toolbar button:active {
-    transform: translate(1px, 1px);
+  transform: translate(1px, 1px);
 }
 
 .chart-toolbar button.on {
-    color: #3f6ae1;
+  color: #3f6ae1;
 }
 
 .chart-toolbar button.off {
-    color: rgb(201, 203, 204);
+  color: rgb(201, 203, 204);
 }
 
 .chart-toolbar button:hover {
-    transition-duration: 150ms;
-    box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
-    transform: translate3d(1px, -1px, 3px);
+  transition-duration: 150ms;
+  box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+  transform: translate3d(1px, -1px, 3px);
 }
 
 .chart-toolbar button:focus {
-    outline: none;
+  outline: none;
 }

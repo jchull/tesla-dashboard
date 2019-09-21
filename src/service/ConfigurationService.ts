@@ -15,14 +15,14 @@ export type ConfigurationKeysType = keyof typeof ConfigurationKeys;
  */
 export class ConfigurationService {
 
-  private readonly values: Map<ConfigurationKeysType,string>;
+  private readonly values: Map<ConfigurationKeysType, string>;
 
   constructor() {
     this.values = new Map<ConfigurationKeysType, string>();
     // TODO: load local env configuration first
     for (let configurationKey in ConfigurationKeys) {
       const val = env[configurationKey];
-      if(val){
+      if (val) {
         this.values.set(configurationKey as ConfigurationKeysType, val);
       }
     }

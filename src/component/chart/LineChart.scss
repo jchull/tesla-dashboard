@@ -2,63 +2,63 @@
 }
 
 .chart-container {
-    display: inline-block;
+  display: inline-block;
 }
 
 .d3-chart .axis path,
 .d3-chart .axis line {
-    stroke: rgb(102, 102, 102)
+  stroke: rgb(102, 102, 102)
 }
 
 .line {
-    stroke: rgb(102, 102, 102);
-    fill: none;
-    stroke-width: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke: rgb(102, 102, 102);
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .line.charger_power {
-    stroke: rgb(227, 25, 55);
-    stroke-width: 2;
+  stroke: rgb(227, 25, 55);
+  stroke-width: 2;
 }
 
 .line.battery_range {
-    stroke-width: 2;
-    stroke: #2a9de6;
-    stroke-dasharray: 6px;
+  stroke-width: 2;
+  stroke: #2a9de6;
+  stroke-dasharray: 6px;
 
 }
 
 .line.battery_level {
-    stroke-width: 2;
-    stroke: #199f07;
+  stroke-width: 2;
+  stroke: #199f07;
 }
 
 .line.est_battery_range {
-    stroke: #d885ff;
-    stroke-width: 2;
-    stroke-dasharray: 6px;
+  stroke: #d885ff;
+  stroke-width: 2;
+  stroke-dasharray: 6px;
 
 }
 
 
 .line.charge_limit_soc {
-    stroke: rgba(23, 179, 6, 0.5);
+  stroke: rgba(23, 179, 6, 0.5);
 }
 
 .line.charge_limit_soc_min {
-    stroke: rgba(238, 137, 7, 0.5);
+  stroke: rgba(238, 137, 7, 0.5);
 }
 
 .line.charge_limit_soc_std {
-    stroke: rgba(63, 106, 225, 0.5);
+  stroke: rgba(63, 106, 225, 0.5);
 }
 
 
 .chart-legend {
-    background: #3f6ae1;
-    display: inline-flex;
-    flex: max-content;
+  background: #3f6ae1;
+  display: inline-flex;
+  flex: max-content;
 
 }

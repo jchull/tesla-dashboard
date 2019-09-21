@@ -15,7 +15,10 @@ export class UserService {
   }
 
   async getTeslaAccounts(username: string): Promise<[ITeslaAccount] | undefined> {
-    return await this.api.get(`/user/${username}/tesla-account`);
+    const data = await this.api.get(`/user/${username}/tesla-account`);
+    if (data) {
+      return data.data;
+    }
   }
 
   async updateTeslaAccount(account: ITeslaAccount): Promise<ITeslaAccount> {

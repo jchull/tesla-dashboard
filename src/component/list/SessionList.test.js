@@ -1,6 +1,6 @@
-import React                      from 'react';
-import { act, fireEvent, render } from '@testing-library/react';
-import pretty                     from 'pretty';
+import { act, render } from '@testing-library/react';
+import pretty          from 'pretty';
+import React           from 'react';
 
 
 import { SessionList } from './SessionList';
@@ -11,22 +11,22 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-    if(wrapper) {
-        if(wrapper.unmount) {
-            wrapper.unmount();
-        }
-        if(wrapper.container) {
-            wrapper.container = null;
-        }
+  if(wrapper) {
+    if(wrapper.unmount) {
+      wrapper.unmount();
     }
+    if(wrapper.container) {
+      wrapper.container = null;
+    }
+  }
 });
 
 
 it('renders empty session list', () => {
-    act(() => {
-        wrapper = render(<SessionList sessions={[]}/>);
-    });
-    expect(pretty(wrapper.container.innerHTML))
-        .toMatchSnapshot();
+  act(() => {
+    wrapper = render(<SessionList sessions={[]}/>);
+  });
+  expect(pretty(wrapper.container.innerHTML))
+    .toMatchSnapshot();
 });
 

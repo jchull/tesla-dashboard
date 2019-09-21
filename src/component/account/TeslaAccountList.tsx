@@ -15,8 +15,8 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
   const [selectedAccount, setSelectedAccount] = useState({} as ITeslaAccount);
   let username;
 
-  function addTeslaAccount(){
-    const newAccount = {email: ""};
+  function addTeslaAccount() {
+    const newAccount = {email: ''};
     setAccounts([newAccount, ...accounts] as [ITeslaAccount]);
     setSelectedAccount(newAccount);
   }
@@ -32,9 +32,12 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
   return (
       <div>
         <h3>Tesla Accounts</h3>
-        <button onClick={() => addTeslaAccount()} disabled={selectedAccount && !selectedAccount.hasOwnProperty('_id')}>Add Account</button>
+        <button onClick={() => addTeslaAccount()}
+                disabled={selectedAccount && !selectedAccount.hasOwnProperty('_id')}>
+          Add Account
+        </button>
         {
-          accounts ?
+          accounts && accounts.length ?
               (<div>
                 {accounts.map(account => <div key={account.email}
                                               onClick={() => setSelectedAccount(account)}>{account.email || 'New Account'}</div>)}

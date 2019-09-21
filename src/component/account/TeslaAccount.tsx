@@ -70,9 +70,11 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
               onChange={handleChange}
           />
           <button
-              onClick={getTokens}>
+              onClick={getTokens}
+              disabled>
             Get Tokens From Tesla
           </button>
+
 
           <div>
             <button value="SUBMIT"

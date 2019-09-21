@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {IUserPreferences} from 'tesla-dashboard-api';
-import { DEFAULT_PREFERENCES } from 'tesla-dashboard-api/lib/types/UserPreferences';
+import {DEFAULT_PREFERENCES} from 'tesla-dashboard-api/lib/types/UserPreferences';
 
 
 interface PreferencesState {
@@ -18,24 +18,13 @@ export const UserPreferences: FC<PreferencesState> = props => {
       display_distanceUnits,
       display_currencyCode,
       display_tempUnits,
-      driving_pollingIntervalsSeconds,
-      driving_minDurationMinutes,
-      charging_minDurationMinutes,
-      charging_costPerKwhHome,
-      charging_costPerKwhSupercharging,
-      charging_pollingIntervalsSeconds
+      username
     } = Object.assign({}, preferences, {[event.target.name]: event.target.value});
     setPreferences({
-      username: 'default',
+      username,
       display_distanceUnits,
       display_currencyCode,
-      display_tempUnits,
-      driving_pollingIntervalsSeconds,
-      driving_minDurationMinutes,
-      charging_minDurationMinutes,
-      charging_costPerKwhHome,
-      charging_costPerKwhSupercharging,
-      charging_pollingIntervalsSeconds
+      display_tempUnits
     });
   }
 
@@ -87,78 +76,6 @@ export const UserPreferences: FC<PreferencesState> = props => {
                 name="display_tempUnits"
                 type="text"
                 value={preferences.display_tempUnits}
-                onChange={handleChange}
-            />
-          </section>
-
-          <section>
-            <h3>Charging Preferences</h3>
-            <label htmlFor="charging_costPerKwhHome">Home charging cost</label>
-            <input
-                placeholder="Home Charging Cost"
-                name="charging_costPerKwhHome"
-                type="text"
-                value={preferences.charging_costPerKwhHome}
-                onChange={handleChange}
-            />
-            <label htmlFor="charging_costPerKwhSupercharging">Supercharging Cost</label>
-            <input
-                placeholder="Supercharging Cost"
-                name="charging_costPerKwhSupercharging"
-                type="text"
-                value={preferences.charging_costPerKwhSupercharging}
-                onChange={handleChange}
-            />
-            <label htmlFor="charging_minDurationMinutes">Minimum Charging Duration</label>
-            <input
-                placeholder="Minimum Charging Duration"
-                name="charging_minDurationMinutes"
-                type="text"
-                value={preferences.charging_minDurationMinutes}
-                onChange={handleChange}
-            />
-            <label htmlFor="charging_pollingIntervalsSeconds1">Level 1 Polling Interval</label>
-            <input
-                placeholder="Level 1 Polling Interval"
-                name="charging_pollingIntervalsSeconds1"
-                type="text"
-                value={preferences.charging_pollingIntervalsSeconds[0]}
-                // onChange={handleChange}
-            />
-            <label htmlFor="charging_pollingIntervalsSeconds2">Level 2 Polling Interval</label>
-            <input
-                placeholder="Level 2 Polling Interval"
-                name="charging_pollingIntervalsSeconds2"
-                type="text"
-                value={preferences.charging_pollingIntervalsSeconds[1]}
-                // onChange={handleChange}
-            />
-            <label htmlFor="charging_pollingIntervalsSeconds3">Level 3 Polling Interval</label>
-            <input
-                placeholder="Level 3 Polling Interval"
-                name="charging_pollingIntervalsSeconds3"
-                type="text"
-                value={preferences.charging_pollingIntervalsSeconds[2]}
-                // onChange={handleChange}
-            />
-          </section>
-
-          <section>
-            <h3>Driving Preferences</h3>
-            <label htmlFor="driving_minDurationMinutes">Minimum Driving Duration</label>
-            <input
-                placeholder="Minimum Driving Duration"
-                name="driving_minDurationMinutes"
-                type="text"
-                value={preferences.driving_minDurationMinutes}
-                onChange={handleChange}
-            />
-            <label htmlFor="driving_pollingIntervalsSeconds">Polling Interval</label>
-            <input
-                placeholder="Polling Interval"
-                name="driving_pollingIntervalsSeconds"
-                type="text"
-                value={preferences.driving_pollingIntervalsSeconds}
                 onChange={handleChange}
             />
           </section>
