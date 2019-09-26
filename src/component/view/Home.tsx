@@ -16,6 +16,7 @@ export const Home: React.FC<AppState> = () => {
         <NavLink to="/account">Account</NavLink>
         <NavLink to="/tesla-account">Tesla Accounts</NavLink>
         <NavLink to="/preferences">Preferences</NavLink>
+        <NavLink to="/sync-preferences">Sync Prefs</NavLink>
 
         <NavLink to="/products">Products</NavLink>
 

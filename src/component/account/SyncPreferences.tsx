@@ -1,11 +1,11 @@
-import React, {ChangeEvent, FC, useEffect, useState} from 'react';
-import {DEFAULT_SYNC_PREFERENCES, ISyncPreferences} from 'tesla-dashboard-api';
+import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
+import {DEFAULT_SYNC_PREFERENCES, ISyncPreferences, IVehicle} from 'tesla-dashboard-api';
+import {userService} from '@service/Services';
 
 
 interface SyncPreferencesState {
   preferences?: ISyncPreferences;
-
-  onSyncPrefsChange(preferences: ISyncPreferences): any;
+  vehicleId: string;
 }
 
 
@@ -42,16 +42,29 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
     });
   }
 
-  useEffect(() => {
-    props.onSyncPrefsChange(preferences);
-  }, [preferences]);
+  function resetForm() {
+    setPreferences(DEFAULT_SYNC_PREFERENCES);
+  }
+
+  async function handleSubmit(event: SyntheticEvent) {
+    event.preventDefault();
+    // TODO: Validation
+    await userService.updateProductSyncPreferences(props.vehicleId, preferences);
+  }
+
+  function toggleEnabled() {
+    setPreferences(Object.assign({}, preferences, {enabled: !preferences.enabled}));
+  }
 
   return (
-      <div>
+      <div className="centered">
+        <form onSubmit={handleSubmit}>
         <section>
-          <h3>Sync</h3>
+          <label htmlFor="enabled">Enabled</label>
           <input type="checkbox"
-                 checked={preferences.enabled}>Enabled</input>
+                 name="enabled"
+                 checked={preferences.enabled}
+                 onChange={toggleEnabled}/>
         </section>
         <section>
           <h3>Charging Preferences</h3>
@@ -86,6 +99,7 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
               type="text"
               value={preferences.charging_pollingIntervalsSeconds[0]}
               // onChange={handleChange}
+              readOnly
           />
           <label htmlFor="charging_pollingIntervalsSeconds2">Level 2 Polling Interval</label>
           <input
@@ -94,6 +108,7 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
               type="text"
               value={preferences.charging_pollingIntervalsSeconds[1]}
               // onChange={handleChange}
+              readOnly
           />
           <label htmlFor="charging_pollingIntervalsSeconds3">Level 3 Polling Interval</label>
           <input
@@ -102,6 +117,7 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
               type="text"
               value={preferences.charging_pollingIntervalsSeconds[2]}
               // onChange={handleChange}
+              readOnly
           />
         </section>
 
@@ -124,6 +140,18 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
               onChange={handleChange}
           />
         </section>
+
+          <div>
+            <button value="SUBMIT"
+                    type="submit">
+              Save
+            </button>
+            <button type="reset"
+                    onClick={resetForm}>
+              Reset
+            </button>
+          </div>
+        </form>
       </div>
   );
 };

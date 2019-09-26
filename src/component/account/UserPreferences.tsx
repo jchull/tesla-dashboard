@@ -1,6 +1,5 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
-import {IUserPreferences} from 'tesla-dashboard-api';
-import {DEFAULT_PREFERENCES} from 'tesla-dashboard-api/lib/types/UserPreferences';
+import {IUserPreferences, DEFAULT_PREFERENCES} from 'tesla-dashboard-api';
 
 
 interface PreferencesState {

@@ -1,4 +1,4 @@
-import {ITeslaAccount, IUser} from 'tesla-dashboard-api';
+import {ISyncPreferences, ITeslaAccount, IUser} from 'tesla-dashboard-api';
 import {AxiosInstance} from 'axios';
 
 
@@ -28,6 +28,10 @@ export class UserService {
 //: Promise<IUser>
   async updateUser(user: IUser) {
 
+  }
+
+  async updateProductSyncPreferences(id_s: string, prefs: ISyncPreferences): Promise<ISyncPreferences> {
+    return this.api.put(`/vehicle/${id_s}/sync`, prefs);
   }
 
 }
