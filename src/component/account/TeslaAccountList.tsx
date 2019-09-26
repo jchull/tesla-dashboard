@@ -32,14 +32,14 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
   return (
       <div>
         <h3>Tesla Accounts</h3>
-        <button onClick={() => addTeslaAccount()}
-                disabled={selectedAccount && !selectedAccount.hasOwnProperty('_id')}>
+        <a onClick={() => addTeslaAccount()}>
           Add Account
-        </button>
+        </a>
         {
           accounts && accounts.length ?
               (<div>
                 {accounts.map(account => <div key={account.email}
+                                              className="clickable"
                                               onClick={() => setSelectedAccount(account)}>{account.email || 'New Account'}</div>)}
               </div>)
               :
@@ -47,7 +47,7 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
         }
 
         {
-          selectedAccount && selectedAccount._id ?
+          selectedAccount ?
               <TeslaAccountComponent account={selectedAccount}/>
               :
               <span>Select an Account</span>

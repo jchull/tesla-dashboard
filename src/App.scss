@@ -76,8 +76,33 @@ div {
       margin: 40px auto;
     }
 
+
+    .clickable {
+      line-height: 24px;
+      border-radius: 12px;
+      width: 160px;
+      margin: 4px;
+      padding: 2px 12px;
+      box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.2);
+      transition-duration: 300ms;
+
+    }
+
+    .clickable:hover{
+      transition-duration: 150ms;
+      box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+      transform: translate3d(1px, -1px, 3px);
+    }
+
     form {
       margin: 20px;
+
+      button {
+        line-height: 24px;
+        border-radius: 12px;
+        width: 160px;
+        margin: 4px;
+      }
 
       input {
         display: block;
@@ -87,12 +112,7 @@ div {
         width: 320px;
       }
 
-      button {
-        line-height: 24px;
-        border-radius: 12px;
-        width: 160px;
-        margin: 4px;
-      }
+
     }
   }
 
