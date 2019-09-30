@@ -53,7 +53,11 @@ export const LoginComponent = () => {
                     onClick={handleSubmit}
                 />
               </form>
-              <a href='/signup'>Create Account</a>
+              <div className="links">
+                <a href='/signup'>Create Account</a>
+                <a href='/forgot'>Forgot Password</a>
+              </div>
+
             </div>
         }
         <div className="centered">

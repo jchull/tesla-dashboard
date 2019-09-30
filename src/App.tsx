@@ -13,6 +13,7 @@ import {authenticationService} from '@service/Services';
 import {UserPreferences} from '@component/account/UserPreferences';
 import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 import {SyncPreferencesList} from '@component/account/SyncPreferencesList';
+import {ForgotPassword} from './auth/Forgot';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
@@ -30,8 +31,10 @@ export const App: FC<AppState> = props => {
                  component={LoginComponent}/>
           <Route path="/logout"
                  component={LogoutComponent}/>
-          <Route path={'/signup'}
+          <Route path="/signup"
                  component={AccountComponent}/>
+          <Route path="/forgot"
+                 component={ForgotPassword}/>
 
           <PrivateRoute exact
                         path='/'

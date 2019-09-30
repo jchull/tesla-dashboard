@@ -68,6 +68,11 @@ export class AuthenticationService {
   }
 
 
+  forgot(username: string) {
+    this.api.post('/forgot',
+        `username=${username}`,
+        {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
+  }
 }
 
 
