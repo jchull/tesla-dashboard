@@ -9,8 +9,8 @@ export const VehicleView: React.FC<VehicleViewState> = (props) => {
   const [sessions, setSessions] = React.useState([] as IVehicleSession[]);
 
   React.useEffect(() => {
-    if (props.vehicle.id_s) {
-      queryService.getRecentSessions(props.vehicle.id_s, 100)
+    if (props.vehicle.vin) {
+      queryService.getRecentSessions(props.vehicle.vin, 100)
                   .then((result) => {
                     setSessions(result);
                   });

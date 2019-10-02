@@ -18,12 +18,12 @@ export const SessionList: React.FC<SessionListState> = props => {
   React.useEffect(() => {
     if (selectedSession._id) {
       if (isDriveSession(selectedSession)) {
-        queryService.getDrivingStates(props.vehicle.id_s, selectedSession._id)
+        queryService.getDrivingStates(props.vehicle.vin, selectedSession._id)
                     .then((result) => {
                       setSelectedDatum(result);
                     });
       } else {
-        queryService.getChargingStates(props.vehicle.id_s, selectedSession._id)
+        queryService.getChargingStates(props.vehicle.vin, selectedSession._id)
                     .then((result) => {
                       setSelectedDatum(result);
 
@@ -49,7 +49,7 @@ export const SessionList: React.FC<SessionListState> = props => {
               <LineChart vehicle={props.vehicle}
                          session={selectedSession}
                          states={selectedDatum}/>
-              <SessionTagList vehicleId={props.vehicle.id_s}
+              <SessionTagList vehicleId={props.vehicle.vin}
                               sessionId={selectedSession._id}
                               tags={selectedSession.tags}/>
 

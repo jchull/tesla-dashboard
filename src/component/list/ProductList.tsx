@@ -28,7 +28,7 @@ export const ProductList: React.FC<ProductListState> = props => {
   }, []);
 
   React.useEffect(() => {
-    if (selectedProduct.id_s) {
+    if (selectedProduct.vin) {
       // TODO: action upon product selection
       // maybe start data refresh for that product only or something
     }
@@ -38,9 +38,9 @@ export const ProductList: React.FC<ProductListState> = props => {
       <div>
         <div className="product-list">
           {products && products.map(product => <ProductListItem product={product}
-                                                                key={product.id_s}
+                                                                key={product.vin}
                                                                 handleSelection={productSelectionHandler}
-                                                                selected={selectedProduct && selectedProduct.id_s === product.id_s}/>)}
+                                                                selected={selectedProduct && selectedProduct.vin === product.vin}/>)}
         </div>
         <div className="product-view">
           {products && selectedProduct && <VehicleView vehicle={selectedProduct}/>

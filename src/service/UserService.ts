@@ -30,8 +30,8 @@ export class UserService {
 
   }
 
-  async updateProductSyncPreferences(id_s: string, prefs: ISyncPreferences): Promise<ISyncPreferences> {
-    return this.api.put(`/vehicle/${id_s}/sync`, prefs);
+  async updateProductSyncPreferences(vin: string, prefs: ISyncPreferences): Promise<ISyncPreferences> {
+    return this.api.put(`/vehicle/${vin}/sync`, prefs);
   }
 
 }

@@ -24,7 +24,7 @@ export const SyncPreferencesList: FC = props => {
         {
           products && products.length ?
               (<div>
-                {products.map(vehicle => <div key={vehicle.id_s}
+                {products.map(vehicle => <div key={vehicle.vin}
                                               className="clickable"
                                               onClick={() => setSelectedProduct(vehicle)}>{vehicle.display_name}</div>)}
               </div>)
@@ -34,7 +34,7 @@ export const SyncPreferencesList: FC = props => {
 
         {
           selectedProduct && selectedProduct._id ?
-              <SyncPreferences preferences={selectedProduct.sync_preferences} vehicleId={selectedProduct.id_s}/>
+              <SyncPreferences preferences={selectedProduct.sync_preferences} vehicleId={selectedProduct.vin}/>
               :
               <span>Select a product</span>
         }
