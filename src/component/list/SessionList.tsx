@@ -7,6 +7,7 @@ import {LineChart} from '../chart/LineChart';
 import {SessionTagList} from '../vehicle/SessionTagList';
 import {IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
 import {SessionListState} from '../../type/state';
+import {ChartToolbar} from '@component/chart/ChartToolbar';
 
 
 export const SessionList: React.FC<SessionListState> = props => {
@@ -19,15 +20,10 @@ export const SessionList: React.FC<SessionListState> = props => {
     if (selectedSession._id) {
       if (isDriveSession(selectedSession)) {
         queryService.getDrivingStates(props.vehicle.vin, selectedSession._id)
-                    .then((result) => {
-                      setSelectedDatum(result);
-                    });
+                    .then(setSelectedDatum);
       } else {
         queryService.getChargingStates(props.vehicle.vin, selectedSession._id)
-                    .then((result) => {
-                      setSelectedDatum(result);
-
-                    });
+                    .then(setSelectedDatum);
       }
     }
 
@@ -52,6 +48,7 @@ export const SessionList: React.FC<SessionListState> = props => {
               <SessionTagList vehicleId={props.vehicle.vin}
                               sessionId={selectedSession._id}
                               tags={selectedSession.tags}/>
+                <ChartToolbar product={props.vehicle} sessionId={selectedSession._id}/>
 
             </div>
             :

@@ -10,7 +10,7 @@ export const VehicleView: React.FC<VehicleViewState> = (props) => {
 
   React.useEffect(() => {
     if (props.vehicle.vin) {
-      queryService.getRecentSessions(props.vehicle.vin, 100)
+      queryService.getRecentSessions(props.vehicle.vin, 200)
                   .then((result) => {
                     setSessions(result);
                   });
@@ -23,7 +23,6 @@ export const VehicleView: React.FC<VehicleViewState> = (props) => {
         {sessions && <div>
           <SessionList sessions={sessions}
                        vehicle={props.vehicle}/>
-          <ChartToolbar/>
         </div>
         }
       </div>
