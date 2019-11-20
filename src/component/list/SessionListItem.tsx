@@ -5,7 +5,7 @@ import {isDriveSession, isoDurationToHuman} from '../../type/util';
 import {ChargeListItem} from './ChargeListItem';
 import {DriveListItem} from './DriveListItem';
 import {IChargeSession, IDriveSession} from 'tesla-dashboard-api';
-import {SessionListItemState} from '../../type/state';
+import {SessionListItemState} from '../../store/types/state';
 
 
 export const SessionListItem: React.FC<SessionListItemState> = props => {

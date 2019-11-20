@@ -3,7 +3,7 @@ import './ProductListItem.scss';
 import numbro from 'numbro';
 import {BatteryLevelIcon} from '../common/BatteryLevelIcon';
 import moment from 'moment';
-import {ProductListItemState} from '../../type/state';
+import {ProductListItemState} from '../../store/types/state';
 
 
 export const ProductListItem: React.FC<ProductListItemState> = props => {

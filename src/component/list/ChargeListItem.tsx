@@ -2,7 +2,7 @@ import React from 'react';
 import './SessionListItem.scss';
 import moment from 'moment';
 import numbro from 'numbro';
-import {ChargeListItemState} from '../../type/state';
+import {ChargeListItemState} from '../../store/types/state';
 
 export const ChargeListItem: React.FC<ChargeListItemState> = props => {
 

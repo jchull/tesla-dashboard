@@ -6,7 +6,7 @@ import {isDriveSession} from '../../type/util';
 import {LineChart} from '../chart/LineChart';
 import {SessionTagList} from '../vehicle/SessionTagList';
 import {IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
-import {SessionListState} from '../../type/state';
+import {SessionListState} from '../../store/types/state';
 import {ChartToolbar} from '@component/chart/ChartToolbar';
 
 

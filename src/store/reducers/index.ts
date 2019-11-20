@@ -1,19 +1,22 @@
 import {ACTION_TYPES, SessionAction} from "../actions";
-import {SessionListState} from "../types";
-import {IVehicleSession} from "tesla-dashboard-api";
+import {IVehicle, IVehicleSession} from "tesla-dashboard-api";
+import {AppState} from "../types/state";
 
 const initialState = {
-  sessions: [] as IVehicleSession[]
+  productsList: [] as IVehicle[],
+  selectedProducts: [] as IVehicle[],
+  sessionList: [] as IVehicleSession[]
 };
 
-export function sessionListReducer(state = initialState, action: SessionAction): SessionListState {
+export function sessionListReducer(state = initialState, action: SessionAction): AppState {
   switch (action.type) {
     case ACTION_TYPES.DELETE_SESSION:
-      return {sessions: []};
+      return state;// TODO
       break;
     case ACTION_TYPES.ARCHIVE_SESSION:
       return {
-        sessions: state.sessions.filter((session: IVehicleSession) => action.sessionId !== session._id)
+        ...state,
+        sessionList: state.sessionList.filter((session: IVehicleSession) => action.sessionId !== session._id)
       };
       break;
       // case ACTION_TYPES.UPDATE_SESSION_LIST:

@@ -3,7 +3,7 @@ import {queryService} from '@service/Services';
 import {SessionList} from '../list/SessionList';
 import {ChartToolbar} from '../chart/ChartToolbar';
 import {IVehicleSession} from 'tesla-dashboard-api';
-import {VehicleViewState} from '../../type/state';
+import {VehicleViewState} from '../../store/types/state';
 
 export const VehicleView: React.FC<VehicleViewState> = (props) => {
   const [sessions, setSessions] = React.useState([] as IVehicleSession[]);

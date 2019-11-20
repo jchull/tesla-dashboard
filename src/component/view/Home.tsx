@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppState} from '../../type/state';
+import {AppState} from '../../store/types/state';
 import {NavLink} from 'react-router-dom';
 import {authenticationService} from '@service/Services';
 

@@ -1,8 +1,13 @@
 import {sessionListReducer} from "./reducers";
-import {combineReducers} from "redux";
+import {combineReducers, createStore, Store} from "redux";
 
 export const rootReducer = combineReducers({
   sessionList: sessionListReducer
-})
+});
 
-export type AppState = ReturnType<typeof rootReducer>
+export function configureStore(): Store {
+  const store = createStore(combineReducers({}));
+
+  return store;
+}
+

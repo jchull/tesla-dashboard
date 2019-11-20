@@ -4,11 +4,15 @@ import {queryService} from '@service/Services';
 import {VehicleView} from '../view/VehicleView';
 import './ProductList.scss';
 import {IVehicle} from 'tesla-dashboard-api';
-import {ProductListState} from '../../type/state';
+import {ProductListState} from '../../store/types/state';
+import {useDispatch} from "react-redux";
 
 
 export const ProductList: React.FC<ProductListState> = props => {
   const [products, setProducts] = React.useState(props.products);
+
+  // should be able to update productList and selectedProduct, or that might move down
+  const dispatcher = useDispatch();
 
   const [selectedProduct, setSelectedProduct] = React.useState({} as IVehicle);
 

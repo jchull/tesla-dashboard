@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {TagList} from '../common/TagList';
 import {queryService} from '@service/Services';
-import {SessionTagListProps} from '../../type/state';
+import {SessionTagListProps} from '../../store/types/state';
 
 export const SessionTagList: React.FC<SessionTagListProps> = props => {
 

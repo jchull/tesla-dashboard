@@ -2,7 +2,7 @@ import React from 'react';
 import './SessionListItem.scss';
 import moment from 'moment';
 import numbro from 'numbro';
-import {DriveListItemState} from '../../type/state';
+import {DriveListItemState} from '../../store/types/state';
 
 export const DriveListItem: React.FC<DriveListItemState> = props => {
 
