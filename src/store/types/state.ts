@@ -1,10 +1,10 @@
 import {IChargeSession, IDriveSession, IVehicle, IVehicleSession} from 'tesla-dashboard-api';
 
 export interface AppState {
-  productsList: IVehicle[],
-  selectedProducts: IVehicle[],
-  sessionList: IVehicleSession[],
-  username?: string
+  productList: ProductListState,
+  //selectedProducts: IVehicle[],
+  sessionList: SessionListState,
+  //username?: string
   // TODO: keep track of role for admin settings page
 }
 
@@ -35,7 +35,7 @@ export interface DriveListItemState {
 
 
 export interface ProductListState {
-  products?: [IVehicle];
+  products: IVehicle[];
   selectedProductId?: string;
 }
 

@@ -1,13 +1,16 @@
-import {sessionListReducer} from "./reducers";
-import {combineReducers, createStore, Store} from "redux";
+import {combineReducers, createStore, Store} from 'redux';
+import {sessionListReducer} from './reducers/SessionList';
+import {productListReducer} from './reducers/ProductList';
 
 export const rootReducer = combineReducers({
-  sessionList: sessionListReducer
-});
+                                             productList: productListReducer,
+                                             sessionList: sessionListReducer
+                                           });
 
 export function configureStore(): Store {
-  const store = createStore(combineReducers({}));
+  const store = createStore(rootReducer);
 
+  // TODO: add middleware?
   return store;
 }
 

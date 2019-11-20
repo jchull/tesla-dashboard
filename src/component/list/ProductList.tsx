@@ -4,12 +4,13 @@ import {queryService} from '@service/Services';
 import {VehicleView} from '../view/VehicleView';
 import './ProductList.scss';
 import {IVehicle} from 'tesla-dashboard-api';
-import {ProductListState} from '../../store/types/state';
-import {useDispatch} from "react-redux";
+import {AppState, ProductListState} from '../../store/types/state';
+import {useDispatch, useSelector} from 'react-redux';
+import {ACTION_TYPES} from '../../store/actions';
 
 
-export const ProductList: React.FC<ProductListState> = props => {
-  const [products, setProducts] = React.useState(props.products);
+export const ProductList: React.FC = () => {
+  const productListState = useSelector((store: AppState) => store.productList);
 
   // should be able to update productList and selectedProduct, or that might move down
   const dispatcher = useDispatch();
@@ -20,8 +21,9 @@ export const ProductList: React.FC<ProductListState> = props => {
 
   React.useEffect(() => {
     const fetchProductList = async () => {
+      console.log('fetching products...');
       const productList = await queryService.getProducts();
-      setProducts(productList);
+      dispatcher({type: ACTION_TYPES.UPDATE_PRODUCT_LIST, productList});
       if (productList && productList.length) {
         setSelectedProduct(productList[0]);
       }
@@ -41,13 +43,17 @@ export const ProductList: React.FC<ProductListState> = props => {
   return (
       <div>
         <div className="product-list">
-          {products && products.map(product => <ProductListItem product={product}
-                                                                key={product.vin}
-                                                                handleSelection={productSelectionHandler}
-                                                                selected={selectedProduct && selectedProduct.vin === product.vin}/>)}
+          {
+            productListState.products && productListState.products.map(
+                product => <ProductListItem product={product}
+                                            key={product.vin}
+                                            handleSelection={productSelectionHandler}
+                                            selected={selectedProduct && selectedProduct.vin === product.vin}/>)
+          }
         </div>
         <div className="product-view">
-          {products && selectedProduct && <VehicleView vehicle={selectedProduct}/>
+          {
+            productListState.products && selectedProduct && <VehicleView vehicle={selectedProduct}/>
           }
         </div>
       </div>
