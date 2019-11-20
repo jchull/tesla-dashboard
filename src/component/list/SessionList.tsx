@@ -29,6 +29,12 @@ export const SessionList: React.FC<SessionListState> = props => {
 
   }, [selectedSession]);
 
+  React.useEffect(() => {
+    if(props.sessionList.length){
+      setSelectedSession(props.sessionList[0]);
+    }
+  }, [props.sessionList])
+
   return (
       <div className="session-list-container">
         <div className="session-list">
