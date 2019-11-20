@@ -3,10 +3,10 @@ import './SessionList.scss';
 import {SessionListItem} from './SessionListItem';
 import {queryService} from '@service/Services';
 import {isDriveSession} from '../../type/util';
-import {LineChart} from '../chart/LineChart';
-import {SessionTagList} from '../vehicle/SessionTagList';
+import {LineChart} from '@component/chart/LineChart';
+import {SessionTagList} from '@component/vehicle/SessionTagList';
 import {IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
-import {SessionListState} from '../../store/types/state';
+import {SessionListState} from '@store/types/state';
 import {ChartToolbar} from '@component/chart/ChartToolbar';
 
 

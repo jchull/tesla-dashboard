@@ -6,8 +6,7 @@
     "paths": {
       "@service/*": ["service/*"],
       "@component/*": ["component/*"],
-      "@actions/*": ["actions/*"],
-      "@reducers/*": ["reducers/*"]
+      "@store/*": ["store/*"]
     },
     "lib": [
       "dom",
