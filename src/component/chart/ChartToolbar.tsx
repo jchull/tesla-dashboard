@@ -12,18 +12,23 @@ interface ToolbarState {
 export const ChartToolbar: React.FC<ToolbarState> = props => {
 
 
-    async function deleteCurrent() {
-        const _id = props.sessionId;
-        const vin = props.product && props.product.vin;
-        if(_id && vin){
-           const deleteCount = await queryService.removeSession(vin, _id);
-           console.log(`deleted: ${deleteCount}`)
-        } else {
-            console.log("missing params");
-        }
+  async function deleteCurrent() {
+    const _id = props.sessionId;
+    const vin = props.product && props.product.vin;
+    if (_id && vin) {
+      const deleteCount = await queryService.removeSession(vin, _id);
+      if (deleteCount) {
+        console.log("deleted");
+        // TODO: global toast
+      } else {
+        console.log("deletion error");
+      }
+    } else {
+      console.log("missing params");
     }
+  }
 
-    return (
+  return (
       <div className="chart-toolbar">
         <button className="on">
           <i className="material-icons">battery_charging_full</i>
@@ -46,9 +51,10 @@ export const ChartToolbar: React.FC<ToolbarState> = props => {
         {/*  </button>*/}
         {/*</div>*/}
 
-          <button className="warn" onClick={()=> deleteCurrent()}>
-              <i className="material-icons">delete</i>
-          </button>
+        <button className="warn"
+                onClick={() => deleteCurrent()}>
+          <i className="material-icons">delete</i>
+        </button>
       </div>
   );
 };

@@ -5,7 +5,9 @@
     "outDir": "./dist",
     "paths": {
       "@service/*": ["service/*"],
-      "@component/*": ["component/*"]
+      "@component/*": ["component/*"],
+      "@actions/*": ["actions/*"],
+      "@reducers/*": ["reducers/*"]
     },
     "lib": [
       "dom",

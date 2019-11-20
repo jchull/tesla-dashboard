@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
+import {Provider, useDispatch, useSelector} from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
+import {createStore} from "redux";
 import './App.scss';
 import {ProductList} from '@component/list/ProductList';
 import {LoginComponent} from './auth/Login';
@@ -14,15 +15,17 @@ import {UserPreferences} from '@component/account/UserPreferences';
 import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 import {SyncPreferencesList} from '@component/account/SyncPreferencesList';
 import {ForgotPassword} from './auth/Forgot';
+import {rootReducer} from "./store";
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
+  const store = createStore(rootReducer);
 
-export const App: FC<AppState> = props => {
-  const [state] = useState({
-    products: props.products,
-    username: authenticationService.getUsername()
-  });
+export const App: FC = () => {
+
+
+  const dispatch = useDispatch();
+ // const username = useSelector(store => store.username)
 
   const routing = (
       <Router>
@@ -53,6 +56,8 @@ export const App: FC<AppState> = props => {
   );
 
   return (
+      <Provider store={store}>
+
       <div className="app">
         <header className="header">
           <div className="logo"/>
@@ -67,5 +72,6 @@ export const App: FC<AppState> = props => {
           {routing}
         </div>
       </div>
+      </Provider>
   );
 };
