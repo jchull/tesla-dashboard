@@ -5,54 +5,55 @@
   display: inline-block;
 }
 
-.d3-chart .axis path,
-.d3-chart .axis line {
-  stroke: rgb(102, 102, 102)
-}
+.d3-chart {
+  .axis {
+    path, line {
+      stroke: rgb(102, 102, 102);
+    }
+  }
 
-.line {
-  stroke: rgb(102, 102, 102);
-  fill: none;
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+  .line {
+    stroke: rgb(102, 102, 102);
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 
-.line.charger_power {
-  stroke: rgb(227, 25, 55);
-  stroke-width: 2;
-}
+    &.charger_power {
+      stroke: rgb(227, 25, 55);
+      stroke-width: 2;
+    }
 
-.line.battery_range {
-  stroke-width: 2;
-  stroke: #2a9de6;
-  stroke-dasharray: 6px;
+    &.battery_range {
+      stroke-width: 2;
+      stroke: #2a9de6;
+      stroke-dasharray: 6px;
+    }
 
-}
+    &.battery_level {
+      stroke-width: 2;
+      stroke: #199f07;
+    }
 
-.line.battery_level {
-  stroke-width: 2;
-  stroke: #199f07;
-}
+    &.est_battery_range {
+      stroke: #d885ff;
+      stroke-width: 2;
+      stroke-dasharray: 6px;
+    }
 
-.line.est_battery_range {
-  stroke: #d885ff;
-  stroke-width: 2;
-  stroke-dasharray: 6px;
+    &.charge_limit_soc {
+      stroke: rgba(23, 179, 6, 0.5);
+    }
 
-}
+    &.charge_limit_soc_min {
+      stroke: rgba(238, 137, 7, 0.5);
+    }
 
+    &.charge_limit_soc_std {
+      stroke: rgba(63, 106, 225, 0.5);
+    }
+  }
 
-.line.charge_limit_soc {
-  stroke: rgba(23, 179, 6, 0.5);
-}
-
-.line.charge_limit_soc_min {
-  stroke: rgba(238, 137, 7, 0.5);
-}
-
-.line.charge_limit_soc_std {
-  stroke: rgba(63, 106, 225, 0.5);
 }
 
 

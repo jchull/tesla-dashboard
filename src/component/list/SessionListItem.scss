@@ -2,42 +2,44 @@
   padding: 6px;
   border-bottom: 1px solid rgb(153, 154, 156);
   flex-direction: row;
+
+  &.drive {
+    h5 {
+      color: rgb(102, 102, 102);
+    }
+
+    i.material-icons {
+      color: rgb(174, 176, 178);
+    }
+  }
+
+  &.charge {
+    h5 {
+      color: #ffffff;
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      text-align: center;
+      padding-top: 3px;
+      box-sizing: border-box;
+    }
+  }
+
+  &.selected {
+    background: #eeeeee;
+  }
+
+  .row {
+    display: flex;
+    line-height: 30px;
+
+    span {
+      margin-right: 6px;
+    }
+  }
 }
 
-.list-item.drive h5 {
-  color: rgb(102, 102, 102);
-}
-
-.list-item.drive.selected i.material-icons {
-}
-
-.list-item.drive i.material-icons {
-  color: rgb(174, 176, 178);
-}
-
-.list-item.charge h5 {
-  color: #ffffff;
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  text-align: center;
-  padding-top: 3px;
-  box-sizing: border-box;
-}
-
-.list-item.selected {
-  background: #f4f4f4;;
-}
-
-.list-item .row {
-  display: flex;
-  line-height: 30px;
-}
-
-.list-item .row span {
-  margin-right: 6px;
-}
 
 .start {
   margin: 0 4px;

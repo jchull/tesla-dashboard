@@ -12,38 +12,38 @@
   .warn {
     color: red;
   }
-}
 
-.chart-toolbar button {
-  border-radius: 20px;
-  width: 42px;
-  height: 42px;
-  margin: 5px 3px;
-  transition-duration: 300ms;
-}
+  button {
+    border-radius: 20px;
+    width: 42px;
+    height: 42px;
+    margin: 5px 3px;
+    transition-duration: 300ms;
 
-.chart-toolbar button i {
-  padding: 1px 2px;
-}
+    i {
+      padding: 1px 2px;
+    }
 
-.chart-toolbar button:active {
-  transform: translate(1px, 1px);
-}
+    &:active {
+      transform: translate(1px, 1px);
+    }
 
-.chart-toolbar button.on {
-  color: #3f6ae1;
-}
+    &.on {
+      color: #3f6ae1;
+    }
 
-.chart-toolbar button.off {
-  color: rgb(201, 203, 204);
-}
+    &.off {
+      color: rgb(201, 203, 204);
+    }
 
-.chart-toolbar button:hover {
-  transition-duration: 150ms;
-  box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
-  transform: translate3d(1px, -1px, 3px);
-}
+    &:hover {
+      transition-duration: 150ms;
+      box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+      transform: translate3d(1px, -1px, 3px);
+    }
 
-.chart-toolbar button:focus {
-  outline: none;
+    &:focus {
+      outline: none;
+    }
+  }
 }

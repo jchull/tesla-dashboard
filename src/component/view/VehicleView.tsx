@@ -1,7 +1,7 @@
 import React from 'react';
 import {queryService} from '@service/Services';
 import {SessionList} from '@component/list/SessionList';
-import {IVehicle, IVehicleSession} from 'tesla-dashboard-api';
+import {IVehicle} from 'tesla-dashboard-api';
 import {AppState} from '@store/types/state';
 import {useDispatch, useSelector} from 'react-redux';
 import {ACTION_TYPES} from '../../store/actions';
