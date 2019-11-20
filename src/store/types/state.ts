@@ -2,20 +2,16 @@ import {IChargeSession, IDriveSession, IVehicle, IVehicleSession} from 'tesla-da
 
 export interface AppState {
   productList: ProductListState,
-  //selectedProducts: IVehicle[],
   sessionList: SessionListState,
   //username?: string
   // TODO: keep track of role for admin settings page
 }
 
 export interface SessionListState {
-  sessions: IVehicleSession[];
-  vehicle: IVehicle;
+  sessionList: IVehicleSession[];
+  vehicle?: IVehicle;
 }
 
-export interface VehicleViewState {
-  vehicle: IVehicle;
-}
 
 
 export interface SessionTagListProps {

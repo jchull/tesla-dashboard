@@ -17,7 +17,7 @@ export const SessionList: React.FC<SessionListState> = props => {
   const sessionSelectionHandler = (session: IVehicleSession) => setSelectedSession(Object.assign({}, session));
 
   React.useEffect(() => {
-    if (selectedSession._id) {
+    if (selectedSession._id && props.vehicle) {
       if (isDriveSession(selectedSession)) {
         queryService.getDrivingStates(props.vehicle.vin, selectedSession._id)
                     .then(setSelectedDatum);
@@ -33,28 +33,28 @@ export const SessionList: React.FC<SessionListState> = props => {
       <div className="session-list-container">
         <div className="session-list">
           {
-            props.sessions.map(session =>
-                <SessionListItem session={session}
-                                 selected={session._id === selectedSession._id}
-                                 selectionHandler={() => sessionSelectionHandler(session)}
-                                 key={session._id}/>)
+            props.sessionList.map(session =>
+                                      <SessionListItem session={session}
+                                                       selected={session._id === selectedSession._id}
+                                                       selectionHandler={() => sessionSelectionHandler(session)}
+                                                       key={session._id}/>)
           }
         </div>
-        {selectedSession && selectedDatum && selectedDatum.length > 0 ?
-            <div className="selected-view">
-              <LineChart vehicle={props.vehicle}
-                         session={selectedSession}
-                         states={selectedDatum}/>
-              <SessionTagList vehicleId={props.vehicle.vin}
-                              sessionId={selectedSession._id}
-                              tags={selectedSession.tags}/>
-                <ChartToolbar product={props.vehicle} sessionId={selectedSession._id}/>
+        {selectedSession && selectedDatum && selectedDatum.length > 0 && props.vehicle ?
+         <div className="selected-view">
+           <LineChart vehicle={props.vehicle}
+                      session={selectedSession}
+                      states={selectedDatum}/>
+           <SessionTagList vehicleId={props.vehicle.vin}
+                           sessionId={selectedSession._id}
+                           tags={selectedSession.tags}/>
+           <ChartToolbar product={props.vehicle} sessionId={selectedSession._id}/>
 
-            </div>
-            :
-            <div className="selected-view message">
-              Nothing selected
-            </div>
+         </div>
+                                                                                       :
+         <div className="selected-view message">
+           Nothing selected
+         </div>
         }
 
       </div>

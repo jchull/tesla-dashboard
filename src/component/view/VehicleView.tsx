@@ -1,17 +1,27 @@
 import React from 'react';
 import {queryService} from '@service/Services';
 import {SessionList} from '@component/list/SessionList';
-import {IVehicleSession} from 'tesla-dashboard-api';
-import {VehicleViewState} from '@store/types/state';
+import {IVehicle, IVehicleSession} from 'tesla-dashboard-api';
+import {AppState} from '@store/types/state';
+import {useDispatch, useSelector} from 'react-redux';
+import {ACTION_TYPES} from '../../store/actions';
 
-export const VehicleView: React.FC<VehicleViewState> = (props) => {
-  const [sessions, setSessions] = React.useState([] as IVehicleSession[]);
+
+export interface VehicleViewProps {
+  vehicle: IVehicle;
+}
+
+export const VehicleView: React.FC<VehicleViewProps> = (props) => {
+
+  const sessionListState = useSelector((store: AppState) => store.sessionList);
+  const dispatcher = useDispatch();
 
   React.useEffect(() => {
     if (props.vehicle.vin) {
+      console.log('fetching recent sessions...');
       queryService.getRecentSessions(props.vehicle.vin, 200)
                   .then((result) => {
-                    setSessions(result);
+                    dispatcher({type: ACTION_TYPES.UPDATE_SESSION_LIST, sessionList: result});
                   });
     }
   }, [props.vehicle]);
@@ -19,8 +29,8 @@ export const VehicleView: React.FC<VehicleViewState> = (props) => {
 
   return (
       <div>
-        {sessions && <div>
-          <SessionList sessions={sessions}
+        {sessionListState.sessionList && <div>
+          <SessionList sessionList={sessionListState.sessionList}
                        vehicle={props.vehicle}/>
         </div>
         }
