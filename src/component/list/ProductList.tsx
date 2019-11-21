@@ -26,17 +26,8 @@ export const ProductList: React.FC = () => {
         setSelectedProduct(productList[0]);
       }
     };
-
     fetchProductList();
-    setInterval(fetchProductList, 60000);
   }, []);
-
-  React.useEffect(() => {
-    if (selectedProduct.vin) {
-      // TODO: action upon product selection
-      // maybe start data refresh for that product only or something
-    }
-  }, [selectedProduct]);
 
   return (
       <div>
