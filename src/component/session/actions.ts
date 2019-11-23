@@ -1,12 +1,11 @@
 import {IVehicleSession} from 'tesla-dashboard-api';
-import {ThunkAction} from 'redux-thunk';
-import {action, createAction} from 'typesafe-actions';
 import {api, ApiType} from '@service/index';
 
 export enum SessionListActionType {
   FETCH_SESSION_LIST__START = 'FETCH_SESSION_LIST__START',
   FETCH_SESSION_LIST__FAIL = 'FETCH_SESSION_LIST__FAIL',
-  FETCH_SESSION_LIST__SUCCESS = 'FETCH_SESSION_LIST__SUCCESS'
+  FETCH_SESSION_LIST__SUCCESS = 'FETCH_SESSION_LIST__SUCCESS',
+  SELECT_SESSION = "SELECT_SESSION"
 }
 
 export interface SessionListAction {
@@ -18,7 +17,9 @@ export interface SessionListAction {
   }
 }
 
-export const fetchSessionListStart = () => action(SessionListActionType.FETCH_SESSION_LIST__START);
+export const fetchSessionListStart = ():SessionListAction => ({
+  type: SessionListActionType.FETCH_SESSION_LIST__START
+});
 
 export const fetchSessionListFail = (message: string): SessionListAction => ({
   type: SessionListActionType.FETCH_SESSION_LIST__FAIL,
