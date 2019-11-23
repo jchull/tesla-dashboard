@@ -4,7 +4,8 @@ import {ApiType} from '@service/index';
 export enum ProductListActionType {
   FETCH_PRODUCT_LIST__START = 'FETCH_PRODUCT_LIST__START',
   FETCH_PRODUCT_LIST__FAIL = 'FETCH_PRODUCT_LIST__FAIL',
-  FETCH_PRODUCT_LIST__SUCCESS = 'FETCH_PRODUCT_LIST__SUCCESS'
+  FETCH_PRODUCT_LIST__SUCCESS = 'FETCH_PRODUCT_LIST__SUCCESS',
+  SELECT_PRODUCT = 'SELECT_PRODUCT'
 }
 
 export interface ProductListAction {
@@ -39,6 +40,16 @@ export function fetchProductListSuccess(productList: IVehicle[]): ProductListAct
     type: ProductListActionType.FETCH_PRODUCT_LIST__SUCCESS,
     payload: {
       productList
+    }
+  };
+}
+
+
+export function selectProduct(selectedProduct: IVehicle): ProductListAction {
+  return {
+    type: ProductListActionType.SELECT_PRODUCT,
+    payload: {
+      selectedProduct
     }
   };
 }

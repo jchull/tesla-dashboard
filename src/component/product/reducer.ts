@@ -8,6 +8,11 @@ const initialState: ProductListState = {
 
 export function productListReducer(state = initialState, action: ProductListAction): ProductListState {
   switch (action.type) {
+    case ProductListActionType.SELECT_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.payload && action.payload.selectedProduct
+      };
     case ProductListActionType.FETCH_PRODUCT_LIST__START:
       return {
         ...state

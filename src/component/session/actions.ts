@@ -35,9 +35,9 @@ export const fetchSessionListSuccess = (sessionList: IVehicleSession[]): Session
 });
 
 export const fetchSessionListAction =
-    (vin:string) => async (dispatch: any, getState: any, api:ApiType): Promise<any> => {
+    (vin:string) => async (dispatch: any, getState: any, extraArgument: {api:ApiType}): Promise<any> => {
         dispatch(fetchSessionListStart());
-        return api.queryService.getRecentSessions(vin, 200)
+        return extraArgument.api.queryService.getRecentSessions(vin, 200)
                   .then((result: IVehicleSession[]) => {
                     dispatch(fetchSessionListSuccess(result));
                   });

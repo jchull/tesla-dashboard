@@ -5,20 +5,17 @@ import './ProductList.scss';
 import {IVehicle} from 'tesla-dashboard-api';
 import {AppState} from '../../store/types/state';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchProductListAction, fetchProductListStart} from './actions';
+import {fetchProductListAction, fetchProductListStart, selectProduct} from './actions';
 
 
 export const ProductList: React.FC = () => {
   const productListState = useSelector((store: AppState) => store.productList);
   const dispatch = useDispatch();
 
-  const [selectedProduct, setSelectedProduct] = React.useState({} as IVehicle);
-
-  const productSelectionHandler = (product: IVehicle) => setSelectedProduct(Object.assign({}, product));
+  const productSelectionHandler = (product: IVehicle) => dispatch(selectProduct(product));
 
   React.useEffect(() => {
     dispatch(fetchProductListAction());
-
   }, []);
 
   return (
@@ -29,13 +26,11 @@ export const ProductList: React.FC = () => {
                 product => <ProductListItem product={product}
                                             key={product.vin}
                                             handleSelection={productSelectionHandler}
-                                            selected={selectedProduct && selectedProduct.vin === product.vin}/>)
+                                            selected={productListState.selectedProduct && productListState.selectedProduct.vin === product.vin}/>)
           }
         </div>
         <div className="product-view">
-          {
-            productListState.products && selectedProduct && <SessionListView vehicle={selectedProduct}/>
-          }
+          <SessionListView/>
         </div>
       </div>
 
