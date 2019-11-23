@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ISyncPreferences, IVehicle, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
 import {SyncPreferences} from './SyncPreferences';
-import {authenticationService, queryService} from '@service/Services';
+import {authenticationService, queryService} from '@service/index.ts';
 
 
 export const SyncPreferencesList: FC = props => {

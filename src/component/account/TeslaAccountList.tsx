@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ITeslaAccount} from 'tesla-dashboard-api';
-import {authenticationService, userService} from '@service/Services';
+import {authenticationService, userService} from '@service/index.ts';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
 

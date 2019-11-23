@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {IUser} from 'tesla-dashboard-api';
-import {userService} from '@service/Services';
+import {userService} from '@service/index.ts';
 
 interface AccountProps {
   user?: IUser;

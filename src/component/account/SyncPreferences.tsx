@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
 import {DEFAULT_SYNC_PREFERENCES, ISyncPreferences} from 'tesla-dashboard-api';
-import {userService} from '@service/Services';
+import {userService} from '@service/index.ts';
 
 
 interface SyncPreferencesState {
