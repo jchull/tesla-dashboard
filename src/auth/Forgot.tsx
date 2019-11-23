@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import {authenticationService} from '@service/Services';
+import {authenticationService} from '@service/index.ts';
 import {Redirect} from 'react-router';
 
 

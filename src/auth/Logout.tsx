@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {authenticationService} from '@service/Services';
+import {authenticationService} from '@service/index.ts';
 import {NavLink} from 'react-router-dom';
 
 
