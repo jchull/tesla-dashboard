@@ -12,7 +12,7 @@ export const ProductList: React.FC = () => {
   const productListState = useSelector((store: AppState) => store.productList);
   const dispatch = useDispatch();
 
-  const productSelectionHandler = (product: IVehicle) => dispatch(selectProduct(product));
+  const productSelectionHandler = (product: IVehicle) => dispatch(selectProduct(product._id));
 
   React.useEffect(() => {
     dispatch(fetchProductListAction());
@@ -26,7 +26,7 @@ export const ProductList: React.FC = () => {
                 product => <ProductListItem product={product}
                                             key={product.vin}
                                             handleSelection={productSelectionHandler}
-                                            selected={productListState.selectedProduct && productListState.selectedProduct.vin === product.vin}/>)
+                                            selected={productListState.selectedProductId === product._id}/>)
           }
         </div>
         <div className="product-view">

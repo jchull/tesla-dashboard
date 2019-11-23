@@ -12,7 +12,7 @@ export interface ProductListAction {
   type: ProductListActionType,
   payload?: {
     productList?: IVehicle[],
-    selectedProduct?: IVehicle,
+    selectedProductId?: string,
     message?: string
   }
 }
@@ -45,11 +45,11 @@ export function fetchProductListSuccess(productList: IVehicle[]): ProductListAct
 }
 
 
-export function selectProduct(selectedProduct: IVehicle): ProductListAction {
+export function selectProduct(selectedProductId: string): ProductListAction {
   return {
     type: ProductListActionType.SELECT_PRODUCT,
     payload: {
-      selectedProduct
+      selectedProductId
     }
   };
 }

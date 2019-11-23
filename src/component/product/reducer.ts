@@ -11,7 +11,7 @@ export function productListReducer(state = initialState, action: ProductListActi
     case ProductListActionType.SELECT_PRODUCT:
       return {
         ...state,
-        selectedProduct: action.payload && action.payload.selectedProduct
+        selectedProductId: action.payload && action.payload.selectedProductId
       };
     case ProductListActionType.FETCH_PRODUCT_LIST__START:
       return {
@@ -21,7 +21,7 @@ export function productListReducer(state = initialState, action: ProductListActi
       return {
         ...state,
         products: (action.payload? action.payload.productList : []) as IVehicle[],
-        selectedProduct: state.selectedProduct || (action.payload && action.payload.productList && action.payload.productList[0])
+        selectedProductId: state.selectedProductId || (action.payload && action.payload.productList && action.payload.productList[0]._id)
       }
     case ProductListActionType.FETCH_PRODUCT_LIST__FAIL:
       return {

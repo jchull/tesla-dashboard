@@ -11,13 +11,13 @@ export function sessionListReducer(state = initialState, action: SessionListActi
     case SessionListActionType.FETCH_SESSION_LIST__START:
       return {
         ...state,
-        selectedSession: action.payload && state.sessionList.find((session: IVehicleSession) => session._id === action.payload)
       };
 
     case SessionListActionType.FETCH_SESSION_LIST__SUCCESS:
       return {
         ...state,
-        sessionList: (action.payload ? action.payload.sessionList : []) as IVehicleSession[]
+        sessionList: (action.payload ? action.payload.sessionList : []) as IVehicleSession[],
+        selectedSessionId: action.payload && action.payload.selectedSessionId
       };
 
     case SessionListActionType.FETCH_SESSION_LIST__FAIL:

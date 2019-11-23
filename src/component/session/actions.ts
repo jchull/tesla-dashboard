@@ -12,7 +12,7 @@ export interface SessionListAction {
   type: SessionListActionType,
   payload?: {
     sessionList?: IVehicleSession[],
-    selectedSession?: IVehicleSession,
+    selectedSessionId?: string,
     message?: string
   }
 }
@@ -34,6 +34,13 @@ export const fetchSessionListSuccess = (sessionList: IVehicleSession[]): Session
     sessionList
   }
 });
+
+export const selectSession = (selectedSessionId: string): SessionListAction => ({
+  type:SessionListActionType.SELECT_SESSION,
+  payload: {
+    selectedSessionId
+  }
+})
 
 export const fetchSessionListAction =
     (vin:string) => async (dispatch: any, getState: any, extraArgument: {api:ApiType}): Promise<any> => {

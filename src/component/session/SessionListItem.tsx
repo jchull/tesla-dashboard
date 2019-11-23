@@ -28,7 +28,7 @@ export const SessionListItem: React.FC<SessionListItemState> = props => {
 
   return (
       <div className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}
-           onClick={() => props.selectionHandler(props.session)}>
+           onClick={() => props.selectionHandler(props.session._id)}>
         <div className="row">
           <i className="material-icons"
              style={iconStyle}>{sessionType === 'Drive' ? 'directions_car' : 'battery_charging_full'}</i>

@@ -10,7 +10,7 @@ export interface AppState {
 export interface SessionListState {
   sessionList: IVehicleSession[];
   vehicle?: IVehicle;
-  selectedSession?: IVehicleSession;
+  selectedSessionId?: string;
 }
 
 
@@ -33,7 +33,7 @@ export interface DriveListItemState {
 
 export interface ProductListState {
   products: IVehicle[];
-  selectedProduct?: IVehicle;
+  selectedProductId?: string;
 }
 
 
@@ -48,5 +48,5 @@ export interface SessionListItemState {
   session: IVehicleSession;
   selected: boolean;
 
-  selectionHandler(session: IVehicleSession): any;
+  selectionHandler(sessionId: string): any;
 }
