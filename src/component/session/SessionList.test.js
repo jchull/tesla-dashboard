@@ -3,7 +3,7 @@ import pretty          from 'pretty';
 import React           from 'react';
 
 
-import { ProductList } from './ProductList';
+import { SessionList } from './reducer';
 
 let wrapper;
 
@@ -22,9 +22,9 @@ afterEach(() => {
 });
 
 
-it('renders empty product list', () => {
+it('renders empty session list', () => {
   act(() => {
-    wrapper = render(<ProductList products={[]}/>);
+    wrapper = render(<SessionList sessions={[]}/>);
   });
   expect(pretty(wrapper.container.innerHTML))
     .toMatchSnapshot();

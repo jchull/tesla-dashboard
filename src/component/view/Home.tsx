@@ -1,7 +1,7 @@
 import React from 'react';
 import {AppState} from '../../store/types/state';
 import {NavLink} from 'react-router-dom';
-import {authenticationService} from '@service/Services';
+import {authenticationService} from '@service/index.ts';
 
 import './Home.scss';
 

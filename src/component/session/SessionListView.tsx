@@ -1,28 +1,23 @@
 import React from 'react';
-import {queryService} from '@service/Services';
-import {SessionList} from '@component/list/SessionList';
+import {SessionList} from '@component/session/index';
 import {IVehicle} from 'tesla-dashboard-api';
 import {AppState} from '@store/types/state';
 import {useDispatch, useSelector} from 'react-redux';
-import {ACTION_TYPES} from '../../store/actions';
+import {fetchSessionListAction} from '@component/session/actions';
 
 
 export interface VehicleViewProps {
   vehicle: IVehicle;
 }
 
-export const VehicleView: React.FC<VehicleViewProps> = (props) => {
+export const SessionListView: React.FC<VehicleViewProps> = (props) => {
 
   const sessionListState = useSelector((store: AppState) => store.sessionList);
-  const dispatcher = useDispatch();
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (props.vehicle.vin) {
-      console.log('fetching recent sessions...');
-      queryService.getRecentSessions(props.vehicle.vin, 200)
-                  .then((result) => {
-                    dispatcher({type: ACTION_TYPES.UPDATE_SESSION_LIST, sessionList: result});
-                  });
+      fetchSessionListAction(props.vehicle.vin);
     }
   }, [props.vehicle]);
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import './ChartToolbar.scss';
 import {IVehicle} from 'tesla-dashboard-api';
-import {queryService} from '@service/Services';
 import {useDispatch} from 'react-redux';
-import {ACTION_TYPES} from '../../store/actions';
 
 interface ToolbarState {
   product?: IVehicle;
@@ -15,22 +13,24 @@ export const ChartToolbar: React.FC<ToolbarState> = props => {
 
   const dispatch = useDispatch();
 
-
-  // TODO: consider using thunk to handle this w/ redux
   async function deleteCurrent() {
     const _id = props.sessionId;
-    const vin = props.product && props.product.vin;
-    if (_id && vin) {
-      const deleteCount = await queryService.removeSession(vin, _id);
-      if (deleteCount) {
-        console.log("deleted");
-        dispatch({type: ACTION_TYPES.DELETE_SESSION, sessionId: _id});
-      } else {
-        console.log("deletion error");
-      }
-    } else {
-      console.log("missing params");
+
+    if(_id){
+      // dispatch({type: ACTION_TYPES.DELETE_SESSION__START, sessionId: _id});
     }
+
+    // const vin = props.product && props.product.vin;
+    // if (_id && vin) {
+    //   const deleteCount = await queryService.removeSession(vin, _id);
+    //   if (deleteCount) {
+    //     console.log("deleted");
+    //   } else {
+    //     console.log("deletion error");
+    //   }
+    // } else {
+    //   console.log("missing params");
+    // }
   }
 
   return (

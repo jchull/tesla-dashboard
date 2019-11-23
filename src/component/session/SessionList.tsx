@@ -1,7 +1,7 @@
 import React from 'react';
 import './SessionList.scss';
 import {SessionListItem} from './SessionListItem';
-import {queryService} from '@service/Services';
+import {queryService} from '@service/index.ts';
 import {isDriveSession} from '../../type/util';
 import {LineChart} from '@component/chart/LineChart';
 import {SessionTagList} from '@component/vehicle/SessionTagList';

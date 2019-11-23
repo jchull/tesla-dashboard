@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.scss';
-import {ProductList} from '@component/list/ProductList';
+import {ProductList} from '@component/product/';
 import {LoginComponent} from './auth/Login';
 import {AccountComponent} from '@component/account/Account';
 import {PrivateRoute} from './auth/PrivateRoute';
