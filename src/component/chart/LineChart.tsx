@@ -94,38 +94,38 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           yAxisRight.transition()
                     .call(d3.axisRight(yScaleRight));
 
-          const chargeLimitLine = d3.line()
-                                    .x((d: any) => xScale(new Date(d.timestamp)))
-                                    // @ts-ignore
-                                    .y(yScaleLeft(props.session.charge_limit_soc || 80));
-          svg.append('path')
-             .datum(props.datum)
-             .attr('class', 'line charge_limit_soc')
-             // @ts-ignore
-             .attr('d', chargeLimitLine)
-             .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
-
-          const chargeMaxLimitLine = d3.line()
-                                       .x((d: any) => xScale(new Date(d.timestamp)))
-                                       // @ts-ignore
-                                       .y(yScaleLeft(props.session.charge_limit_soc_std || 80));
-          svg.append('path')
-             .datum(props.datum)
-             .attr('class', 'line charge_limit_soc_std')
-             // @ts-ignore
-             .attr('d', chargeMaxLimitLine)
-             .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
-
-          const chargeMinLimitLine = d3.line()
-                                       .x((d: any) => xScale(new Date(d.timestamp)))
-                                       // @ts-ignore
-                                       .y(yScaleLeft(props.session.charge_limit_soc_min || 20));
-          svg.append('path')
-             .datum(props.datum)
-             .attr('class', 'line charge_limit_soc_min')
-             // @ts-ignore
-             .attr('d', chargeMinLimitLine)
-             .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+          // const chargeLimitLine = d3.line()
+          //                           .x((d: any) => xScale(new Date(d.timestamp)))
+          //                           // @ts-ignore
+          //                           .y(yScaleLeft(props.session.charge_limit_soc || 80));
+          // svg.append('path')
+          //    .datum(props.datum)
+          //    .attr('class', 'line charge_limit_soc')
+          //    // @ts-ignore
+          //    .attr('d', chargeLimitLine)
+          //    .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+          //
+          // const chargeMaxLimitLine = d3.line()
+          //                              .x((d: any) => xScale(new Date(d.timestamp)))
+          //                              // @ts-ignore
+          //                              .y(yScaleLeft(props.session.charge_limit_soc_std || 80));
+          // svg.append('path')
+          //    .datum(props.datum)
+          //    .attr('class', 'line charge_limit_soc_std')
+          //    // @ts-ignore
+          //    .attr('d', chargeMaxLimitLine)
+          //    .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+          //
+          // const chargeMinLimitLine = d3.line()
+          //                              .x((d: any) => xScale(new Date(d.timestamp)))
+          //                              // @ts-ignore
+          //                              .y(yScaleLeft(props.session.charge_limit_soc_min || 20));
+          // svg.append('path')
+          //    .datum(props.datum)
+          //    .attr('class', 'line charge_limit_soc_min')
+          //    // @ts-ignore
+          //    .attr('d', chargeMinLimitLine)
+          //    .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
 
           const batteryLevelLine = d3.line()
