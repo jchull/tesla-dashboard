@@ -1,12 +1,19 @@
 import {AnyAction, applyMiddleware, combineReducers, createStore, Middleware, Store} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import reduxThunk, {ThunkDispatch, ThunkMiddleware} from 'redux-thunk';
-import {useDispatch} from 'react-redux';
 import {sessionListReducer} from '@component/session/reducer';
 import {productListReducer} from '@component/product/reducer';
 import {ApiType} from '@service/index';
-import {AppState} from '@store/types/state';
 
+import {SessionState} from '@component/session/actions';
+import {ProductState} from '@component/product/actions';
+
+export interface AppState {
+  product: ProductState,
+  session: SessionState,
+  //username?: string
+  // TODO: keep track of role for admin settings page
+}
 
 // @ts-ignore
 const logger = (store) => (next) => (action) => {
@@ -31,8 +38,8 @@ export function configureStore(services: ApiType): Store {
 
   return createStore(
       combineReducers<AppState>({
-                                  productList: productListReducer,
-                                  sessionList: sessionListReducer
+                                  product: productListReducer,
+                                  session: sessionListReducer
                                 }),
       composeWithDevTools(
           applyMiddleware(...middlewares)

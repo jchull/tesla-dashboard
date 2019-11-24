@@ -1,12 +1,8 @@
 import React from 'react';
-import {AppState} from '../../store/types/state';
 import {NavLink} from 'react-router-dom';
 import {authenticationService} from '@service/index.ts';
 
-import './Home.scss';
-
-export const Home: React.FC<AppState> = () => {
-
+export const Home: React.FC = () => {
 
   return (
       <div className='home centered'>

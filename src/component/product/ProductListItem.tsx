@@ -1,5 +1,4 @@
 import React from 'react';
-import './ProductListItem.scss';
 import numbro from 'numbro';
 import {BatteryLevelIcon} from '../common/BatteryLevelIcon';
 import moment from 'moment';
@@ -12,7 +11,7 @@ export const ProductListItem: React.FC<ProductListItemState> = props => {
                            .humanize();
   return (
       <div className="list-item product red_pinwheel18"
-           onClick={() => props.handleSelection(props.product)}>
+           onClick={() => props.handleSelection(props.product._id)}>
         <div className="row">
           <h2 className="name">{props.product.display_name}</h2>
           <div className="battery_level end">

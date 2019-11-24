@@ -1,5 +1,4 @@
 import React from 'react';
-import './SessionListItem.scss';
 import moment from 'moment';
 import numbro from 'numbro';
 import {DriveListItemState} from '@store/types/state';

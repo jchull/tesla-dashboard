@@ -1,39 +1,28 @@
 import React from 'react';
 import {ProductListItem} from './ProductListItem';
-import {SessionListView} from '../session/SessionListView';
-import './ProductList.scss';
+import './style.scss';
 import {IVehicle} from 'tesla-dashboard-api';
-import {AppState} from '../../store/types/state';
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchProductListAction, fetchProductListStart, selectProduct} from './actions';
+import {useDispatch} from 'react-redux';
+import {fetchProductListAction, ProductState, selectProduct} from './actions';
 
 
-export const ProductList: React.FC = () => {
-  const productListState = useSelector((store: AppState) => store.productList);
+export const ProductList: React.FC<ProductState> = (props) => {
   const dispatch = useDispatch();
-
-  const productSelectionHandler = (product: IVehicle) => dispatch(selectProduct(product._id));
 
   React.useEffect(() => {
     dispatch(fetchProductListAction());
   }, []);
 
   return (
-      <div>
-        <div className="product-list">
-          {
-            productListState.products && productListState.products.map(
-                product => <ProductListItem product={product}
-                                            key={product.vin}
-                                            handleSelection={productSelectionHandler}
-                                            selected={productListState.selectedProductId === product._id}/>)
-          }
-        </div>
-        <div className="product-view">
-          <SessionListView/>
-        </div>
+      <div className="product-list">
+        {
+          props.products.map(
+              (product: IVehicle) => <ProductListItem product={product}
+                                                      key={product._id}
+                                                      handleSelection={() => dispatch(selectProduct(product._id))}
+                                                      selected={props.selectedProductId === product._id}/>)
+        }
       </div>
-
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import './LineChart.scss';
-import {IVehicle, IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
+import {IChargeState, IDriveState, IVehicleState} from 'tesla-dashboard-api';
 
 
 interface Margin {
@@ -19,11 +19,9 @@ interface ChartConfig {
   margin: Margin;
 }
 
-interface LineChartState {
-  vehicle: IVehicle;
-  session: IVehicleSession;
-  states: IVehicleState[];
-  config?: ChartConfig;
+interface LineChartProps {
+  datum: IChargeState[] | IDriveState[];
+  options?: ChartConfig;
 }
 
 const defaultConfig = {
@@ -35,9 +33,9 @@ const defaultConfig = {
   yAxisWidth: 25
 };
 
-export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
+export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
   const container = React.createRef<SVGSVGElement>();
-  const [config, setConfig] = React.useState(props.config || defaultConfig);
+  const [config, setConfig] = React.useState(props.options || defaultConfig);
   const [innerWidth, setInnerWidth] = React.useState(config.width - config.margin.left - config.margin.right);
   const [innerHeight, setInnerHeight] = React.useState(config.height - config.margin.top - config.margin.bottom);
 
@@ -52,10 +50,9 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
            .remove();
 
 
-        if (props.states && config && container.current) {
+        if (props.datum && config && container.current) {
           const yDomainLeft = [0, 100];
-          // @ts-ignore
-          const maxValRight = d3.max(props.states.map(vehicleState => vehicleState.charger_power + 10 || 150));
+          const maxValRight = 300;
 
           const yDomainRight = d3.extent([0, maxValRight]) as number[];
           const xScale = d3.scaleTime()
@@ -78,10 +75,8 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                 .attr('transform', `translate(${config.margin.left + innerWidth} , ${config.margin.top})`)
                                 .call(d3.axisRight(yScaleRight));
 
-          const startTime = new Date(props.session.first.timestamp);
-          const endTime = new Date(props.session.last ? props.session.last.timestamp : Date.now());
-          const xDomain = [startTime, endTime];
-          xScale.domain(xDomain);
+          // @ts-ignore
+          xScale.domain(d3.extent(props.datum, (data: IVehicleState) => new Date(data.timestamp)) as [Date,Date]);
 
 
           xAxis.transition()
@@ -104,7 +99,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                     // @ts-ignore
                                     .y(yScaleLeft(props.session.charge_limit_soc || 80));
           svg.append('path')
-             .datum(props.states)
+             .datum(props.datum)
              .attr('class', 'line charge_limit_soc')
              // @ts-ignore
              .attr('d', chargeLimitLine)
@@ -115,7 +110,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                        // @ts-ignore
                                        .y(yScaleLeft(props.session.charge_limit_soc_std || 80));
           svg.append('path')
-             .datum(props.states)
+             .datum(props.datum)
              .attr('class', 'line charge_limit_soc_std')
              // @ts-ignore
              .attr('d', chargeMaxLimitLine)
@@ -126,7 +121,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                        // @ts-ignore
                                        .y(yScaleLeft(props.session.charge_limit_soc_min || 20));
           svg.append('path')
-             .datum(props.states)
+             .datum(props.datum)
              .attr('class', 'line charge_limit_soc_min')
              // @ts-ignore
              .attr('d', chargeMinLimitLine)
@@ -137,7 +132,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                                      .x((d: any) => xScale(new Date(d.timestamp)))
                                      .y((d: any) => yScaleLeft(d.battery_level));
           svg.append('path')
-             .datum(props.states)
+             .datum(props.datum)
              .attr('class', 'line battery_level')
              // @ts-ignore
              .attr('d', batteryLevelLine)
@@ -150,7 +145,7 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
                               .x((d: any) => xScale(new Date(d.timestamp)))
                               .y((d: any) => yScaleRight(d.charger_power || 0));
           svg.append('path')
-             .datum(props.states)
+             .datum(props.datum)
              .attr('class', 'line charger_power')
              // @ts-ignore
              .attr('d', powerLine)
@@ -158,11 +153,11 @@ export const LineChart: React.FC<LineChartState> = (props: LineChartState) => {
 
         }
       },
-      [props.states, config]);
+      [props.datum, config]);
 
   return (
       <div>
-        {props.states &&
+        {props.datum &&
 
         <div className="chart-container">
           <svg

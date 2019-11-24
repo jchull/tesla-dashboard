@@ -1,5 +1,4 @@
 import React from 'react';
-import './SessionListItem.scss';
 import moment from 'moment';
 import {isDriveSession, isoDurationToHuman} from '../../type/util';
 import {ChargeListItem} from './ChargeListItem';

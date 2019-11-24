@@ -21,13 +21,8 @@ export class QueryService {
     return result && result.data;
   }
 
-  async getChargingStates(vin: string, chargeSessionId: string): Promise<IChargeState[]> {
-    const result = await this.api.get(`/vehicle/${vin}/charge/${chargeSessionId}`);
-    return result && result.data;
-  }
-
-  async getDrivingStates(vin: string, driveSessionId: string): Promise<IDriveState[]> {
-    const result = await this.api.get(`/vehicle/${vin}/drive/${driveSessionId}`);
+  async getSessionDetails(sessionId: string): Promise<IChargeState[] | IDriveState[]> {
+    const result = await this.api.get(`/session/${sessionId}`);
     return result && result.data;
   }
 

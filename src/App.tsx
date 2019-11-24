@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.scss';
-import {ProductList} from '@component/product/';
 import {LoginComponent} from './auth/Login';
 import {AccountComponent} from '@component/account/Account';
 import {PrivateRoute} from './auth/PrivateRoute';
@@ -11,6 +10,7 @@ import {UserPreferences} from '@component/account/UserPreferences';
 import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 import {SyncPreferencesList} from '@component/account/SyncPreferencesList';
 import {ForgotPassword} from './auth/Forgot';
+import {ProductSessionView} from '@component/view/ProductSessionView';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
@@ -38,7 +38,7 @@ export const App: FC = () => {
           <PrivateRoute path={'/preferences'}
                         component={UserPreferences}/>
           <PrivateRoute path="/products"
-                        component={ProductList}/>
+                        component={ProductSessionView}/>
           <Route component={NotFound}/>
         </Switch>
       </Router>

@@ -1,6 +1,12 @@
 import {IVehicle} from 'tesla-dashboard-api';
 import {ApiType} from '@service/index';
 
+
+export interface ProductState {
+  products: IVehicle[];
+  selectedProductId?: string;
+}
+
 export enum ProductListActionType {
   FETCH_PRODUCT_LIST__START = 'FETCH_PRODUCT_LIST__START',
   FETCH_PRODUCT_LIST__FAIL = 'FETCH_PRODUCT_LIST__FAIL',
@@ -16,6 +22,7 @@ export interface ProductListAction {
     message?: string
   }
 }
+
 
 export function fetchProductListStart(): ProductListAction {
   return {
@@ -55,13 +62,13 @@ export function selectProduct(selectedProductId: string): ProductListAction {
 }
 
 export const fetchProductListAction =
-    () => async (dispatch: any, getState: any, extraArgument: {api:ApiType}): Promise<any> => {
+    () => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(fetchProductListStart());
       return extraArgument.api.queryService.getProducts()
-                .then((result: IVehicle[]) => {
-                  dispatch(fetchProductListSuccess(result));
-                })
-                .catch(() => dispatch(fetchProductListFail()));
+                          .then((result: IVehicle[]) => {
+                            dispatch(fetchProductListSuccess(result));
+                          })
+                          .catch(() => dispatch(fetchProductListFail()));
     };
 
 

@@ -1,60 +1,50 @@
 import React from 'react';
-import './SessionList.scss';
+import './style.scss';
 import {SessionListItem} from './SessionListItem';
-import {queryService} from '@service/index.ts';
 import {isDriveSession} from '../../type/util';
 import {LineChart} from '@component/chart/LineChart';
-import {SessionTagList} from '@component/vehicle/SessionTagList';
-import {IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
-import {SessionListState} from '@store/types/state';
-import {ChartToolbar} from '@component/chart/ChartToolbar';
+import {IVehicle, IVehicleSession, IVehicleState} from 'tesla-dashboard-api';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchSessionListAction, selectSession, SessionState} from '@component/session/actions';
+import {AppState} from '@store/store';
 
 
-export const SessionList: React.FC<SessionListState> = props => {
-  const [selectedSession, setSelectedSession] = React.useState({} as IVehicleSession);
+export const SessionList: React.FC<SessionState> = (props) => {
+
+  const dispatch = useDispatch();
+  const selectedSessionId = useSelector((store:AppState) => store.session.selectedSessionId);
   const [selectedDatum, setSelectedDatum] = React.useState([] as IVehicleState[]);
 
-  const sessionSelectionHandler = (session: IVehicleSession) => setSelectedSession(Object.assign({}, session));
+  const sessionSelectionHandler = (sessionId: string) => dispatch(selectSession(sessionId));
+
+
 
   React.useEffect(() => {
-    if (selectedSession._id && props.vehicle) {
-      if (isDriveSession(selectedSession)) {
-        queryService.getDrivingStates(props.vehicle.vin, selectedSession._id)
-                    .then(setSelectedDatum);
-      } else {
-        queryService.getChargingStates(props.vehicle.vin, selectedSession._id)
-                    .then(setSelectedDatum);
-      }
+    if (props.sessions.length && !props.sessions.find((session) => session._id === selectedSessionId)) {
+      // setSelectedSession(props.sessionList[0]);
     }
-
-  }, [selectedSession]);
-
-  React.useEffect(() => {
-    if (props.sessionList.length && !props.sessionList.find((session) => session._id === selectedSession._id)) {
-      setSelectedSession(props.sessionList[0]);
-    }
-  }, [props.sessionList]);
+  }, [props.sessions]);
 
   return (
       <div className="session-list-container">
         <div className="session-list">
           {
-            props.sessionList.map(session =>
+            props.sessions.map(session =>
                                       <SessionListItem session={session}
-                                                       selected={session._id === selectedSession._id}
-                                                       selectionHandler={() => sessionSelectionHandler(session)}
+                                                       selected={session._id === selectedSessionId}
+                                                       selectionHandler={() => sessionSelectionHandler(session._id)}
                                                        key={session._id}/>)
           }
         </div>
-        {selectedSession && selectedDatum && selectedDatum.length > 0 && props.vehicle ?
+        {selectedSessionId && selectedDatum && selectedDatum.length > 0 ?
          <div className="selected-view">
-           <LineChart vehicle={props.vehicle}
-                      session={selectedSession}
-                      states={selectedDatum}/>
-           <SessionTagList vehicleId={props.vehicle.vin}
-                           sessionId={selectedSession._id}
-                           tags={selectedSession.tags}/>
-           <ChartToolbar product={props.vehicle} sessionId={selectedSession._id}/>
+           {/*<LineChart vehicle={props.vehicle}*/}
+           {/*           session={selectedSession}*/}
+           {/*           states={selectedDatum}/>*/}
+           {/*/!*<SessionTagList vehicleId={props.vehicle.vin}*!/*/}
+           {/*                sessionId={selectedSessionId}*/}
+           {/*                tags={selectedSession.tags}/>*/}
+           {/*<ChartToolbar product={props.vehicle} sessionId={selectedSessionId}/>*/}
 
          </div>
                                                                                        :

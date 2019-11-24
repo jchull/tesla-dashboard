@@ -46,3 +46,62 @@ h4 {
 
 
 
+.list-item {
+  padding: 6px;
+  border-bottom: 1px solid rgb(153, 154, 156);
+  flex-direction: row;
+
+  &.drive {
+    h5 {
+      color: rgb(102, 102, 102);
+    }
+
+    i.material-icons {
+      color: rgb(174, 176, 178);
+    }
+  }
+
+  &.charge {
+    h5 {
+      color: #ffffff;
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      text-align: center;
+      padding-top: 3px;
+      box-sizing: border-box;
+    }
+  }
+
+  &.selected {
+    background: #eeeeee;
+  }
+
+  .row {
+    display: flex;
+    line-height: 30px;
+
+    span {
+      margin-right: 6px;
+    }
+  }
+}
+
+
+.start {
+  margin: 0 4px;
+  vertical-align: bottom;
+}
+
+.end {
+  flex: auto;
+  text-align: end;
+  margin: 0 4px;
+}
+
+
+.smtxt {
+  padding-left: 4px;
+  padding-right: 4px;
+}
