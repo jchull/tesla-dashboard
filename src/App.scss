@@ -150,3 +150,8 @@ div {
     color: #333;
   }
 }
+
+.block-flow {
+  display: flex;
+  flex: 1 1 100%;
+}

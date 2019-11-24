@@ -1,7 +1,7 @@
 import React from 'react';
 import {SessionList} from '@component/session';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchSessionDetailsAction, fetchSessionListAction, selectSession} from '@component/session/actions';
+import {fetchSessionDetailsAction, fetchSessionListAction} from '@component/session/actions';
 import {AppState} from '@store/store';
 import {ProductList} from '@component/product';
 import {LineChart} from '@component/chart/LineChart';
@@ -37,7 +37,7 @@ export const ProductSessionView: React.FC = () => {
   return (
       <div>
         <ProductList products={products} selectedProductId={selectedProductId}/>
-        <div>
+        <div className="block-flow">
           <SessionList sessions={sessions} selectedSessionId={selectedSessionId}/>
           {
             selectedSessionStates ?

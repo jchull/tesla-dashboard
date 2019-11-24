@@ -1,9 +1,11 @@
 import React from 'react';
-import {ProductListItem} from './ProductListItem';
-import './style.scss';
-import {IVehicle} from 'tesla-dashboard-api';
 import {useDispatch} from 'react-redux';
+
+import {IVehicle} from 'tesla-dashboard-api';
+import {ProductListItem} from './ProductListItem';
 import {fetchProductListAction, ProductState, selectProduct} from './actions';
+
+import './style.scss';
 
 
 export const ProductList: React.FC<ProductState> = (props) => {
