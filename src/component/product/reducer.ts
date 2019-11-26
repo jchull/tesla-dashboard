@@ -1,35 +1,23 @@
 import {IVehicle} from 'tesla-dashboard-api';
 import {ProductListState} from '@store/types/state';
-import {ProductListAction, ProductListActionType} from './actions';
+import {createReducer} from '@reduxjs/toolkit';
 
 const initialState: ProductListState = {
   products: [] as IVehicle[]
 };
 
-export function productListReducer(state = initialState, action: ProductListAction): ProductListState {
-  switch (action.type) {
-    case ProductListActionType.SELECT_PRODUCT:
-      return {
-        ...state,
-        selectedProductId: action.payload && action.payload.selectedProductId
-      };
-    case ProductListActionType.FETCH_PRODUCT_LIST__START:
-      return {
-        ...state
-      };
-    case ProductListActionType.FETCH_PRODUCT_LIST__SUCCESS:
-      return {
-        ...state,
-        products: (action.payload ? action.payload.productList : []) as IVehicle[],
-        selectedProductId: state.selectedProductId || (action.payload && action.payload.productList && action.payload.productList[0]._id)
-      };
-    case ProductListActionType.FETCH_PRODUCT_LIST__FAIL:
-      return {
-        ...state,
-        products: []
-      };
+export const productListReducer = createReducer(initialState, {
+  SELECT_PRODUCT: (state, action) => {
+    state.selectedProductId = action.payload && action.payload.selectedProductId;
+  },
+  FETCH_PRODUCT_LIST__START: (state, action) => {
 
-    default:
-      return state;
+  },
+  FETCH_PRODUCT_LIST__SUCCESS: (state, action) => {
+    state.products = (action.payload ? action.payload.productList : []) as IVehicle[];
+    state.selectedProductId = state.selectedProductId || (action.payload && action.payload.productList && action.payload.productList[0]._id);
+  },
+  FETCH_PRODUCT_LIST__FAIL: (state, action) => {
+
   }
-}
+});
