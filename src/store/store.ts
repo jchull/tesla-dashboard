@@ -1,19 +1,12 @@
-import {AnyAction, applyMiddleware, combineReducers, createStore, Middleware, Store} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import reduxThunk, {ThunkDispatch, ThunkMiddleware} from 'redux-thunk';
-import {sessionListReducer} from '@component/session/reducer';
-import {productListReducer} from '@component/product/reducer';
+import {Action, AnyAction, Middleware, Store} from 'redux';
+import {configureStore as configureReduxStore} from '@reduxjs/toolkit';
+import reduxThunk, {ThunkAction, ThunkDispatch, ThunkMiddleware} from 'redux-thunk';
+
 import {ApiType} from '@service/index';
+import {rootReducer} from './reducer';
 
-import {SessionState} from '@component/session/actions';
-import {ProductState} from '@component/product/actions';
-
-export interface AppState {
-  product: ProductState,
-  session: SessionState,
-  //username?: string
-  // TODO: keep track of role for admin settings page
-}
+export type AppState = ReturnType<typeof rootReducer>;
+export type AppThunk = ThunkAction<void, AppState, {api:ApiType}, Action<string>>;
 
 // @ts-ignore
 const logger = (store) => (next) => (action) => {
@@ -36,14 +29,10 @@ export function configureStore(services: ApiType): Store {
     middlewares.push(logger);
   }
 
-  return createStore(
-      combineReducers<AppState>({
-                                  product: productListReducer,
-                                  session: sessionListReducer
-                                }),
-      composeWithDevTools(
-          applyMiddleware(...middlewares)
-      )
+  return configureReduxStore({
+                               reducer: rootReducer,
+                               middleware: middlewares
+                             }
   );
 };
 
