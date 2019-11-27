@@ -1,5 +1,6 @@
 import {IVehicle} from 'tesla-dashboard-api';
 import {ApiType} from '@service/index';
+import {createAction} from '@reduxjs/toolkit';
 
 
 export interface ProductState {
@@ -7,59 +8,21 @@ export interface ProductState {
   selectedProductId?: string;
 }
 
-export enum ProductListActionType {
-  FETCH_PRODUCT_LIST__START = 'FETCH_PRODUCT_LIST__START',
-  FETCH_PRODUCT_LIST__FAIL = 'FETCH_PRODUCT_LIST__FAIL',
-  FETCH_PRODUCT_LIST__SUCCESS = 'FETCH_PRODUCT_LIST__SUCCESS',
-  SELECT_PRODUCT = 'SELECT_PRODUCT'
-}
 
-export interface ProductListAction {
-  type: ProductListActionType,
-  payload?: {
-    productList?: IVehicle[],
-    selectedProductId?: string,
-    message?: string
+export const fetchProductListStart = createAction('FETCH_PRODUCT_LIST__START');
+export const fetchProductListFail = createAction('FETCH_PRODUCT_LIST__FAIL');
+
+export const fetchProductListSuccess = createAction('FETCH_PRODUCT_LIST__SUCCESS', (products: IVehicle[]) => ({
+  payload: {
+    productList: products
   }
-}
+}));
 
-
-export function fetchProductListStart(): ProductListAction {
-  return {
-    type: ProductListActionType.FETCH_PRODUCT_LIST__START,
-    payload: {
-      message: 'fetching products...'
-    }
-  };
-}
-
-export function fetchProductListFail(): ProductListAction {
-  return {
-    type: ProductListActionType.FETCH_PRODUCT_LIST__FAIL,
-    payload: {
-      message: 'failed to fetch product list'
-    }
-  };
-}
-
-export function fetchProductListSuccess(productList: IVehicle[]): ProductListAction {
-  return {
-    type: ProductListActionType.FETCH_PRODUCT_LIST__SUCCESS,
-    payload: {
-      productList
-    }
-  };
-}
-
-
-export function selectProduct(selectedProductId: string): ProductListAction {
-  return {
-    type: ProductListActionType.SELECT_PRODUCT,
-    payload: {
-      selectedProductId
-    }
-  };
-}
+export const selectProduct = createAction('SELECT_PRODUCT', (productId:string) => ({
+  payload: {
+    selectedProductId: productId
+  }
+}));
 
 export const fetchProductListAction =
     () => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
