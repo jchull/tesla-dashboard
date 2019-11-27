@@ -6,6 +6,7 @@ import {ApiType} from '@service/index';
 import {rootReducer} from './reducer';
 
 export type AppState = ReturnType<typeof rootReducer>;
+// export type AppDispatch = typeof store.dispatch;
 export type AppThunk = ThunkAction<void, AppState, {api:ApiType}, Action<string>>;
 
 // @ts-ignore

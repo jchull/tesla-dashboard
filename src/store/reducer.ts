@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import {combineReducers} from '@reduxjs/toolkit';
 import {authReducer} from '../auth/reducer';
 import {productListReducer} from '@component/product/reducer';
 import {sessionListReducer} from '@component/session/reducer';
