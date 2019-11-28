@@ -1,13 +1,14 @@
 pipeline {
-    agent {
-        docker 'node:12-alpine'
-    }
+    agent none
     environment {
             CI = 'true'
             HOME= '.'
     }
     stages {
         stage('Build') {
+            agent {
+                docker 'node:12-alpine'
+            }
             steps {
                 sh 'npm -v'
                 sh 'node --version'
@@ -16,6 +17,9 @@ pipeline {
             }
         }
          stage('Test') {
+            agent {
+                docker 'node:12-alpine'
+            }
             steps {
                 sh 'npm test'
             }
