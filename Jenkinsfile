@@ -1,22 +1,27 @@
-node('master') {
-    stage('environment'){
-        env.BRANCH_NAME = 'master'
-        env.CI = 'true'
-        env.HOME = '.'
-            sh 'npm -v'
-            sh 'node --version'
-
+pipeline {
+    agent {
+        docker {
+            image 'node:12-alpine'
+            args '-p 3001:3001'
+        }
     }
-
-    stage('checkout') {
-        checkout scm
+    environment {
+            CI = 'true'
+            HOME= '.'
     }
-
-    stage('setup') {
-            sh 'npm ci'
-    }
-
-    stage('test') {
-            sh 'npm test'
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm -v'
+                sh 'node --version'
+                sh 'ls -la'
+                sh 'npm ci'
+            }
+        }
+         stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
     }
 }
