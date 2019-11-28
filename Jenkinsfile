@@ -16,7 +16,6 @@ pipeline {
                 sh 'node --version'
                 sh 'ls -la'
                 sh 'whoami'
-                sh 'group'
                 sh 'npm ci'
             }
         }
