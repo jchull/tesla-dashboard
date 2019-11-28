@@ -13,6 +13,7 @@ pipeline {
             steps {
                 sh 'npm -v'
                 sh 'node --version'
+                sh 'ls -la'
                 sh 'npm ci'
             }
         }
