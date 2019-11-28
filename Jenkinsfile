@@ -15,7 +15,7 @@ pipeline {
                 sh 'npm -v'
                 sh 'node --version'
                 sh 'ls -la'
-                sh 'npm ci'
+                sh 'npm i reactjs'
             }
         }
          stage('Test') {
