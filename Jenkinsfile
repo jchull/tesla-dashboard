@@ -3,7 +3,7 @@ node('master') {
         env.BRANCH_NAME = 'master'
         env.CI = 'true'
         env.HOME = '.'
-        withNPM('nodejs') {
+        withNPM() {
             sh 'npm -v'
             sh 'node --version'
         }
@@ -15,13 +15,13 @@ node('master') {
     }
 
     stage('setup') {
-        withNPM('nodejs') {
+        withNPM() {
             sh 'npm ci'
         }
     }
 
     stage('test') {
-         withNPM('nodejs') {
+         withNPM() {
             sh 'npm test'
         }
     }
