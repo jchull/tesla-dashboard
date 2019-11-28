@@ -9,9 +9,6 @@ pipeline {
             CI = 'true'
     }
     stages {
-        stage('Checkout') {
-          checkout scm
-        }
         stage('Build') {
             steps {
                 sh 'npm -v'
