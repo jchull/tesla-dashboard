@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:12-buster'
+            image 'node:12-alpine'
             args '-p 3001:3001'
         }
     }
@@ -9,7 +9,9 @@ pipeline {
             CI = 'true'
     }
     stages {
-
+        stage('Checkout') {
+          checkout scm
+        }
         stage('Build') {
             steps {
                 sh 'npm -v'
