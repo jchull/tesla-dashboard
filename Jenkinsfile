@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:12-alpine'
-            args '-u node -p 3001:3001'
+            args '-u root -p 3001:3001'
         }
     }
     environment {
@@ -15,7 +15,7 @@ pipeline {
                 sh 'npm -v'
                 sh 'node --version'
                 sh 'ls -la'
-                sh 'npm i reactjs'
+                sh 'npm ci'
             }
         }
          stage('Test') {
