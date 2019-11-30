@@ -62,9 +62,9 @@ export class AuthenticationService {
     return sessionStorage.getItem('access_token');
   }
 
-  logout() {
+  logout(): Promise<void> {
     sessionStorage.removeItem('access_token');
-    this.api.get('/logout');
+    return this.api.get('/logout');
   }
 
 

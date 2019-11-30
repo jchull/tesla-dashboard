@@ -18,11 +18,11 @@ export const api = axios.create({
                                   }
                                 });
 
-export const authenticationService = new AuthenticationService(api);
-export const userService = new UserService(api);
-export const queryService = new QueryService(api);
+const authenticationService = new AuthenticationService(api);
+const userService = new UserService(api);
+const queryService = new QueryService(api);
 
-const services = {api, authenticationService, userService, queryService};
+const services = {api, auth: authenticationService, userService, queryService};
 export type ApiType = typeof services;
 export default services;
 
