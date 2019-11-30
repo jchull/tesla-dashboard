@@ -5,40 +5,50 @@ import {LoginComponent} from './auth/Login';
 import {AccountComponent} from '@component/account/Account';
 import {PrivateRoute} from './auth/PrivateRoute';
 import {Home} from '@component/view/Home';
-import {LogoutComponent} from './auth/Logout';
 import {UserPreferences} from '@component/account/UserPreferences';
 import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 import {SyncPreferencesList} from '@component/account/SyncPreferencesList';
 import {ForgotPassword} from './auth/Forgot';
 import {ProductSessionView} from '@component/view/ProductSessionView';
+import {useSelector} from 'react-redux';
+import {AppState} from '@store/store';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
 export const App: FC = () => {
+  const auth = useSelector((store: AppState) => store.auth);
 
   const routing = (
       <Router>
         <Switch>
           <Route path="/login"
                  component={LoginComponent}/>
-          <Route path="/logout"
-                 component={LogoutComponent}/>
           <Route path="/signup"
                  component={AccountComponent}/>
           <Route path="/forgot"
                  component={ForgotPassword}/>
 
           <PrivateRoute exact
-                        path='/'
-                        component={Home}/>
-          <PrivateRoute path={'/tesla-account'}
-                        component={TeslaAccountListComponent}/>
-          <PrivateRoute path={'/sync-preferences'}
-                        component={SyncPreferencesList}/>
-          <PrivateRoute path={'/preferences'}
-                        component={UserPreferences}/>
+                        path="/"
+                        component={Home}
+                        auth={auth}
+          />
+          <PrivateRoute path="/tesla-account"
+                        component={TeslaAccountListComponent}
+                        auth={auth}
+          />
+          <PrivateRoute path="/sync-preferences"
+                        component={SyncPreferencesList}
+                        auth={auth}
+          />
+          <PrivateRoute path="/preferences"
+                        component={UserPreferences}
+                        auth={auth}
+          />
           <PrivateRoute path="/products"
-                        component={ProductSessionView}/>
+                        component={ProductSessionView}
+                        auth={auth}
+          />
           <Route component={NotFound}/>
         </Switch>
       </Router>

@@ -1,15 +1,22 @@
 import React from 'react';
-import {Redirect, Route} from 'react-router-dom';
-import {authenticationService} from '@service/index.ts';
+import {Redirect, Route, RouteProps} from 'react-router-dom';
+import {AuthState} from '../auth/actions';
 
-// @ts-ignore
-export const PrivateRoute = ({component: Component, ...rest}) => (
-    <Route {...rest} render={props => {
-      if (!authenticationService.loggedIn()) {
-        // not logged in so redirect to login page with the return url
-        return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
-      }
-      // authorized so return component
-      return <Component {...props} />;
-    }}/>
-);
+
+interface PrivateRouteProps extends RouteProps {
+  component: any;
+  auth: AuthState;
+}
+
+export const PrivateRoute: React.FC<PrivateRouteProps> = (props) => {
+  const Component = props.component;
+  return (
+      <Route {...props} render={(props) => {
+        // @ts-ignore
+        if (!props.auth.username) {
+          return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
+        }
+        return <Component {...props} />;
+      }}/>
+  );
+};
