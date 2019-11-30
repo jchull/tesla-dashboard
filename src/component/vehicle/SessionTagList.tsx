@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {TagList} from '../common/TagList';
-import {queryService} from '@service/index.ts';
+import services from '@service/index.ts';
 import {SessionTagListProps} from '../../store/types/state';
 
 export const SessionTagList: React.FC<SessionTagListProps> = props => {
@@ -10,12 +10,12 @@ export const SessionTagList: React.FC<SessionTagListProps> = props => {
   }
 
   async function addListener(tag: string): Promise<any> {
-    const newTags = await queryService.addTag(props.vehicleId, props.sessionId, tag);
+    const newTags = await services.queryService.addTag(props.vehicleId, props.sessionId, tag);
     setTags(tagsToDisplay(newTags));
   }
 
   async function removeListener(tag: string): Promise<any> {
-    const newTags = await queryService.removeTag(props.vehicleId, props.sessionId, tag);
+    const newTags = await services.queryService.removeTag(props.vehicleId, props.sessionId, tag);
     setTags(tagsToDisplay(newTags));
   }
 

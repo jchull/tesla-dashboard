@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ISyncPreferences, IVehicle, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
 import {SyncPreferences} from './SyncPreferences';
-import {authenticationService, queryService} from '@service/index.ts';
+import services from '@service/index.ts';
 
 
 export const SyncPreferencesList: FC = props => {
@@ -10,9 +10,9 @@ export const SyncPreferencesList: FC = props => {
   const [selectedProduct, setSelectedProduct] = useState({} as IVehicle);
 
   useEffect(() => {
-    const username = authenticationService.getUsername();
+    const username = services.auth.getUsername();
     if (username) {
-      queryService.getProducts()
+      services.queryService.getProducts()
                  .then((data: [IVehicle] | undefined) => data && setProducts(data));
     }
   }, []);

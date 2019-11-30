@@ -1,6 +1,7 @@
 import React from 'react';
 import {SessionList} from '@component/session';
 import {useDispatch, useSelector} from 'react-redux';
+import {createSelector} from 'reselect';
 import {fetchSessionDetailsAction, fetchSessionListAction} from '@component/session/actions';
 import {AppState} from '@store/store';
 import {ProductList} from '@component/product';

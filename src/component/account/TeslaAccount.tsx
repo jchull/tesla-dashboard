@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {ITeslaAccount} from 'tesla-dashboard-api';
-import {userService} from '@service/index.ts';
+import services from '@service/index.ts';
 
 
 interface TeslaAccountProps {
@@ -22,7 +22,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
   async function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
     // TODO: Validation
-    await userService.updateTeslaAccount(account);
+    await services.userService.updateTeslaAccount(account);
   }
 
   useEffect(() => {

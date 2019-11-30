@@ -1,13 +1,16 @@
 import React, {ChangeEvent, useState} from 'react';
-import {authenticationService} from '@service/index.ts';
 import {Redirect} from 'react-router';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppState} from '@store/store';
+import {loginAction} from './actions';
 
 
 export const LoginComponent = () => {
 
   const [credentials, setCredentials] = useState({username: '', password: ''});
-  const [loggedIn, setLoggedIn] = useState(authenticationService.loggedIn());
-  const [message, setMessage] = useState();
+  const loggedIn = useSelector((store:AppState) => store.auth.loggedIn);
+  const message = useSelector((store:AppState) => store.auth.message);
+  const dispatch = useDispatch();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const {username, password} = Object.assign({}, credentials, {[event.target.name]: event.target.value});
@@ -17,11 +20,7 @@ export const LoginComponent = () => {
   async function handleSubmit(event: any) {
     event.preventDefault();
     const {username, password} = credentials;
-    const result = await authenticationService.login(username, password);
-    if (!result) {
-      setMessage('Login failed');
-    }
-    setLoggedIn(result);
+    dispatch(loginAction(username,password));
   }
 
   return (

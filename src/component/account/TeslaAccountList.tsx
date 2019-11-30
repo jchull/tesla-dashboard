@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ITeslaAccount} from 'tesla-dashboard-api';
-import {authenticationService, userService} from '@service/index.ts';
+import services from '@service/index.ts';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
 
@@ -22,9 +22,9 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
   }
 
   useEffect(() => {
-    username = authenticationService.getUsername();
+    username = services.auth.getUsername();
     if (username) {
-      userService.getTeslaAccounts(username)
+      services.userService.getTeslaAccounts(username)
                  .then((data: [ITeslaAccount] | undefined) => data && setAccounts(data));
     }
   }, []);

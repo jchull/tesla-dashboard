@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {IUser} from 'tesla-dashboard-api';
-import {userService} from '@service/index.ts';
+import services from '@service/index.ts';
 
 interface AccountProps {
   user?: IUser;
@@ -29,7 +29,7 @@ export const AccountComponent: FC<AccountProps> = props => {
     }
 
     // TODO: for updates, check for _id?
-    await userService.createUser(user.username, user.email, user.password);
+    await services.userService.createUser(user.username, user.email, user.password);
   }
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
 import {DEFAULT_SYNC_PREFERENCES, ISyncPreferences} from 'tesla-dashboard-api';
-import {userService} from '@service/index.ts';
+import services from '@service/index.ts';
 
 
 interface SyncPreferencesState {
@@ -51,7 +51,7 @@ export const SyncPreferences: FC<SyncPreferencesState> = props => {
   async function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
     // TODO: Validation
-    await userService.updateProductSyncPreferences(props.vehicleId, preferences);
+    await services.userService.updateProductSyncPreferences(props.vehicleId, preferences);
   }
 
   function toggleEnabled() {

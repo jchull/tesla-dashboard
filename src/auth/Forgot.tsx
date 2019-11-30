@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import {authenticationService} from '@service/index.ts';
+import services from '@service/index.ts';
 import {Redirect} from 'react-router';
 
 
@@ -7,7 +7,7 @@ export const ForgotPassword = () => {
 
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState();
-  const loggedIn = authenticationService.loggedIn();
+  const loggedIn = services.auth.loggedIn();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setUsername(event.target.value);
@@ -15,7 +15,7 @@ export const ForgotPassword = () => {
 
   async function handleSubmit(event: any) {
     event.preventDefault();
-    await authenticationService.forgot(username);
+    await services.auth.forgot(username);
     setMessage('If an account exists for this user, an email has been sent.');
   }
 
