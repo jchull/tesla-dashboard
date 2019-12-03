@@ -5,6 +5,7 @@ import {createAction} from '@reduxjs/toolkit';
 export interface AuthState {
   username?: string,
   loggedIn: boolean,
+  token?: string,
   role?: string,
   message?: string
 }
@@ -15,14 +16,6 @@ export enum AuthActionType {
   AUTH_LOGIN__SUCCESS = 'AUTH_LOGIN__SUCCESS',
   AUTH_LOGOUT__START = 'AUTH_LOGOUT__START',
   AUTH_LOGOUT__SUCCESS = 'AUTH_LOGOUT__START',
-}
-
-export interface AuthAction {
-  type: AuthActionType,
-  payload?: {
-    username?: string,
-    password?: string
-  }
 }
 
 export const authLoginStart = createAction(AuthActionType.AUTH_LOGIN__START);
