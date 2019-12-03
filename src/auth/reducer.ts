@@ -2,14 +2,19 @@ import {AuthActionType, AuthState} from './actions';
 import {createReducer} from '@reduxjs/toolkit';
 
 const initialState: AuthState = {
-  username: '',
   loggedIn: false
 };
 
 export const authReducer = createReducer(initialState, {
   [AuthActionType.AUTH_LOGOUT__START]: (state, action) => {
-  },
+
+  }
+  ,
   [AuthActionType.AUTH_LOGOUT__SUCCESS]: (state, action) => {
+    return {
+      loggedIn: false,
+      message: 'Logged out'
+    };
   },
   [AuthActionType.AUTH_LOGIN__START]: (state, action) => {
   },
