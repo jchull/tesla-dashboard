@@ -1,0 +1,50 @@
+.main-menu {
+  position: absolute;
+  right: 17px;
+  padding: 6px;
+  top: -2px;
+  color: #ffffff;
+
+  & i.material-icons {
+    line-height: 40px;
+  }
+
+  &:hover {
+    color: hsla(0, 0%, 100%, .5);
+    cursor: pointer;
+  }
+
+  .username {
+    font-size: 16px;
+    padding: 0 20px;
+    display: inline-block;
+    line-height: 16px;
+    vertical-align: super;
+  }
+
+  .menu-items {
+    font-size: 16px;
+    margin: 9px 0;
+    background: rgb(222, 222, 222);
+    color: #333333;
+    width: 140px;
+    height: 0;
+    overflow: hidden;
+
+    &.showing {
+      height: auto;
+      overflow: visible;
+      padding: 10px 0;
+
+
+      >div {
+        padding: 10px 20px;
+        font-size: 20px;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+}
