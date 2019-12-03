@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.scss';
 import {LoginComponent} from './auth/Login';
@@ -12,6 +12,7 @@ import {ForgotPassword} from './auth/Forgot';
 import {ProductSessionView} from '@component/view/ProductSessionView';
 import {useSelector} from 'react-redux';
 import {AppState} from '@store/store';
+import {MainMenu} from '@component/common/MainMenu';
 
 const NotFound = () => <div className="not-found"><h1>404</h1></div>;
 
@@ -27,11 +28,9 @@ export const App: FC = () => {
                  component={AccountComponent}/>
           <Route path="/forgot"
                  component={ForgotPassword}/>
-
-          <PrivateRoute exact
-                        path="/"
-                        component={Home}
-                        auth={auth}
+          <Route exact
+                 path="/"
+                 component={Home}
           />
           <PrivateRoute path="/tesla-account"
                         component={TeslaAccountListComponent}
@@ -59,15 +58,12 @@ export const App: FC = () => {
         <header className="header">
           <div className="logo"/>
           Energy Dashboard
-          <div className="main-menu">
-            <a href="/">
-              <i className="material-icons">menu</i>
-            </a>
-          </div>
         </header>
         <div className="content">
           {routing}
         </div>
+        <MainMenu/>
+
       </div>
   );
 };
