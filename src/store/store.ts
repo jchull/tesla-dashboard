@@ -7,7 +7,7 @@ import {rootReducer} from './reducer';
 
 export type AppState = ReturnType<typeof rootReducer>;
 // export type AppDispatch = typeof store.dispatch;
-export type AppThunk = ThunkAction<void, AppState, {api:ApiType}, Action<string>>;
+export type AppThunk = ThunkAction<void, AppState, { api: ApiType }, Action<string>>;
 
 // @ts-ignore
 const logger = (store) => (next) => (action) => {
@@ -30,7 +30,21 @@ export function configureStore(services: ApiType): Store {
     middlewares.push(logger);
   }
 
+  const initialState: AppState = {
+    auth: {
+      loggedIn: services.auth.loggedIn(),
+      username: services.auth.getUsername(),
+      token: services.auth.getToken() || undefined
+    },
+    product: {
+      products: []
+    },
+    session: {
+      sessions: []
+    }
+  };
   return configureReduxStore({
+                               preloadedState: initialState,
                                reducer: rootReducer,
                                middleware: middlewares
                              }
