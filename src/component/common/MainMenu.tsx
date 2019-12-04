@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppState} from '@store/store';
 import './MainMenu.scss';
 import {logoutAction} from '../../auth/actions';
+import { useHistory, useLocation } from 'react-router-dom';
 
 interface MenuItem {
   name: string,
@@ -13,17 +14,19 @@ interface MenuItem {
 export const MainMenu: React.FC = () => {
   const dispatch = useDispatch();
   const username = useSelector((store: AppState) => store.auth.username);
+  const history = useHistory();
+  const location = useLocation();
 
   const [showing, setShowing] = useState(false);
 
   const loggedInMenuItems: MenuItem[] = [
     {
       name: 'dashboard',
-      action: () => console.log('dispatch navigation action')
+      action: () => history.push('/products')
     },
     {
       name: 'settings',
-      action: () => console.log('dispatch navigation action')
+      action: () => history.push('/preferences')
     },
     {
       name: 'logout',
@@ -32,7 +35,7 @@ export const MainMenu: React.FC = () => {
 
   const loggedOutMenuItems = [{
     name: 'login',
-    action: () => console.log('should go to login')
+    action: () => history.push('/login', location.state)
   }, {
     name: 'about',
     action: () => console.log('dispatch navigation action')

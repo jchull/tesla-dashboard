@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.scss';
 import {LoginComponent} from './auth/Login';
@@ -21,6 +21,7 @@ export const App: FC = () => {
 
   const routing = (
       <Router>
+        <div className="content">
         <Switch>
           <Route path="/login"
                  component={LoginComponent}/>
@@ -50,6 +51,8 @@ export const App: FC = () => {
           />
           <Route component={NotFound}/>
         </Switch>
+        </div>
+        <MainMenu/>
       </Router>
   );
 
@@ -59,11 +62,7 @@ export const App: FC = () => {
           <div className="logo"/>
           Energy Dashboard
         </header>
-        <div className="content">
           {routing}
-        </div>
-        <MainMenu/>
-
       </div>
   );
 };
