@@ -43,7 +43,7 @@ export class AuthenticationService {
       return false;
     }
     try {
-      const decoded = decode(token) as { username: string, sub: string, exp: number, client: string };
+      const decoded = decode(token) as { username: string; sub: string; exp: number; client: string };
       this.username = decoded.username;
       if (decoded.sub !== 'tesla-dashboard' || !decoded.client) {
         return false;

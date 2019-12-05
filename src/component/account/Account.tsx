@@ -8,7 +8,7 @@ interface AccountProps {
 
 const DEFAULT_USER = {username: '', password: '', email: '', role: 0};
 
-export const AccountComponent: FC<AccountProps> = props => {
+export const AccountComponent: FC<AccountProps> = (props: AccountProps) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const [user, setUser] = React.useState(props.user || DEFAULT_USER);

@@ -9,7 +9,7 @@ interface SyncPreferencesState {
 }
 
 
-export const SyncPreferences: FC<SyncPreferencesState> = props => {
+export const SyncPreferences: FC<SyncPreferencesState> = (props: SyncPreferencesState) => {
 
   const [preferences, setPreferences] = useState(props.preferences || DEFAULT_SYNC_PREFERENCES);
 

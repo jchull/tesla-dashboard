@@ -9,7 +9,7 @@ interface ToolbarState {
 }
 
 // TODO: this is turning into a general toolbar when there is at least a product selected
-export const ChartToolbar: React.FC<ToolbarState> = props => {
+export const ChartToolbar: React.FC<ToolbarState> = (props: ToolbarState) => {
 
   const dispatch = useDispatch();
 

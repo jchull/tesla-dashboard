@@ -3,11 +3,11 @@ import {createAction} from '@reduxjs/toolkit';
 
 
 export interface AuthState {
-  username?: string,
-  loggedIn: boolean,
-  token?: string,
-  role?: string,
-  message?: string
+  username?: string;
+  loggedIn: boolean;
+  token?: string;
+  role?: string;
+  message?: string;
 }
 
 export enum AuthActionType {

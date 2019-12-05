@@ -4,7 +4,7 @@ import {SyncPreferences} from './SyncPreferences';
 import services from '@service/index.ts';
 
 
-export const SyncPreferencesList: FC = props => {
+export const SyncPreferencesList: FC = () => {
 
   const [products, setProducts] = useState([] as unknown as [IVehicle]);
   const [selectedProduct, setSelectedProduct] = useState({} as IVehicle);

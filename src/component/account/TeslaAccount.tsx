@@ -8,7 +8,7 @@ interface TeslaAccountProps {
 }
 
 
-export const TeslaAccountComponent: FC<TeslaAccountProps> = props => {
+export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccountProps) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const [account, setAccount] = useState(props.account || {});

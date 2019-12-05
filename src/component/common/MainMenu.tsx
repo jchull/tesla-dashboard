@@ -6,9 +6,9 @@ import {logoutAction} from '../../auth/actions';
 import { useHistory, useLocation } from 'react-router-dom';
 
 interface MenuItem {
-  name: string,
+  name: string;
 
-  action(): any
+  action(): any;
 }
 
 export const MainMenu: React.FC = () => {

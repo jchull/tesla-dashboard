@@ -9,7 +9,7 @@ interface TeslaAccountListProps {
 }
 
 
-export const TeslaAccountListComponent: FC<TeslaAccountListProps> = props => {
+export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: TeslaAccountListProps) => {
 
   const [accounts, setAccounts] = useState(props.accounts || []);
   const [selectedAccount, setSelectedAccount] = useState({} as ITeslaAccount);

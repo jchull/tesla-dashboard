@@ -6,6 +6,7 @@ import {fetchSessionDetailsAction, fetchSessionListAction} from '@component/sess
 import {AppState} from '@store/store';
 import {ProductList} from '@component/product';
 import {LineChart} from '@component/chart/LineChart';
+import {SessionTagList} from '@component/vehicle/SessionTagList';
 
 
 export const ProductSessionView: React.FC = () => {
@@ -42,7 +43,10 @@ export const ProductSessionView: React.FC = () => {
           <SessionList sessions={sessions} selectedSessionId={selectedSessionId}/>
           {
             selectedSessionStates ?
-            <LineChart datum={selectedSessionStates}/>
+            <div>
+              <LineChart datum={selectedSessionStates}/>
+              <SessionTagList/>
+            </div>
                                   :
             <span>No data selected</span>
           }

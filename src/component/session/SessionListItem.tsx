@@ -7,7 +7,7 @@ import {IChargeSession, IDriveSession} from 'tesla-dashboard-api';
 import {SessionListItemState} from '@store/types/state';
 
 
-export const SessionListItem: React.FC<SessionListItemState> = props => {
+export const SessionListItem: React.FC<SessionListItemState> = (props: SessionListItemState) => {
 
   const displayDate = moment(props.session.start_date)
       .calendar();
@@ -15,7 +15,7 @@ export const SessionListItem: React.FC<SessionListItemState> = props => {
   const sessionType = isDriveSession(props.session) ? 'Drive' : 'Charge';
 
   const duration = moment.duration(moment(props.session.end_date)
-      .diff(moment(props.session.start_date)));
+                                       .diff(moment(props.session.start_date)));
   const displayDuration = isoDurationToHuman(duration.toISOString());
 
   let color = '#3f6ae1';
@@ -26,8 +26,9 @@ export const SessionListItem: React.FC<SessionListItemState> = props => {
   const iconStyle = {color};
 
   return (
-      <div className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}
-           onClick={() => props.selectionHandler(props.session._id)}>
+      <div
+          className={props.selected ? `${sessionType.toLowerCase()} list-item selected` : `list-item ${sessionType.toLowerCase()} `}
+          onClick={() => props.selectionHandler(props.session._id)}>
         <div className="row">
           <i className="material-icons"
              style={iconStyle}>{sessionType === 'Drive' ? 'directions_car' : 'battery_charging_full'}</i>
@@ -37,9 +38,9 @@ export const SessionListItem: React.FC<SessionListItemState> = props => {
           </div>
         </div>
         {sessionType === 'Drive' ?
-            <DriveListItem session={props.session as IDriveSession}/>
-            :
-            <ChargeListItem session={props.session as IChargeSession}/>
+         <DriveListItem session={props.session as IDriveSession}/>
+                                 :
+         <ChargeListItem session={props.session as IChargeSession}/>
         }
 
       </div>

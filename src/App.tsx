@@ -22,35 +22,35 @@ export const App: FC = () => {
   const routing = (
       <Router>
         <div className="content">
-        <Switch>
-          <Route path="/login"
-                 component={LoginComponent}/>
-          <Route path="/signup"
-                 component={AccountComponent}/>
-          <Route path="/forgot"
-                 component={ForgotPassword}/>
-          <Route exact
-                 path="/"
-                 component={Home}
-          />
-          <PrivateRoute path="/tesla-account"
-                        component={TeslaAccountListComponent}
-                        auth={auth}
-          />
-          <PrivateRoute path="/sync-preferences"
-                        component={SyncPreferencesList}
-                        auth={auth}
-          />
-          <PrivateRoute path="/preferences"
-                        component={UserPreferences}
-                        auth={auth}
-          />
-          <PrivateRoute path="/products"
-                        component={ProductSessionView}
-                        auth={auth}
-          />
-          <Route component={NotFound}/>
-        </Switch>
+          <Switch>
+            <Route path="/login"
+                   component={LoginComponent}/>
+            <Route path="/signup"
+                   component={AccountComponent}/>
+            <Route path="/forgot"
+                   component={ForgotPassword}/>
+            <Route exact
+                   path="/"
+                   component={Home}
+            />
+            <PrivateRoute path="/tesla-account"
+                          component={TeslaAccountListComponent}
+                          auth={auth}
+            />
+            <PrivateRoute path="/sync-preferences"
+                          component={SyncPreferencesList}
+                          auth={auth}
+            />
+            <PrivateRoute path="/preferences"
+                          component={UserPreferences}
+                          auth={auth}
+            />
+            <PrivateRoute path="/products"
+                          component={ProductSessionView}
+                          auth={auth}
+            />
+            <Route component={NotFound}/>
+          </Switch>
         </div>
         <MainMenu/>
       </Router>
@@ -62,7 +62,7 @@ export const App: FC = () => {
           <div className="logo"/>
           Energy Dashboard
         </header>
-          {routing}
+        {routing}
       </div>
   );
 };

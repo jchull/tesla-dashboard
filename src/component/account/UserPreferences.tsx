@@ -7,7 +7,7 @@ interface PreferencesState {
 }
 
 
-export const UserPreferences: FC<PreferencesState> = props => {
+export const UserPreferences: FC<PreferencesState> = (props: PreferencesState) => {
 
   const [preferences, setPreferences] = useState(props.preferences || DEFAULT_PREFERENCES);
   const [formValid, setFormValid] = useState(false);
@@ -20,11 +20,11 @@ export const UserPreferences: FC<PreferencesState> = props => {
       username
     } = Object.assign({}, preferences, {[event.target.name]: event.target.value});
     setPreferences({
-      username,
-      display_distanceUnits,
-      display_currencyCode,
-      display_tempUnits
-    });
+                     username,
+                     display_distanceUnits,
+                     display_currencyCode,
+                     display_tempUnits
+                   });
   }
 
   async function handleSubmit(event: SyntheticEvent) {

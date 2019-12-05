@@ -8,7 +8,7 @@ import {fetchProductListAction, ProductState, selectProduct} from './actions';
 import './style.scss';
 
 
-export const ProductList: React.FC<ProductState> = (props) => {
+export const ProductList: React.FC<ProductState> = (props: ProductState) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {

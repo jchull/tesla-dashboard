@@ -1,11 +1,5 @@
 import {IChargeSession, IDriveSession, IVehicle, IVehicleSession} from 'tesla-dashboard-api';
 
-export interface SessionTagListProps {
-  vehicleId: string;
-  sessionId: string;
-  tags: string[];
-}
-
 export interface ChargeListItemState {
   session: IChargeSession;
 }
