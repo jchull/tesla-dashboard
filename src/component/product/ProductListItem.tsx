@@ -16,10 +16,10 @@ export const ProductListItem: React.FC<ProductListItemState> = (props: ProductLi
           <h2 className="name">{props.product.display_name}</h2>
           <div className="battery_level end">
             <span>{props.product.battery_level}%</span>
-            <BatteryLevelIcon battery_level={props.product.battery_level}
-                              battery_range={props.product.battery_range}
-                              charging_state={props.product.charging_state}
-                              charge_limit={90}
+            <BatteryLevelIcon batteryLevel={props.product.battery_level}
+                              batteryRange={props.product.battery_range}
+                              chargingState={props.product.charging_state}
+                              chargeLimit={90}
                               width={40}/>
             <span>{numbro(props.product.battery_range)
                 .format('0,0.0')} mi</span>
@@ -37,9 +37,9 @@ export const ProductListItem: React.FC<ProductListItemState> = (props: ProductLi
           <div className="status start">
             {
               props.product.charging_state === 'Charging' ?
-                  `${timeToFull} remaining`
-                  :
-                  props.product.state
+              `${timeToFull} remaining`
+                                                          :
+              props.product.state
             }
           </div>
 

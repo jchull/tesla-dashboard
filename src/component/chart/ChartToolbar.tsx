@@ -1,10 +1,10 @@
 import React from 'react';
 import './ChartToolbar.scss';
-import {IVehicle} from 'tesla-dashboard-api';
+import {Vehicle as Product} from 'tesla-dashboard-api';
 import {useDispatch} from 'react-redux';
 
 interface ToolbarState {
-  product?: IVehicle;
+  product?: Product;
   sessionId?: string;
 }
 

@@ -20,7 +20,7 @@ export enum AuthActionType {
 
 export const authLoginStart = createAction(AuthActionType.AUTH_LOGIN__START);
 export const authLoginFail = createAction(AuthActionType.AUTH_LOGIN__FAILURE);
-export const authLoginSuccess = createAction(AuthActionType.AUTH_LOGIN__SUCCESS, (principal: { username: string, role: string }) => ({
+export const authLoginSuccess = createAction(AuthActionType.AUTH_LOGIN__SUCCESS, (principal: { username: string; role: string }) => ({
   payload: {
     username: principal.username,
     role: principal.role

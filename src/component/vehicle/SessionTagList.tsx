@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {TagList} from '../common/TagList';
-import services from '@service/index.ts';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppState} from '@store/store';
 
 export const SessionTagList: React.FC = () => {
 
   const dispatch = useDispatch();
-  const productId = useSelector((store:AppState) => store.product.selectedProductId);
-  const sessionId = useSelector((store:AppState) => store.session.selectedSessionId);
+  const productId = useSelector((store: AppState) => store.product.selectedProductId);
+  const sessionId = useSelector((store: AppState) => store.session.selectedSessionId);
   const [tags, setTags] = useState([]);
 
 
@@ -16,16 +15,15 @@ export const SessionTagList: React.FC = () => {
     return tags.map(tag => tag.replace('_', ' '));
   }
 
-  async function addListener(tag: string): Promise<any> {
+  async function addListener(tag: string): Promise<void> {
     // const newTags = await services.queryService.addTag(productId, sessionId, tag);
     // setTags(tagsToDisplay(newTags));
   }
 
-  async function removeListener(tag: string): Promise<any> {
+  async function removeListener(tag: string): Promise<void> {
     // const newTags = await services.queryService.removeTag(productId, sessionId, tag);
     // setTags(tagsToDisplay(newTags));
   }
-
 
 
   useEffect(() => {

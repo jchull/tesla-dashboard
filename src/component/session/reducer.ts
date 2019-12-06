@@ -1,9 +1,8 @@
 import {SessionState} from './actions';
-import {IVehicleSession} from 'tesla-dashboard-api';
 import {createReducer} from '@reduxjs/toolkit';
 
 const initialState: SessionState = {
-  sessions: [] as IVehicleSession[]
+  sessions: []
 };
 
 export const sessionListReducer = createReducer(initialState, {
@@ -20,7 +19,7 @@ export const sessionListReducer = createReducer(initialState, {
   FETCH_SESSION_LIST__START: (state, action) => {
   },
   FETCH_SESSION_LIST__SUCCESS: (state, action) => {
-    state.sessions = (action.payload ? action.payload.sessions : []) as IVehicleSession[];
+    state.sessions = action.payload ? action.payload.sessions : [];
     state.selectedSessionId = action.payload && action.payload.selectedSessionId;
   },
   FETCH_SESSION_LIST__FAIL: (state, action) => {

@@ -1,9 +1,9 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
-import {IUser} from 'tesla-dashboard-api';
+import {User} from 'tesla-dashboard-api';
 import services from '@service/index.ts';
 
 interface AccountProps {
-  user?: IUser;
+  user?: User;
 }
 
 const DEFAULT_USER = {username: '', password: '', email: '', role: 0};

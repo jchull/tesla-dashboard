@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import './LineChart.scss';
-import {IChargeState, IDriveState, IVehicleState} from 'tesla-dashboard-api';
+import {ChargeState, DriveState} from 'tesla-dashboard-api';
 
 
 interface Margin {
@@ -20,7 +20,7 @@ interface ChartConfig {
 }
 
 interface LineChartProps {
-  datum: IChargeState[] | IDriveState[];
+  datum: DriveState[] | ChargeState[];
   options?: ChartConfig;
 }
 
@@ -74,9 +74,8 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
                                 .attr('class', 'axis axis-y right')
                                 .attr('transform', `translate(${config.margin.left + innerWidth} , ${config.margin.top})`)
                                 .call(d3.axisRight(yScaleRight));
-
           // @ts-ignore
-          xScale.domain(d3.extent(props.datum, (data: IVehicleState) => new Date(data.timestamp)) as [Date,Date]);
+          xScale.domain(d3.extent(props.datum, (data) => new Date(data.timestamp)) as [Date,Date]);
 
 
           xAxis.transition()
@@ -134,7 +133,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           svg.append('path')
              .datum(props.datum)
              .attr('class', 'line battery_level')
-             // @ts-ignore
+              // @ts-ignore
              .attr('d', batteryLevelLine)
              .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 
@@ -147,7 +146,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           svg.append('path')
              .datum(props.datum)
              .attr('class', 'line charger_power')
-             // @ts-ignore
+              // @ts-ignore
              .attr('d', powerLine)
              .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
 

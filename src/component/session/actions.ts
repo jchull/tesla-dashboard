@@ -1,17 +1,17 @@
-import {IChargeState, IDriveState, IVehicleSession} from 'tesla-dashboard-api';
+import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
 import {ApiType} from '@service/index';
 import {createAction} from '@reduxjs/toolkit';
 
 export interface SessionState {
-  sessions: IVehicleSession[];
+  sessions: (ChargeSession | DriveSession)[];
   selectedSessionId?: string;
-  selectedSessionStates?: IChargeState[] | IDriveState[];
+  selectedSessionStates?: ChargeState[] | DriveState[];
 }
 
 export const fetchSessionListStart = createAction('FETCH_SESSION_LIST__START');
 export const fetchSessionListFail = createAction('FETCH_SESSION_LIST__FAIL');
 
-export const fetchSessionListSuccess = createAction('FETCH_SESSION_LIST__SUCCESS', (sessions: IVehicleSession[]) => ({
+export const fetchSessionListSuccess = createAction('FETCH_SESSION_LIST__SUCCESS', (sessions) => ({
   payload: {
     sessions
   }
@@ -27,7 +27,7 @@ export const fetchSessionDetailsStart = createAction('FETCH_SESSION_DETAILS__STA
 export const fetchSessionDetailsFail = createAction('FETCH_SESSION_DETAILS__FAIL');
 
 
-export const fetchSessionDetailsSuccess = createAction('FETCH_SESSION_DETAILS__SUCCESS', (states: IChargeState[] | IDriveState[]) => ({
+export const fetchSessionDetailsSuccess = createAction('FETCH_SESSION_DETAILS__SUCCESS', (states) => ({
   payload: {
     selectedSessionStates: states
   }
@@ -37,7 +37,7 @@ export const fetchSessionListAction =
     (vin: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(fetchSessionListStart());
       return extraArgument.api.queryService.getRecentSessions(vin, 200)
-                          .then((result: IVehicleSession[]) => {
+                          .then((result) => {
                             dispatch(fetchSessionListSuccess(result));
                           }, (error: any) => {
                             dispatch(fetchSessionListFail(error));
@@ -49,7 +49,7 @@ export const fetchSessionDetailsAction =
     (sessionId: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(fetchSessionDetailsStart());
       return extraArgument.api.queryService.getSessionDetails(sessionId)
-                          .then((result: IDriveState[] | IChargeState[]) => {
+                          .then((result: DriveState[] | ChargeState[]) => {
                             dispatch(fetchSessionDetailsSuccess(result));
                           }, (error: any) => {
                             dispatch(fetchSessionDetailsFail(error));

@@ -9,12 +9,6 @@ export type AppState = ReturnType<typeof rootReducer>;
 // export type AppDispatch = typeof store.dispatch;
 export type AppThunk = ThunkAction<void, AppState, { api: ApiType }, Action<string>>;
 
-// @ts-ignore
-const logger = (store) => (next) => (action) => {
-  console.log('action:', action);
-  return next(action);
-};
-
 export function configureStore(services: ApiType): Store {
   const middlewares: Middleware[] = [];
 
@@ -24,11 +18,6 @@ export function configureStore(services: ApiType): Store {
                                    });
 
   middlewares.push(thunkMiddleware);
-
-  if (process.env.NODE_ENV === 'development') {
-    // @ts-ignore
-    middlewares.push(logger);
-  }
 
   const initialState: AppState = {
     auth: {
@@ -49,5 +38,5 @@ export function configureStore(services: ApiType): Store {
                                middleware: middlewares
                              }
   );
-};
+}
 

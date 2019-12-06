@@ -1,23 +1,23 @@
 import React, {FC, useEffect, useState} from 'react';
-import {ITeslaAccount} from 'tesla-dashboard-api';
+import {TeslaAccount} from 'tesla-dashboard-api';
 import services from '@service/index.ts';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
 
 interface TeslaAccountListProps {
-  accounts: [ITeslaAccount];
+  accounts: TeslaAccount[];
 }
 
 
 export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: TeslaAccountListProps) => {
 
   const [accounts, setAccounts] = useState(props.accounts || []);
-  const [selectedAccount, setSelectedAccount] = useState({} as ITeslaAccount);
+  const [selectedAccount, setSelectedAccount] = useState({} as TeslaAccount);
   let username;
 
   function addTeslaAccount() {
     const newAccount = {email: ''};
-    setAccounts([newAccount, ...accounts] as [ITeslaAccount]);
+    setAccounts([newAccount, ...accounts] as TeslaAccount[]);
     setSelectedAccount(newAccount);
   }
 
@@ -25,7 +25,7 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: Tesl
     username = services.auth.getUsername();
     if (username) {
       services.userService.getTeslaAccounts(username)
-                 .then((data: [ITeslaAccount] | undefined) => data && setAccounts(data));
+              .then((data: TeslaAccount[] | undefined) => data && setAccounts(data));
     }
   }, []);
 
@@ -37,20 +37,20 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: Tesl
         </a>
         {
           accounts && accounts.length ?
-              (<div>
-                {accounts.map(account => <div key={account.email}
-                                              className="clickable"
-                                              onClick={() => setSelectedAccount(account)}>{account.email || 'New Account'}</div>)}
-              </div>)
-              :
-              <span>No Accounts Configured</span>
+          (<div>
+            {accounts.map(account => <div key={account.email}
+                                          className="clickable"
+                                          onClick={() => setSelectedAccount(account)}>{account.email || 'New Account'}</div>)}
+          </div>)
+                                      :
+          <span>No Accounts Configured</span>
         }
 
         {
           selectedAccount ?
-              <TeslaAccountComponent account={selectedAccount}/>
-              :
-              <span>Select an Account</span>
+          <TeslaAccountComponent account={selectedAccount}/>
+                          :
+          <span>Select an Account</span>
         }
       </div>
   );

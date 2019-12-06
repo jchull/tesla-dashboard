@@ -1,5 +1,6 @@
+/* eslint camelcase: 0 */
 import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
-import {DEFAULT_SYNC_PREFERENCES, ISyncPreferences} from 'tesla-dashboard-api';
+import {DEFAULT_SYNC_PREFERENCES, SyncPreferences as ISyncPreferences} from 'tesla-dashboard-api';
 import services from '@service/index.ts';
 
 
@@ -17,30 +18,30 @@ export const SyncPreferences: FC<SyncPreferencesState> = (props: SyncPreferences
     const {
       _id,
       enabled,
-      account_id,
-      driving_pollingIntervalSeconds,
-      driving_minDurationMinutes,
-      charging_maxGapSeconds,
-      driving_maxGapSeconds,
+      accountId,
+      drivingPollingIntervalSeconds,
+      drivingMinDurationMinutes,
+      chargingMaxGapSeconds,
+      drivingMaxGapSeconds,
       sleepTriggerSeconds,
-      charging_minDurationMinutes,
-      charging_costPerKwhHome,
-      charging_costPerKwhSupercharging,
-      charging_pollingIntervalsSeconds
+      chargingMinDurationMinutes,
+      chargingCostPerKwhHome,
+      chargingCostPerKwhSupercharging,
+      chargingPollingIntervalsSeconds
     } = Object.assign({}, preferences, {[event.target.name]: event.target.value});
     setPreferences({
       _id,
       enabled,
-      account_id,
-      driving_pollingIntervalSeconds,
-      driving_minDurationMinutes,
-      charging_maxGapSeconds,
-      driving_maxGapSeconds,
+      accountId,
+      drivingPollingIntervalSeconds,
+      drivingMinDurationMinutes,
+      chargingMaxGapSeconds,
+      drivingMaxGapSeconds,
       sleepTriggerSeconds,
-      charging_minDurationMinutes,
-      charging_costPerKwhHome,
-      charging_costPerKwhSupercharging,
-      charging_pollingIntervalsSeconds
+      chargingMinDurationMinutes,
+      chargingCostPerKwhHome,
+      chargingCostPerKwhSupercharging,
+      chargingPollingIntervalsSeconds
     });
   }
 
@@ -70,54 +71,54 @@ export const SyncPreferences: FC<SyncPreferencesState> = (props: SyncPreferences
           </section>
           <section>
             <h3>Charging Preferences</h3>
-            <label htmlFor="charging_costPerKwhHome">Home charging cost</label>
+            <label htmlFor="chargingCostPerKwhHome">Home charging cost</label>
             <input
                 placeholder="Home Charging Cost"
-                name="charging_costPerKwhHome"
+                name="chargingCostPerKwhHome"
                 type="text"
-                value={preferences.charging_costPerKwhHome}
+                value={preferences.chargingCostPerKwhHome}
                 onChange={handleChange}
             />
-            <label htmlFor="charging_costPerKwhSupercharging">Supercharging Cost</label>
+            <label htmlFor="chargingCostPerKwhSupercharging">Supercharging Cost</label>
             <input
                 placeholder="Supercharging Cost"
-                name="charging_costPerKwhSupercharging"
+                name="chargingCostPerKwhSupercharging"
                 type="text"
-                value={preferences.charging_costPerKwhSupercharging}
+                value={preferences.chargingCostPerKwhSupercharging}
                 onChange={handleChange}
             />
-            <label htmlFor="charging_minDurationMinutes">Minimum Charging Duration</label>
+            <label htmlFor="chargingMinDurationMinutes">Minimum Charging Duration</label>
             <input
                 placeholder="Minimum Charging Duration"
-                name="charging_minDurationMinutes"
+                name="chargingMinDurationMinutes"
                 type="text"
-                value={preferences.charging_minDurationMinutes}
+                value={preferences.chargingMinDurationMinutes}
                 onChange={handleChange}
             />
-            <label htmlFor="charging_pollingIntervalsSeconds1">Level 1 Polling Interval</label>
+            <label htmlFor="chargingPollingIntervalsSeconds1">Level 1 Polling Interval</label>
             <input
                 placeholder="Level 1 Polling Interval"
-                name="charging_pollingIntervalsSeconds1"
+                name="chargingPollingIntervalsSeconds1"
                 type="text"
-                value={preferences.charging_pollingIntervalsSeconds[0]}
+                value={preferences.chargingPollingIntervalsSeconds[0]}
                 // onChange={handleChange}
                 readOnly
             />
-            <label htmlFor="charging_pollingIntervalsSeconds2">Level 2 Polling Interval</label>
+            <label htmlFor="chargingPollingIntervalsSeconds2">Level 2 Polling Interval</label>
             <input
                 placeholder="Level 2 Polling Interval"
-                name="charging_pollingIntervalsSeconds2"
+                name="chargingPollingIntervalsSeconds2"
                 type="text"
-                value={preferences.charging_pollingIntervalsSeconds[1]}
+                value={preferences.chargingPollingIntervalsSeconds[1]}
                 // onChange={handleChange}
                 readOnly
             />
-            <label htmlFor="charging_pollingIntervalsSeconds3">Level 3 Polling Interval</label>
+            <label htmlFor="chargingPollingIntervalsSeconds3">Level 3 Polling Interval</label>
             <input
                 placeholder="Level 3 Polling Interval"
-                name="charging_pollingIntervalsSeconds3"
+                name="chargingPollingIntervalsSeconds3"
                 type="text"
-                value={preferences.charging_pollingIntervalsSeconds[2]}
+                value={preferences.chargingPollingIntervalsSeconds[2]}
                 // onChange={handleChange}
                 readOnly
             />
@@ -125,20 +126,20 @@ export const SyncPreferences: FC<SyncPreferencesState> = (props: SyncPreferences
 
           <section>
             <h3>Driving Preferences</h3>
-            <label htmlFor="driving_minDurationMinutes">Minimum Driving Duration</label>
+            <label htmlFor="drivingMinDurationMinutes">Minimum Driving Duration</label>
             <input
                 placeholder="Minimum Driving Duration"
-                name="driving_minDurationMinutes"
+                name="drivingMinDurationMinutes"
                 type="text"
-                value={preferences.driving_minDurationMinutes}
+                value={preferences.drivingMinDurationMinutes}
                 onChange={handleChange}
             />
-            <label htmlFor="driving_pollingIntervalSeconds">Polling Interval</label>
+            <label htmlFor="drivingPollingIntervalSeconds">Polling Interval</label>
             <input
                 placeholder="Polling Interval"
-                name="driving_pollingIntervalSeconds"
+                name="drivingPollingIntervalSeconds"
                 type="text"
-                value={preferences.driving_pollingIntervalSeconds}
+                value={preferences.drivingPollingIntervalSeconds}
                 onChange={handleChange}
             />
           </section>

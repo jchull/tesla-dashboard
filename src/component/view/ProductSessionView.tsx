@@ -7,12 +7,13 @@ import {AppState} from '@store/store';
 import {ProductList} from '@component/product';
 import {LineChart} from '@component/chart/LineChart';
 import {SessionTagList} from '@component/vehicle/SessionTagList';
+import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
 
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector((store: AppState) => store.product.products);
-  const sessions = useSelector((store: AppState) => store.session.sessions);
+  const sessions: (ChargeSession | DriveSession)[] = useSelector((store: AppState) => store.session.sessions);
   const selectedProductId = useSelector((store: AppState) => store.product.selectedProductId);
   const selectedSessionId = useSelector((store: AppState) => store.session.selectedSessionId);
   const selectedSessionStates = useSelector((store: AppState) => store.session.selectedSessionStates);

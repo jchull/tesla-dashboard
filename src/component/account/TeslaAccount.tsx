@@ -1,10 +1,10 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
-import {ITeslaAccount} from 'tesla-dashboard-api';
+import {TeslaAccount} from 'tesla-dashboard-api';
 import services from '@service/index.ts';
 
 
 interface TeslaAccountProps {
-  account: ITeslaAccount;
+  account: TeslaAccount;
 }
 
 
@@ -15,7 +15,9 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    // eslint-disable-next-line @typescript-eslint/camelcase
     const {_id, username, email, access_token, refresh_token} = Object.assign({}, account, {[event.target.name]: event.target.value});
+    // eslint-disable-next-line @typescript-eslint/camelcase
     setAccount({_id, username, email, access_token, refresh_token});
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import {IVehicle} from 'tesla-dashboard-api';
+import {Vehicle as Product} from 'tesla-dashboard-api';
 import {ProductListItem} from './ProductListItem';
 import {fetchProductListAction, ProductState, selectProduct} from './actions';
 
@@ -19,10 +19,10 @@ export const ProductList: React.FC<ProductState> = (props: ProductState) => {
       <div className="product-list">
         {
           props.products.map(
-              (product: IVehicle) => <ProductListItem product={product}
-                                                      key={product._id}
-                                                      handleSelection={() => dispatch(selectProduct(product._id))}
-                                                      selected={props.selectedProductId === product._id}/>)
+              (product: Product) => <ProductListItem product={product}
+                                                     key={product._id}
+                                                     handleSelection={() => dispatch(selectProduct(product._id))}
+                                                     selected={props.selectedProductId === product._id}/>)
         }
       </div>
   );

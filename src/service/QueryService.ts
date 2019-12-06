@@ -1,5 +1,5 @@
 import axios, {AxiosInstance} from 'axios';
-import {IChargeSession, IChargeState, IDriveState, IVehicle} from 'tesla-dashboard-api';
+import {ChargeSession, ChargeState, DriveSession, DriveState, Vehicle as Product} from 'tesla-dashboard-api';
 
 
 export class QueryService {
@@ -10,18 +10,18 @@ export class QueryService {
     this.api = api;
   }
 
-  async getProducts(): Promise<[IVehicle]> {
+  async getProducts(): Promise<[Product]> {
     const result = await this.api.get('/vehicle', {headers: {'Cache-Control': 'no-cache'}});
     return result && result.data;
   }
 
 
-  async getRecentSessions(vin: string, limit: number = 1): Promise<IChargeSession[]> {
+  async getRecentSessions(vin: string, limit = 1): Promise<ChargeSession[] | DriveSession[]> {
     const result = await axios(`/vehicle/${vin}/session?limit=${limit}`);
     return result && result.data;
   }
 
-  async getSessionDetails(sessionId: string): Promise<IChargeState[] | IDriveState[]> {
+  async getSessionDetails(sessionId: string): Promise<ChargeState[] | DriveState[]> {
     const result = await this.api.get(`/session/${sessionId}`);
     return result && result.data;
   }

@@ -1,19 +1,19 @@
 import React, {FC, useEffect, useState} from 'react';
-import {ISyncPreferences, IVehicle, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
+import {Vehicle as Product, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
 import {SyncPreferences} from './SyncPreferences';
 import services from '@service/index.ts';
 
 
 export const SyncPreferencesList: FC = () => {
 
-  const [products, setProducts] = useState([] as unknown as [IVehicle]);
-  const [selectedProduct, setSelectedProduct] = useState({} as IVehicle);
+  const [products, setProducts] = useState([] as unknown as [Product]);
+  const [selectedProduct, setSelectedProduct] = useState({} as Product);
 
   useEffect(() => {
     const username = services.auth.getUsername();
     if (username) {
       services.queryService.getProducts()
-                 .then((data: [IVehicle] | undefined) => data && setProducts(data));
+                 .then((data: [Product] | undefined) => data && setProducts(data));
     }
   }, []);
 

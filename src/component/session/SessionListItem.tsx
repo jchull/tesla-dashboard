@@ -3,7 +3,7 @@ import moment from 'moment';
 import {isDriveSession, isoDurationToHuman} from '../../type/util';
 import {ChargeListItem} from './ChargeListItem';
 import {DriveListItem} from './DriveListItem';
-import {IChargeSession, IDriveSession} from 'tesla-dashboard-api';
+import {ChargeSession, DriveSession} from 'tesla-dashboard-api';
 import {SessionListItemState} from '@store/types/state';
 
 
@@ -20,8 +20,7 @@ export const SessionListItem: React.FC<SessionListItemState> = (props: SessionLi
 
   let color = '#3f6ae1';
   if (!isDriveSession(props.session)) {
-    // @ts-ignore
-    color = props.session.fast_charger_present ? '#E31937' : '#00dc31';
+    color = (props.session as ChargeSession).fast_charger_present ? '#E31937' : '#00dc31';
   }
   const iconStyle = {color};
 
@@ -38,9 +37,9 @@ export const SessionListItem: React.FC<SessionListItemState> = (props: SessionLi
           </div>
         </div>
         {sessionType === 'Drive' ?
-         <DriveListItem session={props.session as IDriveSession}/>
+         <DriveListItem session={props.session as DriveSession}/>
                                  :
-         <ChargeListItem session={props.session as IChargeSession}/>
+         <ChargeListItem session={props.session as ChargeSession}/>
         }
 
       </div>

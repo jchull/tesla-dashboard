@@ -3,12 +3,12 @@ import * as d3 from 'd3';
 import './BatteryLevelIcon.scss';
 
 interface BatteryLevelState {
-  battery_level: number;
+  batteryLevel: number;
   width: number;
-  battery_range?: number;
-  charge_limit?: number;
-  charge_limit_low?: number;
-  charging_state?: string;
+  batteryRange?: number;
+  chargeLimit?: number;
+  chargeLimitLow?: number;
+  chargingState?: string;
 }
 
 const sizeFactor = 10;
@@ -35,7 +35,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
         svg.selectAll('svg>*')
            .remove();
 
-        // battery_level 0% - 100%
+        // batteryLevel 0% - 100%
         const domain = [0, 100];
         const scale = d3.scaleLinear()
                         .domain(domain)
@@ -43,13 +43,13 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
 
         let fillColor = '#00dc31';
 
-        const low_charge = 20;
+        const lowCharge = 20;
 
-        if (props.battery_level < low_charge) {
+        if (props.batteryLevel < lowCharge) {
           fillColor = '#ffa748';
-          // } else if (props.battery_level < 21) {
+          // } else if (props.batteryLevel < 21) {
           //   fillColor = '#ffae0c';
-        } else if (props.battery_level > 89) {
+        } else if (props.batteryLevel > 89) {
           fillColor = '#4370f8';
         }
 
@@ -57,13 +57,13 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
                                   .attr('class', 'battery');
 
         // first draw the charge limit, so the battery level fill will draw on top
-        if (props.charge_limit) {
+        if (props.chargeLimit) {
           batteryOutline.append('rect')
-                        .attr('class', 'charge_limit')
-                        .attr('x', scale(low_charge))
+                        .attr('class', 'chargeLimit')
+                        .attr('x', scale(lowCharge))
                         .attr('y', 0)
                         .attr('aria-label', 'Battery Level')
-                        .attr('width', scale(props.charge_limit - low_charge))
+                        .attr('width', scale(props.chargeLimit - lowCharge))
                         .attr('height', outerHeight);
         }
 
@@ -73,7 +73,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
                                    .append('rect')
                                    .attr('x', strokeWidth)
                                    .attr('y', strokeWidth)
-                                   .attr('width', scale(props.battery_level))
+                                   .attr('width', scale(props.batteryLevel))
                                    .attr('height', innerHeight)
                                    .style('fill', fillColor);
 
@@ -95,7 +95,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
                       .attr('stroke-width', strokeWidth);
 
 
-        if (props.charging_state === 'Charging') {
+        if (props.chargingState === 'Charging') {
           const bolt = svg.append('path')
                           .attr('class', 'bolt')
                           .attr('fill', '#fff')

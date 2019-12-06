@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
-import {IUserPreferences, DEFAULT_PREFERENCES} from 'tesla-dashboard-api';
+import {UserPreferences as IUserPreferences, DEFAULT_PREFERENCES} from 'tesla-dashboard-api';
 
 
 interface PreferencesState {
@@ -14,16 +14,16 @@ export const UserPreferences: FC<PreferencesState> = (props: PreferencesState) =
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const {
-      display_distanceUnits,
-      display_currencyCode,
-      display_tempUnits,
+      displayDistanceUnits,
+      displayCurrencyCode,
+      displayTempUnits,
       username
     } = Object.assign({}, preferences, {[event.target.name]: event.target.value});
     setPreferences({
                      username,
-                     display_distanceUnits,
-                     display_currencyCode,
-                     display_tempUnits
+                     displayDistanceUnits,
+                     displayCurrencyCode,
+                     displayTempUnits
                    });
   }
 
@@ -58,23 +58,23 @@ export const UserPreferences: FC<PreferencesState> = (props: PreferencesState) =
                 placeholder="Distance Units"
                 name="display_distanceUnits"
                 type="text"
-                value={preferences.display_distanceUnits}
+                value={preferences.displayDistanceUnits}
                 onChange={handleChange}
             />
-            <label htmlFor="display_currencyCode">Currency</label>
+            <label htmlFor="displayCurrencyCode">Currency</label>
             <input
                 placeholder="Currency"
-                name="display_currencyCode"
+                name="displayCurrencyCode"
                 type="text"
-                value={preferences.display_currencyCode}
+                value={preferences.displayCurrencyCode}
                 onChange={handleChange}
             />
-            <label htmlFor="display_tempUnits">Temperature Units</label>
+            <label htmlFor="displayTempUnits">Temperature Units</label>
             <input
                 placeholder="Temperature Units"
-                name="display_tempUnits"
+                name="displayTempUnits"
                 type="text"
-                value={preferences.display_tempUnits}
+                value={preferences.displayTempUnits}
                 onChange={handleChange}
             />
           </section>
