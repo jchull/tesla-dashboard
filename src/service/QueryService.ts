@@ -26,23 +26,23 @@ export class QueryService {
     return result && result.data;
   }
 
-  async addTag(vin: string, sessionId: string, tag: string): Promise<string[]> {
+  async addTag(sessionId: string, tag: string): Promise<string[]> {
     if (!(tag.match(/^[a-z0-9\w].+$/i))) {
       throw Error('tags must contain only letters, numbers, and spaces');
     }
     const sanitizedTag = tag.replace(' ', '_')
                             .toLowerCase();
-    const result = await this.api.post(`/vehicle/${vin}/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
+    const result = await this.api.post(`/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
     return result && result.data;
   }
 
-  async removeTag(vin: string, sessionId: string, tag: string): Promise<string[]> {
+  async removeTag(sessionId: string, tag: string): Promise<string[]> {
     if (!tag.match(/^[a-z0-9\w].+$/i)) {
       throw Error('tags must contain only letters, numbers, and spaces');
     }
     const sanitizedTag = tag.replace(' ', '_')
                             .toLowerCase();
-    const result = await this.api.delete(`/vehicle/${vin}/session/${sessionId}/tag/${sanitizedTag}`);
+    const result = await this.api.delete(`/session/${sessionId}/tag/${sanitizedTag}`);
     return result && result.data;
   }
 

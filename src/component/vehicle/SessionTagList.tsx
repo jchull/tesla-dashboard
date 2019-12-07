@@ -1,35 +1,38 @@
-import React, {useEffect, useState} from 'react';
-import {TagList} from '../common/TagList';
+import {TagList} from '../tags/TagList';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppState} from '@store/store';
+import {createSelector} from '@reduxjs/toolkit';
+
+function tagsToDisplay(tags: string[]): string[] {
+  return tags.map(tag => tag.replace('_', ' '));
+}
 
 export const SessionTagList: React.FC = () => {
 
   const dispatch = useDispatch();
-  const productId = useSelector((store: AppState) => store.product.selectedProductId);
-  const sessionId = useSelector((store: AppState) => store.session.selectedSessionId);
-  const [tags, setTags] = useState([]);
+  const sessionIdSelector = (store: AppState) => store.session.selectedSessionId;
+  const sessionsSelector = (store: AppState) => store.session.sessions;
+  const tagsSelector = createSelector([sessionsSelector, sessionIdSelector],
+                                      (sessions, selectedSessionId) => {
+                                        const session = sessions.find(session => session._id === selectedSessionId);
+                                        return tagsToDisplay(session && session.tags ? session.tags : []);
+                                      }
+  );
 
-
-  function tagsToDisplay(tags: string[]): string[] {
-    return tags.map(tag => tag.replace('_', ' '));
-  }
+  const tags = useSelector(tagsSelector);
 
   async function addListener(tag: string): Promise<void> {
+    // TODO: use redux for adding/removing tags
     // const newTags = await services.queryService.addTag(productId, sessionId, tag);
     // setTags(tagsToDisplay(newTags));
+    // dispatch()
   }
 
   async function removeListener(tag: string): Promise<void> {
     // const newTags = await services.queryService.removeTag(productId, sessionId, tag);
     // setTags(tagsToDisplay(newTags));
   }
-
-
-  useEffect(() => {
-    // setTags(tagsToDisplay(props.tags));
-  }, [productId, sessionId]);
-
 
   return (
       <TagList tags={tags}

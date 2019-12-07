@@ -1,14 +1,14 @@
 import React from 'react';
-import './TagList.scss';
+import './style.scss';
 import {Tag} from './Tag';
 import {TagInput} from './TagInput';
 
 interface TagListProps {
   tags: string[];
 
-  addListener(tag: string): any;
+  addListener(tag: string): void;
 
-  removeListener(tag: string): any;
+  removeListener(tag: string): void;
 }
 
 export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
