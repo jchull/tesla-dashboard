@@ -24,5 +24,7 @@ export const sessionListReducer = createReducer(initialState, {
   },
   FETCH_SESSION_LIST__FAIL: (state, action) => {
     //TODO: add failure message
-  }
+  },
+
+  // TODO: use a slice for the tags?
 });
