@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppState} from '@store/store';
 import './MainMenu.scss';
-import {logoutAction} from '../../auth/actions';
+import {logoutAction} from '../auth/actions';
 import { useHistory, useLocation } from 'react-router-dom';
 
 interface MenuItem {
   name: string;
 
-  action(): any;
+  action(): void;
 }
 
 export const MainMenu: React.FC = () => {
