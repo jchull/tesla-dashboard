@@ -3,6 +3,7 @@ import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppState} from '@store/store';
 import {createSelector} from '@reduxjs/toolkit';
+import {addSessionTagAction, removeSessionTagAction} from '@component/session/actions';
 
 function tagsToDisplay(tags: string[]): string[] {
   return tags.map(tag => tag.replace('_', ' '));
@@ -21,17 +22,18 @@ export const SessionTagList: React.FC = () => {
   );
 
   const tags = useSelector(tagsSelector);
+  const sessionId = useSelector(sessionIdSelector);
 
   async function addListener(tag: string): Promise<void> {
-    // TODO: use redux for adding/removing tags
-    // const newTags = await services.queryService.addTag(productId, sessionId, tag);
-    // setTags(tagsToDisplay(newTags));
-    // dispatch()
+    if(sessionId && tag && tag.length){
+      dispatch(addSessionTagAction(sessionId, tag));
+    }
   }
 
   async function removeListener(tag: string): Promise<void> {
-    // const newTags = await services.queryService.removeTag(productId, sessionId, tag);
-    // setTags(tagsToDisplay(newTags));
+    if(sessionId && tag && tag.length){
+      dispatch(removeSessionTagAction(sessionId, tag));
+    }
   }
 
   return (
