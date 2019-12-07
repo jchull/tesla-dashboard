@@ -1,14 +1,14 @@
 import React, {FC} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.scss';
-import {LoginComponent} from './auth/Login';
+import {LoginComponent} from './component/auth/Login';
 import {AccountComponent} from '@component/account/Account';
-import {PrivateRoute} from './auth/PrivateRoute';
+import {PrivateRoute} from './component/auth/PrivateRoute';
 import {Home} from '@component/view/Home';
 import {UserPreferences} from '@component/account/UserPreferences';
 import {TeslaAccountListComponent} from '@component/account/TeslaAccountList';
 import {SyncPreferencesList} from '@component/account/SyncPreferencesList';
-import {ForgotPassword} from './auth/Forgot';
+import {ForgotPassword} from './component/auth/Forgot';
 import {ProductSessionView} from '@component/view/ProductSessionView';
 import {useSelector} from 'react-redux';
 import {AppState} from '@store/store';

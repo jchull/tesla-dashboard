@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import services from '@service/index.ts';
+import services from '@service/index';
 import {Redirect} from 'react-router';
 
 

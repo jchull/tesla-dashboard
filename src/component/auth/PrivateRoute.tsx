@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, RouteProps, Route} from 'react-router-dom';
-import {AuthState} from '../auth/actions';
+import {AuthState} from './actions';
 
 
 interface PrivateRouteProps extends RouteProps {
