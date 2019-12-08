@@ -1,6 +1,7 @@
 import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
 import {ApiType} from '@service/index';
 import {createAction} from '@reduxjs/toolkit';
+import {batch} from 'react-redux';
 
 export interface SessionState {
   sessions: (ChargeSession | DriveSession)[];
@@ -66,7 +67,11 @@ export const addSessionTagAction =
       dispatch(addSessionTagStart());
       return extraArgument.api.queryService.addTag(sessionId, tag)
                           .then((result) => {
-                            dispatch(addSessionTagSuccess());
+                            batch(() => {
+                              dispatch(addSessionTagSuccess());
+                              // TODO: don't update the whole list, just the tags (result[]
+                              // dispatch(fetchSessionListStart());
+                            });
                           }, (error: any) => {
                             dispatch(addSessionTagFail(error));
                           });
@@ -77,11 +82,14 @@ export const removeSessionTagFail = createAction('REMOVE_SESSION_TAG__FAIL');
 export const removeSessionTagSuccess = createAction('REMOVE_SESSION_TAG__SUCCESS');
 export const removeSessionTagAction =
     (sessionId: string, tag: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
-      dispatch(addSessionTagStart());
+      dispatch(removeSessionTagStart());
       return extraArgument.api.queryService.removeTag(sessionId, tag)
                           .then((result) => {
-                            dispatch(addSessionTagSuccess());
+                            batch(() => {
+                              dispatch(removeSessionTagSuccess());
+                              // dispatch(fetchSessionListStart());
+                            });
                           }, (error: any) => {
-                            dispatch(addSessionTagFail(error));
+                            dispatch(removeSessionTagFail(error));
                           });
     };
