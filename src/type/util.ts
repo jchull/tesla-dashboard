@@ -1,8 +1,8 @@
 import numbro from 'numbro';
-import {DriveSession} from 'tesla-dashboard-api';
+import {ChargeSession, DriveSession} from 'tesla-dashboard-api';
 
-export function isDriveSession(arg: any): arg is DriveSession {
-  return !arg.hasOwnProperty('charge_to_max_range');
+export function isDriveSession(arg: DriveSession | ChargeSession): arg is DriveSession {
+  return (arg as DriveSession).distance !== undefined;
 }
 
 export function isoDurationToHuman(durationString: string): string {
