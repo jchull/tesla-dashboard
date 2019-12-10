@@ -31,7 +31,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
   const innerHeight = outerHeight - (strokeWidth * 2);
   const innerWidth = outerWidth - (strokeWidth * 2) - terminalWidth;
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
         svg.selectAll('svg>*')
            .remove();
 
@@ -104,7 +104,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (props: BatteryLeve
                           .attr('d', 'M 13.722257,5.6956486 26.264654,10.530665 16.343495,9.5419236 16.58168,13.957745 6.6609412,9.1667774 14.221217,10.580474 Z');
         }
       },
-      [props]);
+      [props.batteryLevel, props.width]);
 
   return (
       <div className="battery-icon"

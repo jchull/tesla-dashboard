@@ -4,6 +4,7 @@ import React           from 'react';
 
 
 import { SessionTagList } from './SessionTagList';
+import {getMockProvider} from "../../__mocks__/ReduxMockWrapper";
 
 let wrapper;
 
@@ -23,8 +24,10 @@ afterEach(() => {
 
 
 it('renders empty tag list', () => {
+  const {ReduxMockWrapper} = getMockProvider({session: {sessions:[]}});
+
   act(() => {
-    wrapper = render(<SessionTagList/>);
+    wrapper = render(<ReduxMockWrapper><SessionTagList/></ReduxMockWrapper>);
   });
   expect(pretty(wrapper.container.innerHTML))
     .toMatchSnapshot();
