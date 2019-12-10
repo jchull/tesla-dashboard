@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`renders empty tag list 1`] = `
-"<div class=\\"tag-list\\">
-  <div class=\\"tag-input\\"><button class=\\"add\\" aria-label=\\"Show new tag entry\\"><i class=\\"material-icons\\">add</i></button><input class=\\"hide\\" aria-label=\\"Enter new tag\\"></div>
-</div>"
-`;
