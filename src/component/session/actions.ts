@@ -1,5 +1,5 @@
 import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
-import {ApiType} from '@service/index';
+import {ApiType} from '@service/service';
 import {createAction} from '@reduxjs/toolkit';
 import {batch} from 'react-redux';
 

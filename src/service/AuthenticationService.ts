@@ -5,14 +5,16 @@ const jwtCookieRegex = /jwt=(.+);?/;
 
 export class AuthenticationService {
   private readonly api: AxiosInstance;
-  private username: string | undefined;
 
   constructor(api: AxiosInstance) {
     this.api = api;
   }
 
   getUsername(): string | undefined {
-    return this.username;
+    const token = this.getToken();
+    if(token){
+      return this.decode(token).username;
+    }
   }
 
   async login(username: string, password: string): Promise<boolean> {
@@ -24,7 +26,6 @@ export class AuthenticationService {
         const token = jwtCookieRegex.exec(document.cookie);
         if (token && token[1]) {
           this.setToken(token[1]);
-          this.username = username;
           return true;
         }
       }
@@ -43,12 +44,20 @@ export class AuthenticationService {
       return false;
     }
     try {
+      const decoded = this.decode(token) as { username: string; sub: string; exp: number; client: string };
+      return decoded && decoded.exp >= Date.now() / 1000;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  decode(token: string): any {
+    try {
       const decoded = decode(token) as { username: string; sub: string; exp: number; client: string };
-      this.username = decoded.username;
       if (decoded.sub !== 'tesla-dashboard' || !decoded.client) {
         return false;
       }
-      return decoded.exp >= Date.now() / 1000;
+      return decoded;
     } catch (err) {
       return false;
     }

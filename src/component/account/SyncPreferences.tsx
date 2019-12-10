@@ -1,7 +1,7 @@
 /* eslint camelcase: 0 */
 import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
 import {DEFAULT_SYNC_PREFERENCES, SyncPreferences as ISyncPreferences} from 'tesla-dashboard-api';
-import services from '@service/index.ts';
+import services from '@service/service';
 
 
 interface SyncPreferencesState {

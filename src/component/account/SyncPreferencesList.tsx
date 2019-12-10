@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {Vehicle as Product, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
 import {SyncPreferences} from './SyncPreferences';
-import services from '@service/index.ts';
+import services from '@service/service';
 
 
 export const SyncPreferencesList: FC = () => {

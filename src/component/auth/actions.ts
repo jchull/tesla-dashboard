@@ -1,4 +1,4 @@
-import {ApiType} from '@service/index';
+import {ApiType} from '@service/service';
 import {createAction} from '@reduxjs/toolkit';
 
 
@@ -36,9 +36,11 @@ export const loginAction =
       dispatch(authLoginStart());
       return extraArgument.api.auth.login(username, password)
                           .then((result: boolean) => {
+                            const token = extraArgument.api.auth.getToken();
+
                             const role = 'temp';
                             if (result) {
-                              return dispatch(authLoginSuccess({username, role}));
+                              dispatch(authLoginSuccess({username, role}));
                             }
                           })
                           .catch(() => dispatch(authLoginFail()));

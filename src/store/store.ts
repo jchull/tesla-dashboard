@@ -2,7 +2,7 @@ import {Action, AnyAction, Middleware, Store} from 'redux';
 import {configureStore as configureReduxStore} from '@reduxjs/toolkit';
 import reduxThunk, {ThunkAction, ThunkDispatch, ThunkMiddleware} from 'redux-thunk';
 
-import {ApiType} from '@service/index';
+import {ApiType} from '@service/service';
 import {rootReducer} from './reducer';
 
 export type AppState = ReturnType<typeof rootReducer>;
