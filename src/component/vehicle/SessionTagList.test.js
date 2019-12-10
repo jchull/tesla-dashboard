@@ -24,9 +24,7 @@ afterEach(() => {
 
 it('renders empty tag list', () => {
   act(() => {
-    wrapper = render(<SessionTagList tags={[]}
-                                     sessionId="xyz1"
-                                     vehicleId="abc1"/>);
+    wrapper = render(<SessionTagList/>);
   });
   expect(pretty(wrapper.container.innerHTML))
     .toMatchSnapshot();

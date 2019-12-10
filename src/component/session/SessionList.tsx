@@ -4,7 +4,6 @@ import {useDispatch} from 'react-redux';
 import {SessionListItem} from './SessionListItem';
 import {selectSession, SessionState} from './actions';
 import './style.scss';
-import {ChargeSession, DriveSession} from 'tesla-dashboard-api';
 
 
 export const SessionList: React.FC<SessionState> = (props: SessionState) => {

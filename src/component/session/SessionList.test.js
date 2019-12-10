@@ -1,9 +1,8 @@
 import { act, render } from '@testing-library/react';
 import pretty          from 'pretty';
 import React           from 'react';
-
-
-import { SessionList } from './reducer';
+import {SessionList} from "@component/session/SessionList";
+import {getMockProvider} from "../../__mocks__/ReduxMockWrapper";
 
 let wrapper;
 
@@ -23,8 +22,10 @@ afterEach(() => {
 
 
 it('renders empty session list', () => {
+  const {ReduxMockWrapper} = getMockProvider({auth: {loggedIn: false}});
+
   act(() => {
-    wrapper = render(<SessionList sessions={[]}/>);
+    wrapper = render(<ReduxMockWrapper><SessionList/></ReduxMockWrapper>);
   });
   expect(pretty(wrapper.container.innerHTML))
     .toMatchSnapshot();
