@@ -8,17 +8,23 @@ export interface ProductState {
   selectedProductId?: string;
 }
 
+export enum ProductActionType {
+  FETCH_PRODUCT_LIST__START = 'FETCH_PRODUCT_LIST__START',
+  FETCH_PRODUCT_LIST__FAIL = 'FETCH_PRODUCT_LIST__FAIL',
+  FETCH_PRODUCT_LIST__SUCCESS = 'FETCH_PRODUCT_LIST__SUCCESS',
+  SELECT_PRODUCT = 'SELECT_PRODUCT'
+}
 
-export const fetchProductListStart = createAction('FETCH_PRODUCT_LIST__START');
-export const fetchProductListFail = createAction('FETCH_PRODUCT_LIST__FAIL');
+export const fetchProductListStart = createAction(ProductActionType.FETCH_PRODUCT_LIST__START);
+export const fetchProductListFail = createAction(ProductActionType.FETCH_PRODUCT_LIST__FAIL);
 
-export const fetchProductListSuccess = createAction('FETCH_PRODUCT_LIST__SUCCESS', (products: Product[]) => ({
+export const fetchProductListSuccess = createAction(ProductActionType.FETCH_PRODUCT_LIST__SUCCESS, (products: Product[]) => ({
   payload: {
     productList: products
   }
 }));
 
-export const selectProduct = createAction('SELECT_PRODUCT', (productId: string) => ({
+export const selectProduct = createAction(ProductActionType.SELECT_PRODUCT, (productId: string) => ({
   payload: {
     selectedProductId: productId
   }

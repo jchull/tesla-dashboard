@@ -9,26 +9,42 @@ export interface SessionState {
   selectedSessionStates?: ChargeState[] | DriveState[];
 }
 
-export const fetchSessionListStart = createAction('FETCH_SESSION_LIST__START');
-export const fetchSessionListFail = createAction('FETCH_SESSION_LIST__FAIL');
+export enum SessionActionType {
+  FETCH_SESSION_LIST__START = 'FETCH_SESSION_LIST__START',
+  FETCH_SESSION_LIST__FAIL = 'FETCH_SESSION_LIST__FAIL',
+  FETCH_SESSION_LIST__SUCCESS = 'FETCH_SESSION_LIST__SUCCESS',
+  SELECT_SESSION = 'SELECT_SESSION',
+  FETCH_SESSION_DETAILS__START = 'FETCH_SESSION_DETAILS__START',
+  FETCH_SESSION_DETAILS__FAIL = 'FETCH_SESSION_DETAILS__FAIL',
+  FETCH_SESSION_DETAILS__SUCCESS = 'FETCH_SESSION_DETAILS__SUCCESS',
+  ADD_SESSION_TAG__START = 'ADD_SESSION_TAG__START',
+  ADD_SESSION_TAG__FAIL = 'ADD_SESSION_TAG__FAIL',
+  ADD_SESSION_TAG__SUCCESS = 'ADD_SESSION_TAG__SUCCESS',
+  REMOVE_SESSION_TAG__START = 'REMOVE_SESSION_TAG__START',
+  REMOVE_SESSION_TAG__FAIL = 'REMOVE_SESSION_TAG__FAIL',
+  REMOVE_SESSION_TAG__SUCCESS = 'REMOVE_SESSION_TAG__SUCCESS'
+}
 
-export const fetchSessionListSuccess = createAction('FETCH_SESSION_LIST__SUCCESS', (sessions) => ({
+export const fetchSessionListStart = createAction(SessionActionType.FETCH_SESSION_LIST__START);
+export const fetchSessionListFail = createAction(SessionActionType.FETCH_SESSION_LIST__FAIL);
+
+export const fetchSessionListSuccess = createAction(SessionActionType.FETCH_SESSION_LIST__SUCCESS, (sessions) => ({
   payload: {
     sessions
   }
 }));
 
-export const selectSession = createAction('SELECT_SESSION', (selectedSessionId: string) => ({
+export const selectSession = createAction(SessionActionType.SELECT_SESSION, (selectedSessionId: string) => ({
   payload: {
     selectedSessionId
   }
 }));
 
-export const fetchSessionDetailsStart = createAction('FETCH_SESSION_DETAILS__START');
-export const fetchSessionDetailsFail = createAction('FETCH_SESSION_DETAILS__FAIL');
+export const fetchSessionDetailsStart = createAction(SessionActionType.FETCH_SESSION_DETAILS__START);
+export const fetchSessionDetailsFail = createAction(SessionActionType.FETCH_SESSION_DETAILS__FAIL);
 
 
-export const fetchSessionDetailsSuccess = createAction('FETCH_SESSION_DETAILS__SUCCESS', (states) => ({
+export const fetchSessionDetailsSuccess = createAction(SessionActionType.FETCH_SESSION_DETAILS__SUCCESS, (states) => ({
   payload: {
     selectedSessionStates: states
   }
@@ -58,9 +74,9 @@ export const fetchSessionDetailsAction =
     };
 
 
-export const addSessionTagStart = createAction('ADD_SESSION_TAG__START');
-export const addSessionTagFail = createAction('ADD_SESSION_TAG__FAIL');
-export const addSessionTagSuccess = createAction('ADD_SESSION_TAG__SUCCESS');
+export const addSessionTagStart = createAction(SessionActionType.ADD_SESSION_TAG__START);
+export const addSessionTagFail = createAction(SessionActionType.ADD_SESSION_TAG__FAIL);
+export const addSessionTagSuccess = createAction(SessionActionType.ADD_SESSION_TAG__SUCCESS);
 
 export const addSessionTagAction =
     (sessionId: string, tag: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
@@ -77,9 +93,9 @@ export const addSessionTagAction =
                           });
     };
 
-export const removeSessionTagStart = createAction('REMOVE_SESSION_TAG__START');
-export const removeSessionTagFail = createAction('REMOVE_SESSION_TAG__FAIL');
-export const removeSessionTagSuccess = createAction('REMOVE_SESSION_TAG__SUCCESS');
+export const removeSessionTagStart = createAction(SessionActionType.REMOVE_SESSION_TAG__START);
+export const removeSessionTagFail = createAction(SessionActionType.REMOVE_SESSION_TAG__FAIL);
+export const removeSessionTagSuccess = createAction(SessionActionType.REMOVE_SESSION_TAG__SUCCESS);
 export const removeSessionTagAction =
     (sessionId: string, tag: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(removeSessionTagStart());
