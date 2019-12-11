@@ -10,7 +10,7 @@ export class QueryService {
     this.api = api;
   }
 
-  async getProducts(): Promise<[Product]> {
+  async getProducts(): Promise<Product[]> {
     const result = await this.api.get('/vehicle', {headers: {'Cache-Control': 'no-cache'}});
     return result && result.data;
   }
