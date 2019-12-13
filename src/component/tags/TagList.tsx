@@ -18,6 +18,7 @@ export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
                                           key={tag}/>);
   return (
       <div className="tag-list">
+        <div>Tags</div>
         {tags}
         {props.addListener &&
         <TagInput addListener={props.addListener}/>

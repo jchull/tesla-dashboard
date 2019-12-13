@@ -1,81 +1,81 @@
 
-.tag {
-  display: inline-block;
-  height: 40px;
-  line-height: 36px;
-  border-radius: 40px;
-  margin: 2px;
-  padding: 0 6px 0 12px;
-  vertical-align: top;
-}
+.tag-list {
 
-.tag span {
-  vertical-align: top;
-  font-size: 20px;
-}
+  button {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    padding: 0;
+    background: #f7f7f7;
+    margin: 3px 0 3px 10px;
+    font-size: 24px;
 
-.tag-list button {
-  width: 30px;
-  height: 30px;
-  border-radius: 30px;
-  padding: 0;
-  background: #f7f7f7;
-  margin: 3px 0 3px 10px;
-  font-size: 24px;
-}
+    &.add {
+      margin-top: 6px;
+    }
 
-.tag-list button.add {
-  margin-top: 6px;
-}
+    &:hover {
+      color: #2a9de6;
+    }
 
-.tag-list button:hover {
-  color: #2a9de6;
-}
+    &:focus {
+      outline: none;
+    }
+
+    i {
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0;
+      background: none;
+    }
+
+  }
+
+  .tag {
+    display: inline-block;
+    height: 40px;
+    line-height: 36px;
+    border-radius: 40px;
+    margin: 2px;
+    padding: 0 6px 0 12px;
+    vertical-align: top;
+  }
+
+  span {
+    vertical-align: top;
+    font-size: 20px;
+  }
 
 
-.tag-list .tag button.remove:hover {
-  border: 1px solid rgb(227, 25, 55);
-  color: rgb(227, 25, 55);
-}
-
-.tag-list button:focus {
-  outline: none;
-}
-
-.tag-list button i {
-  font-size: 24px;
-  line-height: 29px;
-  margin: 0;
-  background: none;
 }
 
 
 .tag-input {
   display: inline-block;
-}
 
-.tag-input input:focus {
-  outline: none;
-}
+  input {
+    border-radius: 20px;
+    line-height: 24px;
+    vertical-align: bottom;
+    font-size: 20px;
+    padding: 4px 10px;
+    margin: 0 4px;
 
-.tag-input input {
-  border-radius: 20px;
-  line-height: 24px;
-  vertical-align: bottom;
-  font-size: 20px;
-  padding: 4px 10px;
-  margin: 0 4px;
-}
+    &:focus {
+      outline: none;
+    }
 
-.tag-input input.hide {
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  width: 0;
-  border-color: transparent;
-}
+    &.hide {
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+      width: 0;
+      border-color: transparent;
+    }
 
-.tag-input input.show {
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  width: 200px;
+    &.show {
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+      width: 200px;
+    }
+  }
 }

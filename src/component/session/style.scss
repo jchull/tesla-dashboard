@@ -1,13 +1,11 @@
-.session-list-container {
-}
+
 
 .session-list {
-  max-height: 600px;
+  display: flex;
+  flex-direction: column;
   width: 336px;
-  display: inline-block;
-  vertical-align: top;
   overflow-y: auto;
-  padding: 10px;
+  margin: 10px;
 
   .list-item {
     &:hover {
@@ -24,7 +22,6 @@
 
 .selected-view {
   display: inline-block;
-  min-height: 100%;
 }
 
 
