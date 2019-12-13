@@ -64,6 +64,7 @@ export const App: FC = () => {
           Energy Dashboard
         </header>
         {routing}
+        <div className="footer"></div>
       </div>
   );
 };
