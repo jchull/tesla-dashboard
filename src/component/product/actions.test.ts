@@ -42,12 +42,10 @@ describe('product actions', () => {
     // @ts-ignore
     await store.dispatch(actions.fetchProductListAction());
     expect(store.getActions()).toEqual(expectedActions);
-
-    // TODO: testing of reducer
   });
 
-  it('should handle simple product list', async () => {
 
+  it('should handle simple product list', async () => {
     services.queryService.getProducts = jest.fn((): Promise<Product[]> => {
       return new Promise<Product[]>((resolve, reject) => resolve([sampleCar]));
     });
@@ -60,8 +58,5 @@ describe('product actions', () => {
     // @ts-ignore
     await store.dispatch(actions.fetchProductListAction());
     expect(store.getActions()).toEqual(expectedActions);
-
-
-    // TODO: testing of reducer
   });
 });

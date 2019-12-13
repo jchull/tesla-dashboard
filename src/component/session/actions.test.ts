@@ -28,7 +28,6 @@ describe('session actions', () => {
     await store.dispatch(actions.fetchSessionListAction('999'));
     expect(store.getActions()).toEqual(expectedActions);
 
-    // TODO: testing of reducer
   });
 
 
