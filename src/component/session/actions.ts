@@ -76,7 +76,12 @@ export const fetchSessionDetailsAction =
 
 export const addSessionTagStart = createAction(SessionActionType.ADD_SESSION_TAG__START);
 export const addSessionTagFail = createAction(SessionActionType.ADD_SESSION_TAG__FAIL);
-export const addSessionTagSuccess = createAction(SessionActionType.ADD_SESSION_TAG__SUCCESS);
+export const addSessionTagSuccess = createAction(SessionActionType.ADD_SESSION_TAG__SUCCESS, (sessionId: string, tag: string) => ({
+  payload: {
+    tag,
+    sessionId
+  }
+}));
 
 export const addSessionTagAction =
     (sessionId: string, tag: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
@@ -84,9 +89,7 @@ export const addSessionTagAction =
       return extraArgument.api.queryService.addTag(sessionId, tag)
                           .then((result) => {
                             batch(() => {
-                              dispatch(addSessionTagSuccess());
-                              // TODO: don't update the whole list, just the tags (result[]
-                              // dispatch(fetchSessionListStart());
+                              dispatch(addSessionTagSuccess(sessionId, tag));
                             });
                           }, (error: any) => {
                             dispatch(addSessionTagFail(error));
@@ -95,15 +98,20 @@ export const addSessionTagAction =
 
 export const removeSessionTagStart = createAction(SessionActionType.REMOVE_SESSION_TAG__START);
 export const removeSessionTagFail = createAction(SessionActionType.REMOVE_SESSION_TAG__FAIL);
-export const removeSessionTagSuccess = createAction(SessionActionType.REMOVE_SESSION_TAG__SUCCESS);
+export const removeSessionTagSuccess = createAction(SessionActionType.REMOVE_SESSION_TAG__SUCCESS, (sessionId: string, tag: string) => ({
+  payload: {
+    tag,
+    sessionId
+  }
+}));
+
 export const removeSessionTagAction =
     (sessionId: string, tag: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(removeSessionTagStart());
       return extraArgument.api.queryService.removeTag(sessionId, tag)
                           .then((result) => {
                             batch(() => {
-                              dispatch(removeSessionTagSuccess());
-                              // dispatch(fetchSessionListStart());
+                              dispatch(removeSessionTagSuccess(sessionId, tag));
                             });
                           }, (error: any) => {
                             dispatch(removeSessionTagFail(error));
