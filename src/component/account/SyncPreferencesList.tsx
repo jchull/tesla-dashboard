@@ -1,19 +1,19 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Vehicle as Product, DEFAULT_SYNC_PREFERENCES} from 'tesla-dashboard-api';
+import {Vehicle as Product} from 'tesla-dashboard-api';
 import {SyncPreferences} from './SyncPreferences';
 import services from '@service/service';
 
 
 export const SyncPreferencesList: FC = () => {
 
-  const [products, setProducts] = useState([] as unknown as [Product]);
+  const [products, setProducts] = useState([] as Product[]);
   const [selectedProduct, setSelectedProduct] = useState({} as Product);
 
   useEffect(() => {
     const username = services.auth.getUsername();
     if (username) {
       services.queryService.getProducts()
-                 .then((data: [Product] | undefined) => data && setProducts(data));
+              .then((data: Product[] | undefined) => data && setProducts(data));
     }
   }, []);
 
@@ -23,20 +23,20 @@ export const SyncPreferencesList: FC = () => {
 
         {
           products && products.length ?
-              (<div>
-                {products.map(vehicle => <div key={vehicle.vin}
-                                              className="clickable"
-                                              onClick={() => setSelectedProduct(vehicle)}>{vehicle.display_name}</div>)}
-              </div>)
-              :
-              <span>No products found</span>
+          (<div>
+            {products.map(vehicle => <div key={vehicle.vin}
+                                          className="clickable"
+                                          onClick={() => setSelectedProduct(vehicle)}>{vehicle.display_name}</div>)}
+          </div>)
+                                      :
+          <span>No products found</span>
         }
 
         {
           selectedProduct && selectedProduct._id ?
-              <SyncPreferences preferences={selectedProduct.sync_preferences} vehicleId={selectedProduct.vin}/>
-              :
-              <span>Select a product</span>
+          <SyncPreferences preferences={selectedProduct.sync_preferences} vehicleId={selectedProduct.vin}/>
+                                                 :
+          <span>Select a product</span>
         }
       </div>
   );
