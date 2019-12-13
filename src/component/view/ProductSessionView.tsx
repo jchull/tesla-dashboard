@@ -8,6 +8,7 @@ import {ProductList} from '@component/product';
 import {LineChart} from '@component/chart/LineChart';
 import {SessionTagList} from '@component/vehicle/SessionTagList';
 import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
+import {ChartToolbar} from '@component/chart/ChartToolbar';
 
 
 export const ProductSessionView: React.FC = () => {
@@ -44,9 +45,10 @@ export const ProductSessionView: React.FC = () => {
           <SessionList sessions={sessions} selectedSessionId={selectedSessionId}/>
           {
             selectedSessionStates ?
-            <div>
+            <div className="vertical-flex">
               <LineChart datum={selectedSessionStates}/>
               <SessionTagList/>
+              <ChartToolbar/>
             </div>
                                   :
             <span>No data selected</span>
