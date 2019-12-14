@@ -32,6 +32,12 @@ export const sessionListReducer = createReducer(initialState, {
   [SessionActionType.REMOVE_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex((session) => session._id === action.payload.sessionId);
     state.sessions[sessionIndex].tags = state.sessions[sessionIndex].tags.filter((tag) => action.payload.tag !== tag);
+  },
+  [SessionActionType.REMOVE_SESSION__SUCCESS]: (state, action) => {
+    state.sessions = state.sessions.filter((session) => session._id !== action.payload.sessionId);
+    if(state.selectedSessionId === action.payload.sessionId){
+      state.selectedSessionId = undefined;
+    }
   }
 
   // TODO: use a slice for the tags?

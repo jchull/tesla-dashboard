@@ -22,7 +22,11 @@ export enum SessionActionType {
   ADD_SESSION_TAG__SUCCESS = 'ADD_SESSION_TAG__SUCCESS',
   REMOVE_SESSION_TAG__START = 'REMOVE_SESSION_TAG__START',
   REMOVE_SESSION_TAG__FAIL = 'REMOVE_SESSION_TAG__FAIL',
-  REMOVE_SESSION_TAG__SUCCESS = 'REMOVE_SESSION_TAG__SUCCESS'
+  REMOVE_SESSION_TAG__SUCCESS = 'REMOVE_SESSION_TAG__SUCCESS',
+  DELETE_SESSION__START = 'DELETE_SESSION__START',
+  REMOVE_SESSION__START = 'REMOVE_SESSION__START',
+  REMOVE_SESSION__FAIL = 'REMOVE_SESSION__FAIL',
+  REMOVE_SESSION__SUCCESS = 'REMOVE_SESSION__SUCCESS'
 }
 
 export const fetchSessionListStart = createAction(SessionActionType.FETCH_SESSION_LIST__START);
@@ -115,5 +119,26 @@ export const removeSessionTagAction =
                             });
                           }, (error: any) => {
                             dispatch(removeSessionTagFail(error));
+                          });
+    };
+
+export const removeSessionStart = createAction(SessionActionType.REMOVE_SESSION__START);
+export const removeSessionFail = createAction(SessionActionType.REMOVE_SESSION__FAIL);
+export const removeSessionSuccess = createAction(SessionActionType.REMOVE_SESSION__SUCCESS, (sessionId: string) => ({
+  payload: {
+    sessionId
+  }
+}));
+
+export const removeSessionAction =
+    (sessionId: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
+      dispatch(removeSessionStart());
+      return extraArgument.api.queryService.removeSession(sessionId)
+                          .then(() => {
+                            batch(() => {
+                              dispatch(removeSessionSuccess(sessionId));
+                            });
+                          }, (error: any) => {
+                            dispatch(removeSessionFail(error));
                           });
     };

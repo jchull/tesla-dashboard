@@ -46,8 +46,8 @@ export class QueryService {
     return result && result.data;
   }
 
-  async removeSession(vin: string, sessionId: string): Promise<string[]> {
-    const result = await this.api.delete(`/vehicle/${vin}/session/${sessionId}`);
+  async removeSession(sessionId: string): Promise<string[]> {
+    const result = await this.api.delete(`/session/${sessionId}`);
     return result && result.data;
   }
 

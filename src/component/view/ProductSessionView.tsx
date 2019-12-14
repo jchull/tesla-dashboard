@@ -44,11 +44,11 @@ export const ProductSessionView: React.FC = () => {
         <div className="block-flow">
           <SessionList sessions={sessions} selectedSessionId={selectedSessionId}/>
           {
-            selectedSessionStates ?
+            selectedSessionStates && selectedSessionId?
             <div className="vertical-flex">
               <LineChart datum={selectedSessionStates}/>
               <SessionTagList/>
-              <ChartToolbar/>
+              <ChartToolbar sessionId={selectedSessionId}/>
             </div>
                                   :
             <span>No data selected</span>

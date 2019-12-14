@@ -2,6 +2,7 @@ import React from 'react';
 import './ChartToolbar.scss';
 import {Vehicle as Product} from 'tesla-dashboard-api';
 import {useDispatch} from 'react-redux';
+import {removeSessionAction, SessionActionType} from '@component/session/actions';
 
 interface ToolbarState {
   product?: Product;
@@ -11,25 +12,15 @@ interface ToolbarState {
 // TODO: this is turning into a general toolbar when there is at least a product selected
 export const ChartToolbar: React.FC<ToolbarState> = (props: ToolbarState) => {
 
+  const dispatch = useDispatch();
 
   async function deleteCurrent() {
     const _id = props.sessionId;
 
     if(_id){
-      // dispatch({type: ACTION_TYPES.DELETE_SESSION__START, sessionId: _id});
+      dispatch(removeSessionAction(_id));
     }
 
-    // const vin = props.product && props.product.vin;
-    // if (_id && vin) {
-    //   const deleteCount = await queryService.removeSession(vin, _id);
-    //   if (deleteCount) {
-    //     console.log("deleted");
-    //   } else {
-    //     console.log("deletion error");
-    //   }
-    // } else {
-    //   console.log("missing params");
-    // }
   }
 
   return (
