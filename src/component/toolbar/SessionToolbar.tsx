@@ -1,16 +1,13 @@
 import React from 'react';
-import './ChartToolbar.scss';
-import {Vehicle as Product} from 'tesla-dashboard-api';
+import './style.scss';
 import {useDispatch} from 'react-redux';
-import {removeSessionAction, SessionActionType} from '@component/session/actions';
+import {removeSessionAction} from '@component/session/actions';
 
-interface ToolbarState {
-  product?: Product;
+interface SessionToolbarState {
   sessionId?: string;
 }
 
-// TODO: this is turning into a general toolbar when there is at least a product selected
-export const ChartToolbar: React.FC<ToolbarState> = (props: ToolbarState) => {
+export const SessionToolbar: React.FC<SessionToolbarState> = (props: SessionToolbarState) => {
 
   const dispatch = useDispatch();
 
