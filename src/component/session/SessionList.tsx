@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import {SessionListItem} from './SessionListItem';
 import {selectSession, SessionState} from './actions';
 import './style.scss';
+import {FilterToolbar} from '@component/toolbar/FilterToolbar';
 
 
 export const SessionList: React.FC<SessionState> = (props: SessionState) => {
@@ -12,6 +13,7 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
 
   return (
       <div className="session-list">
+        <div className="sessions">
         {
           // @ts-ignore
           props.sessions && props.sessions.map(session =>
@@ -20,6 +22,8 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
                                                   selectionHandler={() => dispatch(selectSession(session._id))}
                                                   key={session._id}/>)
         }
+        </div>
+        <FilterToolbar/>
       </div>
   );
 };
