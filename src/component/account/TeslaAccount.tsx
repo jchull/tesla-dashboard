@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import {TeslaAccount} from 'tesla-dashboard-api';
 import services from '@service/service';
+import {TeslaTokenComponent} from '@component/account/TeslaTokenUpdater';
 
 
 interface TeslaAccountProps {
@@ -10,7 +11,7 @@ interface TeslaAccountProps {
 
 export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccountProps) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  const [showTeslaTokenUpdater, setShowTeslaTokenUpdater] = useState(false);
   const [account, setAccount] = useState(props.account || {});
   const [formValid, setFormValid] = useState(false);
 
@@ -23,8 +24,12 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
 
   async function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
-    // TODO: Validation
-    await services.userService.updateTeslaAccount(account);
+    if(account.username){
+      // TODO: Validation
+      console.log("submit tesla account form");
+      await services.userService.updateTeslaAccount(account);
+    }
+
   }
 
   useEffect(() => {
@@ -37,10 +42,12 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
 
   function resetForm() {
     setAccount(props.account || {});
+    setShowTeslaTokenUpdater(false);
+
   }
 
   function getTokens() {
-//TODO: get tokens from tesla service, requires password
+    setShowTeslaTokenUpdater(true);
   }
 
   return (
@@ -72,8 +79,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
               onChange={handleChange}
           />
           <button
-              onClick={getTokens}
-              disabled>
+              onClick={getTokens}>
             Get Tokens From Tesla
           </button>
 
@@ -90,6 +96,9 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (props: TeslaAccount
             </button>
           </div>
         </form>
+        {
+          showTeslaTokenUpdater && <TeslaTokenComponent account={account}/>
+        }
       </div>
   );
 };

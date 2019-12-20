@@ -25,6 +25,11 @@ export class UserService {
     return this.api.put(`/user/${account.username}/tesla-account/${account._id}`, account);
   }
 
+  async updateTeslaToken(account: TeslaAccount, password: string): Promise<TeslaAccount | void> {
+    return this.api.post(`/user/${account.username}/tesla-account/${account._id}/token`, {...account, password});
+  }
+
+
 //: Promise<IUser>
 //   async updateUser(user: IUser) {
 //

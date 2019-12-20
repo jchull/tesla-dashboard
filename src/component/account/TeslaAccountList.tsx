@@ -4,14 +4,9 @@ import services from '@service/service';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
 
-interface TeslaAccountListProps {
-  accounts: TeslaAccount[];
-}
+export const TeslaAccountListComponent: FC = () => {
 
-
-export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: TeslaAccountListProps) => {
-
-  const [accounts, setAccounts] = useState(props.accounts || []);
+  const [accounts, setAccounts] = useState([] as TeslaAccount[]);
   const [selectedAccount, setSelectedAccount] = useState({} as TeslaAccount);
   let username;
 
@@ -26,6 +21,7 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: Tesl
     if (username) {
       services.userService.getTeslaAccounts(username)
               .then((data: TeslaAccount[] | undefined) => data && setAccounts(data));
+
     }
   }, []);
 
@@ -47,7 +43,7 @@ export const TeslaAccountListComponent: FC<TeslaAccountListProps> = (props: Tesl
         }
 
         {
-          selectedAccount ?
+          selectedAccount._id ?
           <TeslaAccountComponent account={selectedAccount}/>
                           :
           <span>Select an Account</span>

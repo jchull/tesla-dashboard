@@ -1,6 +1,5 @@
 import {AxiosInstance} from 'axios';
 import decode from 'jwt-decode';
-
 const jwtCookieRegex = /jwt=(.+);?/;
 
 export class AuthenticationService {
@@ -75,6 +74,7 @@ export class AuthenticationService {
     sessionStorage.removeItem('access_token');
     return this.api.get('/logout');
   }
+
 
 
   forgot(username: string) {
