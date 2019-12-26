@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './toolbar.style.scss';
 import {useDispatch} from 'react-redux';
 import {removeSessionAction} from '@component/session/actions';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './tag.style.scss';
 import {Tag} from './Tag';
 import {TagInput} from './TagInput';
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import './session.style.scss';
+
 import {useDispatch} from 'react-redux';
 
 import {SessionListItem} from './SessionListItem';
 import {selectSession, SessionState} from './actions';
-import './style.scss';
 import {FilterToolbar} from '@component/toolbar/FilterToolbar';
 
 

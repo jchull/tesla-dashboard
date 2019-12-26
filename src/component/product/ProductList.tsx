@@ -5,7 +5,7 @@ import {Vehicle as Product} from 'tesla-dashboard-api';
 import {ProductListItem} from './ProductListItem';
 import {fetchProductListAction, ProductState, selectProduct} from './actions';
 
-import './style.scss';
+import './product.style.scss';
 
 
 export const ProductList: React.FC<ProductState> = (props: ProductState) => {
