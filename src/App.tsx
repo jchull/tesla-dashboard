@@ -46,6 +46,10 @@ export const App: FC = () => {
                           component={UserPreferences}
                           auth={auth}
             />
+            <PrivateRoute path="/account"
+                          component={AccountComponent}
+                          auth={auth}
+            />
             <PrivateRoute path="/products"
                           component={ProductSessionView}
                           auth={auth}

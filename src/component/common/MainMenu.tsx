@@ -29,6 +29,10 @@ export const MainMenu: React.FC = () => {
       action: () => history.push('/preferences')
     },
     {
+      name: 'account',
+      action: () => history.push('/account')
+    },
+    {
       name: 'logout',
       action: () => dispatch(logoutAction())
     }];
