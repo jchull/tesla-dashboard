@@ -17,9 +17,10 @@ export const productListReducer = createReducer(initialState, {
 
   },
   FETCH_PRODUCT_LIST__SUCCESS: (state, action) => {
-    state.products = action.payload?.productList || [] as Product[];
+    state.products = action.payload.productList;
+
     // if previously-selected product is not found in the new products list, select the first product in the list
-    if (!action.payload?.products.find((product: Product) => product._id === state.selectedProductId)) {
+    if (!state.selectedProductId ?? !action.payload.products.find((product: Product) => product._id === state.selectedProductId)) {
       state.selectedProductId = action.payload.productList[0]._id;
     } else {
       state.selectedProductId = action.payload.selectedProductId;

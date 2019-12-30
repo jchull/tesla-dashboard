@@ -11,16 +11,16 @@ export const sessionListReducer = createReducer(initialState, {
   [SessionActionType.FETCH_SESSION_DETAILS__FAIL]: (state, action) => {
   },
   [SessionActionType.FETCH_SESSION_DETAILS__SUCCESS]: (state, action) => {
-    state.selectedSessionStates = action.payload && action.payload.selectedSessionStates;
+    state.selectedSessionStates = action.payload.selectedSessionStates;
   },
   [SessionActionType.SELECT_SESSION]: (state, action) => {
-    state.selectedSessionId = action.payload && action.payload.selectedSessionId;
+    state.selectedSessionId = action.payload.selectedSessionId;
   },
   [SessionActionType.FETCH_SESSION_LIST__START]: (state, action) => {
   },
   [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
-    state.sessions = action.payload ? action.payload.sessions : [];
-    state.selectedSessionId = action.payload && action.payload.selectedSessionId;
+    state.sessions = action.payload.sessions ?? [];
+    state.selectedSessionId = action.payload.selectedSessionId;
   },
   [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {
     //TODO: add failure message
@@ -36,7 +36,7 @@ export const sessionListReducer = createReducer(initialState, {
   [SessionActionType.REMOVE_SESSION__SUCCESS]: (state, action) => {
     state.sessions = state.sessions.filter((session) => session._id !== action.payload.sessionId);
     if(state.selectedSessionId === action.payload.sessionId){
-      state.selectedSessionId = undefined;
+      state.selectedSessionId = state.sessions[0]._id;
     }
   }
 
