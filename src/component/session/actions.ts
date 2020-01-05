@@ -60,7 +60,7 @@ export const fetchSessionListAction =
                           .then((result) => {
                             dispatch(fetchSessionListSuccess(result));
                           }, (error: any) => {
-                            dispatch(fetchSessionListFail(error));
+                            dispatch(fetchSessionListFail());
                           });
     };
 
@@ -72,7 +72,7 @@ export const fetchSessionDetailsAction =
                           .then((result: DriveState[] | ChargeState[]) => {
                             dispatch(fetchSessionDetailsSuccess(result));
                           }, (error: any) => {
-                            dispatch(fetchSessionDetailsFail(error));
+                            dispatch(fetchSessionDetailsFail());
                           });
     };
 
@@ -95,7 +95,7 @@ export const addSessionTagAction =
                               dispatch(addSessionTagSuccess(sessionId, tag));
                             });
                           }, (error: any) => {
-                            dispatch(addSessionTagFail(error));
+                            dispatch(addSessionTagFail());
                           });
     };
 
@@ -117,7 +117,7 @@ export const removeSessionTagAction =
                               dispatch(removeSessionTagSuccess(sessionId, tag));
                             });
                           }, (error: any) => {
-                            dispatch(removeSessionTagFail(error));
+                            dispatch(removeSessionTagFail());
                           });
     };
 
@@ -138,6 +138,6 @@ export const removeSessionAction =
                               dispatch(removeSessionSuccess(sessionId));
                             });
                           }, (error: any) => {
-                            dispatch(removeSessionFail(error));
+                            dispatch(removeSessionFail());
                           });
     };
