@@ -1,23 +1,37 @@
 import React from 'react';
 import {SessionList} from '@component/session';
 import {useDispatch, useSelector} from 'react-redux';
-import {createSelector} from 'reselect';
 import {fetchSessionDetailsAction, fetchSessionListAction} from '@component/session/actions';
 import {AppState} from '@store/store';
 import {ProductList} from '@component/product';
 import {LineChart} from '@component/chart/LineChart';
 import {SessionTagList} from '@component/vehicle/SessionTagList';
-import {ChargeSession, ChargeState, DriveSession, DriveState} from 'tesla-dashboard-api';
 import {SessionToolbar} from '@component/toolbar/SessionToolbar';
+import {createSelector} from '@reduxjs/toolkit';
 
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch();
-  const products = useSelector((store: AppState) => store.product.products);
-  const sessions: (ChargeSession | DriveSession)[] = useSelector((store: AppState) => store.session.sessions);
-  const selectedProductId = useSelector((store: AppState) => store.product.selectedProductId);
-  const selectedSessionId = useSelector((store: AppState) => store.session.selectedSessionId);
+
+  const productsSelector = (store: AppState) => store.product.products;
+  const selectedProductIdSelector = (store: AppState) => store.product.selectedProductId;
+  const products = useSelector(productsSelector);
+  const selectedProductId = useSelector(selectedProductIdSelector);
+
+  const sessionsSelector = (store: AppState) => store.session.sessions;
+  const selectedSessionIdSelector = (store: AppState) => store.session.selectedSessionId;
+  const sessions = useSelector(sessionsSelector);
+
+  // const tagsSelector = createSelector([sessionsSelector, sessionIdSelector],
+  //                                     (sessions, selectedSessionId) => {
+  //                                       const session = sessions.find(session => session._id === selectedSessionId);
+  //                                       return tagsToDisplay(session && session.tags ? session.tags : []);
+  //                                     }
+  // );
+
+  const selectedSessionId = useSelector(selectedSessionIdSelector);
   const selectedSessionStates = useSelector((store: AppState) => store.session.selectedSessionStates);
+
 
   React.useEffect(() => {
     if (selectedProductId) {
