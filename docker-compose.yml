@@ -16,8 +16,6 @@ services:
       - database
     ports:
       - '7057:3000'
-    expose:
-      - '7057'
     environment:
       NODE_ENV: 'development'
       PORT: 3000
