@@ -1,14 +1,31 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { AccountController } from './account/account.controller';
-import { ProductController } from './product/product.controller';
-import { AccountService } from './account/account.service';
-import { ProductService } from './product/product.service';
+import {Module} from '@nestjs/common';
+import {ConfigModule} from '@nestjs/config';
+import {MongooseModule} from '@nestjs/mongoose';
+
+import {AppController} from './app.controller';
+import {AppService} from './app.service';
+
+import {ConfigurationModule} from './configuration/configuration.module';
+import {ProductModule} from './product/product.module';
+import {AccountModule} from './account/account.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, AccountController, ProductController],
-  providers: [AppService, AccountService, ProductService],
-})
-export class AppModule {}
+          imports: [
+            ConfigModule.forRoot({
+                                   envFilePath: `./env/${process.env.NODE_ENV || 'development'}.env`
+                                 }),
+            MongooseModule.forRootAsync({
+                                          useFactory: async () => ({
+                                            uri: process.env.DB_CONN,
+                                            useNewUrlParser: true
+                                          })
+                                        }),
+            ConfigurationModule,
+            ProductModule,
+            AccountModule
+          ],
+          controllers: [AppController],
+          providers: [AppService]
+        })
+export class AppModule {
+}
