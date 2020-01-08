@@ -1,8 +1,8 @@
-import {Document, model, Schema} from 'mongoose';
-import {GuiSettings as IGuiSettings} from './types/tesla/GuiSettings';
+import {Document, Schema} from 'mongoose';
+import {GuiSettings} from './types/tesla/GuiSettings';
 
 
-const GuiSettingsSchema: Schema = new Schema({
+export const GuiSettingsSchema = new Schema({
   vehicle: {type: Schema.Types.ObjectId, ref: 'Vehicle'},
   gui_24_hour_time: {type: Boolean},
   gui_charge_rate_units: {type: String},
@@ -14,6 +14,5 @@ const GuiSettingsSchema: Schema = new Schema({
 
 });
 
-export const GuiSettings = model<IGuiSettings & Document>('GuiSettings', GuiSettingsSchema);
-export type GuiSettingsType = IGuiSettings & Document;
+export type GuiSettingsType = GuiSettings & Document;
 

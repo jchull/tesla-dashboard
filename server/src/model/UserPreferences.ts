@@ -1,15 +1,30 @@
-import {Document, model, Schema} from 'mongoose';
-import {UserPreferences as IUserPreferences} from './types/UserPreferences';
+import {Document, Schema} from 'mongoose';
+export interface UserPreferences {
+  _id?: string;
+  username: string;
+
+  displayCurrencyCode: string;
+  displayDistanceUnits: 'mi' | 'km';
+  displayTempUnits: 'F' | 'C';
+}
 
 
-const UserPreferencesSchema: Schema = new Schema({
+export const DEFAULT_PREFERENCES: UserPreferences = {
+  username: 'default',
+  displayDistanceUnits: 'mi',
+  displayCurrencyCode: 'USD',
+  displayTempUnits: 'F'
+};
+
+
+
+export const UserPreferencesSchema = new Schema({
   user: {type: Schema.Types.ObjectId, ref: 'User'},
   display_distanceUnits: {type: String},
   display_currencyCode: {type: String},
   display_tempUnits: {type: String}
 });
 
-export const UserPreferences = model<IUserPreferences & Document>('UserPreferences', UserPreferencesSchema);
-export type UserPreferencesType = IUserPreferences & Document;
+export type UserPreferencesType = UserPreferences & Document;
 
 

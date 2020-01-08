@@ -1,7 +1,22 @@
-import {Document, model, Schema} from 'mongoose';
-import {DriveSession as IDriveSession} from './types/DriveSession';
+import {Document, Schema} from 'mongoose';
+import {DriveState} from './DriveState';
+import {Vehicle} from './types/tesla/Vehicle';
 
-const DriveSessionSchema: Schema = new Schema({
+
+export interface DriveSession {
+  _id: string;
+  id_s: string;
+  start_date: number;
+  end_date?: number;
+  archived: boolean;
+  tags: string[];
+  distance?: number;  // end of trip
+  first: DriveState;
+  last?: DriveState;
+  vehicle?: Vehicle;
+}
+
+export const DriveSessionSchema = new Schema({
   start_date: {type: Number, required: true},
   end_date: {type: Number, required: true},
   archived: {type: Boolean},
@@ -12,6 +27,5 @@ const DriveSessionSchema: Schema = new Schema({
   vehicle: {type: Schema.Types.ObjectId, ref: 'Vehicle'}
 });
 
-export const DriveSession = model<IDriveSession & Document>('DriveSession', DriveSessionSchema);
-export type DriveSessionType = IDriveSession & Document;
+export type DriveSessionType = DriveSession & Document;
 

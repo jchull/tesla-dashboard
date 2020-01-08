@@ -1,8 +1,19 @@
-import {Document, model, Schema} from 'mongoose';
-import {TeslaAccount as ITeslaAccount} from './types/TeslaAccount';
+import {Document, Schema} from 'mongoose';
+
+export interface TeslaAccount {
+  _id?: string;
+  token_created_at?: number;
+  token_expires_in?: number;
+  refresh_token?: string;
+  access_token?: string;
+  email: string;
+  username?: string;
+  account_status?: string;
+  password?: string;
+}
 
 
-const TeslaAccountSchema: Schema = new Schema({
+export const TeslaAccountSchema = new Schema({
   username: {type: String},
   email: {type: String, required: true},
   token_created_at: {type: Number, required: false},
@@ -11,7 +22,6 @@ const TeslaAccountSchema: Schema = new Schema({
   access_token: {type: String, required: false}
 });
 
-export const TeslaAccount = model<ITeslaAccount & Document>('TeslaAccount', TeslaAccountSchema);
-export type TeslaAccountType = ITeslaAccount & Document;
+export type TeslaAccountType = TeslaAccount & Document;
 
 

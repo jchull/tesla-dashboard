@@ -1,4 +1,3 @@
-import {SyncPreferences} from '../SyncPreferences';
 
 export interface Vehicle {
   _id: string;
@@ -27,7 +26,6 @@ export interface Vehicle {
   charge_limit_soc?: number;
   last_session_id: string;
   username?: string;
-  sync_preferences?: SyncPreferences;
   sync_state?: string;
 }
 

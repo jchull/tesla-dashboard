@@ -1,8 +1,20 @@
-import {Document, model, Schema} from 'mongoose';
-import {DriveState as IDriveState} from './types/DriveState';
+import {Document, Schema} from 'mongoose';
+import {VehicleState} from './types/VehicleState';
+import {DriveSession} from './DriveSession';
+export interface DriveState extends VehicleState {
+  _id: string;
+  gps_as_of: number;
+  heading: number;
+  latitude: number;
+  longitude: number;
+  power: number;
+  shift_state: string;
+  speed: number;
+  odometer: number;
+  session?: DriveSession;
+}
 
-
-const DriveStateSchema: Schema = new Schema({
+export const DriveStateSchema = new Schema({
   gps_as_of: {type: Number},
   heading: {type: Number},
   latitude: {type: Number},
@@ -40,6 +52,5 @@ const DriveStateSchema: Schema = new Schema({
   driveSession: {type: Schema.Types.ObjectId, ref: 'DriveSession'}
 });
 
-export const DriveState = model<IDriveState & Document>('DriveState', DriveStateSchema);
-export type DriveStateType = IDriveState & Document;
+export type DriveStateType = DriveState & Document;
 

@@ -1,8 +1,8 @@
-import {Document, model, Schema} from 'mongoose';
-import {VehicleConfig as IVehicleConfig} from './types/tesla/VehicleConfig';
+import {Document, Schema} from 'mongoose';
+import {VehicleConfig } from './types/tesla/VehicleConfig';
 
 
-const VehicleConfigSchema: Schema = new Schema({
+export const VehicleConfigSchema = new Schema({
   id_s: {type: String, required: true},
   can_accept_navigation_requests: {type: Boolean},
   can_actuate_trunks: {type: Boolean},
@@ -30,6 +30,5 @@ const VehicleConfigSchema: Schema = new Schema({
 
 });
 
-export const VehicleConfig = model<IVehicleConfig & Document>('VehicleConfig', VehicleConfigSchema);
-export type VehicleConfigType = IVehicleConfig & Document;
+export type VehicleConfigType = VehicleConfig & Document;
 

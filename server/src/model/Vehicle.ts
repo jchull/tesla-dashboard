@@ -1,7 +1,7 @@
-import {model, Schema, Document} from 'mongoose';
+import {Schema, Document} from 'mongoose';
 import {Vehicle as Product} from './types/tesla/Vehicle';
 
-const VehicleSchema: Schema = new Schema({
+export const VehicleSchema = new Schema({
   id_s: {type: String, required: true, unique: true},
   vin: {type: String, required: true, unique: true},
   display_name: {type: String, required: true},
@@ -25,6 +25,5 @@ const VehicleSchema: Schema = new Schema({
   sync_state: {type: String}
 });
 
-export const Vehicle = model<Product & Document>('Vehicle', VehicleSchema);
 export type VehicleType = Product & Document;
 

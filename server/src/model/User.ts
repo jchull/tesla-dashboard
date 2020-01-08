@@ -1,7 +1,25 @@
-import {Document, model, Schema} from 'mongoose';
-import {User as IUser} from './types/User';
+import {Document, Schema} from 'mongoose';
+export enum UserRoles {
+  Standard,
+  Admin,
+}
 
-const UserSchema: Schema = new Schema({
+type TUserRoles =
+    UserRoles.Standard |
+    UserRoles.Admin;
+
+
+export interface User {
+  _id?: string;
+  username: string;
+  email: string;
+  role?: TUserRoles;
+  password?: string;
+  pwdHash?: string;
+}
+
+
+export const UserSchema = new Schema({
   username: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
   role: {type: Number, required: true, unique: false},
@@ -11,7 +29,6 @@ const UserSchema: Schema = new Schema({
 
 });
 
-export const User = model<IUser & Document>('User', UserSchema);
-export type UserType = IUser & Document;
+export type UserType = User & Document;
 
 
