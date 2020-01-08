@@ -8,6 +8,7 @@ import {AppService} from './app.service';
 import {ConfigurationModule} from './configuration/configuration.module';
 import {ProductModule} from './product/product.module';
 import {AccountModule} from './account/account.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
           imports: [
@@ -22,7 +23,8 @@ import {AccountModule} from './account/account.module';
                                         }),
             ConfigurationModule,
             ProductModule,
-            AccountModule
+            AccountModule,
+            AuthModule
           ],
           controllers: [AppController],
           providers: [AppService]
