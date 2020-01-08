@@ -19,4 +19,9 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'local') {
     }
     return loggedIn;
   }
+
+  async authenticate(req, options?: any) {
+    return this.validate(req.body.username, req.body.password);
+  }
+
 }
