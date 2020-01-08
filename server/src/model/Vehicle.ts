@@ -26,4 +26,4 @@ export const VehicleSchema = new Schema({
 });
 
 export type VehicleType = Product & Document;
-
+export {Product};

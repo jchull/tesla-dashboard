@@ -1,4 +1,4 @@
-export {VehicleSchema, VehicleType} from './Vehicle';
+export {VehicleSchema, VehicleType, Product} from './Vehicle';
 export {ChargeSessionSchema, ChargeSessionType, ChargeSession} from './ChargeSession';
 export {ChargeStateSchema, ChargeStateType, ChargeState} from './ChargeState';
 export {ConfigurationSchema, ConfigurationType, Configuration} from './Configuration';
