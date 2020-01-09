@@ -1,4 +1,3 @@
-
 export interface Vehicle {
   _id: string;
   id_s: string;
@@ -28,4 +27,3 @@ export interface Vehicle {
   username?: string;
   sync_state?: string;
 }
-

@@ -8,6 +8,3 @@ export interface GuiSettings {
   show_range_units: boolean;
   timestamp: number;
 }
-
-
-

@@ -1,4 +1,4 @@
-import {Document, Schema} from 'mongoose';
+import { Document, Schema } from 'mongoose';
 
 export interface SyncPreferences {
   _id: string;
@@ -20,7 +20,6 @@ export interface SyncPreferences {
   drivingMaxGapSeconds: number;
 }
 
-
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   _id: 'default',
   enabled: false,
@@ -32,24 +31,21 @@ export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   drivingMaxGapSeconds: 300,
   drivingPollingIntervalSeconds: 60,
   drivingMinDurationMinutes: 5,
-  sleepTriggerSeconds: 300
+  sleepTriggerSeconds: 300,
 };
 
 export const SyncPreferencesSchema = new Schema({
-  enabled: {type: Boolean},
-  account_id: {type: String},
-  sleepTriggerSeconds: {type: Number},
-  driving_pollingIntervalSeconds: {type: Number},
-  driving_maxGapSeconds: {type: Number},
-  driving_minDurationMinutes: {type: Number},
-  charging_minDurationMinutes: {type: Number},
-  charging_costPerKwhHome: {type: Number},
-  charging_costPerKwhSupercharging: {type: Number},
-  charging_pollingIntervalsSeconds: {type: [Number, Number, Number]},
-  charging_maxGapSeconds: {type: Number},
-
+  enabled: { type: Boolean },
+  account_id: { type: String },
+  sleepTriggerSeconds: { type: Number },
+  driving_pollingIntervalSeconds: { type: Number },
+  driving_maxGapSeconds: { type: Number },
+  driving_minDurationMinutes: { type: Number },
+  charging_minDurationMinutes: { type: Number },
+  charging_costPerKwhHome: { type: Number },
+  charging_costPerKwhSupercharging: { type: Number },
+  charging_pollingIntervalsSeconds: { type: [Number, Number, Number] },
+  charging_maxGapSeconds: { type: Number },
 });
 
 export type SyncPreferencesType = SyncPreferences & Document;
-
-

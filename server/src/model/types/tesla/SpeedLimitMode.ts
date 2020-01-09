@@ -5,4 +5,3 @@ export interface SpeedLimitMode {
   min_limit_mph: number;
   pin_code_set: boolean;
 }
-

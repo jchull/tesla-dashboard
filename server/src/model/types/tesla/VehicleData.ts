@@ -63,7 +63,7 @@ export interface VehicleData {
     timestamp: number;
     trip_charging?: boolean;
     usable_battery_level: number;
-    user_charge_enable_request?: any
+    user_charge_enable_request?: any;
   };
   climate_state: {
     battery_heater?: boolean;
@@ -93,7 +93,7 @@ export interface VehicleData {
     side_mirror_heaters: boolean;
     smart_preconditioning: boolean;
     timestamp: number;
-    wiper_blade_heater: boolean
+    wiper_blade_heater: boolean;
   };
   drive_state: {
     gps_as_of?: number;
@@ -107,7 +107,7 @@ export interface VehicleData {
     power?: number;
     shift_state?: string;
     speed?: number;
-    timestamp: number
+    timestamp: number;
   };
   gui_settings: {
     gui_24_hour_time?: boolean;
@@ -116,7 +116,7 @@ export interface VehicleData {
     gui_range_display?: string;
     gui_temperature_units?: string;
     show_range_units?: boolean;
-    timestamp: number
+    timestamp: number;
   };
   vehicle_config: {
     can_accept_navigation_requests?: boolean;
@@ -141,7 +141,7 @@ export interface VehicleData {
     third_row_seats?: string;
     timestamp: number;
     use_range_badging?: boolean;
-    wheel_type?: string
+    wheel_type?: string;
   };
   vehicle_state: {
     api_version?: number;
@@ -164,7 +164,7 @@ export interface VehicleData {
     last_autopark_error?: string;
     locked?: boolean;
     media_state?: {
-      remote_control_enabled?: boolean
+      remote_control_enabled?: boolean;
     };
     notifications_supported?: boolean;
     odometer: number;
@@ -181,22 +181,21 @@ export interface VehicleData {
       download_perc?: number;
       install_perc?: number;
       expected_duration_sec?: number;
-      status?: string
-      version?: string
+      status?: string;
+      version?: string;
     };
     speed_limit_mode?: {
       active?: boolean;
       current_limit_mph?: number;
       max_limit_mph?: number;
       min_limit_mph?: number;
-      pin_code_set?: boolean
+      pin_code_set?: boolean;
     };
     sun_roof_percent_open?: number;
     sun_roof_state?: string;
     timestamp: number;
     valet_mode?: boolean;
     valet_pin_needed?: boolean;
-    vehicle_name: string
-  }
-
+    vehicle_name: string;
+  };
 }

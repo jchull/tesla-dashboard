@@ -1,4 +1,3 @@
-
 export interface VehicleState {
   _id: string;
   id_s: string;
@@ -30,4 +29,3 @@ export interface VehicleState {
   is_user_present: boolean;
   usable_battery_level: number;
 }
-
