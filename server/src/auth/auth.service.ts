@@ -1,16 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { AccountService } from '../account/account.service';
-import { JwtService } from '@nestjs/jwt';
-import { User } from '../model';
-import { JwtPayload } from './jwt.payload';
+import {Injectable} from '@nestjs/common';
+import {AccountService} from '../account/account.service';
+import {JwtService} from '@nestjs/jwt';
+import {JwtPayload} from './jwt.payload';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly accountService: AccountService,
-    private readonly jwtService: JwtService,
-  ) {}
+      private readonly accountService: AccountService,
+      private readonly jwtService: JwtService
+  ) {
+  }
 
   async validate(username: string, password: string): Promise<any> {
     const user = await this.accountService.get(username);
@@ -21,14 +21,18 @@ export class AuthService {
     return this.jwtService.decode(token);
   }
 
-  async login(user: User) {
-    const payload: JwtPayload = {
-      username: user.username,
-      role: user.role,
-      sub: user._id,
-    };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+  async login(username: string, password: string) {
+    const user = await this.validate(username, password);
+    if (user) {
+      const payload: JwtPayload = {
+        username: user.username,
+        role: user.role,
+        sub: user._id.toString()
+      };
+      // return {
+      //   access_token: this.jwtService.sign(payload)
+      // };
+      return this.accountService.sanitizeUser(user);
+    }
   }
 }

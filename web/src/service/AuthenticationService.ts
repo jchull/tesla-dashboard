@@ -18,7 +18,7 @@ export class AuthenticationService {
 
   async login(username: string, password: string): Promise<boolean> {
     try {
-      const response = await this.api.post('/auth/login',
+      const response = await this.api.post('/api/auth/login',
           `username=${username}&password=${password}`,
           {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
       if (response) {
@@ -72,13 +72,13 @@ export class AuthenticationService {
 
   logout(): Promise<void> {
     sessionStorage.removeItem('access_token');
-    return this.api.get('/auth/logout');
+    return this.api.get('/api/auth/logout');
   }
 
 
 
   forgot(username: string) {
-    this.api.post('/auth/forgot',
+    this.api.post('/api/auth/forgot',
         `username=${username}`,
         {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
   }

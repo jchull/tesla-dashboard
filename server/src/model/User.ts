@@ -10,7 +10,7 @@ export interface User {
   _id?: string;
   sub?: string;
   username: string;
-  email: string;
+  email?: string;
   role?: TUserRoles;
   password?: string;
   pwdHash?: string;

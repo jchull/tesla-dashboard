@@ -3,7 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 import { ConfigurationModule } from './configuration/configuration.module';
 import { ProductModule } from './product/product.module';
@@ -31,7 +30,6 @@ import { join } from 'path';
       rootPath: join(__dirname, '../../web', 'dist'),
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController]
 })
 export class AppModule {}
