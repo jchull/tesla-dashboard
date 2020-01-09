@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Local.StrategyService } from './local.strategy.service';
+import { LocalStrategy } from './local.strategy';
 
 describe('Local.StrategyService', () => {
-  let service: Local.StrategyService;
+  let service: LocalStrategy;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [Local.StrategyService],
+      providers: [LocalStrategy],
     }).compile();
 
-    service = module.get<Local.StrategyService>(Local.StrategyService);
+    service = module.get<LocalStrategy>(LocalStrategy);
   });
 
   it('should be defined', () => {
