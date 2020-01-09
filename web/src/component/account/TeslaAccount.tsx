@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
-import {TeslaAccount} from '@model/TeslaAccount';
+import {TeslaAccount} from '@model/index';
 import services from '@service/service';
 import {TeslaTokenComponent} from '@component/account/TeslaTokenUpdater';
 

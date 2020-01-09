@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, SyntheticEvent, useEffect, useState} from 'react';
 import services from '@service/service';
-import {TeslaAccount} from '@model/TeslaAccount';
+import {TeslaAccount} from '@model/index';
 
 
 interface TeslaTokenProps {

@@ -1,4 +1,4 @@
-import {Product} from '@model/Vehicle';
+import {Product} from '@model/index';
 
 import {ApiType} from '@service/service';
 import {createAction} from '@reduxjs/toolkit';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 
-import {Product} from '@model/Vehicle';
+import {Product} from '@model/index';
 
 import {ProductListItem} from './ProductListItem';
 import {fetchProductListAction, ProductState, selectProduct} from './actions';

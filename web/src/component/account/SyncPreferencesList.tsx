@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Product} from '@model/Vehicle';
+import {Product} from '@model/index';
 import {SyncPreferences} from './SyncPreferences';
 import services from '@service/service';
 

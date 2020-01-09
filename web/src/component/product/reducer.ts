@@ -1,4 +1,4 @@
-import {Product} from '@model/Vehicle';
+import {Product} from '@model/index';
 import {ProductListState} from '@store/types/state';
 import {createReducer} from '@reduxjs/toolkit';
 

@@ -1,6 +1,6 @@
 /* eslint camelcase: 0 */
 import React, {ChangeEvent, FC, SyntheticEvent, useState} from 'react';
-import {DEFAULT_SYNC_PREFERENCES, SyncPreferences as ISyncPreferences} from '@model/SyncPreferences';
+import {DEFAULT_SYNC_PREFERENCES, SyncPreferences as ISyncPreferences} from '@model/index';
 import services from '@service/service';
 
 

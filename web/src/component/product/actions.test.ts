@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import {ProductActionType} from './actions';
 import services from '@service/service';
-import {Product} from '@model/Vehicle';
+import {Product} from '@model/index';
 
 jest.mock('@service/service');
 

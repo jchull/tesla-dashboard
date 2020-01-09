@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {TeslaAccount} from '@model/TeslaAccount';
+import {TeslaAccount} from '@model/index';
 import services from '@service/service';
 import {TeslaAccountComponent} from '@component/account/TeslaAccount';
 
