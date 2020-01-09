@@ -1,13 +1,15 @@
-import {Injectable} from '@nestjs/common';
-import {InjectModel} from '@nestjs/mongoose';
-import {Model} from 'mongoose';
-import {ConfigurationType} from '../model';
-import {DEFAULT_CONFIG} from '../model/Configuration';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { ConfigurationType } from '../model';
+import { DEFAULT_CONFIG } from '../model/Configuration';
 
 @Injectable()
 export class ConfigurationService {
-  constructor(@InjectModel('Configuration') private readonly configurationModel: Model<ConfigurationType>) {
-  }
+  constructor(
+    @InjectModel('Configuration')
+    private readonly configurationModel: Model<ConfigurationType>,
+  ) {}
 
   async getConfiguration() {
     const config = await this.configurationModel.findOne();
@@ -18,5 +20,4 @@ export class ConfigurationService {
     }
     return config;
   }
-
 }

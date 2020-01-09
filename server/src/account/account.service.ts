@@ -1,13 +1,18 @@
 import {Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import {Model} from 'mongoose';
-import {UserType, User, TeslaAccount, TeslaAccountType} from '../model';
+import bcrypt from 'bcrypt';
+
+import {UserType, User, TeslaAccount, TeslaAccountType, UserRoles} from '../model';
+
 
 @Injectable()
 export class AccountService {
-
-  constructor(@InjectModel('User') private readonly userModel: Model<UserType>,
-              @InjectModel('TeslaAccount') private readonly teslaAccountModel: Model<TeslaAccountType>) {
+  constructor(
+      @InjectModel('User') private readonly userModel: Model<UserType>,
+      @InjectModel('TeslaAccount')
+      private readonly teslaAccountModel: Model<TeslaAccountType>
+  ) {
   }
 
   sanitizeUser(user: User): User {
@@ -16,10 +21,25 @@ export class AccountService {
   }
 
   sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
-    const {_id, email, refresh_token, access_token, token_created_at, token_expires_in, username} = account;
-    return {_id, email, refresh_token, access_token, token_created_at, token_expires_in, username};
+    const {
+      _id,
+      email,
+      refresh_token,
+      access_token,
+      token_created_at,
+      token_expires_in,
+      username
+    } = account;
+    return {
+      _id,
+      email,
+      refresh_token,
+      access_token,
+      token_created_at,
+      token_expires_in,
+      username
+    };
   }
-
 
   async get(username: string): Promise<User | undefined> {
     const user = await this.userModel.findOne({username});
@@ -28,18 +48,18 @@ export class AccountService {
     }
   }
 
-  async create(user: User): Promise<void> {
-    // if (!bcrypt) {
-    //   throw Error('Cannot run bcrypt in worker!');
-    // }
-    // const saltRounds = 10;
-    // const hash = await bcrypt.hashSync(user.password, saltRounds);
-    // return await User.create({
-    //                            username: user.username,
-    //                            email: user.email,
-    //                            pwdHash: hash,
-    //                            role: UserRoles.Standard
-    //                          });
+  async create(user: User) {
+    if (!bcrypt) {
+      throw Error('Cannot run bcrypt in worker!');
+    }
+    const saltRounds = 10;
+    const hash = await bcrypt.hashSync(user.password, saltRounds);
+    return await this.userModel.create({
+                               username: user.username,
+                               email: user.email,
+                               pwdHash: hash,
+                               role: UserRoles.Standard
+                             });
   }
 
   async update(user: User): Promise<User> {
@@ -51,14 +71,14 @@ export class AccountService {
     return !!result;
   }
 
-
-
   async getPreferences(username: string) {
-   // const prefs = await UserPreferences.findOne({username});
-
+    // const prefs = await UserPreferences.findOne({username});
   }
 
-  async getTeslaAccounts(username: string, vehicleId?: string): Promise<TeslaAccount[] | undefined> {
+  async getTeslaAccounts(
+      username: string,
+      vehicleId?: string
+  ): Promise<TeslaAccount[] | undefined> {
     const accountList = await this.teslaAccountModel.find({username});
     if (accountList?.length) {
       if (vehicleId) {
@@ -70,7 +90,9 @@ export class AccountService {
         //
         // }
       }
-      return accountList.map((account: TeslaAccountType) => this.sanitizeTeslaAccount(account));
+      return accountList.map((account: TeslaAccountType) =>
+                                 this.sanitizeTeslaAccount(account)
+      );
     }
   }
 
@@ -78,7 +100,9 @@ export class AccountService {
     const {_id} = account;
     let updatedAccount;
     if (_id) {
-      const result = await this.teslaAccountModel.updateOne({_id}, account, {password: 'delete'});
+      const result = await this.teslaAccountModel.updateOne({_id}, account, {
+        password: 'delete'
+      });
       if (result?.ok === 1) {
         updatedAccount = await this.teslaAccountModel.findOne({_id});
       }
@@ -86,7 +110,5 @@ export class AccountService {
       updatedAccount = await this.teslaAccountModel.create(account);
     }
     return updatedAccount && this.sanitizeTeslaAccount(updatedAccount);
-
   }
-
 }
