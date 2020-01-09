@@ -1,7 +1,7 @@
 import {Injectable} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import {Model} from 'mongoose';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 import {UserType, User, TeslaAccount, TeslaAccountType, UserRoles} from '../model';
 
@@ -17,7 +17,7 @@ export class AccountService {
 
   sanitizeUser(user: User): User {
     const {username, email, role} = user;
-    return {username, email, role};
+    return {sub: user._id.toString(), username, email, role};
   }
 
   sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
@@ -42,10 +42,7 @@ export class AccountService {
   }
 
   async get(username: string): Promise<User | undefined> {
-    const user = await this.userModel.findOne({username});
-    if (user) {
-      return this.sanitizeUser(user);
-    }
+    return this.userModel.findOne({username});
   }
 
   async create(user: User) {

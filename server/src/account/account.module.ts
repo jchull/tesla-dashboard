@@ -14,7 +14,7 @@ const modelModules = [
   imports: [...modelModules],
   controllers: [AccountController],
   providers: [AccountService],
-  exports: [...modelModules],
+  exports: [...modelModules, AccountService],
 })
 export class AccountModule {
   constructor() {
