@@ -3,6 +3,7 @@ import {AccountService} from '../account/account.service';
 import {JwtService} from '@nestjs/jwt';
 import {JwtPayload} from './jwt.payload';
 import * as bcrypt from 'bcrypt';
+import {User} from '../model';
 
 @Injectable()
 export class AuthService {
@@ -12,9 +13,9 @@ export class AuthService {
   ) {
   }
 
-  async validate(username: string, password: string): Promise<any> {
+  async validate(username: string, password: string): Promise<User | null> {
     const user = await this.accountService.get(username);
-    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash) && user;
+    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash)? user : null;
   }
 
   async decode(token: string): Promise<any> {
@@ -26,13 +27,16 @@ export class AuthService {
     if (user) {
       const payload: JwtPayload = {
         username: user.username,
+        email: user.email,
         role: user.role,
         sub: user._id.toString()
       };
-      // return {
-      //   access_token: this.jwtService.sign(payload)
-      // };
-      return this.accountService.sanitizeUser(user);
+      const token = this.jwtService.sign(payload);
+      console.log(`generated token: ${token} from ${JSON.stringify(payload)}`);
+      return {
+        access_token: token
+      };
     }
+
   }
 }
