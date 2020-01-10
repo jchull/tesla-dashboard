@@ -30,7 +30,26 @@ export class SessionService {
     }
   }
 
-  async addTag(username: string, sessionId: string, tag: string){
+  async deleteSession(username: string, id: string) {
+    // TODO: limit access by username matching
+    const deleteCount = await this.driveSessionModel.deleteOne({_id: id});
+    if (deleteCount.ok) {
+      const deleteItemCount = await this.driveStateModel.deleteMany({driveSession: id});
+      if(deleteItemCount.ok){
+        return (deleteCount.n || 0) + (deleteItemCount.n || 0);
+      }
+    } else {
+      const deleteCount = await this.chargeSessionModel.deleteOne({_id: id});
+      if (deleteCount.ok) {
+        const deleteItemCount = await this.chargeStateModel.deleteMany({chargeSession: id});
+        if(deleteItemCount.ok){
+          return (deleteCount.n || 0) + (deleteItemCount.n || 0);
+        }
+      }
+    }
+  }
+
+    async addTag(username: string, sessionId: string, tag: string){
     const driveSession = await this.driveSessionModel.findOne({_id: sessionId});
     if (driveSession && !driveSession.tags.includes(tag)) {
       driveSession.tags.push(tag);

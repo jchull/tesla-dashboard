@@ -14,6 +14,12 @@ export class SessionController {
   }
 
   @UseGuards(AuthGuard('jwt'))
+  @Delete(':id')
+  deleteSession(@Request() req, @Param('id') id) {
+    return this.sessionService.deleteSession(req.user.username, id);
+  }
+
+  @UseGuards(AuthGuard('jwt'))
   @Post(':id/tag/:tag')
   addSessionTag(@Request() req, @Param('id') id, @Param('tag') tag) {
     return this.sessionService.addTag(req.user.username, id, tag);
