@@ -18,4 +18,5 @@ export class ProductController {
   getRecentSessions(@Request() req, @Param('id') id) {
     return this.productService.findRecentSessions(req.user.username, id, req.query.limit/1);
   }
+
 }
