@@ -1,4 +1,4 @@
-import axios, {AxiosInstance} from 'axios';
+import {AxiosInstance} from 'axios';
 import {ChargeSession, ChargeState, DriveSession, DriveState, Product} from '@model/index';
 
 
@@ -16,8 +16,8 @@ export class QueryService {
   }
 
 
-  async getRecentSessions(vin: string, limit = 1): Promise<ChargeSession[] | DriveSession[]> {
-    const result = await axios(`/api/product/${vin}/session?limit=${limit}`);
+  async getRecentSessions(id: string, limit = 1): Promise<[ChargeSession | DriveSession]> {
+    const result = await this.api.get(`/api/product/${id}/session?limit=${limit}`);
     return result && result.data;
   }
 
