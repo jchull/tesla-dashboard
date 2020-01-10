@@ -11,17 +11,17 @@ export const authReducer = createReducer(initialState, {
   }
   ,
   [AuthActionType.AUTH_LOGOUT__SUCCESS]: (state, action) => {
-    return {
-      loggedIn: false,
-      message: 'Logged out'
-    };
+    return initialState;
   },
   [AuthActionType.AUTH_LOGIN__START]: (state, action) => {
   },
   [AuthActionType.AUTH_LOGIN__FAILURE]: (state, action) => {
+    return initialState;
   },
   [AuthActionType.AUTH_LOGIN__SUCCESS]: (state, action) => {
     state.username = action.payload.username;
     state.role = action.payload.role;
+    state.token = action.payload.token;
+    state.loggedIn = true;
   }
 });
