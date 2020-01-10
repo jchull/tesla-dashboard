@@ -10,6 +10,7 @@ import {AccountModule} from './account/account.module';
 import {AuthModule} from './auth/auth.module';
 import {FrontEndMiddlewareMiddleware} from './middleware/front-end-middleware.middleware';
 import {LoggerMiddleware} from './middleware/logger.middleware';
+import { SessionModule } from './session/session.module';
 
 @Module({
           imports: [
@@ -25,7 +26,8 @@ import {LoggerMiddleware} from './middleware/logger.middleware';
             ConfigurationModule,
             ProductModule,
             AccountModule,
-            AuthModule
+            AuthModule,
+            SessionModule
           ],
           controllers: [AppController]
         })
