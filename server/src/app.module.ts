@@ -8,7 +8,7 @@ import {ConfigurationModule} from './configuration/configuration.module';
 import {ProductModule} from './product/product.module';
 import {AccountModule} from './account/account.module';
 import {AuthModule} from './auth/auth.module';
-import {FrontEndMiddlewareMiddleware} from './front-end-middleware.middleware';
+import {FrontEndMiddlewareMiddleware} from './middleware/front-end-middleware.middleware';
 import {LoggerMiddleware} from './middleware/logger.middleware';
 
 @Module({
