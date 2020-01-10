@@ -16,16 +16,15 @@ export class AuthenticationService {
     }
   }
 
-  async login(username: string, password: string): Promise<boolean> {
+  async login(username: string, password: string): Promise<string | false> {
     try {
       const response = await this.api.post('/api/auth/login',
-          `username=${username}&password=${password}`,
-          {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
+          {username, password});
       if (response) {
-        const token = jwtCookieRegex.exec(document.cookie);
-        if (token && token[1]) {
-          this.setToken(token[1]);
-          return true;
+        const token = response.data.access_token;
+        if (token) {
+          this.setToken(token);
+          return token;
         }
       }
     } catch (e) {
@@ -53,9 +52,6 @@ export class AuthenticationService {
   decode(token: string): any {
     try {
       const decoded = decode(token) as { username: string; sub: string; exp: number; client: string };
-      if (decoded.sub !== 'tesla-dashboard' || !decoded.client) {
-        return false;
-      }
       return decoded;
     } catch (err) {
       return false;
@@ -63,6 +59,7 @@ export class AuthenticationService {
   }
 
   setToken(idToken: string) {
+    this.api.defaults.headers.common['Authorization'] = `Bearer ${idToken}`;
     sessionStorage.setItem('access_token', idToken);
   }
 
