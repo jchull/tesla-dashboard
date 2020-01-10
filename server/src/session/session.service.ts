@@ -29,4 +29,37 @@ export class SessionService {
       }
     }
   }
+
+  async addTag(username: string, sessionId: string, tag: string){
+    const driveSession = await this.driveSessionModel.findOne({_id: sessionId});
+    if (driveSession && !driveSession.tags.includes(tag)) {
+      driveSession.tags.push(tag);
+      const result = await this.driveSessionModel.updateOne({_id: sessionId}, driveSession);
+      return result.tags;
+    } else {
+      const chargeSession = await this.chargeSessionModel.findOne({_id: sessionId});
+      if (chargeSession && !chargeSession.tags.includes(tag)) {
+        chargeSession.tags.push(tag);
+        const result = await this.chargeSessionModel.updateOne({_id:sessionId}, chargeSession);
+        return result.tags;
+      }
+    }
+
+  }
+
+  async removeTag(username: string, sessionId: string, tag: string){
+    const driveSession = await this.driveSessionModel.findOne({_id: sessionId});
+    if (driveSession && driveSession.tags.includes(tag)) {
+      driveSession.tags.splice(driveSession.tags.indexOf(tag), 1);
+      const result = await this.driveSessionModel.updateOne({_id: sessionId}, driveSession);
+      return result.tags;
+    } else {
+      const chargeSession = await this.chargeSessionModel.findOne({_id: sessionId});
+      if (chargeSession && chargeSession.tags.includes(tag)) {
+        chargeSession.tags.splice(chargeSession.tags.indexOf(tag), 1);
+        const result = await this.chargeSessionModel.updateOne({_id:sessionId}, chargeSession);
+        return result.tags;
+      }
+    }
+  }
 }
