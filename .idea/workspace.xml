@@ -2,19 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/front-end-middleware.middleware.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/front-end-middleware.middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/middleware/logger.middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/setupProxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/jwt.payload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/jwt.payload.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/strategy/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/strategy/jwt.strategy.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/strategy/local.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/strategy/local.strategy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/product/product.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/product/product.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/auth/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/auth/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/auth/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/service/AuthenticationService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/service/AuthenticationService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/service/QueryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/service/QueryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +57,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/env" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/src" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
@@ -65,6 +71,7 @@
       <recent name="$PROJECT_DIR$/server/src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/src" />
       <recent name="$PROJECT_DIR$/server/env" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -134,7 +141,7 @@
       <updated>1578261478186</updated>
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
-      <workItem from="1578582310572" duration="14010000" />
+      <workItem from="1578582310572" duration="35781000" />
     </task>
     <task id="LOCAL-00001" summary="scaffolding for nestjs-based architecture for server">
       <created>1578345289081</created>
@@ -395,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578594553959</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="fixed local/jwt strategy, prefix api to nestjs app to prevent collisions with client-side routing">
+      <created>1578600769251</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1578600769251</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +420,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="add packages for config and mongoose" />
     <MESSAGE value="init default config if no config found" />
     <MESSAGE value="add some product services" />
     <MESSAGE value="update project files" />
@@ -431,7 +444,8 @@
     <MESSAGE value="added files from prev ui project" />
     <MESSAGE value="moved eslint to correct location for web project, ignore all for now" />
     <MESSAGE value="clean up account/auth modules and fix some login issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up account/auth modules and fix some login issues" />
+    <MESSAGE value="fixed local/jwt strategy, prefix api to nestjs app to prevent collisions with client-side routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed local/jwt strategy, prefix api to nestjs app to prevent collisions with client-side routing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="373" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578598919900">
@@ -442,10 +456,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="603" y="823" width="624" height="548" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578339332716" />
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1578594553903">
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1578686509521">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1578594553903" />
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1578686509521" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1578593498629">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -458,115 +472,109 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="698" y="851" width="424" height="491" key="FileChooserDialogImpl/0.27.3840.2133@0.27.3840.2133" timestamp="1578589306399" />
-    <state width="1551" height="774" key="GridCell.Tab.0.bottom" timestamp="1578600595796">
+    <state width="1551" height="774" key="GridCell.Tab.0.bottom" timestamp="1578686368575">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595796" />
-    <state width="1551" height="774" key="GridCell.Tab.0.center" timestamp="1578600595795">
+    <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368575" />
+    <state width="1551" height="774" key="GridCell.Tab.0.center" timestamp="1578686368574">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595795" />
-    <state width="1551" height="774" key="GridCell.Tab.0.left" timestamp="1578600595793">
+    <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368574" />
+    <state width="1551" height="774" key="GridCell.Tab.0.left" timestamp="1578686368573">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595793" />
-    <state width="1551" height="774" key="GridCell.Tab.0.right" timestamp="1578600595795">
+    <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368573" />
+    <state width="1551" height="774" key="GridCell.Tab.0.right" timestamp="1578686368574">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595795" />
-    <state width="1551" height="774" key="GridCell.Tab.1.bottom" timestamp="1578600595801">
+    <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368574" />
+    <state width="1551" height="774" key="GridCell.Tab.1.bottom" timestamp="1578686368577">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595801" />
-    <state width="1551" height="774" key="GridCell.Tab.1.center" timestamp="1578600595800">
+    <state width="1551" height="774" key="GridCell.Tab.1.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368577" />
+    <state width="1551" height="774" key="GridCell.Tab.1.center" timestamp="1578686368576">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595800" />
-    <state width="1551" height="774" key="GridCell.Tab.1.left" timestamp="1578600595798">
+    <state width="1551" height="774" key="GridCell.Tab.1.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368576" />
+    <state width="1551" height="774" key="GridCell.Tab.1.left" timestamp="1578686368575">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595798" />
-    <state width="1551" height="774" key="GridCell.Tab.1.right" timestamp="1578600595800">
+    <state width="1551" height="774" key="GridCell.Tab.1.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368575" />
+    <state width="1551" height="774" key="GridCell.Tab.1.right" timestamp="1578686368576">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595800" />
-    <state width="1551" height="774" key="GridCell.Tab.2.bottom" timestamp="1578600595803">
+    <state width="1551" height="774" key="GridCell.Tab.1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368576" />
+    <state width="1551" height="774" key="GridCell.Tab.2.bottom" timestamp="1578686368579">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595803" />
-    <state width="1551" height="774" key="GridCell.Tab.2.center" timestamp="1578600595802">
+    <state width="1551" height="774" key="GridCell.Tab.2.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368579" />
+    <state width="1551" height="774" key="GridCell.Tab.2.center" timestamp="1578686368578">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595802" />
-    <state width="1551" height="774" key="GridCell.Tab.2.left" timestamp="1578600595801">
+    <state width="1551" height="774" key="GridCell.Tab.2.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368578" />
+    <state width="1551" height="774" key="GridCell.Tab.2.left" timestamp="1578686368578">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595801" />
-    <state width="1551" height="774" key="GridCell.Tab.2.right" timestamp="1578600595803">
+    <state width="1551" height="774" key="GridCell.Tab.2.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368578" />
+    <state width="1551" height="774" key="GridCell.Tab.2.right" timestamp="1578686368578">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595803" />
-    <state width="1551" height="774" key="GridCell.Tab.3.bottom" timestamp="1578600595807">
+    <state width="1551" height="774" key="GridCell.Tab.2.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368578" />
+    <state width="1551" height="774" key="GridCell.Tab.3.bottom" timestamp="1578686368581">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595807" />
-    <state width="1551" height="774" key="GridCell.Tab.3.center" timestamp="1578600595805">
+    <state width="1551" height="774" key="GridCell.Tab.3.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368581" />
+    <state width="1551" height="774" key="GridCell.Tab.3.center" timestamp="1578686368580">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595805" />
-    <state width="1551" height="774" key="GridCell.Tab.3.left" timestamp="1578600595804">
+    <state width="1551" height="774" key="GridCell.Tab.3.center/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368580" />
+    <state width="1551" height="774" key="GridCell.Tab.3.left" timestamp="1578686368579">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595804" />
-    <state width="1551" height="774" key="GridCell.Tab.3.right" timestamp="1578600595805">
+    <state width="1551" height="774" key="GridCell.Tab.3.left/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368579" />
+    <state width="1551" height="774" key="GridCell.Tab.3.right" timestamp="1578686368580">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578600595805" />
+    <state width="1551" height="774" key="GridCell.Tab.3.right/0.27.3840.2133@0.27.3840.2133" timestamp="1578686368580" />
     <state x="424" y="728" width="992" height="737" key="SettingsEditor" timestamp="1578261658577">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="424" y="728" width="992" height="737" key="SettingsEditor/0.27.3840.2133@0.27.3840.2133" timestamp="1578261658577" />
-    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578594559335">
+    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1578600772203">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1578594559335" />
+    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1578600772203" />
     <state x="100" y="127" width="1630" height="1933" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1578444487037">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="100" y="127" width="1630" height="1933" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578444487037" />
-    <state x="481" y="694" width="857" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578510007398">
+    <state x="481" y="694" width="857" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578602043026">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="481" y="694" width="857" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1578510007398" />
+    <state x="481" y="694" width="857" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1578602043026" />
     <state x="684" y="631" width="442" height="533" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1578345205141">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="684" y="631" width="442" height="533" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578345205141" />
-    <state x="598" y="828" width="774" height="592" key="find.popup" timestamp="1578596158407">
+    <state x="598" y="828" width="774" height="592" key="find.popup" timestamp="1578613830706">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="598" y="828" width="774" height="592" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1578596158407" />
+    <state x="598" y="828" width="774" height="592" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1578613830706" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/auth/strategy/jwt.strategy.ts</url>
-          <line>16</line>
+          <line>17</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/app.controller.ts</url>
-          <line>11</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/server/src/auth/strategy/local.strategy.ts</url>
+          <url>file://$PROJECT_DIR$/server/src/auth/strategy/jwt.strategy.ts</url>
           <line>16</line>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
