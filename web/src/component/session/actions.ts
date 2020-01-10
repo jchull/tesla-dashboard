@@ -54,9 +54,9 @@ export const fetchSessionDetailsSuccess = createAction(SessionActionType.FETCH_S
 }));
 
 export const fetchSessionListAction =
-    (vin: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
+    (id: string) => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
       dispatch(fetchSessionListStart());
-      return extraArgument.api.queryService.getRecentSessions(vin, 200)
+      return extraArgument.api.queryService.getRecentSessions(id, 200)
                           .then((result) => {
                             dispatch(fetchSessionListSuccess(result));
                           }, (error: any) => {
