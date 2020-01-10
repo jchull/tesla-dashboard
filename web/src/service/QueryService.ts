@@ -11,18 +11,18 @@ export class QueryService {
   }
 
   async getProducts(): Promise<Product[]> {
-    const result = await this.api.get('/vehicle', {headers: {'Cache-Control': 'no-cache'}});
+    const result = await this.api.get('/api/product', {headers: {'Cache-Control': 'no-cache'}});
     return result && result.data;
   }
 
 
   async getRecentSessions(vin: string, limit = 1): Promise<ChargeSession[] | DriveSession[]> {
-    const result = await axios(`/vehicle/${vin}/session?limit=${limit}`);
+    const result = await axios(`/api/product/${vin}/session?limit=${limit}`);
     return result && result.data;
   }
 
   async getSessionDetails(sessionId: string): Promise<ChargeState[] | DriveState[]> {
-    const result = await this.api.get(`/session/${sessionId}`);
+    const result = await this.api.get(`/api/session/${sessionId}`);
     return result && result.data;
   }
 
@@ -32,7 +32,7 @@ export class QueryService {
     }
     const sanitizedTag = tag.replace(' ', '_')
                             .toLowerCase();
-    const result = await this.api.post(`/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
+    const result = await this.api.post(`/api/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
     return result && result.data;
   }
 
@@ -42,12 +42,12 @@ export class QueryService {
     }
     const sanitizedTag = tag.replace(' ', '_')
                             .toLowerCase();
-    const result = await this.api.delete(`/session/${sessionId}/tag/${sanitizedTag}`);
+    const result = await this.api.delete(`/api/session/${sessionId}/tag/${sanitizedTag}`);
     return result && result.data;
   }
 
   async removeSession(sessionId: string): Promise<string[]> {
-    const result = await this.api.delete(`/session/${sessionId}`);
+    const result = await this.api.delete(`/api/session/${sessionId}`);
     return result && result.data;
   }
 
