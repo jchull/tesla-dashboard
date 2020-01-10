@@ -15,7 +15,8 @@ export const api = axios.create({
                                     'Content-Type': 'application/json',
                                     'Accept': 'application/json',
                                     'Access-Control-Allow-Origin': 'localhost'
-                                  }
+                                  },
+
                                 });
 
 const authenticationService = new AuthenticationService(api);

@@ -1,12 +1,16 @@
 import {AxiosInstance} from 'axios';
 import decode from 'jwt-decode';
-const jwtCookieRegex = /jwt=(.+);?/;
 
 export class AuthenticationService {
   private readonly api: AxiosInstance;
 
   constructor(api: AxiosInstance) {
     this.api = api;
+    const existingToken = sessionStorage.getItem('access_token');
+    if(existingToken){
+      api.defaults.headers.common['Authorization'] = `Bearer ${existingToken}`;
+
+    }
   }
 
   getUsername(): string | undefined {
