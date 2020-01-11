@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="ensure server provides static files correctly for a react app">
-      <change afterPath="$PROJECT_DIR$/init-mongo.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/middleware/front-end-middleware.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/middleware/front-end-middleware.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesla-dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tesla-dashboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/tm3_black_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/images/tm3_black_pinwheel18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/tm3_blue_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/images/tm3_blue_pinwheel18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/tm3_gray_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/images/tm3_gray_pinwheel18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/tm3_pearl_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/images/tm3_pearl_pinwheel18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/tm3_red_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/images/tm3_red_pinwheel18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/static/robots.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/component/product/product.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/product/product.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/setupProxy.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +57,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/public" />
+      <recent name="$PROJECT_DIR$/web/public/static" />
       <recent name="$PROJECT_DIR$/web/dist/static" />
       <recent name="$PROJECT_DIR$/server/src/middleware" />
       <recent name="$PROJECT_DIR$/web" />
-      <recent name="$PROJECT_DIR$/server/src/auth/strategy" />
-      <recent name="$PROJECT_DIR$/server/src/model/types" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/src" />
@@ -121,42 +122,7 @@
       <updated>1578261478186</updated>
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
-      <workItem from="1578582310572" duration="63473000" />
-    </task>
-    <task id="LOCAL-00008" summary="add configuration module">
-      <created>1578446393985</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1578446393985</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add product module">
-      <created>1578446427073</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1578446427073</updated>
-    </task>
-    <task id="LOCAL-00010" summary="add account module">
-      <created>1578446446463</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1578446446463</updated>
-    </task>
-    <task id="LOCAL-00011" summary="add modules, configuration for mongo">
-      <created>1578446495011</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1578446495011</updated>
-    </task>
-    <task id="LOCAL-00012" summary="add packages for config and mongoose">
-      <created>1578446537880</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1578446537880</updated>
+      <workItem from="1578582310572" duration="64071000" />
     </task>
     <task id="LOCAL-00013" summary="init default config if no config found">
       <created>1578446731853</created>
@@ -466,7 +432,42 @@
       <option name="project" value="LOCAL" />
       <updated>1578693276858</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="script to initialize app database when started">
+      <created>1578775072166</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1578775072166</updated>
+    </task>
+    <task id="LOCAL-00058" summary="added security packages">
+      <created>1578775101630</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1578775101630</updated>
+    </task>
+    <task id="LOCAL-00059" summary="use 3001 for api port, this ensures that if the UI dev-server is used, it will proxy to a dev API server, not the one started with compose">
+      <created>1578775168279</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1578775168279</updated>
+    </task>
+    <task id="LOCAL-00060" summary="compose configuration updated, works, but secrets not currently working, passwords in this file for dev env">
+      <created>1578775218517</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1578775218517</updated>
+    </task>
+    <task id="LOCAL-00061" summary="separate parts of db connection to allow for reuse">
+      <created>1578775513288</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1578775513288</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,11 +478,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="model clean up and formatting" />
-    <MESSAGE value="static serve of react app" />
-    <MESSAGE value="named auth strategies" />
-    <MESSAGE value="import paths updated for model module" />
-    <MESSAGE value="formatting mostly?" />
     <MESSAGE value="added files from prev ui project" />
     <MESSAGE value="moved eslint to correct location for web project, ignore all for now" />
     <MESSAGE value="clean up account/auth modules and fix some login issues" />
@@ -502,7 +498,12 @@
     <MESSAGE value="add api get session details by id" />
     <MESSAGE value="add/remove session tags" />
     <MESSAGE value="delete session enabled in API" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete session enabled in API" />
+    <MESSAGE value="script to initialize app database when started" />
+    <MESSAGE value="added security packages" />
+    <MESSAGE value="use 3001 for api port, this ensures that if the UI dev-server is used, it will proxy to a dev API server, not the one started with compose" />
+    <MESSAGE value="compose configuration updated, works, but secrets not currently working, passwords in this file for dev env" />
+    <MESSAGE value="separate parts of db connection to allow for reuse" />
+    <option name="LAST_COMMIT_MESSAGE" value="separate parts of db connection to allow for reuse" />
   </component>
   <component name="WindowStateProjectService">
     <state x="373" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578774088810">
@@ -517,10 +518,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="603" y="823" width="624" height="548" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578339332716" />
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1578775072124">
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1578775645562">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1578775072124" />
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1578775645562" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1578593498629">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
