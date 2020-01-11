@@ -8,8 +8,9 @@ export class FrontEndMiddlewareMiddleware implements NestMiddleware {
     if (baseUrl.indexOf('/api') === 0) {
       next();
     } else {
-      console.log('sending app');
-      res.sendFile(join(__dirname, '../../web', 'dist', 'index.html'));
+      const file = baseUrl.indexOf('/static') !== 0 ? 'index.html' : baseUrl;
+      console.log(`static: ${file}`);
+      res.sendFile(join(__dirname, '../../../web', 'dist', file));
     }
   }
 }
