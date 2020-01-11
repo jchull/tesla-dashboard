@@ -8,9 +8,9 @@ import {ConfigurationModule} from './configuration/configuration.module';
 import {ProductModule} from './product/product.module';
 import {AccountModule} from './account/account.module';
 import {AuthModule} from './auth/auth.module';
-import {FrontEndMiddlewareMiddleware} from './middleware/front-end-middleware.middleware';
+import {SessionModule} from './session/session.module';
 import {LoggerMiddleware} from './middleware/logger.middleware';
-import { SessionModule } from './session/session.module';
+import {FrontEndMiddlewareMiddleware} from './middleware/front-end-middleware.middleware';
 
 @Module({
           imports: [
@@ -18,10 +18,13 @@ import { SessionModule } from './session/session.module';
                                    envFilePath: `./env/${process.env.NODE_ENV || 'development'}.env`
                                  }),
             MongooseModule.forRootAsync({
-                                          useFactory: async () => ({
-                                            uri: process.env.DB_CONN,
-                                            useNewUrlParser: true
-                                          })
+                                          useFactory: async () => {
+                                            const uri = `mongodb://tsla:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/tesladb`;
+                                            return {
+                                              uri,
+                                              useNewUrlParser: true
+                                            };
+                                          }
                                         }),
             ConfigurationModule,
             ProductModule,
