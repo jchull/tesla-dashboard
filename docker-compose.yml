@@ -4,12 +4,21 @@ services:
     image: 'mongo'
     container_name: 'tesladb'
     volumes:
-      - ~/mongodb/data/tesladb:/data/db
+      - ./init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+#      - ./data/tesladb:/data/db
     expose:
       - '7056'
     ports:
-    - '7056:27017'
-    command: mongod --auth
+      - '7056:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "testRootPass123"
+      MONGO_INITDB_DATABASE: "tesladb"
+      MONGO_INITDB_USERNAME: "tsla"
+      MONGO_INITDB_PASSWORD: "testAppPass123"
+    secrets:
+      - tesladb_admin_pass
+      - tesladb_app_pass
 
   server:
     build: .
@@ -23,4 +32,14 @@ services:
     environment:
       NODE_ENV: 'production'
       PORT: 7057
+      DB_PASS: "testAppPass123"
+      DB_PORT: 27017
+      DB_HOST: tesladb
+    secrets:
+        - tesladb_app_pass
 
+secrets:
+  tesladb_admin_pass:
+    external: true
+  tesladb_app_pass:
+    external: true
