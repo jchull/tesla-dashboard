@@ -14,20 +14,22 @@ RUN apk --no-cache add --virtual native-deps \
 # Install server dependencies and build
 COPY server/package.json ./server/
 COPY server/src ./server/src/
-RUN cd server && yarn
-
-# Install web app dependencies and build
 COPY web/package.json ./web/
-RUN cd web && yarn
-
+RUN cd server && \
+    yarn && \
+    cd ../web && \
+    yarn
 
 
 COPY . .
 #build
-RUN cd server && yarn build
-RUN cd web && yarn build
-
-RUN apk del native-deps
+RUN cd server && \
+    yarn build && \
+    rm -r node_modules && \
+    cd ../web && \
+    yarn build && \
+    rm -r node_modules && \
+    apk del native-deps
 
 WORKDIR /usr/app/server
 
