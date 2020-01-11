@@ -7,7 +7,9 @@ import { TeslaAccountSchema, UserSchema } from '../model';
 
 const modelModules = [
   MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-  MongooseModule.forFeature([{ name: 'TeslaAccount', schema: TeslaAccountSchema },]),
+  MongooseModule.forFeature([
+    { name: 'TeslaAccount', schema: TeslaAccountSchema },
+  ]),
 ];
 
 @Module({
@@ -17,6 +19,5 @@ const modelModules = [
   exports: [...modelModules, AccountService],
 })
 export class AccountModule {
-  constructor() {
-  }
+  constructor() {}
 }

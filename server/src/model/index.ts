@@ -34,5 +34,5 @@ export { VehicleConfigSchema, VehicleConfigType } from './VehicleConfig';
 export {
   UserPreferencesSchema,
   UserPreferencesType,
-  UserPreferences
+  UserPreferences,
 } from './UserPreferences';

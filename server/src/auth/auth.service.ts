@@ -1,21 +1,22 @@
-import {Injectable} from '@nestjs/common';
-import {AccountService} from '../account/account.service';
-import {JwtService} from '@nestjs/jwt';
-import {JwtPayload} from './jwt.payload';
+import { Injectable } from '@nestjs/common';
+import { AccountService } from '../account/account.service';
+import { JwtService } from '@nestjs/jwt';
+import { JwtPayload } from './jwt.payload';
 import * as bcrypt from 'bcrypt';
-import {User} from '../model';
+import { User } from '../model';
 
 @Injectable()
 export class AuthService {
   constructor(
-      private readonly accountService: AccountService,
-      private readonly jwtService: JwtService
-  ) {
-  }
+    private readonly accountService: AccountService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async validate(username: string, password: string): Promise<User | null> {
     const user = await this.accountService.get(username);
-    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash)? user : null;
+    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash)
+      ? user
+      : null;
   }
 
   async decode(token: string): Promise<any> {
@@ -29,14 +30,13 @@ export class AuthService {
         username: user.username,
         email: user.email,
         role: user.role,
-        sub: user._id.toString()
+        sub: user._id.toString(),
       };
       const token = this.jwtService.sign(payload);
       console.log(`generated token: ${token} from ${JSON.stringify(payload)}`);
       return {
-        access_token: token
+        access_token: token,
       };
     }
-
   }
 }

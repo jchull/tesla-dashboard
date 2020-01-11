@@ -1,11 +1,18 @@
-import {Controller, Delete, Get, Param, Post, Request, UseGuards} from '@nestjs/common';
-import {SessionService} from './session.service';
-import {AuthGuard} from '@nestjs/passport';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
+import { SessionService } from './session.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('api/session')
 export class SessionController {
-  constructor(private readonly sessionService: SessionService) {
-  }
+  constructor(private readonly sessionService: SessionService) {}
 
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')
