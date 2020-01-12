@@ -25,10 +25,8 @@ COPY . .
 #build
 RUN cd server && \
     yarn build && \
-    rm -r node_modules && \
     cd ../web && \
     yarn build && \
-    rm -r node_modules && \
     apk del native-deps
 
 WORKDIR /usr/app/server
