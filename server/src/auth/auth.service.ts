@@ -39,4 +39,9 @@ export class AuthService {
       };
     }
   }
+
+  logout() {
+    // TODO: add revoked token
+    return;
+  }
 }

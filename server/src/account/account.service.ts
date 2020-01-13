@@ -49,13 +49,22 @@ export class AccountService {
     return this.userModel.findOne({ username });
   }
 
+  async validateNewAccount(user: User){
+    const exists = await this.get(user.username);
+    if(exists){
+      return 'Username taken';
+    }
+  }
+
   async create(user: User) {
     if (!bcrypt) {
       throw Error('Cannot run bcrypt in worker!');
     }
+
+
     const saltRounds = 10;
     const hash = await bcrypt.hashSync(user.password, saltRounds);
-    return await this.userModel.create({
+    return this.userModel.create({
       username: user.username,
       email: user.email,
       pwdHash: hash,
