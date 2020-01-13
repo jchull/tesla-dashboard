@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
 import { SessionModule } from './session/session.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { FrontEndMiddlewareMiddleware } from './middleware/front-end-middleware.middleware';
+import { TeslaAccountModule } from './tesla-account/tesla-account.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { FrontEndMiddlewareMiddleware } from './middleware/front-end-middleware.
     AccountModule,
     AuthModule,
     SessionModule,
+    TeslaAccountModule,
   ],
   controllers: [AppController],
 })
