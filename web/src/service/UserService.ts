@@ -11,22 +11,22 @@ export class UserService {
   }
 
   async createUser(username: string, email: string, password: string): Promise<User> {
-    return await this.api.post('/signup', {username, email, password});
+    return await this.api.put('/account', {username, email, password});
   }
 
   async getTeslaAccounts(username: string): Promise<[TeslaAccount] | undefined> {
-    const data = await this.api.get(`/user/${username}/tesla-account`);
+    const data = await this.api.get(`/account/${username}/tesla-account`);
     if (data) {
       return data.data;
     }
   }
 
   async updateTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.put(`/user/${account.username}/tesla-account/${account._id}`, account);
+    return this.api.put(`/account/${account.username}/tesla-account/${account._id}`, account);
   }
 
   async updateTeslaToken(account: TeslaAccount, password: string): Promise<TeslaAccount | void> {
-    return this.api.post(`/user/${account.username}/tesla-account/${account._id}/token`, {...account, password});
+    return this.api.post(`/account/${account.username}/tesla-account/${account._id}/token`, {...account, password});
   }
 
 

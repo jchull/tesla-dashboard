@@ -10,7 +10,7 @@ export const configurationService = new ConfigurationService();
 
 export const api = axios.create({
                                   withCredentials: true,
-                                  baseURL: configurationService.get('REACT_APP_API_ROOT'),
+                                  baseURL: configurationService.get('REACT_APP_API_ROOT') || '/api',
                                   headers: {
                                     'Content-Type': 'application/json',
                                     'Accept': 'application/json',

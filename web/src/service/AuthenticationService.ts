@@ -22,7 +22,7 @@ export class AuthenticationService {
 
   async login(username: string, password: string): Promise<string | false> {
     try {
-      const response = await this.api.post('/api/auth/login',
+      const response = await this.api.post('/auth/login',
           {username, password});
       if (response) {
         const token = response.data.access_token;
@@ -73,13 +73,13 @@ export class AuthenticationService {
 
   logout(): Promise<void> {
     sessionStorage.removeItem('access_token');
-    return this.api.get('/api/auth/logout');
+    return this.api.get('/auth/logout');
   }
 
 
 
   forgot(username: string) {
-    this.api.post('/api/auth/forgot',
+    this.api.post('/auth/forgot',
         `username=${username}`,
         {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
   }
