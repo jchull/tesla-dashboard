@@ -22,7 +22,7 @@ export const MainMenu: React.FC = () => {
   const loggedInMenuItems: MenuItem[] = [
     {
       name: 'dashboard',
-      action: () => history.push('/products')
+      action: () => history.push('/dashboard')
     },
     {
       name: 'settings',

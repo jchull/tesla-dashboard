@@ -50,7 +50,7 @@ export const App: FC = () => {
                           component={AccountComponent}
                           auth={auth}
             />
-            <PrivateRoute path="/products"
+            <PrivateRoute path="/dashboard"
                           component={ProductSessionView}
                           auth={auth}
             />
