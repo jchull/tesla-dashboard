@@ -8,7 +8,15 @@ Here is some charging data at a V2 Supercharger.
 Here is a drive.
 ![driving](./images/Driving.png)
 
+
+## Architecture
+All project source for client and server uses TypeScript.
+Api and services running inNest.js.
+React + Redux.
+MongoDB.
+
 ## Installing
+
 
 #### Clone this repository
 
@@ -17,11 +25,21 @@ Here is a drive.
 #### Configure secrets
 Copy server/env/sample.env to server/env/production.env
 Use a complex, 32-ish char string for JWT_SECRET
-TODO: setting up app user for mongo via script
 
+Generate SSL certs
+TODO
 
 #### Building
-Use docker-compose
+Use docker-compose to build
+
+`docker-compose build`
+
+This creates images for DB and App services
+
+
+#### Starting services
+Use docker-compose to run
+
 `docker-compose up`
 
 This should start the database, and build the web+server projects and start the prod server.
