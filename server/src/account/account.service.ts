@@ -6,17 +6,13 @@ import * as bcrypt from 'bcrypt';
 import {
   UserType,
   User,
-  TeslaAccount,
-  TeslaAccountType,
   UserRoles,
 } from '../model';
 
 @Injectable()
 export class AccountService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<UserType>,
-    @InjectModel('TeslaAccount')
-    private readonly teslaAccountModel: Model<TeslaAccountType>,
+    @InjectModel('User') private readonly userModel: Model<UserType>
   ) {}
 
   sanitizeUser(user: User): User {
@@ -24,39 +20,19 @@ export class AccountService {
     return { sub: user._id.toString(), username, email, role };
   }
 
-  sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
-    const {
-      _id,
-      email,
-      refresh_token,
-      access_token,
-      token_created_at,
-      token_expires_in,
-      username,
-    } = account;
-    return {
-      _id,
-      email,
-      refresh_token,
-      access_token,
-      token_created_at,
-      token_expires_in,
-      username,
-    };
-  }
 
   async get(username: string): Promise<User | undefined> {
     return this.userModel.findOne({ username });
   }
 
-  async validateNewAccount(user: User){
+  async validateNewAccount(user: User): Promise<string | undefined>{
     const exists = await this.get(user.username);
     if(exists){
       return 'Username taken';
     }
   }
 
-  async create(user: User) {
+  async create(user: User): Promise<UserType> {
     if (!bcrypt) {
       throw Error('Cannot run bcrypt in worker!');
     }
@@ -72,7 +48,7 @@ export class AccountService {
     });
   }
 
-  async update(user: User): Promise<User> {
+  async update(user: User): Promise<UserType> {
     return this.userModel.updateOne({ username: user.username }, user);
   }
 
@@ -85,40 +61,5 @@ export class AccountService {
     // const prefs = await UserPreferences.findOne({username});
   }
 
-  async getTeslaAccounts(
-    username: string,
-    vehicleId?: string,
-  ): Promise<TeslaAccount[] | undefined> {
-    const accountList = await this.teslaAccountModel.find({ username });
-    if (accountList?.length) {
-      if (vehicleId) {
-        // const vehicle = await vs.get(vehicleId);
-        // if (vehicle?.sync_preferences) {
-        //   const {accountId} = vehicle.sync_preferences;
-        //   return accountList.filter(account => accountId === account._id)
-        //                     .map((account: TeslaAccountType) => this.sanitizeTeslaAccount(account));
-        //
-        // }
-      }
-      return accountList.map((account: TeslaAccountType) =>
-        this.sanitizeTeslaAccount(account),
-      );
-    }
-  }
 
-  async updateTeslaAccount(account: TeslaAccount) {
-    const { _id } = account;
-    let updatedAccount;
-    if (_id) {
-      const result = await this.teslaAccountModel.updateOne({ _id }, account, {
-        password: 'delete',
-      });
-      if (result?.ok === 1) {
-        updatedAccount = await this.teslaAccountModel.findOne({ _id });
-      }
-    } else {
-      updatedAccount = await this.teslaAccountModel.create(account);
-    }
-    return updatedAccount && this.sanitizeTeslaAccount(updatedAccount);
-  }
 }

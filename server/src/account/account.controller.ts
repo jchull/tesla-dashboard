@@ -32,4 +32,24 @@ export class AccountController {
         await this.accountService.create(newUser)
     );
   }
+
+  @UseGuards(AuthGuard('jwt'))
+  @Post()
+  async update(@Request() req) {
+    const {username, password, email} = req.body;
+    if (!username || !password || !email) {
+      throw new HttpException('Missing required field value', 500);
+    }
+    const user = await this.accountService.get(username);
+    if (user && user.username === req.user.username) {
+      user.password = password;
+      user.email = email;
+      return this.accountService.sanitizeUser(
+          await this.accountService.update(user)
+      );
+    } else {
+      throw new HttpException('wrong user', 401);
+    }
+  }
+
 }
