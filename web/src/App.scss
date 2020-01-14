@@ -78,15 +78,16 @@ div {
       transform: translate3d(1px, -1px, 3px);
     }
 
+    button {
+      line-height: 24px;
+      border-radius: 12px;
+      background: #E1E1E1;
+      width: 160px;
+      margin: 4px;
+    }
+
     form {
       margin: 20px;
-
-      button {
-        line-height: 24px;
-        border-radius: 12px;
-        width: 160px;
-        margin: 4px;
-      }
 
       input {
         display: block;
