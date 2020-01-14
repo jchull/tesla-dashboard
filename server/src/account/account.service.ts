@@ -3,16 +3,12 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
-import {
-  UserType,
-  User,
-  UserRoles,
-} from '../model';
+import { UserType, User, UserRoles } from '../model';
 
 @Injectable()
 export class AccountService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<UserType>
+    @InjectModel('User') private readonly userModel: Model<UserType>,
   ) {}
 
   sanitizeUser(user: User): User {
@@ -20,14 +16,13 @@ export class AccountService {
     return { sub: user._id.toString(), username, email, role };
   }
 
-
   async get(username: string): Promise<User | undefined> {
     return this.userModel.findOne({ username });
   }
 
-  async validateNewAccount(user: User): Promise<string | undefined>{
+  async validateNewAccount(user: User): Promise<string | undefined> {
     const exists = await this.get(user.username);
-    if(exists){
+    if (exists) {
       return 'Username taken';
     }
   }
@@ -36,7 +31,6 @@ export class AccountService {
     if (!bcrypt) {
       throw Error('Cannot run bcrypt in worker!');
     }
-
 
     const saltRounds = 10;
     const hash = await bcrypt.hashSync(user.password, saltRounds);
@@ -60,6 +54,4 @@ export class AccountService {
   async getPreferences(username: string) {
     // const prefs = await UserPreferences.findOne({username});
   }
-
-
 }

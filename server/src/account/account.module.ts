@@ -3,11 +3,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AccountController } from './account.controller';
 import { AccountService } from './account.service';
-import { UserPreferencesSchema, UserSchema} from '../model';
+import { UserPreferencesSchema, UserSchema } from '../model';
 
 const modelModules = [
   MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-  MongooseModule.forFeature([{ name: 'UserPreferences', schema: UserPreferencesSchema }])
+  MongooseModule.forFeature([
+    { name: 'UserPreferences', schema: UserPreferencesSchema },
+  ]),
 ];
 
 @Module({

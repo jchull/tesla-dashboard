@@ -15,7 +15,6 @@ export class AppController {
   @UseGuards(AuthGuard('jwt'))
   @Post('auth/logout')
   async logout(@Response() res) {
-
     return this.authService.logout();
   }
 }

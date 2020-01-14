@@ -15,6 +15,6 @@ async function bootstrap() {
   // app.use(csurf());
 
   await app.listen(process.env.PORT);
-  console.log(`API running on port ${process.env.PORT}`)
+  console.log(`API running on port ${process.env.PORT}`);
 }
 bootstrap();

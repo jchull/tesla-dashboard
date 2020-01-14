@@ -1,23 +1,19 @@
-import { Injectable} from '@nestjs/common';
-import {AccountService} from '../account/account.service';
-import {TeslaAccount, TeslaAccountType, UserType} from '../model';
-import {InjectModel} from '@nestjs/mongoose';
-import {Model} from "mongoose";
+import { Injectable } from '@nestjs/common';
+import { AccountService } from '../account/account.service';
+import { TeslaAccount, TeslaAccountType, UserType } from '../model';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class TeslaAccountService {
-
   constructor(
-      @InjectModel('TeslaAccount') private readonly teslaAccountModel: Model<TeslaAccountType>
+    @InjectModel('TeslaAccount')
+    private readonly teslaAccountModel: Model<TeslaAccountType>,
   ) {}
 
-  async create(teslaAccount: TeslaAccount){
+  async create(teslaAccount: TeslaAccount) {}
 
-  }
-
-  async update(teslaAccount: TeslaAccount){
-
-  }
+  async update(teslaAccount: TeslaAccount) {}
 
   sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
     const {
@@ -41,8 +37,8 @@ export class TeslaAccountService {
   }
 
   async getTeslaAccounts(
-      username: string,
-      vehicleId?: string,
+    username: string,
+    vehicleId?: string,
   ): Promise<TeslaAccount[] | undefined> {
     const accountList = await this.teslaAccountModel.find({ username });
     if (accountList?.length) {
@@ -56,7 +52,7 @@ export class TeslaAccountService {
         // }
       }
       return accountList.map((account: TeslaAccountType) =>
-                                 this.sanitizeTeslaAccount(account),
+        this.sanitizeTeslaAccount(account),
       );
     }
   }
@@ -76,5 +72,4 @@ export class TeslaAccountService {
     }
     return updatedAccount && this.sanitizeTeslaAccount(updatedAccount);
   }
-
 }
