@@ -11,7 +11,7 @@ export class ProductService {
     @InjectModel('DriveSession')
     private readonly driveSessionModel: Model<DriveSessionType>,
     @InjectModel('ChargeSession')
-    private readonly chargeSessionModel: Model<ChargeSessionType>,
+    private readonly chargeSessionModel: Model<ChargeSessionType>
   ) {}
 
   async create(product: VehicleType) {
@@ -44,7 +44,7 @@ export class ProductService {
     const sessions = [...driveSessions, ...chargeSessions]
       .sort(
         (a: { start_date: number }, b: { start_date: number }) =>
-          b.start_date - a.start_date,
+          b.start_date - a.start_date
       ) // reverse sort
       .slice(0, limit);
     if (sessions.length) {

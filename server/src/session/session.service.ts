@@ -6,7 +6,7 @@ import {
   ChargeStateType,
   DriveSessionType,
   DriveStateType,
-  VehicleType,
+  VehicleType
 } from '../model';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class SessionService {
     @InjectModel('DriveState')
     private readonly driveStateModel: Model<DriveStateType>,
     @InjectModel('ChargeState')
-    private readonly chargeStateModel: Model<ChargeStateType>,
+    private readonly chargeStateModel: Model<ChargeStateType>
   ) {}
 
   async getSessionDetails(username: string, id: string) {
@@ -45,7 +45,7 @@ export class SessionService {
     const deleteCount = await this.driveSessionModel.deleteOne({ _id: id });
     if (deleteCount.ok) {
       const deleteItemCount = await this.driveStateModel.deleteMany({
-        driveSession: id,
+        driveSession: id
       });
       if (deleteItemCount.ok) {
         return (deleteCount.n || 0) + (deleteItemCount.n || 0);
@@ -54,7 +54,7 @@ export class SessionService {
       const deleteCount = await this.chargeSessionModel.deleteOne({ _id: id });
       if (deleteCount.ok) {
         const deleteItemCount = await this.chargeStateModel.deleteMany({
-          chargeSession: id,
+          chargeSession: id
         });
         if (deleteItemCount.ok) {
           return (deleteCount.n || 0) + (deleteItemCount.n || 0);
@@ -65,24 +65,24 @@ export class SessionService {
 
   async addTag(username: string, sessionId: string, tag: string) {
     const driveSession = await this.driveSessionModel.findOne({
-      _id: sessionId,
+      _id: sessionId
     });
     if (driveSession && !driveSession.tags.includes(tag)) {
       driveSession.tags.push(tag);
       const result = await this.driveSessionModel.updateOne(
         { _id: sessionId },
-        driveSession,
+        driveSession
       );
       return result.tags;
     } else {
       const chargeSession = await this.chargeSessionModel.findOne({
-        _id: sessionId,
+        _id: sessionId
       });
       if (chargeSession && !chargeSession.tags.includes(tag)) {
         chargeSession.tags.push(tag);
         const result = await this.chargeSessionModel.updateOne(
           { _id: sessionId },
-          chargeSession,
+          chargeSession
         );
         return result.tags;
       }
@@ -91,24 +91,24 @@ export class SessionService {
 
   async removeTag(username: string, sessionId: string, tag: string) {
     const driveSession = await this.driveSessionModel.findOne({
-      _id: sessionId,
+      _id: sessionId
     });
     if (driveSession && driveSession.tags.includes(tag)) {
       driveSession.tags.splice(driveSession.tags.indexOf(tag), 1);
       const result = await this.driveSessionModel.updateOne(
         { _id: sessionId },
-        driveSession,
+        driveSession
       );
       return result.tags;
     } else {
       const chargeSession = await this.chargeSessionModel.findOne({
-        _id: sessionId,
+        _id: sessionId
       });
       if (chargeSession && chargeSession.tags.includes(tag)) {
         chargeSession.tags.splice(chargeSession.tags.indexOf(tag), 1);
         const result = await this.chargeSessionModel.updateOne(
           { _id: sessionId },
-          chargeSession,
+          chargeSession
         );
         return result.tags;
       }

@@ -6,7 +6,7 @@ describe('TeslaAccount Controller', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TeslaAccountController],
+      controllers: [TeslaAccountController]
     }).compile();
 
     controller = module.get<TeslaAccountController>(TeslaAccountController);

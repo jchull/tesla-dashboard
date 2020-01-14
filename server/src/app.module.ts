@@ -2,7 +2,7 @@ import {
   MiddlewareConsumer,
   Module,
   NestModule,
-  RequestMethod,
+  RequestMethod
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -21,31 +21,31 @@ import { TeslaAccountModule } from './tesla-account/tesla-account.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: `./env/${process.env.NODE_ENV || 'development'}.env`,
+      envFilePath: `./env/${process.env.NODE_ENV || 'development'}.env`
     }),
     MongooseModule.forRootAsync({
       useFactory: async () => {
         const uri = `mongodb://tsla:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/tesladb`;
         return {
           uri,
-          useNewUrlParser: true,
+          useNewUrlParser: true
         };
-      },
+      }
     }),
     ConfigurationModule,
     ProductModule,
     AccountModule,
     AuthModule,
     SessionModule,
-    TeslaAccountModule,
+    TeslaAccountModule
   ],
-  controllers: [AppController],
+  controllers: [AppController]
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware, FrontEndMiddlewareMiddleware).forRoutes({
       path: '/**',
-      method: RequestMethod.ALL,
+      method: RequestMethod.ALL
     });
   }
 }

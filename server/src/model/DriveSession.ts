@@ -23,7 +23,7 @@ export const DriveSessionSchema = new Schema({
   tags: { type: [String] },
   first: { type: Schema.Types.ObjectId, ref: 'DriveState' },
   last: { type: Schema.Types.ObjectId, ref: 'DriveState' },
-  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
+  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' }
 });
 
 export type DriveSessionType = DriveSession & Document;

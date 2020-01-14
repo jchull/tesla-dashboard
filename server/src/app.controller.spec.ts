@@ -11,7 +11,7 @@ describe('AppController', () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [AuthModule],
       controllers: [AppController],
-      providers: [AuthService],
+      providers: [AuthService]
     }).compile();
 
     appController = app.get<AppController>(AppController);

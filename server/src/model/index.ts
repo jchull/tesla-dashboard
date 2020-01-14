@@ -2,18 +2,18 @@ export { VehicleSchema, VehicleType, Product } from './Vehicle';
 export {
   ChargeSessionSchema,
   ChargeSessionType,
-  ChargeSession,
+  ChargeSession
 } from './ChargeSession';
 export { ChargeStateSchema, ChargeStateType, ChargeState } from './ChargeState';
 export {
   ConfigurationSchema,
   ConfigurationType,
-  Configuration,
+  Configuration
 } from './Configuration';
 export {
   DriveSessionSchema,
   DriveSessionType,
-  DriveSession,
+  DriveSession
 } from './DriveSession';
 export { DriveStateSchema, DriveStateType, DriveState } from './DriveState';
 export { GuiSettingsSchema, GuiSettingsType } from './GuiSettings';
@@ -22,17 +22,17 @@ export {
   SyncPreferencesSchema,
   SyncPreferencesType,
   SyncPreferences,
-  DEFAULT_SYNC_PREFERENCES,
+  DEFAULT_SYNC_PREFERENCES
 } from './SyncPreferences';
 export {
   TeslaAccountSchema,
   TeslaAccountType,
-  TeslaAccount,
+  TeslaAccount
 } from './TeslaAccount';
 export { UserSchema, UserType, User, UserRoles } from './User';
 export { VehicleConfigSchema, VehicleConfigType } from './VehicleConfig';
 export {
   UserPreferencesSchema,
   UserPreferencesType,
-  UserPreferences,
+  UserPreferences
 } from './UserPreferences';

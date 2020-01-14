@@ -58,7 +58,7 @@ export const ChargeStateSchema = new Schema({
   smart_preconditioning: { type: Boolean },
   is_user_present: { type: Boolean },
 
-  chargeSession: { type: Schema.Types.ObjectId, ref: 'ChargeSession' },
+  chargeSession: { type: Schema.Types.ObjectId, ref: 'ChargeSession' }
 });
 
 export type ChargeStateType = ChargeState & Document;

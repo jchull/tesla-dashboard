@@ -5,7 +5,7 @@ import {
   Post,
   Put,
   Request,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AccountService } from './account.service';
@@ -18,7 +18,7 @@ export class AccountController {
   @Get()
   async getMyAccount(@Request() req) {
     return this.accountService.sanitizeUser(
-      await this.accountService.get(req.user.username),
+      await this.accountService.get(req.user.username)
     );
   }
 
@@ -35,7 +35,7 @@ export class AccountController {
       throw new HttpException(errorMessage, 500);
     }
     return this.accountService.sanitizeUser(
-      await this.accountService.create(newUser),
+      await this.accountService.create(newUser)
     );
   }
 
@@ -51,7 +51,7 @@ export class AccountController {
       user.password = password;
       user.email = email;
       return this.accountService.sanitizeUser(
-        await this.accountService.update(user),
+        await this.accountService.update(user)
       );
     } else {
       throw new HttpException('wrong user', 401);

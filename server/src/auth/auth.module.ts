@@ -16,12 +16,12 @@ import { ConfigModule } from '@nestjs/config';
       useFactory: args => ({
         secret: process.env.JWT_SECRET,
         signOptions: {
-          expiresIn: process.env.TOKEN_TTL,
-        },
-      }),
-    }),
+          expiresIn: process.env.TOKEN_TTL
+        }
+      })
+    })
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
-  exports: [AuthService],
+  exports: [AuthService]
 })
 export class AuthModule {}

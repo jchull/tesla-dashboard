@@ -7,10 +7,10 @@ import { ConfigurationSchema } from '../model';
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: 'Configuration', schema: ConfigurationSchema },
-    ]),
+      { name: 'Configuration', schema: ConfigurationSchema }
+    ])
   ],
   controllers: [ConfigurationController],
-  providers: [ConfigurationService],
+  providers: [ConfigurationService]
 })
 export class ConfigurationModule {}

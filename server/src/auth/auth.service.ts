@@ -9,7 +9,7 @@ import { User } from '../model';
 export class AuthService {
   constructor(
     private readonly accountService: AccountService,
-    private readonly jwtService: JwtService,
+    private readonly jwtService: JwtService
   ) {}
 
   async validate(username: string, password: string): Promise<User | null> {
@@ -30,12 +30,12 @@ export class AuthService {
         username: user.username,
         email: user.email,
         role: user.role,
-        sub: user._id.toString(),
+        sub: user._id.toString()
       };
       const token = this.jwtService.sign(payload);
       console.log(`generated token: ${token} from ${JSON.stringify(payload)}`);
       return {
-        access_token: token,
+        access_token: token
       };
     }
   }

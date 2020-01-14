@@ -6,14 +6,14 @@ import { TeslaAccountSchema } from '../model';
 
 const modelModules = [
   MongooseModule.forFeature([
-    { name: 'TeslaAccount', schema: TeslaAccountSchema },
-  ]),
+    { name: 'TeslaAccount', schema: TeslaAccountSchema }
+  ])
 ];
 
 @Module({
   imports: [...modelModules],
   providers: [TeslaAccountService],
   controllers: [TeslaAccountController],
-  exports: [...modelModules],
+  exports: [...modelModules]
 })
 export class TeslaAccountModule {}

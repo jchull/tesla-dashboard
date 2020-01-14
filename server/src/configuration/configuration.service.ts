@@ -8,7 +8,7 @@ import { DEFAULT_CONFIG } from '../model/Configuration';
 export class ConfigurationService {
   constructor(
     @InjectModel('Configuration')
-    private readonly configurationModel: Model<ConfigurationType>,
+    private readonly configurationModel: Model<ConfigurationType>
   ) {}
 
   async getConfiguration() {

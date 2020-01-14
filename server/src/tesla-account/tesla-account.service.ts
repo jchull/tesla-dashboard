@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 export class TeslaAccountService {
   constructor(
     @InjectModel('TeslaAccount')
-    private readonly teslaAccountModel: Model<TeslaAccountType>,
+    private readonly teslaAccountModel: Model<TeslaAccountType>
   ) {}
 
   async create(teslaAccount: TeslaAccount) {}
@@ -23,7 +23,7 @@ export class TeslaAccountService {
       access_token,
       token_created_at,
       token_expires_in,
-      username,
+      username
     } = account;
     return {
       _id,
@@ -32,13 +32,13 @@ export class TeslaAccountService {
       access_token,
       token_created_at,
       token_expires_in,
-      username,
+      username
     };
   }
 
   async getTeslaAccounts(
     username: string,
-    vehicleId?: string,
+    vehicleId?: string
   ): Promise<TeslaAccount[] | undefined> {
     const accountList = await this.teslaAccountModel.find({ username });
     if (accountList?.length) {
@@ -52,7 +52,7 @@ export class TeslaAccountService {
         // }
       }
       return accountList.map((account: TeslaAccountType) =>
-        this.sanitizeTeslaAccount(account),
+        this.sanitizeTeslaAccount(account)
       );
     }
   }
@@ -62,7 +62,7 @@ export class TeslaAccountService {
     let updatedAccount;
     if (_id) {
       const result = await this.teslaAccountModel.updateOne({ _id }, account, {
-        password: 'delete',
+        password: 'delete'
       });
       if (result?.ok === 1) {
         updatedAccount = await this.teslaAccountModel.findOne({ _id });

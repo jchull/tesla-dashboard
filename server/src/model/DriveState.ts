@@ -49,7 +49,7 @@ export const DriveStateSchema = new Schema({
   smart_preconditioning: { type: Boolean },
   wiper_blade_heater: { type: Boolean },
 
-  driveSession: { type: Schema.Types.ObjectId, ref: 'DriveSession' },
+  driveSession: { type: Schema.Types.ObjectId, ref: 'DriveSession' }
 });
 
 export type DriveStateType = DriveState & Document;

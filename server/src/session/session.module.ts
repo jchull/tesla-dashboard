@@ -7,26 +7,26 @@ import {
   ChargeStateSchema,
   DriveSessionSchema,
   DriveStateSchema,
-  VehicleSchema,
+  VehicleSchema
 } from '../model';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'Vehicle', schema: VehicleSchema }]),
     MongooseModule.forFeature([
-      { name: 'ChargeSession', schema: ChargeSessionSchema },
+      { name: 'ChargeSession', schema: ChargeSessionSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'ChargeState', schema: ChargeStateSchema },
+      { name: 'ChargeState', schema: ChargeStateSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'DriveSession', schema: DriveSessionSchema },
+      { name: 'DriveSession', schema: DriveSessionSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'DriveState', schema: DriveStateSchema },
-    ]),
+      { name: 'DriveState', schema: DriveStateSchema }
+    ])
   ],
   controllers: [SessionController],
-  providers: [SessionService],
+  providers: [SessionService]
 })
 export class SessionModule {}

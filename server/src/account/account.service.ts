@@ -8,7 +8,7 @@ import { UserType, User, UserRoles } from '../model';
 @Injectable()
 export class AccountService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<UserType>,
+    @InjectModel('User') private readonly userModel: Model<UserType>
   ) {}
 
   sanitizeUser(user: User): User {
@@ -38,7 +38,7 @@ export class AccountService {
       username: user.username,
       email: user.email,
       pwdHash: hash,
-      role: UserRoles.Standard,
+      role: UserRoles.Standard
     });
   }
 

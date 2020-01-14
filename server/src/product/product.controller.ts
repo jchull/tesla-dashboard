@@ -18,7 +18,7 @@ export class ProductController {
     return this.productService.findRecentSessions(
       req.user.username,
       id,
-      req.query.limit / 1,
+      req.query.limit / 1
     );
   }
 }

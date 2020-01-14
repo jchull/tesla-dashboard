@@ -22,7 +22,7 @@ export const VehicleSchema = new Schema({
   last_session_id: { type: String },
   username: { type: String },
   sync_preferences: { type: Schema.Types.ObjectId, ref: 'SyncPreferences' },
-  sync_state: { type: String },
+  sync_state: { type: String }
 });
 
 export type VehicleType = Product & Document;

@@ -5,7 +5,7 @@ import {
   Param,
   Post,
   Request,
-  UseGuards,
+  UseGuards
 } from '@nestjs/common';
 import { SessionService } from './session.service';
 import { AuthGuard } from '@nestjs/passport';
