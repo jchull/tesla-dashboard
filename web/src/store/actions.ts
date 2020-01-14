@@ -1,4 +1,1 @@
-
-
-export const fetchProductList = () => {
-}
+export const fetchProductList = () => {};

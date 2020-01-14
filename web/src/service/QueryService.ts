@@ -1,9 +1,13 @@
-import {AxiosInstance} from 'axios';
-import {ChargeSession, ChargeState, DriveSession, DriveState, Product} from '@model/index';
-
+import { AxiosInstance } from 'axios';
+import {
+  ChargeSession,
+  ChargeState,
+  DriveSession,
+  DriveState,
+  Product
+} from '@model/index';
 
 export class QueryService {
-
   private readonly api: AxiosInstance;
 
   constructor(api: AxiosInstance) {
@@ -11,28 +15,36 @@ export class QueryService {
   }
 
   async getProducts(): Promise<Product[]> {
-    const result = await this.api.get('/product', {headers: {'Cache-Control': 'no-cache'}});
+    const result = await this.api.get('/product', {
+      headers: { 'Cache-Control': 'no-cache' }
+    });
     return result && result.data;
   }
 
-
-  async getRecentSessions(id: string, limit = 1): Promise<[ChargeSession | DriveSession]> {
+  async getRecentSessions(
+    id: string,
+    limit = 1
+  ): Promise<[ChargeSession | DriveSession]> {
     const result = await this.api.get(`/product/${id}/session?limit=${limit}`);
     return result && result.data;
   }
 
-  async getSessionDetails(sessionId: string): Promise<ChargeState[] | DriveState[]> {
+  async getSessionDetails(
+    sessionId: string
+  ): Promise<ChargeState[] | DriveState[]> {
     const result = await this.api.get(`/session/${sessionId}`);
     return result && result.data;
   }
 
   async addTag(sessionId: string, tag: string): Promise<string[]> {
-    if (!(tag.match(/^[a-z0-9\w].+$/i))) {
+    if (!tag.match(/^[a-z0-9\w].+$/i)) {
       throw Error('tags must contain only letters, numbers, and spaces');
     }
-    const sanitizedTag = tag.replace(' ', '_')
-                            .toLowerCase();
-    const result = await this.api.post(`/session/${sessionId}/tag/${sanitizedTag}`, {sanitizedTag});
+    const sanitizedTag = tag.replace(' ', '_').toLowerCase();
+    const result = await this.api.post(
+      `/session/${sessionId}/tag/${sanitizedTag}`,
+      { sanitizedTag }
+    );
     return result && result.data;
   }
 
@@ -40,9 +52,10 @@ export class QueryService {
     if (!tag.match(/^[a-z0-9\w].+$/i)) {
       throw Error('tags must contain only letters, numbers, and spaces');
     }
-    const sanitizedTag = tag.replace(' ', '_')
-                            .toLowerCase();
-    const result = await this.api.delete(`/session/${sessionId}/tag/${sanitizedTag}`);
+    const sanitizedTag = tag.replace(' ', '_').toLowerCase();
+    const result = await this.api.delete(
+      `/session/${sessionId}/tag/${sanitizedTag}`
+    );
     return result && result.data;
   }
 
@@ -50,6 +63,4 @@ export class QueryService {
     const result = await this.api.delete(`/session/${sessionId}`);
     return result && result.data;
   }
-
 }
-

@@ -7,7 +7,8 @@
 
 .d3-chart {
   .axis {
-    path, line {
+    path,
+    line {
       stroke: rgb(102, 102, 102);
     }
   }
@@ -53,13 +54,10 @@
       stroke: rgba(63, 106, 225, 0.5);
     }
   }
-
 }
-
 
 .chart-legend {
   background: #3f6ae1;
   display: inline-flex;
   flex: max-content;
-
 }

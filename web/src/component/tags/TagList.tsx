@@ -1,7 +1,7 @@
 import React from 'react';
 import './tag.style.scss';
-import {Tag} from './Tag';
-import {TagInput} from './TagInput';
+import { Tag } from './Tag';
+import { TagInput } from './TagInput';
 
 interface TagListProps {
   tags: string[];
@@ -12,18 +12,14 @@ interface TagListProps {
 }
 
 export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
-
-  const tags = props.tags.map(tag => <Tag value={tag}
-                                          removeListener={props.removeListener}
-                                          key={tag}/>);
+  const tags = props.tags.map((tag) => (
+    <Tag value={tag} removeListener={props.removeListener} key={tag} />
+  ));
   return (
-      <div className="tag-list">
-        <div>Tags</div>
-        {tags}
-        {props.addListener &&
-        <TagInput addListener={props.addListener}/>
-        }
-      </div>
+    <div className="tag-list">
+      <div>Tags</div>
+      {tags}
+      {props.addListener && <TagInput addListener={props.addListener} />}
+    </div>
   );
 };
-

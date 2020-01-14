@@ -10,7 +10,7 @@
   }
 
   &:hover {
-    color: hsla(0, 0%, 100%, .5);
+    color: hsla(0, 0%, 100%, 0.5);
     cursor: pointer;
   }
 
@@ -36,8 +36,7 @@
       overflow: visible;
       padding: 10px 0;
 
-
-      >div {
+      > div {
         padding: 10px 20px;
         font-size: 20px;
 

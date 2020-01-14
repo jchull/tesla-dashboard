@@ -1,20 +1,24 @@
-import {SyncPreferences, TeslaAccount, User} from '@model/index';
-import {AxiosInstance} from 'axios';
-
+import { SyncPreferences, TeslaAccount, User } from '@model/index';
+import { AxiosInstance } from 'axios';
 
 export class UserService {
   private readonly api: AxiosInstance;
-
 
   constructor(api: AxiosInstance) {
     this.api = api;
   }
 
-  async createUser(username: string, email: string, password: string): Promise<User> {
-    return await this.api.put('/account', {username, email, password});
+  async createUser(
+    username: string,
+    email: string,
+    password: string
+  ): Promise<User> {
+    return await this.api.put('/account', { username, email, password });
   }
 
-  async getTeslaAccounts(username: string): Promise<[TeslaAccount] | undefined> {
+  async getTeslaAccounts(
+    username: string
+  ): Promise<[TeslaAccount] | undefined> {
     const data = await this.api.get(`/account/${username}/tesla-account`);
     if (data) {
       return data.data;
@@ -22,21 +26,31 @@ export class UserService {
   }
 
   async updateTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.put(`/account/${account.username}/tesla-account/${account._id}`, account);
+    return this.api.put(
+      `/account/${account.username}/tesla-account/${account._id}`,
+      account
+    );
   }
 
-  async updateTeslaToken(account: TeslaAccount, password: string): Promise<TeslaAccount | void> {
-    return this.api.post(`/account/${account.username}/tesla-account/${account._id}/token`, {...account, password});
+  async updateTeslaToken(
+    account: TeslaAccount,
+    password: string
+  ): Promise<TeslaAccount | void> {
+    return this.api.post(
+      `/account/${account.username}/tesla-account/${account._id}/token`,
+      { ...account, password }
+    );
   }
 
+  //: Promise<IUser>
+  //   async updateUser(user: IUser) {
+  //
+  //   }
 
-//: Promise<IUser>
-//   async updateUser(user: IUser) {
-//
-//   }
-
-  async updateProductSyncPreferences(vin: string, prefs: SyncPreferences): Promise<SyncPreferences> {
+  async updateProductSyncPreferences(
+    vin: string,
+    prefs: SyncPreferences
+  ): Promise<SyncPreferences> {
     return this.api.put(`/vehicle/${vin}/sync`, prefs);
   }
-
 }

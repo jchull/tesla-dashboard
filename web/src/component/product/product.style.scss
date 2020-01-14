@@ -2,7 +2,6 @@
   border-bottom: 1px solid #f4f4f4;
   box-shadow: 1px 2px 3px rgba(111, 113, 114, 0.3);
 
-
   .list-item {
     border: none;
     display: inline-block;
@@ -35,9 +34,8 @@
       transform: translate(-1px, 1px);
     }
 
-
     &.red_pinwheel18 {
-      background: url("/static/images/tm3_red_pinwheel18.png") #f7f7f7;
+      background: url('/static/images/tm3_red_pinwheel18.png') #f7f7f7;
       background-size: 160px;
       background-repeat: no-repeat;
       background-position: 215px 25px;

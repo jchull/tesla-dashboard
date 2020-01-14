@@ -1,4 +1,4 @@
-import {AxiosInstance} from 'axios';
+import { AxiosInstance } from 'axios';
 import decode from 'jwt-decode';
 
 export class AuthenticationService {
@@ -7,23 +7,24 @@ export class AuthenticationService {
   constructor(api: AxiosInstance) {
     this.api = api;
     const existingToken = sessionStorage.getItem('access_token');
-    if(existingToken){
+    if (existingToken) {
       api.defaults.headers.common['Authorization'] = `Bearer ${existingToken}`;
-
     }
   }
 
   getUsername(): string | undefined {
     const token = this.getToken();
-    if(token){
+    if (token) {
       return this.decode(token).username;
     }
   }
 
   async login(username: string, password: string): Promise<string | false> {
     try {
-      const response = await this.api.post('/auth/login',
-          {username, password});
+      const response = await this.api.post('/auth/login', {
+        username,
+        password
+      });
       if (response) {
         const token = response.data.access_token;
         if (token) {
@@ -46,7 +47,12 @@ export class AuthenticationService {
       return false;
     }
     try {
-      const decoded = this.decode(token) as { username: string; sub: string; exp: number; client: string };
+      const decoded = this.decode(token) as {
+        username: string;
+        sub: string;
+        exp: number;
+        client: string;
+      };
       return decoded && decoded.exp >= Date.now() / 1000;
     } catch (err) {
       return false;
@@ -55,7 +61,12 @@ export class AuthenticationService {
 
   decode(token: string): any {
     try {
-      const decoded = decode(token) as { username: string; sub: string; exp: number; client: string };
+      const decoded = decode(token) as {
+        username: string;
+        sub: string;
+        exp: number;
+        client: string;
+      };
       return decoded;
     } catch (err) {
       return false;
@@ -76,13 +87,9 @@ export class AuthenticationService {
     return this.api.get('/auth/logout');
   }
 
-
-
   forgot(username: string) {
-    this.api.post('/auth/forgot',
-        `username=${username}`,
-        {headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
+    this.api.post('/auth/forgot', `username=${username}`, {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    });
   }
 }
-
-

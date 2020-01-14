@@ -1,9 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './actions';
-import {ProductActionType} from './actions';
+import { ProductActionType } from './actions';
 import services from '@service/service';
-import {Product} from '@model/index';
+import { Product } from '@model/index';
 
 jest.mock('@service/service');
 
@@ -24,19 +24,24 @@ const sampleCar: Product = {
   api_version: 1
 };
 
-const mockStore = configureMockStore([thunk.withExtraArgument({api: services})]);
+const mockStore = configureMockStore([
+  thunk.withExtraArgument({ api: services })
+]);
 
 describe('product actions', () => {
-
-
   it('should handle empty list', async () => {
-    services.queryService.getProducts = jest.fn((): Promise<Product[]> => {
-      return new Promise<Product[]>((resolve, reject) => resolve([]));
-    });
-    const store = mockStore({products: undefined});
+    services.queryService.getProducts = jest.fn(
+      (): Promise<Product[]> => {
+        return new Promise<Product[]>((resolve, reject) => resolve([]));
+      }
+    );
+    const store = mockStore({ products: undefined });
     const expectedActions = [
-      {type: ProductActionType.FETCH_PRODUCT_LIST__START, payload: undefined},
-      {type: ProductActionType.FETCH_PRODUCT_LIST__SUCCESS, payload: {productList: []}}
+      { type: ProductActionType.FETCH_PRODUCT_LIST__START, payload: undefined },
+      {
+        type: ProductActionType.FETCH_PRODUCT_LIST__SUCCESS,
+        payload: { productList: [] }
+      }
     ];
 
     // @ts-ignore
@@ -44,15 +49,21 @@ describe('product actions', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-
   it('should handle simple product list', async () => {
-    services.queryService.getProducts = jest.fn((): Promise<Product[]> => {
-      return new Promise<Product[]>((resolve, reject) => resolve([sampleCar]));
-    });
-    const store = mockStore({products: undefined});
+    services.queryService.getProducts = jest.fn(
+      (): Promise<Product[]> => {
+        return new Promise<Product[]>((resolve, reject) =>
+          resolve([sampleCar])
+        );
+      }
+    );
+    const store = mockStore({ products: undefined });
     const expectedActions = [
-      {type: ProductActionType.FETCH_PRODUCT_LIST__START, payload: undefined},
-      {type: ProductActionType.FETCH_PRODUCT_LIST__SUCCESS, payload: {productList: [sampleCar]}}
+      { type: ProductActionType.FETCH_PRODUCT_LIST__START, payload: undefined },
+      {
+        type: ProductActionType.FETCH_PRODUCT_LIST__SUCCESS,
+        payload: { productList: [sampleCar] }
+      }
     ];
 
     // @ts-ignore

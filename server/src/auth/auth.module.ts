@@ -13,7 +13,7 @@ import { ConfigModule } from '@nestjs/config';
     PassportModule.register({}),
     JwtModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: args => ({
+      useFactory: (args) => ({
         secret: process.env.JWT_SECRET,
         signOptions: {
           expiresIn: process.env.TOKEN_TTL

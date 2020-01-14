@@ -1,8 +1,7 @@
-import {Product} from '@model/index';
+import { Product } from '@model/index';
 
-import {ApiType} from '@service/service';
-import {createAction} from '@reduxjs/toolkit';
-
+import { ApiType } from '@service/service';
+import { createAction } from '@reduxjs/toolkit';
 
 export interface ProductState {
   products: Product[];
@@ -16,29 +15,41 @@ export enum ProductActionType {
   SELECT_PRODUCT = 'SELECT_PRODUCT'
 }
 
-export const fetchProductListStart = createAction(ProductActionType.FETCH_PRODUCT_LIST__START);
-export const fetchProductListFail = createAction(ProductActionType.FETCH_PRODUCT_LIST__FAIL);
+export const fetchProductListStart = createAction(
+  ProductActionType.FETCH_PRODUCT_LIST__START
+);
+export const fetchProductListFail = createAction(
+  ProductActionType.FETCH_PRODUCT_LIST__FAIL
+);
 
-export const fetchProductListSuccess = createAction(ProductActionType.FETCH_PRODUCT_LIST__SUCCESS, (products: Product[]) => ({
-  payload: {
-    productList: products
-  }
-}));
+export const fetchProductListSuccess = createAction(
+  ProductActionType.FETCH_PRODUCT_LIST__SUCCESS,
+  (products: Product[]) => ({
+    payload: {
+      productList: products
+    }
+  })
+);
 
-export const selectProduct = createAction(ProductActionType.SELECT_PRODUCT, (productId: string) => ({
-  payload: {
-    selectedProductId: productId
-  }
-}));
+export const selectProduct = createAction(
+  ProductActionType.SELECT_PRODUCT,
+  (productId: string) => ({
+    payload: {
+      selectedProductId: productId
+    }
+  })
+);
 
-export const fetchProductListAction =
-    () => async (dispatch: any, getState: any, extraArgument: { api: ApiType }): Promise<any> => {
-      dispatch(fetchProductListStart());
-      return extraArgument.api.queryService.getProducts()
-                          .then((result: Product[]) => {
-                            dispatch(fetchProductListSuccess(result));
-                          })
-                          .catch(() => dispatch(fetchProductListFail()));
-    };
-
-
+export const fetchProductListAction = () => async (
+  dispatch: any,
+  getState: any,
+  extraArgument: { api: ApiType }
+): Promise<any> => {
+  dispatch(fetchProductListStart());
+  return extraArgument.api.queryService
+    .getProducts()
+    .then((result: Product[]) => {
+      dispatch(fetchProductListSuccess(result));
+    })
+    .catch(() => dispatch(fetchProductListFail()));
+};

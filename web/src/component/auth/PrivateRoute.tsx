@@ -1,7 +1,6 @@
 import React from 'react';
-import {Redirect, RouteProps, Route} from 'react-router-dom';
-import {AuthState} from './actions';
-
+import { Redirect, RouteProps, Route } from 'react-router-dom';
+import { AuthState } from './actions';
 
 interface PrivateRouteProps extends RouteProps {
   component: any;
@@ -10,11 +9,15 @@ interface PrivateRouteProps extends RouteProps {
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = (props) => {
   const Component = props.component;
-  if(props.auth.loggedIn){
-    return (<Route {...props}>
-      <Component {...props} />
-           </Route>);
+  if (props.auth.loggedIn) {
+    return (
+      <Route {...props}>
+        <Component {...props} />
+      </Route>
+    );
   } else {
-    return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>;
+    return (
+      <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+    );
   }
 };

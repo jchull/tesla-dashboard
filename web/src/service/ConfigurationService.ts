@@ -15,7 +15,6 @@ export type ConfigurationKeysType = keyof typeof ConfigurationKeys;
  *
  */
 export class ConfigurationService {
-
   private readonly values: Map<ConfigurationKeysType, string>;
 
   constructor() {
@@ -35,5 +34,4 @@ export class ConfigurationService {
   get(key: ConfigurationKeysType): string | undefined {
     return this.values.get(key);
   }
-
 }
