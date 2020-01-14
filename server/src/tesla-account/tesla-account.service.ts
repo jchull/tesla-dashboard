@@ -1,19 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { AccountService } from '../account/account.service';
-import { TeslaAccount, TeslaAccountType, UserType } from '../model';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import {Injectable} from '@nestjs/common';
+import {TeslaAccount, TeslaAccountType} from '../model';
+import {InjectModel} from '@nestjs/mongoose';
+import {Model} from 'mongoose';
 
 @Injectable()
 export class TeslaAccountService {
   constructor(
-    @InjectModel('TeslaAccount')
-    private readonly teslaAccountModel: Model<TeslaAccountType>
-  ) {}
+      @InjectModel('TeslaAccount')
+      private readonly teslaAccountModel: Model<TeslaAccountType>
+  ) {
+  }
 
-  async create(teslaAccount: TeslaAccount) {}
+  async create(teslaAccount: TeslaAccount) {
+    return this.teslaAccountModel.create(teslaAccount);
+  }
 
-  async update(teslaAccount: TeslaAccount) {}
+  async update(teslaAccount: TeslaAccount) {
+    return this.teslaAccountModel.updateOne({_id: teslaAccount._id}, teslaAccount);
+  }
 
   sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
     const {
@@ -37,10 +41,10 @@ export class TeslaAccountService {
   }
 
   async getTeslaAccounts(
-    username: string,
-    vehicleId?: string
+      username: string,
+      vehicleId?: string
   ): Promise<TeslaAccount[] | undefined> {
-    const accountList = await this.teslaAccountModel.find({ username });
+    const accountList = await this.teslaAccountModel.find({username});
     if (accountList?.length) {
       if (vehicleId) {
         // const vehicle = await vs.get(vehicleId);
@@ -52,24 +56,17 @@ export class TeslaAccountService {
         // }
       }
       return accountList.map((account: TeslaAccountType) =>
-        this.sanitizeTeslaAccount(account)
+                                 this.sanitizeTeslaAccount(account)
       );
     }
   }
 
-  async updateTeslaAccount(account: TeslaAccount) {
-    const { _id } = account;
-    let updatedAccount;
-    if (_id) {
-      const result = await this.teslaAccountModel.updateOne({ _id }, account, {
-        password: 'delete'
-      });
-      if (result?.ok === 1) {
-        updatedAccount = await this.teslaAccountModel.findOne({ _id });
-      }
-    } else {
-      updatedAccount = await this.teslaAccountModel.create(account);
-    }
-    return updatedAccount && this.sanitizeTeslaAccount(updatedAccount);
+
+  async validateTeslaConnection(id: string) {
+    return false;
+  }
+
+  async requestTeslaToken(id: string, password: string) {
+    return undefined;
   }
 }
