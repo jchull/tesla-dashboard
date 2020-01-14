@@ -1,13 +1,19 @@
-import {Injectable} from '@nestjs/common';
+import {forwardRef, Inject, Injectable} from '@nestjs/common';
 import {TeslaAccount, TeslaAccountType} from '../model';
 import {InjectModel} from '@nestjs/mongoose';
 import {Model} from 'mongoose';
+import {TeslaOwnerService} from './tesla-owner/tesla-owner.service';
+import {ProductService} from '../product/product.service';
 
 @Injectable()
 export class TeslaAccountService {
   constructor(
       @InjectModel('TeslaAccount')
-      private readonly teslaAccountModel: Model<TeslaAccountType>
+      private readonly teslaAccountModel: Model<TeslaAccountType>,
+      @Inject(forwardRef(() => TeslaOwnerService))
+      private readonly teslaOwnerService: TeslaOwnerService,
+      @Inject(forwardRef(() => ProductService))
+      private readonly productService: ProductService
   ) {
   }
 
@@ -63,10 +69,24 @@ export class TeslaAccountService {
 
 
   async validateTeslaConnection(id: string) {
-    return false;
+    const teslaAccount = await this.getById(id)
+    const resultTeslaAccount = await this.teslaOwnerService.checkToken(teslaAccount);
+    if(resultTeslaAccount){
+      const vehicles = await this.teslaOwnerService.getVehicles(resultTeslaAccount);
+      if(vehicles){
+        console.log(`found ${vehicles.length} tesla vehicles`);
+        this.productService.upsertMany(vehicles);
+      }
+    }
+
   }
 
   async requestTeslaToken(id: string, password: string) {
-    return undefined;
+    const teslaAccount = await this.getById(id)
+    return this.teslaOwnerService.updateToken(teslaAccount, 'password', password);
+  }
+
+  private async getById(id: string) {
+    return this.teslaAccountModel.findOne({_id:id});
   }
 }

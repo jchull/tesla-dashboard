@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import {forwardRef, Module} from '@nestjs/common';
 import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -10,6 +10,7 @@ import {
   SyncPreferencesSchema,
   VehicleSchema
 } from '../model';
+import {TeslaAccountModule} from '../tesla-account/tesla-account.module';
 
 @Module({
   imports: [
@@ -28,9 +29,11 @@ import {
     ]),
     MongooseModule.forFeature([
       { name: 'DriveState', schema: DriveStateSchema }
-    ])
+    ]),
+    forwardRef(() => TeslaAccountModule)
   ],
   controllers: [ProductController],
-  providers: [ProductService]
+  providers: [ProductService],
+  exports: [ProductService]
 })
 export class ProductModule {}

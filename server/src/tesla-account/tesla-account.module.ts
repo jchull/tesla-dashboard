@@ -1,19 +1,19 @@
-import { Module } from '@nestjs/common';
+import {forwardRef, Module} from '@nestjs/common';
 import { TeslaAccountService } from './tesla-account.service';
 import { TeslaAccountController } from './tesla-account.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TeslaAccountSchema } from '../model';
-
-const modelModules = [
-  MongooseModule.forFeature([
-    { name: 'TeslaAccount', schema: TeslaAccountSchema }
-  ])
-];
+import { TeslaOwnerService } from './tesla-owner/tesla-owner.service';
+import {ConfigurationModule} from '../configuration/configuration.module';
+import {ProductModule} from '../product/product.module';
 
 @Module({
-  imports: [...modelModules],
-  providers: [TeslaAccountService],
+  imports: [MongooseModule.forFeature([
+                                        { name: 'TeslaAccount', schema: TeslaAccountSchema }
+                                      ]),
+            ConfigurationModule, forwardRef(() =>ProductModule)],
+  providers: [TeslaAccountService, TeslaOwnerService],
   controllers: [TeslaAccountController],
-  exports: [...modelModules]
+  exports: [TeslaAccountService, TeslaOwnerService]
 })
 export class TeslaAccountModule {}
