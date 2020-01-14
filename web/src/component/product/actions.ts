@@ -40,14 +40,14 @@ export const selectProduct = createAction(
   })
 );
 
-export const fetchProductListAction = () => async (
+export const fetchProductListAction = (syncUpstream = false) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchProductListStart());
   return extraArgument.api.queryService
-    .getProducts()
+    .getProducts(syncUpstream)
     .then((result: Product[]) => {
       dispatch(fetchProductListSuccess(result));
     })

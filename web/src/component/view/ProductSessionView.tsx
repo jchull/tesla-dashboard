@@ -11,6 +11,7 @@ import { LineChart } from '@component/chart/LineChart';
 import { SessionTagList } from '@component/vehicle/SessionTagList';
 import { SessionToolbar } from '@component/toolbar/SessionToolbar';
 import { createSelector } from '@reduxjs/toolkit';
+import {fetchProductListAction} from '@component/product/actions';
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export const ProductSessionView: React.FC = () => {
     (store: AppState) => store.session.selectedSessionStates
   );
 
+
   React.useEffect(() => {
     if (selectedProductId) {
       const selectedProduct = products.find(
@@ -63,21 +65,28 @@ export const ProductSessionView: React.FC = () => {
   return (
     <div>
       <ProductList products={products} selectedProductId={selectedProductId} />
-      <div className="block-flow">
-        <SessionList
-          sessions={sessions}
-          selectedSessionId={selectedSessionId}
-        />
-        {selectedSessionStates && selectedSessionId ? (
-          <div className="vertical-flex">
-            <LineChart datum={selectedSessionStates} />
-            <SessionTagList />
-            <SessionToolbar sessionId={selectedSessionId} />
-          </div>
-        ) : (
-          <span>No data selected</span>
-        )}
-      </div>
+      {selectedProductId ?
+       <div className="block-flow">
+         <SessionList
+             sessions={sessions}
+             selectedSessionId={selectedSessionId}
+         />
+         {selectedSessionStates && selectedSessionId ? (
+             <div className="vertical-flex">
+               <LineChart datum={selectedSessionStates}/>
+               <SessionTagList/>
+               <SessionToolbar sessionId={selectedSessionId}/>
+             </div>
+         ) : (
+              <span>No data selected</span>
+          )}
+       </div>
+                         :
+       <div>
+         <div>No products found</div>
+         <button onClick={() => dispatch(fetchProductListAction(true))}>Sync Tesla Accounts Now</button>
+       </div>
+      }
     </div>
   );
 };
