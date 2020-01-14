@@ -14,8 +14,9 @@ export class QueryService {
     this.api = api;
   }
 
-  async getProducts(): Promise<Product[]> {
+  async getProducts(syncFromTesla =  false): Promise<Product[]> {
     const result = await this.api.get('/product', {
+      params: {'syncUpstream' : syncFromTesla},
       headers: { 'Cache-Control': 'no-cache' }
     });
     return result && result.data;
