@@ -19,16 +19,23 @@ export class UserService {
   async getTeslaAccounts(
     username: string
   ): Promise<[TeslaAccount] | undefined> {
-    const data = await this.api.get(`/account/${username}/tesla-account`);
+    const data = await this.api.get(`/tesla-account`);
     if (data) {
       return data.data;
     }
   }
 
   async updateTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.put(
-      `/account/${account.username}/tesla-account/${account._id}`,
+    return this.api.post(
+      `/tesla-account/${account._id}`,
       account
+    );
+  }
+
+  async linkTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
+    return this.api.put(
+        `/tesla-account`,
+        account
     );
   }
 
@@ -37,8 +44,8 @@ export class UserService {
     password: string
   ): Promise<TeslaAccount | void> {
     return this.api.post(
-      `/account/${account.username}/tesla-account/${account._id}/token`,
-      { ...account, password }
+      `/tesla-account/${account._id}/token`,
+      { password }
     );
   }
 
