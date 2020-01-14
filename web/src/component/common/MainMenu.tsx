@@ -33,6 +33,10 @@ export const MainMenu: React.FC = () => {
       action: () => history.push('/account')
     },
     {
+      name: 'tesla account',
+      action: () => history.push('/tesla-account')
+    },
+    {
       name: 'logout',
       action: () => dispatch(logoutAction())
     }
