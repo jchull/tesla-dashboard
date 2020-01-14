@@ -5,18 +5,16 @@ import { AccountController } from './account.controller';
 import { AccountService } from './account.service';
 import { UserPreferencesSchema, UserSchema } from '../model';
 
-const modelModules = [
-  MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
-  MongooseModule.forFeature([
-    { name: 'UserPreferences', schema: UserPreferencesSchema }
-  ])
-];
-
 @Module({
-  imports: [...modelModules],
+  imports: [
+    MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
+    MongooseModule.forFeature([
+                                { name: 'UserPreferences', schema: UserPreferencesSchema }
+                              ])
+  ],
   controllers: [AccountController],
   providers: [AccountService],
-  exports: [...modelModules, AccountService]
+  exports: [AccountService]
 })
 export class AccountModule {
   constructor() {}
