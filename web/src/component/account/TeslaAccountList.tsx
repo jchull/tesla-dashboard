@@ -43,7 +43,7 @@ export const TeslaAccountListComponent: FC = () => {
         }
 
         {
-          selectedAccount._id ?
+          selectedAccount ?
           <TeslaAccountComponent account={selectedAccount}/>
                           :
           <span>Select an Account</span>
