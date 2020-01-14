@@ -13,8 +13,10 @@ RUN apk --no-cache add --virtual native-deps \
 
 # Install server dependencies and build
 COPY server/package.json ./server/
+COPY server/yarn.lock ./server/
 COPY server/src ./server/src/
 COPY web/package.json ./web/
+COPY web/yarn.lock ./web/
 RUN cd server && \
     yarn && \
     cd ../web && \
