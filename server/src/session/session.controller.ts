@@ -15,6 +15,15 @@ export class SessionController {
   constructor(private readonly sessionService: SessionService) {}
 
   @UseGuards(AuthGuard('jwt'))
+  @Get()
+  getRecentSessions(@Request() req, @Param('vin') vin) {
+    return this.sessionService.findRecentSessions(
+        req.user.username,
+        vin,
+        req.query.limit / 1
+    );
+  }
+  @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   getSessionDetails(@Request() req, @Param('id') id) {
     return this.sessionService.getSessionDetails(req.user.username, id);

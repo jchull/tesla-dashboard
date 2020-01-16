@@ -12,13 +12,4 @@ export class ProductController {
     return this.productService.getMyProducts(req.user.username, query.syncUpstream);
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @Get(':id/session')
-  getRecentSessions(@Request() req, @Param('id') id) {
-    return this.productService.findRecentSessions(
-      req.user.username,
-      id,
-      req.query.limit / 1
-    );
-  }
 }

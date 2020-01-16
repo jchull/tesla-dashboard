@@ -62,26 +62,8 @@ export class ProductService {
                .sort({$natural: -1});
   }}
 
-  async findRecentSessions(username: string, productId: string, limit: number) {
-    const vehicle = await this.productModel.findOne({_id: productId});
-    const driveSessions = await this.driveSessionModel
-                                    .find({vehicle})
-                                    .sort({$natural: -1})
-                                    .limit(limit)
-                                    .populate(['first', 'last', 'vehicle']);
-    const chargeSessions = await this.chargeSessionModel
-                                     .find({vehicle})
-                                     .sort({$natural: -1})
-                                     .limit(limit)
-                                     .populate(['first', 'last', 'vehicle']);
-    const sessions = [...driveSessions, ...chargeSessions]
-        .sort(
-            (a: { start_date: number }, b: { start_date: number }) =>
-                b.start_date - a.start_date
-        ) // reverse sort
-        .slice(0, limit);
-    if (sessions.length) {
-      return sessions;
-    }
+
+  async findByVin(vin: string) {
+    return this.productModel.findOne({vin});
   }
 }
