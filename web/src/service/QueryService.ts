@@ -26,7 +26,7 @@ export class QueryService {
     id: string,
     limit = 1
   ): Promise<[ChargeSession | DriveSession]> {
-    const result = await this.api.get(`/product/${id}/session?limit=${limit}`);
+    const result = await this.api.get(`/session?limit=${limit}&productId=${id}`);
     return result && result.data;
   }
 
