@@ -26,27 +26,18 @@ export class UserService {
   }
 
   async updateTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.post(
-      `/tesla-account/${account._id}`,
-      account
-    );
+    return this.api.post(`/tesla-account/${account._id}`, account);
   }
 
   async linkTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.put(
-        `/tesla-account`,
-        account
-    );
+    return this.api.put(`/tesla-account`, account);
   }
 
   async updateTeslaToken(
     account: TeslaAccount,
     password: string
   ): Promise<TeslaAccount | void> {
-    return this.api.post(
-      `/tesla-account/${account._id}/token`,
-      { password }
-    );
+    return this.api.post(`/tesla-account/${account._id}/token`, { password });
   }
 
   //: Promise<IUser>

@@ -14,9 +14,9 @@ export class QueryService {
     this.api = api;
   }
 
-  async getProducts(syncFromTesla =  false): Promise<Product[]> {
+  async getProducts(syncFromTesla = false): Promise<Product[]> {
     const result = await this.api.get('/product', {
-      params: {'syncUpstream' : syncFromTesla},
+      params: { syncUpstream: syncFromTesla },
       headers: { 'Cache-Control': 'no-cache' }
     });
     return result && result.data;
@@ -26,7 +26,9 @@ export class QueryService {
     id: string,
     limit = 1
   ): Promise<[ChargeSession | DriveSession]> {
-    const result = await this.api.get(`/session?limit=${limit}&productId=${id}`);
+    const result = await this.api.get(
+      `/session?limit=${limit}&productId=${id}`
+    );
     return result && result.data;
   }
 

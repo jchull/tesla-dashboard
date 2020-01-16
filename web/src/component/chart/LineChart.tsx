@@ -89,8 +89,8 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         )
         .call(d3.axisRight(yScaleRight));
       xScale.domain(
-          // @ts-ignore
-          d3.extent(props.datum, (data) => new Date(data.timestamp)) as [
+        // @ts-ignore
+        d3.extent(props.datum, (data) => new Date(data.timestamp)) as [
           Date,
           Date
         ]
