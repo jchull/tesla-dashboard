@@ -18,6 +18,7 @@ import { SessionModule } from './session/session.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { FrontEndMiddlewareMiddleware } from './middleware/front-end-middleware.middleware';
 import { TeslaAccountModule } from './tesla-account/tesla-account.module';
+import { DataSyncModule } from './data-sync/data-sync.module';
 
 @Module({
   imports: [
@@ -39,7 +40,8 @@ import { TeslaAccountModule } from './tesla-account/tesla-account.module';
     AccountModule,
     AuthModule,
     SessionModule,
-    TeslaAccountModule
+    TeslaAccountModule,
+    DataSyncModule
   ],
   controllers: [AppController]
 })
