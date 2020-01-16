@@ -18,9 +18,9 @@ export class SessionController {
   @Get()
   getRecentSessions(@Request() req, @Param('vin') vin) {
     return this.sessionService.findRecentSessions(
-        req.user.username,
-        vin,
-        req.query.limit / 1
+      req.user.username,
+      vin,
+      req.query.limit / 1
     );
   }
   @UseGuards(AuthGuard('jwt'))

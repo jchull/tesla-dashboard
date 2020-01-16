@@ -1,41 +1,42 @@
-import {forwardRef, Inject, Injectable} from '@nestjs/common';
-import {VehicleData} from '../../model/types/tesla/VehicleData';
-import {InjectModel} from '@nestjs/mongoose';
-import {Model} from "mongoose";
-import {ChargeSessionType, DriveSessionType, VehicleType} from '../../model';
-import {TeslaAccountService} from '../../tesla-account/tesla-account.service';
-import {TeslaOwnerService} from '../../tesla-account/tesla-owner/tesla-owner.service';
-import {ProductService} from '../../product/product.service';
-import {SessionService} from '../../session/session.service';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
+import { VehicleData } from '../../model/types/tesla/VehicleData';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { ChargeSessionType, DriveSessionType, VehicleType } from '../../model';
+import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
+import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
+import { ProductService } from '../../product/product.service';
+import { SessionService } from '../../session/session.service';
 
 @Injectable()
 export class TeslaSyncService {
-
   constructor(
-      private readonly productService: ProductService,
-      private readonly sessionService: SessionService
-  ) {
-  }
-  async updateVehicleData(username: string, vehicleData: VehicleData): Promise<void> {
+    private readonly productService: ProductService,
+    private readonly sessionService: SessionService
+  ) {}
+  async updateVehicleData(
+    username: string,
+    vehicleData: VehicleData
+  ): Promise<void> {
     if (vehicleData) {
-      const {state, vin} = vehicleData;
+      const { state, vin } = vehicleData;
       const vehicleStatus = this.findVehicleState(vehicleData);
       console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`);
 
       const vehicle = await this.productService.findByVin(vin);
 
-        let [activeSession] = await this.sessionService.findRecentSessions(username, vin, 1);
-        if (!activeSession) {
-
-         console.log("no recent sessions found");
-        } else {
-          // TODO: check conditions to decide if we want to save this data or ignore it
-          if(activeSession.end_date){
-
-          }
+      let [activeSession] = await this.sessionService.findRecentSessions(
+        username,
+        vin,
+        1
+      );
+      if (!activeSession) {
+        console.log('no recent sessions found');
+      } else {
+        // TODO: check conditions to decide if we want to save this data or ignore it
+        if (activeSession.end_date) {
         }
-
-
+      }
 
       //
       //   this.appendChargeState(activeChargingSession, vehicleData);
@@ -57,8 +58,10 @@ export class TeslaSyncService {
     }
   }
 
-
-  private async appendChargeState(session: ChargeSessionType, vehicleData: VehicleData): Promise<any> {
+  private async appendChargeState(
+    session: ChargeSessionType,
+    vehicleData: VehicleData
+  ): Promise<any> {
     // // @ts-ignore
     // if (!session.last || this.hasChanges(session.last, vehicleData)) {
     //
@@ -135,7 +138,10 @@ export class TeslaSyncService {
     // }
   }
 
-  private async appendDriveState(session: DriveSessionType, vehicleData: VehicleData): Promise<any> {
+  private async appendDriveState(
+    session: DriveSessionType,
+    vehicleData: VehicleData
+  ): Promise<any> {
     // const vin = vehicleData.vin;
     // const state = await DriveState.create({
     //                                         gps_as_of: vehicleData.drive_state.gps_as_of,
@@ -207,7 +213,10 @@ export class TeslaSyncService {
     if (vehicleData.drive_state.shift_state) {
       return 'Driving';
     }
-    if (vehicleData.charge_state.charging_state && vehicleData.charge_state.charging_state !== 'Disconnected') {
+    if (
+      vehicleData.charge_state.charging_state &&
+      vehicleData.charge_state.charging_state !== 'Disconnected'
+    ) {
       return vehicleData.charge_state.charging_state;
     }
     return 'Parked';

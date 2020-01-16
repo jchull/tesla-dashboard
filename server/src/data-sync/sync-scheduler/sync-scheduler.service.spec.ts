@@ -6,7 +6,7 @@ describe('SyncSchedulerService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [SyncSchedulerService],
+      providers: [SyncSchedulerService]
     }).compile();
 
     service = module.get<SyncSchedulerService>(SyncSchedulerService);

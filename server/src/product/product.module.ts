@@ -1,4 +1,4 @@
-import {forwardRef, Module} from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -10,7 +10,7 @@ import {
   SyncPreferencesSchema,
   VehicleSchema
 } from '../model';
-import {TeslaAccountModule} from '../tesla-account/tesla-account.module';
+import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
 
 @Module({
   imports: [

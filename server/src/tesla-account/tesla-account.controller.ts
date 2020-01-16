@@ -1,11 +1,20 @@
-import {Controller, Get, HttpException, Param, Post, Put, Query, Request, UseGuards} from '@nestjs/common';
-import {AuthGuard} from '@nestjs/passport';
-import {TeslaAccountService} from './tesla-account.service';
+import {
+  Controller,
+  Get,
+  HttpException,
+  Param,
+  Post,
+  Put,
+  Query,
+  Request,
+  UseGuards
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { TeslaAccountService } from './tesla-account.service';
 
 @Controller('tesla-account')
 export class TeslaAccountController {
-  constructor(private readonly teslaAccountService: TeslaAccountService) {
-  }
+  constructor(private readonly teslaAccountService: TeslaAccountService) {}
 
   @UseGuards(AuthGuard('jwt'))
   @Get()
@@ -20,7 +29,7 @@ export class TeslaAccountController {
       throw new HttpException('data validation error', 401);
     }
     return this.teslaAccountService.sanitizeTeslaAccount(
-        await this.teslaAccountService.create(req.body)
+      await this.teslaAccountService.create(req.body)
     );
   }
 
@@ -31,7 +40,7 @@ export class TeslaAccountController {
       throw new HttpException('data validation error', 401);
     }
     return this.teslaAccountService.sanitizeTeslaAccount(
-        await this.teslaAccountService.update(req.body)
+      await this.teslaAccountService.update(req.body)
     );
   }
 
@@ -46,5 +55,4 @@ export class TeslaAccountController {
   async requestTeslaToken(@Request() req, @Param('id') id: string) {
     return this.teslaAccountService.requestTeslaToken(id, req.body.password);
   }
-
 }

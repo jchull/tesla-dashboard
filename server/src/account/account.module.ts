@@ -9,8 +9,8 @@ import { UserPreferencesSchema, UserSchema } from '../model';
   imports: [
     MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     MongooseModule.forFeature([
-                                { name: 'UserPreferences', schema: UserPreferencesSchema }
-                              ])
+      { name: 'UserPreferences', schema: UserPreferencesSchema }
+    ])
   ],
   controllers: [AccountController],
   providers: [AccountService],

@@ -6,7 +6,7 @@ describe('TeslaOwnerService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [TeslaOwnerService],
+      providers: [TeslaOwnerService]
     }).compile();
 
     service = module.get<TeslaOwnerService>(TeslaOwnerService);
