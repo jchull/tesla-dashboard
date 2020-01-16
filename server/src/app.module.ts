@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ScheduleModule } from '@nestjs/schedule';
 
 import { AppController } from './app.controller';
 
@@ -23,6 +24,7 @@ import { TeslaAccountModule } from './tesla-account/tesla-account.module';
     ConfigModule.forRoot({
       envFilePath: `./env/${process.env.NODE_ENV || 'development'}.env`
     }),
+    ScheduleModule.forRoot(),
     MongooseModule.forRootAsync({
       useFactory: async () => {
         const uri = `mongodb://tsla:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/tesladb`;
