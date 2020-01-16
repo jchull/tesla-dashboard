@@ -6,10 +6,7 @@ export interface Vehicle {
   display_name: string;
   option_codes: string;
   color?: string;
-
-  //tokens
-  // state: string;
-  // in_service: boolean;
+  in_service?: boolean;
   calendar_enabled: boolean;
   api_version: number;
   // backseat_token: String
