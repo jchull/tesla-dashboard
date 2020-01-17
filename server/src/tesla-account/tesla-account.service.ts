@@ -79,8 +79,7 @@ export class TeslaAccountService {
         resultTeslaAccount
       );
       if (vehicles) {
-        console.log(`found ${vehicles.length} tesla vehicles`);
-        this.productService.upsertMany(vehicles);
+        return this.productService.upsertMany(vehicles);
       }
     }
   }
