@@ -94,46 +94,23 @@ export class TeslaOwnerService {
       .then((vehicleListResponse) => vehicleListResponse?.data?.response);
   }
 
-  async getState(
+
+  async getVehicleData(
     teslaAccount: TeslaAccount,
     id: String
   ): Promise<VehicleData | undefined> {
-    return this.checkToken(teslaAccount)
-      .then(() =>
-        axios.get(
+    await this.checkToken(teslaAccount)
+    const vehicleData = await axios.get(
           `${this.config.ownerBaseUrl}/api/1/vehicles/${id}/vehicle_data`,
           {
             headers: {
               'User-Agent': 'coderado-tesla-sync',
               Authorization: `Bearer ${teslaAccount.access_token}`
             }
-          }
-        )
-      )
-      .then(
-        (vehicle_data) => {
-          return vehicle_data?.data?.response;
-        },
-        (err) => {
-          const statusCode = err.response.status;
-          switch (statusCode) {
-            case 408:
-              console.log('Vehicle sleeping');
-              break;
-            case 502:
-              console.log('Vehicle offline');
-              break;
-            case 504:
-              console.log('Vehicle offline');
-              break;
-            default:
-              console.log(
-                `Got response ${statusCode} and it is not handled yet`
-              );
-              console.log(err);
-          }
-        }
-      );
+          });
+    if(vehicleData.data?.response){
+      return vehicleData.data.response;
+    }
   }
 
   getNearbyChargers(teslaAccount: TeslaAccount, id: String) {
