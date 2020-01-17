@@ -14,6 +14,7 @@ export class TeslaSyncService {
     private readonly productService: ProductService,
     private readonly sessionService: SessionService
   ) {}
+
   async updateVehicleData(
     username: string,
     vehicleData: VehicleData

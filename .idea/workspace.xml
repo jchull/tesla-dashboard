@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/data-sync/data-sync.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/model/types/tesla/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/product/product.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/product/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/session/session.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/session/session.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/session/session.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/QueryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/service/QueryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,56 +116,7 @@
       <updated>1578261478186</updated>
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
-      <workItem from="1578582310572" duration="121287000" />
-    </task>
-    <task id="LOCAL-00051" summary="use id instead of vin">
-      <created>1578690154866</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1578690154866</updated>
-    </task>
-    <task id="LOCAL-00052" summary="implement getting recent sessions">
-      <created>1578690182210</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1578690182210</updated>
-    </task>
-    <task id="LOCAL-00053" summary="add session module">
-      <created>1578690292693</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1578690292693</updated>
-    </task>
-    <task id="LOCAL-00054" summary="add api get session details by id">
-      <created>1578691690818</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1578691690818</updated>
-    </task>
-    <task id="LOCAL-00055" summary="add/remove session tags">
-      <created>1578692957617</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1578692957617</updated>
-    </task>
-    <task id="LOCAL-00056" summary="delete session enabled in API">
-      <created>1578693276858</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1578693276858</updated>
-    </task>
-    <task id="LOCAL-00057" summary="script to initialize app database when started">
-      <created>1578775072166</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1578775072166</updated>
+      <workItem from="1578582310572" duration="127339000" />
     </task>
     <task id="LOCAL-00058" summary="added security packages">
       <created>1578775101630</created>
@@ -473,7 +412,56 @@
       <option name="project" value="LOCAL" />
       <updated>1579038118201</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="add nest scheduler">
+      <created>1579141631898</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141631898</updated>
+    </task>
+    <task id="LOCAL-00101" summary="add sync services">
+      <created>1579141681350</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141681350</updated>
+    </task>
+    <task id="LOCAL-00102" summary="move session-related query to session service">
+      <created>1579141727572</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141727572</updated>
+    </task>
+    <task id="LOCAL-00103" summary="move session-related query to session service">
+      <created>1579141734306</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141734306</updated>
+    </task>
+    <task id="LOCAL-00104" summary="uncomment in_service">
+      <created>1579141749002</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141749002</updated>
+    </task>
+    <task id="LOCAL-00105" summary="formatting only">
+      <created>1579141784978</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141784978</updated>
+    </task>
+    <task id="LOCAL-00106" summary="ui project formatting only">
+      <created>1579141813328</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1579141813328</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,14 +472,8 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="rename products view to Dashboard" />
-    <MESSAGE value="update API endpoints" />
-    <MESSAGE value="sanitize user before returning" />
-    <MESSAGE value="Add Tesla Account module" />
-    <MESSAGE value="added account update, moved tesla-account stuff to other module" />
     <MESSAGE value="minor readme update" />
     <MESSAGE value="new accounts should show as well" />
-    <MESSAGE value="formatting only" />
     <MESSAGE value="update mongo packages" />
     <MESSAGE value="some readme updates" />
     <MESSAGE value="updated formatting config and ran" />
@@ -509,7 +491,13 @@
     <MESSAGE value="add param to grab data from tesla for updating local data store" />
     <MESSAGE value="add syncUpstream param and handling" />
     <MESSAGE value="formatting, cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting, cleanup" />
+    <MESSAGE value="add nest scheduler" />
+    <MESSAGE value="add sync services" />
+    <MESSAGE value="move session-related query to session service" />
+    <MESSAGE value="uncomment in_service" />
+    <MESSAGE value="formatting only" />
+    <MESSAGE value="ui project formatting only" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui project formatting only" />
   </component>
   <component name="WindowStateProjectService">
     <state x="373" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578779513153">
@@ -524,10 +512,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="603" y="823" width="624" height="548" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578339332716" />
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1579141784908">
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1579219829304">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579141784908" />
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1579036824778">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -556,78 +544,78 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state width="1551" height="774" key="GridCell.Tab.-1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579036656095" />
-    <state width="1551" height="774" key="GridCell.Tab.0.bottom" timestamp="1579141595715">
+    <state width="1551" height="774" key="GridCell.Tab.0.bottom" timestamp="1579219793541">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595715" />
-    <state width="1551" height="774" key="GridCell.Tab.0.center" timestamp="1579141595714">
+    <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
+    <state width="1551" height="774" key="GridCell.Tab.0.center" timestamp="1579219793540">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595714" />
-    <state width="1551" height="774" key="GridCell.Tab.0.left" timestamp="1579141595714">
+    <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793540" />
+    <state width="1551" height="774" key="GridCell.Tab.0.left" timestamp="1579219793539">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595714" />
-    <state width="1551" height="774" key="GridCell.Tab.0.right" timestamp="1579141595715">
+    <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793539" />
+    <state width="1551" height="774" key="GridCell.Tab.0.right" timestamp="1579219793541">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595715" />
-    <state width="1551" height="774" key="GridCell.Tab.1.bottom" timestamp="1579141595718">
+    <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
+    <state width="1551" height="774" key="GridCell.Tab.1.bottom" timestamp="1579219793543">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595718" />
-    <state width="1551" height="774" key="GridCell.Tab.1.center" timestamp="1579141595716">
+    <state width="1551" height="774" key="GridCell.Tab.1.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793543" />
+    <state width="1551" height="774" key="GridCell.Tab.1.center" timestamp="1579219793542">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595716" />
-    <state width="1551" height="774" key="GridCell.Tab.1.left" timestamp="1579141595716">
+    <state width="1551" height="774" key="GridCell.Tab.1.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793542" />
+    <state width="1551" height="774" key="GridCell.Tab.1.left" timestamp="1579219793542">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595716" />
-    <state width="1551" height="774" key="GridCell.Tab.1.right" timestamp="1579141595717">
+    <state width="1551" height="774" key="GridCell.Tab.1.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793542" />
+    <state width="1551" height="774" key="GridCell.Tab.1.right" timestamp="1579219793543">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595717" />
-    <state width="1551" height="774" key="GridCell.Tab.2.bottom" timestamp="1579141595720">
+    <state width="1551" height="774" key="GridCell.Tab.1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793543" />
+    <state width="1551" height="774" key="GridCell.Tab.2.bottom" timestamp="1579219793545">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595720" />
-    <state width="1551" height="774" key="GridCell.Tab.2.center" timestamp="1579141595719">
+    <state width="1551" height="774" key="GridCell.Tab.2.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793545" />
+    <state width="1551" height="774" key="GridCell.Tab.2.center" timestamp="1579219793544">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595719" />
-    <state width="1551" height="774" key="GridCell.Tab.2.left" timestamp="1579141595718">
+    <state width="1551" height="774" key="GridCell.Tab.2.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
+    <state width="1551" height="774" key="GridCell.Tab.2.left" timestamp="1579219793544">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595718" />
-    <state width="1551" height="774" key="GridCell.Tab.2.right" timestamp="1579141595719">
+    <state width="1551" height="774" key="GridCell.Tab.2.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
+    <state width="1551" height="774" key="GridCell.Tab.2.right" timestamp="1579219793544">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.2.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595719" />
-    <state width="1551" height="774" key="GridCell.Tab.3.bottom" timestamp="1579141595721">
+    <state width="1551" height="774" key="GridCell.Tab.2.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
+    <state width="1551" height="774" key="GridCell.Tab.3.bottom" timestamp="1579219793547">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595721" />
-    <state width="1551" height="774" key="GridCell.Tab.3.center" timestamp="1579141595720">
+    <state width="1551" height="774" key="GridCell.Tab.3.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793547" />
+    <state width="1551" height="774" key="GridCell.Tab.3.center" timestamp="1579219793546">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595720" />
-    <state width="1551" height="774" key="GridCell.Tab.3.left" timestamp="1579141595720">
+    <state width="1551" height="774" key="GridCell.Tab.3.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793546" />
+    <state width="1551" height="774" key="GridCell.Tab.3.left" timestamp="1579219793545">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595720" />
-    <state width="1551" height="774" key="GridCell.Tab.3.right" timestamp="1579141595721">
+    <state width="1551" height="774" key="GridCell.Tab.3.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793545" />
+    <state width="1551" height="774" key="GridCell.Tab.3.right" timestamp="1579219793546">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state width="1551" height="774" key="GridCell.Tab.3.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579141595721" />
+    <state width="1551" height="774" key="GridCell.Tab.3.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793546" />
     <state x="424" y="728" width="992" height="737" key="SettingsEditor" timestamp="1579099590334">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="424" y="728" width="992" height="737" key="SettingsEditor/0.27.3840.2133@0.27.3840.2133" timestamp="1579099590334" />
-    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579038120521">
+    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1579219831002">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
-    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579038120521" />
+    <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219831002" />
     <state x="100" y="127" width="1630" height="1933" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1578702791063">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -644,6 +632,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="684" y="631" width="442" height="533" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578345205141" />
+    <state x="752" y="1013" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579141859050">
+      <screen x="0" y="27" width="3840" height="2133" />
+    </state>
+    <state x="752" y="1013" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579141859050" />
     <state x="512" y="832" width="886" height="529" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1579036905375">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>

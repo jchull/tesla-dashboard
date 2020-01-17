@@ -94,21 +94,21 @@ export class TeslaOwnerService {
       .then((vehicleListResponse) => vehicleListResponse?.data?.response);
   }
 
-
   async getVehicleData(
     teslaAccount: TeslaAccount,
     id: String
   ): Promise<VehicleData | undefined> {
-    await this.checkToken(teslaAccount)
+    await this.checkToken(teslaAccount);
     const vehicleData = await axios.get(
-          `${this.config.ownerBaseUrl}/api/1/vehicles/${id}/vehicle_data`,
-          {
-            headers: {
-              'User-Agent': 'coderado-tesla-sync',
-              Authorization: `Bearer ${teslaAccount.access_token}`
-            }
-          });
-    if(vehicleData.data?.response){
+      `${this.config.ownerBaseUrl}/api/1/vehicles/${id}/vehicle_data`,
+      {
+        headers: {
+          'User-Agent': 'coderado-tesla-sync',
+          Authorization: `Bearer ${teslaAccount.access_token}`
+        }
+      }
+    );
+    if (vehicleData.data?.response) {
       return vehicleData.data.response;
     }
   }
