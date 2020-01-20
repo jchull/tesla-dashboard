@@ -1,67 +1,75 @@
-import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { VehicleData } from '../../model/types/tesla/VehicleData';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { ChargeSessionType, DriveSessionType, VehicleType } from '../../model';
-import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
-import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
-import { ProductService } from '../../product/product.service';
-import { SessionService } from '../../session/session.service';
+import {forwardRef, Inject, Injectable} from '@nestjs/common';
+import {VehicleData} from '../../model/types/tesla/VehicleData';
+import {ChargeSessionType, DriveSessionType, VehicleType} from '../../model';
+import {TeslaAccountService} from '../../tesla-account/tesla-account.service';
+import {TeslaOwnerService} from '../../tesla-account/tesla-owner/tesla-owner.service';
+import {ProductService} from '../../product/product.service';
+import {SessionService} from '../../session/session.service';
 
 @Injectable()
 export class TeslaSyncService {
   constructor(
-    private readonly productService: ProductService,
-    private readonly sessionService: SessionService
-  ) {}
+      private readonly productService: ProductService,
+      private readonly sessionService: SessionService,
+      private readonly teslaOwnerService: TeslaOwnerService,
+      private readonly teslaAccountService: TeslaAccountService
+  ) {
+  }
 
   async updateVehicleData(
-    username: string,
-    vehicleData: VehicleData
-  ): Promise<void> {
-    if (vehicleData) {
-      const { state, vin } = vehicleData;
-      const vehicleStatus = this.findVehicleState(vehicleData);
-      console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`);
+      vin: string
+  ): Promise<any> {
+    const product = await this.productService.findByVin(vin);
+    if (!product) {
+      throw new Error('Invalid state, ensure products exist before updating data!');
+    } else {
+      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(product.username, product._id);
+      // we should not have more than one result when providing both parameters
+      if (teslaAccounts && teslaAccounts.length === 1) {
+        const vehicleData = await this.teslaOwnerService.getVehicleData(teslaAccounts[0], product.id_s);
 
-      const vehicle = await this.productService.findByVin(vin);
+        if (vehicleData) {
+          const vehicleStatus = this.findVehicleState(vehicleData);
+          console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`);
 
-      let [activeSession] = await this.sessionService.findRecentSessions(
-        username,
-        vin,
-        1
-      );
-      if (!activeSession) {
-        console.log('no recent sessions found');
-      } else {
-        // TODO: check conditions to decide if we want to save this data or ignore it
-        if (activeSession.end_date) {
+          let [activeSession] = await this.sessionService.findRecentSessions(
+              product.username,
+              vin,
+              1
+          );
+          if (!activeSession) {
+            console.log('no recent sessions found');
+          } else {
+            // TODO: check conditions to decide if we want to save this data or ignore it
+            if (activeSession.end_date) {
+            }
+          }
+
+          //
+          //   this.appendChargeState(activeChargingSession, vehicleData);
+          //
+          //
+          // vehicle.odometer = vehicleData.vehicle_state.odometer;
+          // vehicle.display_name = vehicleData.display_name;
+          // vehicle.api_version = vehicleData.api_version;
+          // vehicle.color = vehicleData.vehicle_config.exterior_color;
+          // vehicle.car_type = vehicleData.vehicle_config.car_type;
+          // vehicle.timestamp = vehicleData.vehicle_state.timestamp;
+          // vehicle.battery_level = vehicleData.charge_state.battery_level;
+          // vehicle.battery_range = vehicleData.charge_state.battery_range;
+          // vehicle.charging_state = vehicleData.charge_state.charging_state || 'Disconnected';
+          // vehicle.time_to_full_charge = vehicleData.charge_state.time_to_full_charge;
+          // vehicle.charge_limit_soc = vehicleData.charge_state.charge_limit_soc;
+          // vehicle.state = vehicleStatus;
+          // return this.productService.update(vehicle);
         }
       }
-
-      //
-      //   this.appendChargeState(activeChargingSession, vehicleData);
-      //
-      //
-      // vehicle.odometer = vehicleData.vehicle_state.odometer;
-      // vehicle.display_name = vehicleData.display_name;
-      // vehicle.api_version = vehicleData.api_version;
-      // vehicle.color = vehicleData.vehicle_config.exterior_color;
-      // vehicle.car_type = vehicleData.vehicle_config.car_type;
-      // vehicle.timestamp = vehicleData.vehicle_state.timestamp;
-      // vehicle.battery_level = vehicleData.charge_state.battery_level;
-      // vehicle.battery_range = vehicleData.charge_state.battery_range;
-      // vehicle.charging_state = vehicleData.charge_state.charging_state || 'Disconnected';
-      // vehicle.time_to_full_charge = vehicleData.charge_state.time_to_full_charge;
-      // vehicle.charge_limit_soc = vehicleData.charge_state.charge_limit_soc;
-      // vehicle.state = vehicleStatus;
-      // return this.productService.update(vehicle);
     }
   }
 
   private async appendChargeState(
-    session: ChargeSessionType,
-    vehicleData: VehicleData
+      session: ChargeSessionType,
+      vehicleData: VehicleData
   ): Promise<any> {
     // // @ts-ignore
     // if (!session.last || this.hasChanges(session.last, vehicleData)) {
@@ -140,8 +148,8 @@ export class TeslaSyncService {
   }
 
   private async appendDriveState(
-    session: DriveSessionType,
-    vehicleData: VehicleData
+      session: DriveSessionType,
+      vehicleData: VehicleData
   ): Promise<any> {
     // const vin = vehicleData.vin;
     // const state = await DriveState.create({
@@ -215,8 +223,8 @@ export class TeslaSyncService {
       return 'Driving';
     }
     if (
-      vehicleData.charge_state.charging_state &&
-      vehicleData.charge_state.charging_state !== 'Disconnected'
+        vehicleData.charge_state.charging_state &&
+        vehicleData.charge_state.charging_state !== 'Disconnected'
     ) {
       return vehicleData.charge_state.charging_state;
     }
