@@ -96,11 +96,11 @@ export class TeslaOwnerService {
 
   async getVehicleData(
     teslaAccount: TeslaAccount,
-    id: String
+    id_s: String
   ): Promise<VehicleData | undefined> {
     await this.checkToken(teslaAccount);
     const vehicleData = await axios.get(
-      `${this.config.ownerBaseUrl}/api/1/vehicles/${id}/vehicle_data`,
+      `${this.config.ownerBaseUrl}/api/1/vehicles/${id_s}/vehicle_data`,
       {
         headers: {
           'User-Agent': 'coderado-tesla-sync',
@@ -113,11 +113,11 @@ export class TeslaOwnerService {
     }
   }
 
-  getNearbyChargers(teslaAccount: TeslaAccount, id: String) {
+  async getNearbyChargers(teslaAccount: TeslaAccount, id_s: String) {
     return this.checkToken(teslaAccount)
       .then(() =>
         axios.get(
-          `${this.config.ownerBaseUrl}/api/1/vehicles/${id}/nearby_charging_sites`,
+          `${this.config.ownerBaseUrl}/api/1/vehicles/${id_s}/nearby_charging_sites`,
           {
             headers: {
               'User-Agent': 'coderado-tesla-sync',
