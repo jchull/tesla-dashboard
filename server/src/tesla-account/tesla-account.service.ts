@@ -31,8 +31,6 @@ export class TeslaAccountService {
     const {
       _id,
       email,
-      refresh_token,
-      access_token,
       token_created_at,
       token_expires_in,
       username
@@ -40,8 +38,8 @@ export class TeslaAccountService {
     return {
       _id,
       email,
-      refresh_token,
-      access_token,
+      refresh_token: 'saved',
+      access_token: 'saved',
       token_created_at,
       token_expires_in,
       username
