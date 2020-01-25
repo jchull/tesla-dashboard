@@ -16,7 +16,7 @@ export const LoginComponent = () => {
 
   const history = useHistory();
   const location = useLocation();
-  const from = location.state.from ?? { pathname: '/' };
+  const from = location.state?.from ?? { pathname: '/' };
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { username, password } = Object.assign({}, credentials, {
