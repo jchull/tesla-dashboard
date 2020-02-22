@@ -28,7 +28,7 @@ import { DataSyncModule } from './data-sync/data-sync.module';
     ScheduleModule.forRoot(),
     MongooseModule.forRootAsync({
       useFactory: async () => {
-        const uri = `mongodb://tsla:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/tesladb`;
+        const uri = process.env.DB_CONN;
         return {
           uri,
           useNewUrlParser: true
