@@ -15,8 +15,8 @@ describe('session actions', () => {
   it('should handle empty session list', async () => {
     services.queryService.getRecentSessions = jest.fn(
       (vin): Promise<[ChargeSession | DriveSession]> => {
-        return new Promise<[ChargeSession | DriveSession]>(
-          (resolve, reject) => resolve()
+        return new Promise<[ChargeSession | DriveSession]>((resolve, reject) =>
+          resolve()
         );
       }
     );

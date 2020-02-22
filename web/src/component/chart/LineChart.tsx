@@ -89,6 +89,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         )
         .call(d3.axisRight(yScaleRight));
       xScale.domain(
+        // eslint-disable-next-line
         // @ts-ignore
         d3.extent(props.datum, (data) => new Date(data.timestamp)) as [
           Date,
@@ -152,6 +153,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .append('path')
         .datum(props.datum)
         .attr('class', 'line battery_level')
+        // eslint-disable-next-line
         // @ts-ignore
         .attr('d', batteryLevelLine)
         .attr(
@@ -170,6 +172,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .append('path')
         .datum(props.datum)
         .attr('class', 'line charger_power')
+        // eslint-disable-next-line
         // @ts-ignore
         .attr('d', powerLine)
         .attr(

@@ -18,7 +18,7 @@ export const productListReducer = createReducer(initialState, {
       state.selectedProductId = action.payload.selectedProductId;
     }
   },
-  FETCH_PRODUCT_LIST__START: (state, action) => {},
+  // FETCH_PRODUCT_LIST__START: (state, action) => {},
   FETCH_PRODUCT_LIST__SUCCESS: (state, action) => {
     state.products = action.payload.productList;
 
@@ -33,6 +33,6 @@ export const productListReducer = createReducer(initialState, {
     } else {
       state.selectedProductId = action.payload.selectedProductId;
     }
-  },
-  FETCH_PRODUCT_LIST__FAIL: (state, action) => {}
+  }
+  // FETCH_PRODUCT_LIST__FAIL: (state, action) => {}
 });

@@ -6,22 +6,22 @@ const initialState: SessionState = {
 };
 
 export const sessionListReducer = createReducer(initialState, {
-  [SessionActionType.FETCH_SESSION_DETAILS__START]: (state, action) => {},
-  [SessionActionType.FETCH_SESSION_DETAILS__FAIL]: (state, action) => {},
+  // [SessionActionType.FETCH_SESSION_DETAILS__START]: (state, action) => {},
+  // [SessionActionType.FETCH_SESSION_DETAILS__FAIL]: (state, action) => {},
   [SessionActionType.FETCH_SESSION_DETAILS__SUCCESS]: (state, action) => {
     state.selectedSessionStates = action.payload.selectedSessionStates;
   },
   [SessionActionType.SELECT_SESSION]: (state, action) => {
     state.selectedSessionId = action.payload.selectedSessionId;
   },
-  [SessionActionType.FETCH_SESSION_LIST__START]: (state, action) => {},
+  // [SessionActionType.FETCH_SESSION_LIST__START]: (state, action) => {},
   [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
     state.sessions = action.payload.sessions ?? [];
     state.selectedSessionId = action.payload.selectedSessionId;
   },
-  [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {
-    //TODO: add failure message
-  },
+  // [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {
+  //TODO: add failure message
+  // },
   [SessionActionType.ADD_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
       (session) => session._id === action.payload.sessionId

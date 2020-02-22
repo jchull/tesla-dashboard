@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="no need for ending wild">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/config/jest/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/Forgot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/auth/Forgot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/session/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/auth/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/chart/LineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/chart/LineChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/product/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/product/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/component/session/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/component/session/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/serviceWorker.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/setupProxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,13 +153,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00065" summary="trim some fat from the docker image">
-      <created>1578782417591</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1578782417592</updated>
     </task>
     <task id="LOCAL-00066" summary="trim some fat from the docker image">
       <created>1578782432253</created>
@@ -494,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582339267832</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="fix web unit tests">
+      <created>1582340989342</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1582340989343</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +508,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="moved button styling up a level to apply more-globally" />
     <MESSAGE value="change endpoints for tesla-account services, add token request" />
     <MESSAGE value="cleanup and use username from session" />
     <MESSAGE value="also copy yarn.lock files for docker" />
@@ -530,7 +532,8 @@
     <MESSAGE value="jest config updates" />
     <MESSAGE value="update web packages" />
     <MESSAGE value="files to skip linting on" />
-    <option name="LAST_COMMIT_MESSAGE" value="files to skip linting on" />
+    <MESSAGE value="fix web unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix web unit tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="784" y="785" key="#Server_Tests" timestamp="1582336018230">
@@ -551,10 +554,14 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="603" y="823" width="624" height="548" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578339332716" />
-    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582339267670">
+    <state x="879" y="841" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582342769538">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582339267670" />
+    <state x="879" y="841" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582342769538" />
+    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582343167284">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582343167284" />
     <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1579036824778">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -652,6 +659,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state width="1551" height="774" key="GridCell.Tab.3.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793546" />
+    <state x="891" y="805" key="RollbackChangesDialog" timestamp="1582343109347">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="891" y="805" key="RollbackChangesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582343109347" />
     <state x="424" y="725" width="992" height="737" key="SettingsEditor" timestamp="1581798530256">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
