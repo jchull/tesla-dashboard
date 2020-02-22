@@ -52,6 +52,7 @@ export class AccountService {
   }
 
   async getPreferences(username: string) {
-    // const prefs = await UserPreferences.findOne({username});
+     const prefs = username;
+     //await UserPreferences.findOne({username});
   }
 }

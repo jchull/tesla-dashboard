@@ -1,48 +1,55 @@
-import {forwardRef, Inject, Injectable} from '@nestjs/common';
-import {VehicleData} from '../../model/types/tesla/VehicleData';
-import {ChargeSessionType, DriveSessionType, VehicleType} from '../../model';
-import {TeslaAccountService} from '../../tesla-account/tesla-account.service';
-import {TeslaOwnerService} from '../../tesla-account/tesla-owner/tesla-owner.service';
-import {ProductService} from '../../product/product.service';
-import {SessionService} from '../../session/session.service';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
+import { VehicleData } from '../../model/types/tesla/VehicleData';
+import { ChargeSessionType, DriveSessionType, VehicleType } from '../../model';
+import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
+import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
+import { ProductService } from '../../product/product.service';
+import { SessionService } from '../../session/session.service';
 
 @Injectable()
 export class TeslaSyncService {
   constructor(
-      private readonly productService: ProductService,
-      private readonly sessionService: SessionService,
-      private readonly teslaOwnerService: TeslaOwnerService,
-      private readonly teslaAccountService: TeslaAccountService
-  ) {
-  }
+    private readonly productService: ProductService,
+    private readonly sessionService: SessionService,
+    private readonly teslaOwnerService: TeslaOwnerService,
+    private readonly teslaAccountService: TeslaAccountService
+  ) {}
 
-  async updateVehicleData(
-      vin: string
-  ): Promise<any> {
+  async updateVehicleData(vin: string): Promise<any> {
     const product = await this.productService.findByVin(vin);
     if (!product) {
-      throw new Error('Invalid state, ensure products exist before updating data!');
+      throw new Error(
+        'Invalid state, ensure products exist before updating data!'
+      );
     } else {
-      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(product.username, product._id);
+      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(
+        product.username,
+        product._id
+      );
       // we should not have more than one result when providing both parameters
       if (teslaAccounts && teslaAccounts.length === 1) {
-        const vehicleData = await this.teslaOwnerService.getVehicleData(teslaAccounts[0], product.id_s);
+        const vehicleData = await this.teslaOwnerService.getVehicleData(
+          teslaAccounts[0],
+          product.id_s
+        );
 
         if (vehicleData) {
           const vehicleStatus = this.findVehicleState(vehicleData);
-          console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`);
+          console.log(
+            `${vehicleData.display_name} is currently ${vehicleStatus}`
+          );
 
-          let [activeSession] = await this.sessionService.findRecentSessions(
-              product.username,
-              vin,
-              1
+          const [activeSession] = await this.sessionService.findRecentSessions(
+            product.username,
+            vin,
+            1
           );
           if (!activeSession) {
             console.log('no recent sessions found');
           } else {
             // TODO: check conditions to decide if we want to save this data or ignore it
-            if (activeSession.end_date) {
-            }
+            // if (activeSession.end_date) {
+            // }
           }
 
           //
@@ -68,8 +75,8 @@ export class TeslaSyncService {
   }
 
   private async appendChargeState(
-      session: ChargeSessionType,
-      vehicleData: VehicleData
+    session: ChargeSessionType,
+    vehicleData: VehicleData
   ): Promise<any> {
     // // @ts-ignore
     // if (!session.last || this.hasChanges(session.last, vehicleData)) {
@@ -148,8 +155,8 @@ export class TeslaSyncService {
   }
 
   private async appendDriveState(
-      session: DriveSessionType,
-      vehicleData: VehicleData
+    session: DriveSessionType,
+    vehicleData: VehicleData
   ): Promise<any> {
     // const vin = vehicleData.vin;
     // const state = await DriveState.create({
@@ -223,8 +230,8 @@ export class TeslaSyncService {
       return 'Driving';
     }
     if (
-        vehicleData.charge_state.charging_state &&
-        vehicleData.charge_state.charging_state !== 'Disconnected'
+      vehicleData.charge_state.charging_state &&
+      vehicleData.charge_state.charging_state !== 'Disconnected'
     ) {
       return vehicleData.charge_state.charging_state;
     }

@@ -56,11 +56,9 @@ export class TeslaOwnerService {
       grant_type
     };
     if (password && grant_type === 'password') {
-      // @ts-ignore
       data[grant_type] = password;
     } else {
-      // @ts-ignore
-      data[grant_type] = this.teslaAccount[grant_type];
+      data[grant_type] = teslaAccount[grant_type];
     }
     const res = await axios({
       method: 'post',
@@ -96,7 +94,7 @@ export class TeslaOwnerService {
 
   async getVehicleData(
     teslaAccount: TeslaAccount,
-    id_s: String
+    id_s: string
   ): Promise<VehicleData | undefined> {
     await this.checkToken(teslaAccount);
     const vehicleData = await axios.get(
@@ -113,7 +111,7 @@ export class TeslaOwnerService {
     }
   }
 
-  async getNearbyChargers(teslaAccount: TeslaAccount, id_s: String) {
+  async getNearbyChargers(teslaAccount: TeslaAccount, id_s: string) {
     return this.checkToken(teslaAccount)
       .then(() =>
         axios.get(

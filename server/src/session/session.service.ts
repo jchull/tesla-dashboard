@@ -130,5 +130,8 @@ export class SessionService {
     return sessions;
   }
 
-  async createNewSession() {}
+  async createNewSession() {
+    // TODO
+    const session = {};
+  }
 }

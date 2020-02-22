@@ -17,5 +17,4 @@ import { UserPreferencesSchema, UserSchema } from '../model';
   exports: [AccountService]
 })
 export class AccountModule {
-  constructor() {}
 }
