@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import * as actions from './actions';
 import { SessionActionType } from './actions';
 import services from '@teslapp/web/src/service';
-import { ChargeSession, DriveSession } from '@teslapp/common/src/model';
+import { ChargeSession, DriveSession } from '@teslapp/common';
 
 jest.mock('service/service');
 

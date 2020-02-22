@@ -1,6 +1,10 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { VehicleData } from '../../../../common/src/model/types/tesla/VehicleData';
-import { ChargeSessionType, DriveSessionType, VehicleType } from '../../../../common/src/model';
+import { VehicleData } from '@teslapp/common';
+import {
+  ChargeSessionType,
+  DriveSessionType,
+  VehicleType
+} from '@teslapp/common';
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
 import { ProductService } from '../../product/product.service';

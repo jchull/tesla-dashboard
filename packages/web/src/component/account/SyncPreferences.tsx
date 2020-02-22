@@ -3,7 +3,7 @@ import React, { ChangeEvent, FC, SyntheticEvent, useState } from 'react';
 import {
   DEFAULT_SYNC_PREFERENCES,
   SyncPreferences as ISyncPreferences
-} from '@teslapp/common/src'
+} from '@teslapp/common/src';
 import services from '@teslapp/web/src/service';
 
 interface SyncPreferencesState {

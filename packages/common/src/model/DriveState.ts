@@ -1,6 +1,6 @@
-import { Document, Schema } from 'mongoose';
-import { VehicleState } from './types/VehicleState';
-import { DriveSession } from './DriveSession';
+import { Document, Schema } from "mongoose";
+import { VehicleState } from "./types/VehicleState";
+import { DriveSession } from "./DriveSession";
 export interface DriveState extends VehicleState {
   _id: string;
   gps_as_of: number;
@@ -49,7 +49,7 @@ export const DriveStateSchema = new Schema({
   smart_preconditioning: { type: Boolean },
   wiper_blade_heater: { type: Boolean },
 
-  driveSession: { type: Schema.Types.ObjectId, ref: 'DriveSession' }
+  driveSession: { type: Schema.Types.ObjectId, ref: "DriveSession" }
 });
 
 export type DriveStateType = DriveState & Document;

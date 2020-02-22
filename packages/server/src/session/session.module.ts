@@ -8,7 +8,7 @@ import {
   DriveSessionSchema,
   DriveStateSchema,
   VehicleSchema
-} from '../../../common/src/model';
+} from '@teslapp/common';
 
 @Module({
   imports: [

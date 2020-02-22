@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AccountController } from './account.controller';
 import { AccountService } from './account.service';
-import { UserPreferencesSchema, UserSchema } from '@teslapp/common/src';
+import { UserPreferencesSchema, UserSchema } from '@teslapp/common';
 
 @Module({
   imports: [
@@ -16,5 +16,4 @@ import { UserPreferencesSchema, UserSchema } from '@teslapp/common/src';
   providers: [AccountService],
   exports: [AccountService]
 })
-export class AccountModule {
-}
+export class AccountModule {}

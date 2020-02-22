@@ -2,10 +2,8 @@ import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 import { TeslaAccountService } from '../tesla-account.service';
-import { Configuration, TeslaAccount, VehicleType } from '../../../../common/src/model';
-import { VehicleData } from '../../../../common/src/model/types/tesla/VehicleData';
+import { Configuration, TeslaAccount,  VehicleData, Vehicle } from '@teslapp/common';
 import { ConfigurationService } from '../../configuration/configuration.service';
-import { Vehicle } from '../../../../common/src/model/types/tesla/Vehicle';
 
 @Injectable()
 export class TeslaOwnerService {

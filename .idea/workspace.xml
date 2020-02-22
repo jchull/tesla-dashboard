@@ -1,205 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="fix proxy and linting">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/jchull.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/yarn.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/web/src/store/reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.base.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/env/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/env/sample.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/env/test.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/env/test.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/nest-cli.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/nest-cli.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/app.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/app.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/auth.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/jwt.payload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategy/jwt.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/strategy/jwt.strategy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategy/local.strategy.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/strategy/local.strategy.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategy/local.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/strategy/local.strategy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configuration/configuration.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configuration/configuration.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configuration/configuration.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configuration/configuration.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/configuration/configuration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data-sync/data-sync.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/data-sync.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middleware/front-end-middleware.middleware.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/middleware/front-end-middleware.middleware.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middleware/front-end-middleware.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/middleware/front-end-middleware.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/middleware/logger.middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/middleware/logger.middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/DriveSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/DriveState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/VehicleState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/GuiSettings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/SpeedLimitMode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/model/types/tesla/VehicleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleData.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/product/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.controller.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-owner/tesla-owner.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/test/app.e2e-spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/test/jest-e2e.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/test/jest-e2e.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/tsconfig.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/env.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/cssTransform.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/jest/cssTransform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/fileTransform.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/jest/fileTransform.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/jest/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/jest.setup.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/jest/jest.setup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/jest/jest.setupAfterEnv.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/jest/jest.setupAfterEnv.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/modules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/pnpTs.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/pnpTs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config/webpackDevServer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/config/webpackDevServer.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/images/tm3_black_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/images/tm3_black_pinwheel18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/images/tm3_blue_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/images/tm3_blue_pinwheel18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/images/tm3_gray_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/images/tm3_gray_pinwheel18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/images/tm3_pearl_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/images/tm3_pearl_pinwheel18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/images/tm3_red_pinwheel18.png" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/images/tm3_red_pinwheel18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/static/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/public/static/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/scripts/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/scripts/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/scripts/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/scripts/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/__mocks__/ReduxMockWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/__mocks__/ReduxMockWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/__mocks__/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/__mocks__/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/SyncPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/SyncPreferencesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferencesList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/TeslaAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/TeslaAccountList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccountList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/TeslaTokenUpdater.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaTokenUpdater.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/account/UserPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/UserPreferences.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/Forgot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/PrivateRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/auth/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/chart/LineChart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/chart/LineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/common/BatteryLevelIcon.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/common/BatteryLevelIcon.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/common/BatteryLevelIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/common/MainMenu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/MainMenu.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/common/MainMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/MainMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/ProductList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/ProductList.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/ProductList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/ProductList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/ProductListItem.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/ProductListItem.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/ProductListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/ProductListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/product.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/product.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/product/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/product/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/ChargeListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/ChargeListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/DriveListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/DriveListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/SessionList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/SessionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/SessionListItem.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/SessionListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/session/session.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/tags/Tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/Tag.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/tags/TagInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/TagInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/tags/TagList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/TagList.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/tags/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/TagList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/tags/tag.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/tag.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/toolbar/FilterToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/toolbar/FilterToolbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/toolbar/SessionToolbar.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/toolbar/SessionToolbar.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/toolbar/SessionToolbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/toolbar/SessionToolbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/toolbar/toolbar.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/toolbar/toolbar.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/vehicle/SessionTagList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/vehicle/SessionTagList.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/vehicle/SessionTagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/vehicle/SessionTagList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/view/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/component/view/ProductSessionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/AuthenticationService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/AuthenticationService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/ConfigurationService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/ConfigurationService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/QueryService.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/QueryService.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/QueryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/UserService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/UserService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/service/service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/serviceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/serviceWorker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/store/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/store/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/store/reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/store/types/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/store/types/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/type/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/type/util.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/env/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/env/sample.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/actions.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,13 +182,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00068" summary="clean up unused test">
-      <created>1578782481608</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1578782481608</updated>
     </task>
     <task id="LOCAL-00069" summary="moved init script for mongo">
       <created>1578860479479</created>
@@ -683,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582343203452</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="used lerna to create monorepo">
+      <created>1582407869719</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1582407869719</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +537,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="also copy yarn.lock files for docker" />
     <MESSAGE value="add params to logger middleware" />
     <MESSAGE value="add menu link to setup tesla accounts" />
     <MESSAGE value="add axios for talking to tesla" />
@@ -719,7 +561,8 @@
     <MESSAGE value="fix web unit tests" />
     <MESSAGE value="fix server db connection string" />
     <MESSAGE value="fix proxy and linting/formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix proxy and linting/formatting" />
+    <MESSAGE value="used lerna to create monorepo" />
+    <option name="LAST_COMMIT_MESSAGE" value="used lerna to create monorepo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="784" y="785" key="#Server_Tests" timestamp="1582336018230">
@@ -744,10 +587,10 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="879" y="841" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582343494447" />
-    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582343203222">
+    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582407869085">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582343203222" />
+    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582407869085" />
     <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1579036824778">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -777,25 +620,25 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state width="1551" height="774" key="GridCell.Tab.-1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579036656095" />
-    <state width="2241" height="636" key="GridCell.Tab.0.bottom" timestamp="1582340922249">
+    <state width="2241" height="636" key="GridCell.Tab.0.bottom" timestamp="1582407915549">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="636" key="GridCell.Tab.0.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1582340922249" />
+    <state width="2241" height="636" key="GridCell.Tab.0.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1582407915549" />
     <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
-    <state width="2241" height="636" key="GridCell.Tab.0.center" timestamp="1582340922248">
+    <state width="2241" height="636" key="GridCell.Tab.0.center" timestamp="1582407915548">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="636" key="GridCell.Tab.0.center/0.23.3840.2137@0.23.3840.2137" timestamp="1582340922248" />
+    <state width="2241" height="636" key="GridCell.Tab.0.center/0.23.3840.2137@0.23.3840.2137" timestamp="1582407915548" />
     <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793540" />
-    <state width="2241" height="636" key="GridCell.Tab.0.left" timestamp="1582340922247">
+    <state width="2241" height="636" key="GridCell.Tab.0.left" timestamp="1582407915547">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="636" key="GridCell.Tab.0.left/0.23.3840.2137@0.23.3840.2137" timestamp="1582340922247" />
+    <state width="2241" height="636" key="GridCell.Tab.0.left/0.23.3840.2137@0.23.3840.2137" timestamp="1582407915547" />
     <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793539" />
-    <state width="2241" height="636" key="GridCell.Tab.0.right" timestamp="1582340922248">
+    <state width="2241" height="636" key="GridCell.Tab.0.right" timestamp="1582407915548">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="636" key="GridCell.Tab.0.right/0.23.3840.2137@0.23.3840.2137" timestamp="1582340922248" />
+    <state width="2241" height="636" key="GridCell.Tab.0.right/0.23.3840.2137@0.23.3840.2137" timestamp="1582407915548" />
     <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
     <state width="1551" height="774" key="GridCell.Tab.1.bottom" timestamp="1579219793543">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -854,10 +697,10 @@
     </state>
     <state x="424" y="725" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1582406215829" />
     <state x="424" y="728" width="992" height="737" key="SettingsEditor/0.27.3840.2133@0.27.3840.2133" timestamp="1579099590334" />
-    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1582337570048">
+    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1582407874155">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1582337570048" />
+    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1582407874155" />
     <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219831002" />
     <state x="100" y="123" width="1630" height="1937" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582407563064">
       <screen x="0" y="23" width="3840" height="2137" />
@@ -884,10 +727,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="512" y="832" width="886" height="529" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.3840.2133@0.27.3840.2133" timestamp="1579036905375" />
-    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1582407730087">
+    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1582410413470">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582407730087" />
+    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582410413470" />
     <state x="598" y="828" width="774" height="592" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1579026912118" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1582407124542">
       <screen x="0" y="23" width="3840" height="2137" />

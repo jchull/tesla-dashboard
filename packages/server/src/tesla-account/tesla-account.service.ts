@@ -1,5 +1,5 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { TeslaAccount, TeslaAccountType } from '../../../common/src/model';
+import { TeslaAccount, TeslaAccountType } from '@teslapp/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { TeslaOwnerService } from './tesla-owner/tesla-owner.service';

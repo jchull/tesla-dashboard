@@ -1,5 +1,5 @@
-import { Document, Schema } from 'mongoose';
-import { VehicleConfig } from './types/tesla/VehicleConfig';
+import { Document, Schema } from "mongoose";
+import { VehicleConfig } from "./types/tesla/VehicleConfig";
 
 export const VehicleConfigSchema = new Schema({
   id_s: { type: String, required: true },

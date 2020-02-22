@@ -1,5 +1,5 @@
-import { Schema, Document } from 'mongoose';
-import { Vehicle as Product } from './types/tesla/Vehicle';
+import { Schema, Document } from "mongoose";
+import { Vehicle as Product } from "./types/tesla/Vehicle";
 
 export const VehicleSchema = new Schema({
   id_s: { type: String, required: true, unique: true },
@@ -21,7 +21,7 @@ export const VehicleSchema = new Schema({
   charge_limit_soc_min: { type: Number },
   last_session_id: { type: String },
   username: { type: String },
-  sync_preferences: { type: Schema.Types.ObjectId, ref: 'SyncPreferences' },
+  sync_preferences: { type: Schema.Types.ObjectId, ref: "SyncPreferences" },
   sync_state: { type: String }
 });
 

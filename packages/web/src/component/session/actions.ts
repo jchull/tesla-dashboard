@@ -3,7 +3,7 @@ import {
   ChargeState,
   DriveSession,
   DriveState
-} from '@teslapp/common/src/model';
+} from '@teslapp/common';
 import { ApiType } from '@teslapp/web/src/service';
 import { createAction } from '@reduxjs/toolkit';
 import { batch } from 'react-redux';

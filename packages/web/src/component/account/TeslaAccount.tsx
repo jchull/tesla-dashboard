@@ -18,7 +18,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
 ) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [showTeslaTokenUpdater, setShowTeslaTokenUpdater] = useState(false);
-  const [account, setAccount] = useState(props.account || {} as TeslaAccount);
+  const [account, setAccount] = useState(props.account || ({} as TeslaAccount));
   const [formValid, setFormValid] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -60,7 +60,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
   }, [account.email]);
 
   function resetForm() {
-    setAccount(props.account || {} as TeslaAccount);
+    setAccount(props.account || ({} as TeslaAccount));
     setShowTeslaTokenUpdater(false);
   }
 

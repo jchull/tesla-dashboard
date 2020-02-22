@@ -2,8 +2,12 @@ import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { ChargeSessionType, DriveSessionType, VehicleType } from '../../../common/src/model';
-import { Vehicle } from '../../../common/src/model/types/tesla/Vehicle';
+import {
+  ChargeSessionType,
+  DriveSessionType,
+  VehicleType,
+  Vehicle
+} from '@teslapp/common';
 import { TeslaAccountService } from '../tesla-account/tesla-account.service';
 import { TeslaOwnerService } from '../tesla-account/tesla-owner/tesla-owner.service';
 

@@ -9,7 +9,7 @@ import {
   DriveStateSchema,
   SyncPreferencesSchema,
   VehicleSchema
-} from '../../../common/src/model';
+} from '@teslapp/common';
 import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
 
 @Module({

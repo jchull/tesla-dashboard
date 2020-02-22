@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
-import { UserType, User, UserRoles } from '../../../common/src/model';
+import { UserType, User, UserRoles } from '@teslapp/common';
 
 @Injectable()
 export class AccountService {
@@ -52,7 +52,7 @@ export class AccountService {
   }
 
   async getPreferences(username: string) {
-     const prefs = username;
-     //await UserPreferences.findOne({username});
+    const prefs = username;
+    //await UserPreferences.findOne({username});
   }
 }

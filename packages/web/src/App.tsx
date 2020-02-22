@@ -13,7 +13,7 @@ import { ForgotPassword } from '@teslapp/web/src/component/auth/Forgot';
 import { ProductSessionView } from '@teslapp/web/src/component/view/ProductSessionView';
 import { AppState } from '@teslapp/web/src/store';
 import { MainMenu } from '@teslapp/web/src/component/common/MainMenu';
-import {UserPreferences} from '@teslapp/web/src/component/account/UserPreferences';
+import { UserPreferences } from '@teslapp/web/src/component/account/UserPreferences';
 
 const NotFound = () => (
   <div className="not-found">

@@ -8,15 +8,12 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "tsc -b",
+    "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint --ext=jsx,ts,tsx src"
   },
   "dependencies": {
-    "@babel/types": "^7.8.3",
-    "babel": "^6.23.0",
-    "mongoose": "^5.9.2",
-    "typescript": "^3.8.2"
+    "mongoose": "^5.9.2"
   },
   "directories": {
     "dist": "dist"
@@ -25,6 +22,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@types/mongoose": "^5.7.1"
+    "babel": "^6.23.0",
+    "@types/mongoose": "^5.7.1",
+    "@babel/types": "^7.8.3",
+    "typescript": "^3.8.2"
+
   }
 }

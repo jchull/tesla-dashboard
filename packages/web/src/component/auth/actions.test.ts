@@ -12,7 +12,6 @@ const mockStore = configureMockStore([
 
 describe('auth actions', () => {
   it('should handle login', async () => {
-
     // @ts-ignore
     services.auth.login = jest.fn(
       (username, password): Promise<boolean> => {

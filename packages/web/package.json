@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/types": "^7.8.3",
+    "@teslapp/common": "^0.0.0",
     "babel": "^6.23.0",
     "camelcase": "^5.2.0",
     "d3": "^5.15.0",
@@ -50,6 +51,12 @@
       "react-app"
     ]
   },
+  "directories": {
+    "build": "build"
+  },
+  "files": [
+    "build"
+  ],
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@reduxjs/toolkit": "^1.2.5",

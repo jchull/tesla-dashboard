@@ -1,4 +1,4 @@
-import { Document, Schema } from 'mongoose';
+import { Document, Schema } from "mongoose";
 
 export interface SyncPreferences {
   _id: string;
@@ -21,7 +21,7 @@ export interface SyncPreferences {
 }
 
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
-  _id: 'default',
+  _id: "default",
   enabled: false,
   chargingMaxGapSeconds: 300,
   chargingMinDurationMinutes: 5,

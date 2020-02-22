@@ -1,8 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { ConfigurationType } from '../../../common/src/model';
-import { DEFAULT_CONFIG } from '../../../common/src/model/Configuration';
+import { ConfigurationType, DEFAULT_CONFIG } from '@teslapp/common';
 
 @Injectable()
 export class ConfigurationService {

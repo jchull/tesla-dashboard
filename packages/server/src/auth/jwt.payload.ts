@@ -1,4 +1,4 @@
-import { UserRoles } from '../../../common/src/model/User';
+import { UserRoles } from '@teslapp/common';
 
 export interface JwtPayload {
   sub: string;

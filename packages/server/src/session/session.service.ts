@@ -7,7 +7,7 @@ import {
   DriveSessionType,
   DriveStateType,
   VehicleType
-} from '../../../common/src/model';
+} from '@teslapp/common';
 
 @Injectable()
 export class SessionService {

@@ -1,5 +1,5 @@
-import { Document, Schema } from 'mongoose';
-import { SpeedLimitMode } from './types/tesla/SpeedLimitMode';
+import { Document, Schema } from "mongoose";
+import { SpeedLimitMode } from "./types/tesla/SpeedLimitMode";
 
 export const SpeedLimitModeSchema = new Schema({
   active: { type: Boolean, required: true },
