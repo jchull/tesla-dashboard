@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "target": "es6",
+    "noLib": false,
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "lib": [
+      "es6"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "__mocks__",
+    "**/*.spec.*",
+    "**/*.test.*"
+  ]
+}

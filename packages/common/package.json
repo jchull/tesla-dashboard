@@ -1,0 +1,30 @@
+{
+  "name": "@teslapp/common",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "tsc -b",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint --ext=jsx,ts,tsx src"
+  },
+  "dependencies": {
+    "@babel/types": "^7.8.3",
+    "babel": "^6.23.0",
+    "mongoose": "^5.9.2",
+    "typescript": "^3.8.2"
+  },
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/mongoose": "^5.7.1"
+  }
+}
