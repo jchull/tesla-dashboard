@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 
 export const ForgotPassword = () => {
   const [username, setUsername] = useState('');
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState('');
   const loggedIn = services.auth.loggedIn();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {

@@ -14,9 +14,9 @@ const mockStore = configureMockStore([
 describe('session actions', () => {
   it('should handle empty session list', async () => {
     services.queryService.getRecentSessions = jest.fn(
-      (vin): Promise<ChargeSession[] | DriveSession[]> => {
-        return new Promise<ChargeSession[] | DriveSession[]>(
-          (resolve, reject) => resolve([])
+      (vin): Promise<[ChargeSession | DriveSession]> => {
+        return new Promise<[ChargeSession | DriveSession]>(
+          (resolve, reject) => resolve()
         );
       }
     );
@@ -25,7 +25,7 @@ describe('session actions', () => {
       { type: SessionActionType.FETCH_SESSION_LIST__START, payload: undefined },
       {
         type: SessionActionType.FETCH_SESSION_LIST__SUCCESS,
-        payload: { sessions: [] }
+        payload: { sessions: undefined }
       }
     ];
 
