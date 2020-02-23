@@ -14,8 +14,7 @@ export class ConfigurationService {
     const config = await this.configurationModel.findOne();
     if (!config) {
       console.log('No app configuration found, installing default...');
-      const newConfig = await this.configurationModel.create(DEFAULT_CONFIG);
-      return newConfig;
+      return this.configurationModel.create(DEFAULT_CONFIG);
     }
     return config;
   }

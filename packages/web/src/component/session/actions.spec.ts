@@ -29,6 +29,7 @@ describe('session actions', () => {
       }
     ];
 
+    // eslint-disable-next-line
     // @ts-ignore
     await store.dispatch(actions.fetchSessionListAction('999'));
     expect(store.getActions()).toEqual(expectedActions);

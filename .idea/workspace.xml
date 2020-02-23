@@ -2,47 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/env/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/env/sample.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/store/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/store/actions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,27 +56,29 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.14.0" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/common" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/common" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/web/node_modules/jest" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/common" />
-      <recent name="$PROJECT_DIR$/server" />
-      <recent name="$PROJECT_DIR$/web" />
-      <recent name="$PROJECT_DIR$/web/src/component/account" />
-      <recent name="$PROJECT_DIR$/web/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages" />
       <recent name="$PROJECT_DIR$/common/src" />
       <recent name="$PROJECT_DIR$/bin" />
       <recent name="$PROJECT_DIR$/web/public" />
       <recent name="$PROJECT_DIR$/web/public/static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/common" />
+      <recent name="$PROJECT_DIR$/common" />
+      <recent name="$PROJECT_DIR$/server" />
+      <recent name="$PROJECT_DIR$/web" />
+      <recent name="$PROJECT_DIR$/web/src/component/account" />
     </key>
   </component>
   <component name="RunManager" selected="Jest.Web Unit Tests">
@@ -182,13 +157,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00069" summary="moved init script for mongo">
-      <created>1578860479479</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1578860479479</updated>
     </task>
     <task id="LOCAL-00070" summary="use correct module alias on import">
       <created>1578860517866</created>
@@ -526,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582407869719</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="fixed some paths and some exports, project dev mode can now start w/ lerna">
+      <created>1582410947398</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1582410947400</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +512,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="add params to logger middleware" />
     <MESSAGE value="add menu link to setup tesla accounts" />
     <MESSAGE value="add axios for talking to tesla" />
     <MESSAGE value="add tesla owner service" />
@@ -562,13 +536,18 @@
     <MESSAGE value="fix server db connection string" />
     <MESSAGE value="fix proxy and linting/formatting" />
     <MESSAGE value="used lerna to create monorepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="used lerna to create monorepo" />
+    <MESSAGE value="fixed some paths and some exports, project dev mode can now start w/ lerna" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some paths and some exports, project dev mode can now start w/ lerna" />
   </component>
   <component name="WindowStateProjectService">
     <state x="784" y="785" key="#Server_Tests" timestamp="1582336018230">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="784" y="785" key="#Server_Tests/0.23.3840.2137@0.23.3840.2137" timestamp="1582336018230" />
+    <state x="515" y="751" key="#Usage_Scope" timestamp="1582415936027">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="515" y="751" key="#Usage_Scope/0.23.3840.2137@0.23.3840.2137" timestamp="1582415936027" />
     <state x="373" y="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582339516187">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
@@ -587,10 +566,10 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="879" y="841" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582343494447" />
-    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582407869085">
+    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582410947110">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582407869085" />
+    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582410947110" />
     <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
     <state width="693" height="466" key="DebuggerActiveHint" timestamp="1579036824778">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -692,15 +671,15 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="891" y="805" key="RollbackChangesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582343109347" />
-    <state x="424" y="725" width="992" height="737" key="SettingsEditor" timestamp="1582406215829">
+    <state x="424" y="725" width="992" height="737" key="SettingsEditor" timestamp="1582415938234">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="424" y="725" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1582406215829" />
+    <state x="424" y="725" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1582415938234" />
     <state x="424" y="728" width="992" height="737" key="SettingsEditor/0.27.3840.2133@0.27.3840.2133" timestamp="1579099590334" />
-    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1582407874155">
+    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1582410949734">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1582407874155" />
+    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1582410949734" />
     <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219831002" />
     <state x="100" y="123" width="1630" height="1937" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582407563064">
       <screen x="0" y="23" width="3840" height="2137" />
@@ -727,10 +706,10 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="512" y="832" width="886" height="529" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.3840.2133@0.27.3840.2133" timestamp="1579036905375" />
-    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1582410413470">
+    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1582412824268">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582410413470" />
+    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582412824268" />
     <state x="598" y="828" width="774" height="592" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1579026912118" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1582407124542">
       <screen x="0" y="23" width="3840" height="2137" />

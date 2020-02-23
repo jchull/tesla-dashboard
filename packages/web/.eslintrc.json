@@ -7,7 +7,6 @@
   "plugins": ["react", "@typescript-eslint"],
   "env": {
     "browser": true,
-    "jasmine": true,
     "jest": true
   },
   "rules": {

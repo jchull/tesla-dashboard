@@ -2,7 +2,12 @@ import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 import { TeslaAccountService } from '../tesla-account.service';
-import { Configuration, TeslaAccount,  VehicleData, Vehicle } from '@teslapp/common';
+import {
+  Configuration,
+  TeslaAccount,
+  VehicleData,
+  Vehicle
+} from '@teslapp/common';
 import { ConfigurationService } from '../../configuration/configuration.service';
 
 @Injectable()

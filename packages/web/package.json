@@ -61,7 +61,6 @@
     "@babel/core": "^7.8.4",
     "@reduxjs/toolkit": "^1.2.5",
     "@svgr/webpack": "^5.1.0",
-    "@teslapp/common": "0.0.0",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
     "@testing-library/react-hooks": "^3.2.1",
