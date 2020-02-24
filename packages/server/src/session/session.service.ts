@@ -43,21 +43,21 @@ export class SessionService {
   async deleteSession(username: string, id: string) {
     // TODO: limit access by username matching
     const deleteCount = await this.driveSessionModel.deleteOne({ _id: id });
-    if (deleteCount.ok) {
+    if (deleteCount.deletedCount) {
       const deleteItemCount = await this.driveStateModel.deleteMany({
         driveSession: id
       });
-      if (deleteItemCount.ok) {
-        return (deleteCount.n || 0) + (deleteItemCount.n || 0);
+      if (deleteItemCount.deletedCount) {
+        return (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0);
       }
     } else {
       const deleteCount = await this.chargeSessionModel.deleteOne({ _id: id });
-      if (deleteCount.ok) {
+      if (deleteCount.deletedCount) {
         const deleteItemCount = await this.chargeStateModel.deleteMany({
           chargeSession: id
         });
-        if (deleteItemCount.ok) {
-          return (deleteCount.n || 0) + (deleteItemCount.n || 0);
+        if (deleteItemCount.deletedCount) {
+          return (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0);
         }
       }
     }
