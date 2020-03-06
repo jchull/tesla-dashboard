@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "build": "lerna run build",
-    "start": "lerna run start --stream --scope=@teslapp/{server,web}"
+    "start": "lerna run start --stream --scope=@teslapp/{server,web}",
+    "clean": "lerna run clean"
 
   },
   "workspaces": [
