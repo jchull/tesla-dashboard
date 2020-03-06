@@ -39,3 +39,5 @@ export {
 } from "./UserPreferences";
 export { VehicleData } from "./types/tesla/VehicleData";
 export { Vehicle } from "./types/tesla/Vehicle";
+
+export {Query, QueryItem, QuerySort, QueryResult, QueryType, parseRequest} from "./query/Query"
