@@ -1,7 +1,6 @@
-import {ChargeSessionType} from '../ChargeSession';
-import {DriveSessionType} from '../DriveSession';
+import {SessionType} from '../util';
 
-export enum QueryType {
+export enum Operator {
   EQ = 'EQ',
   GT = 'GT',
   LT = 'LT',
@@ -14,46 +13,50 @@ export enum QueryType {
 }
 
 
-export interface QueryItem<T> {
+export interface Predicate {
   priority: number,
-  type: QueryType,
-  field: keyof T,
+  operator: Operator,
+  field: keyof SessionType,
   value: any
 }
 
-export interface QuerySort<T> {
-  field: keyof T,
+export interface Sort {
+  field: keyof SessionType,
   desc: boolean,
   priority: number
 }
 
-interface QueryPage {
+interface Pagination {
   itemsPerPage: number,
   currentPage?: number
 }
 
 
-export interface Query<T extends ChargeSessionType | DriveSessionType> {
+export interface QuerySet {
   type: "session" | "charge" | "drive",
-  page: QueryPage,
-  sort?: [QuerySort<T>],
-  items: [QueryItem<T>]
+  page: Pagination,
+  sort?: [Sort],
+  predicates: [Predicate]
 }
 
-export interface QueryResult<T extends ChargeSessionType | DriveSessionType> {
+export interface QueryResult {
   total: number,
   count: number,
-  page: QueryPage,
-  results: T[]
+  page: Pagination,
+  results: SessionType[]
 }
 
 
-export function parseRequest<T extends ChargeSessionType | DriveSessionType>(body:any): Query<T> {
+export function decodeRequest(body:any): QuerySet {
   return {
     type: body.type,
     page: body.page ?? {itemsPerPage: 100, currentPage: 0},
     sort: body.sort ?? undefined,
-    items: body.items
+    predicates: body.predicates
   }
+}
+
+export function encodeResponse(result: [any]): QueryResult {
+  return {count: result.length, page: {currentPage: 0, itemsPerPage: 100}, results: result, total: 0}
 }
 
