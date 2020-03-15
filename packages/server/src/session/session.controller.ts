@@ -1,26 +1,20 @@
-import {
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Request,
-  UseGuards
-} from '@nestjs/common';
-import { SessionService } from './session.service';
-import { AuthGuard } from '@nestjs/passport';
+import {Controller, Delete, Get, Param, Post, Request, UseGuards} from '@nestjs/common';
+import {SessionService} from './session.service';
+import {AuthGuard} from '@nestjs/passport';
+import {decodeRequest, QueryResult} from '@teslapp/common';
 
 @Controller('session')
 export class SessionController {
   constructor(private readonly sessionService: SessionService) {}
 
   @UseGuards(AuthGuard('jwt'))
-  @Get()
-  getRecentSessions(@Request() req, @Param('vin') vin) {
-    return this.sessionService.findRecentSessions(
-      req.user.username,
-      vin,
-      req.query.limit / 1
+  @Post()
+  async findSessions(@Request() req): Promise<QueryResult> {
+    const query = decodeRequest(req.body);
+    // TODO: update this to be more generic once it is working, only looking at driving right now
+    return await this.sessionService.findSessions(
+        req.user.username,
+        query
     );
   }
   @UseGuards(AuthGuard('jwt'))
