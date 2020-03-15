@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/store/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +80,7 @@
       <recent name="$PROJECT_DIR$/web/src/component/account" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:debug">
+  <component name="RunManager" selected="npm.start web">
     <configuration name="Server Unit Tests" type="JavaScriptTestRunnerJest">
       <config-file value="$PROJECT_DIR$/server/jest.config.js" />
       <node-interpreter value="project" />
@@ -90,6 +101,12 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
+    <configuration name="Unnamed" type="NodeJSConfigurationType" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="esImporter.js" type="NodeJSConfigurationType" temporary="true" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" path-to-js-file="dist/data-sync/es-import/esImporter.js" working-dir="$PROJECT_DIR$/packages/server">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.npm">
       <command value="start" />
       <node-interpreter value="project" />
@@ -98,7 +115,7 @@
       <method v="2" />
     </configuration>
     <configuration name="start dev server" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
+      <package-json value="$PROJECT_DIR$/packages/server/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
       <package-manager value="yarn" />
@@ -106,7 +123,7 @@
       <method v="2" />
     </configuration>
     <configuration name="start web" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/web/package.json" />
+      <package-json value="$PROJECT_DIR$/packages/web/package.json" />
       <command value="start" />
       <node-interpreter value="project" />
       <package-manager value="yarn" />
@@ -127,12 +144,15 @@
     <list>
       <item itemvalue="Jest.Server Unit Tests" />
       <item itemvalue="Jest.Web Unit Tests" />
+      <item itemvalue="Node.js.Unnamed" />
+      <item itemvalue="Node.js.esImporter.js" />
       <item itemvalue="npm.start dev server" />
       <item itemvalue="npm.start web" />
       <item itemvalue="npm.start:debug" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.esImporter.js" />
         <item itemvalue="npm.start:debug" />
       </list>
     </recent_temporary>
@@ -162,48 +182,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00071" summary="don't remove node_modules, nest is used for running">
-      <created>1578860557621</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1578860557621</updated>
-    </task>
-    <task id="LOCAL-00072" summary="added baseUrl globally">
-      <created>1578942117630</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1578942117630</updated>
-    </task>
-    <task id="LOCAL-00073" summary="signup and logout">
-      <created>1578942148563</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1578942148563</updated>
-    </task>
-    <task id="LOCAL-00074" summary="updated data handling">
-      <created>1578942187590</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1578942187590</updated>
-    </task>
-    <task id="LOCAL-00075" summary="rename products view to Dashboard">
-      <created>1578942266153</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1578942266153</updated>
-    </task>
-    <task id="LOCAL-00076" summary="update API endpoints">
-      <created>1578942294514</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1578942294514</updated>
     </task>
     <task id="LOCAL-00077" summary="sanitize user before returning">
       <created>1578959605632</created>
@@ -506,7 +484,49 @@
       <option name="project" value="LOCAL" />
       <updated>1582495680266</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="remove unused file">
+      <created>1582504942973</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1582504942973</updated>
+    </task>
+    <task id="LOCAL-00121" summary="fix session delete bug">
+      <created>1582504968135</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1582504968136</updated>
+    </task>
+    <task id="LOCAL-00122" summary="add start script to rn local dev mode">
+      <created>1582997146207</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1582997146207</updated>
+    </task>
+    <task id="LOCAL-00123" summary="screw safari">
+      <created>1582997169897</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1582997169897</updated>
+    </task>
+    <task id="LOCAL-00124" summary="add clean target">
+      <created>1583458831632</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1583458831633</updated>
+    </task>
+    <task id="LOCAL-00125" summary="query model">
+      <created>1583460534958</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1583460534958</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,12 +537,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="add axios for talking to tesla" />
-    <MESSAGE value="add tesla owner service" />
-    <MESSAGE value="new error after updating dependencies" />
-    <MESSAGE value="add param to grab data from tesla for updating local data store" />
-    <MESSAGE value="add syncUpstream param and handling" />
-    <MESSAGE value="formatting, cleanup" />
     <MESSAGE value="add nest scheduler" />
     <MESSAGE value="add sync services" />
     <MESSAGE value="move session-related query to session service" />
@@ -542,7 +556,13 @@
     <MESSAGE value="used lerna to create monorepo" />
     <MESSAGE value="fixed some paths and some exports, project dev mode can now start w/ lerna" />
     <MESSAGE value="clean up paths and lint fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up paths and lint fixes" />
+    <MESSAGE value="remove unused file" />
+    <MESSAGE value="fix session delete bug" />
+    <MESSAGE value="add start script to rn local dev mode" />
+    <MESSAGE value="screw safari" />
+    <MESSAGE value="add clean target" />
+    <MESSAGE value="query model" />
+    <option name="LAST_COMMIT_MESSAGE" value="query model" />
   </component>
   <component name="WindowStateProjectService">
     <state x="784" y="785" key="#Server_Tests" timestamp="1582336018230">
@@ -553,16 +573,20 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="515" y="751" key="#Usage_Scope/0.23.3840.2137@0.23.3840.2137" timestamp="1582415936027" />
-    <state x="373" y="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582339516187">
+    <state x="373" y="748" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583612941030">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="373" y="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582339516187" />
+    <state x="373" y="748" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1583612941030" />
     <state x="373" y="751" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578779513153" />
     <state x="606" y="897" width="697" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581799222653">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="606" y="897" key="#com.intellij.fileTypes.FileTypeChooser/0.23.3840.2137@0.23.3840.2137" timestamp="1581799222653" />
     <state x="606" y="899" width="697" height="396" key="#com.intellij.fileTypes.FileTypeChooser/0.27.3840.2133@0.27.3840.2133" timestamp="1579021921137" />
+    <state x="954" y="810" key="#com.intellij.ide.util.MemberChooser" timestamp="1584292490114">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="954" y="810" key="#com.intellij.ide.util.MemberChooser/0.23.3840.2137@0.23.3840.2137" timestamp="1584292490114" />
     <state x="603" y="823" width="624" height="548" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578339332716">
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
@@ -571,14 +595,23 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="879" y="841" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582343494447" />
-    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1582504942820">
+    <state x="850" y="792" key="#start_dev_server" timestamp="1584296121514">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1582504942820" />
-    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
-    <state width="693" height="466" key="DebuggerActiveHint" timestamp="1579036824778">
-      <screen x="0" y="27" width="3840" height="2133" />
+    <state x="850" y="792" key="#start_dev_server/0.23.3840.2137@0.23.3840.2137" timestamp="1584296121514" />
+    <state x="850" y="792" key="#start_web" timestamp="1584296161987">
+      <screen x="0" y="23" width="3840" height="2137" />
     </state>
+    <state x="850" y="792" key="#start_web/0.23.3840.2137@0.23.3840.2137" timestamp="1584296161987" />
+    <state x="366" y="278" width="1088" height="1224" key="CommitChangelistDialog2" timestamp="1584299288482">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1584299288482" />
+    <state x="366" y="282" width="1088" height="1224" key="CommitChangelistDialog2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219829304" />
+    <state width="701" height="467" key="DebuggerActiveHint" timestamp="1584298214062">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state width="701" height="467" key="DebuggerActiveHint/0.23.3840.2137@0.23.3840.2137" timestamp="1584298214062" />
     <state width="693" height="466" key="DebuggerActiveHint/0.27.3840.2133@0.27.3840.2133" timestamp="1579036824778" />
     <state x="100" y="127" width="1640" height="1933" key="DiffContextDialog" timestamp="1578521699719">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -604,65 +637,65 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state width="1551" height="774" key="GridCell.Tab.-1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579036656095" />
-    <state width="2241" height="777" key="GridCell.Tab.0.bottom" timestamp="1582504918885">
+    <state width="2241" height="777" key="GridCell.Tab.0.bottom" timestamp="1584299111083">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.0.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918885" />
+    <state width="2241" height="777" key="GridCell.Tab.0.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111083" />
     <state width="1551" height="774" key="GridCell.Tab.0.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
-    <state width="2241" height="777" key="GridCell.Tab.0.center" timestamp="1582504918885">
+    <state width="2241" height="777" key="GridCell.Tab.0.center" timestamp="1584299111082">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.0.center/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918885" />
+    <state width="2241" height="777" key="GridCell.Tab.0.center/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111082" />
     <state width="1551" height="774" key="GridCell.Tab.0.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793540" />
-    <state width="2241" height="777" key="GridCell.Tab.0.left" timestamp="1582504918884">
+    <state width="2241" height="777" key="GridCell.Tab.0.left" timestamp="1584299111081">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.0.left/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918884" />
+    <state width="2241" height="777" key="GridCell.Tab.0.left/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111081" />
     <state width="1551" height="774" key="GridCell.Tab.0.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793539" />
-    <state width="2241" height="777" key="GridCell.Tab.0.right" timestamp="1582504918885">
+    <state width="2241" height="777" key="GridCell.Tab.0.right" timestamp="1584299111083">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.0.right/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918885" />
+    <state width="2241" height="777" key="GridCell.Tab.0.right/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111083" />
     <state width="1551" height="774" key="GridCell.Tab.0.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793541" />
-    <state width="2241" height="777" key="GridCell.Tab.1.bottom" timestamp="1582504918886">
+    <state width="2241" height="777" key="GridCell.Tab.1.bottom" timestamp="1584299111084">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.1.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918886" />
+    <state width="2241" height="777" key="GridCell.Tab.1.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111084" />
     <state width="1551" height="774" key="GridCell.Tab.1.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793543" />
-    <state width="2241" height="777" key="GridCell.Tab.1.center" timestamp="1582504918886">
+    <state width="2241" height="777" key="GridCell.Tab.1.center" timestamp="1584299111084">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.1.center/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918886" />
+    <state width="2241" height="777" key="GridCell.Tab.1.center/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111084" />
     <state width="1551" height="774" key="GridCell.Tab.1.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793542" />
-    <state width="2241" height="777" key="GridCell.Tab.1.left" timestamp="1582504918885">
+    <state width="2241" height="777" key="GridCell.Tab.1.left" timestamp="1584299111083">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.1.left/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918885" />
+    <state width="2241" height="777" key="GridCell.Tab.1.left/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111083" />
     <state width="1551" height="774" key="GridCell.Tab.1.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793542" />
-    <state width="2241" height="777" key="GridCell.Tab.1.right" timestamp="1582504918886">
+    <state width="2241" height="777" key="GridCell.Tab.1.right" timestamp="1584299111084">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.1.right/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918886" />
+    <state width="2241" height="777" key="GridCell.Tab.1.right/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111084" />
     <state width="1551" height="774" key="GridCell.Tab.1.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793543" />
-    <state width="2241" height="777" key="GridCell.Tab.2.bottom" timestamp="1582504918887">
+    <state width="2241" height="777" key="GridCell.Tab.2.bottom" timestamp="1584299111085">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.2.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918887" />
+    <state width="2241" height="777" key="GridCell.Tab.2.bottom/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111085" />
     <state width="1551" height="774" key="GridCell.Tab.2.bottom/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793545" />
-    <state width="2241" height="777" key="GridCell.Tab.2.center" timestamp="1582504918887">
+    <state width="2241" height="777" key="GridCell.Tab.2.center" timestamp="1584299111085">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.2.center/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918887" />
+    <state width="2241" height="777" key="GridCell.Tab.2.center/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111085" />
     <state width="1551" height="774" key="GridCell.Tab.2.center/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
-    <state width="2241" height="777" key="GridCell.Tab.2.left" timestamp="1582504918886">
+    <state width="2241" height="777" key="GridCell.Tab.2.left" timestamp="1584299111084">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.2.left/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918886" />
+    <state width="2241" height="777" key="GridCell.Tab.2.left/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111084" />
     <state width="1551" height="774" key="GridCell.Tab.2.left/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
-    <state width="2241" height="777" key="GridCell.Tab.2.right" timestamp="1582504918887">
+    <state width="2241" height="777" key="GridCell.Tab.2.right" timestamp="1584299111085">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="2241" height="777" key="GridCell.Tab.2.right/0.23.3840.2137@0.23.3840.2137" timestamp="1582504918887" />
+    <state width="2241" height="777" key="GridCell.Tab.2.right/0.23.3840.2137@0.23.3840.2137" timestamp="1584299111085" />
     <state width="1551" height="774" key="GridCell.Tab.2.right/0.27.3840.2133@0.27.3840.2133" timestamp="1579219793544" />
     <state width="1551" height="774" key="GridCell.Tab.3.bottom" timestamp="1579219793547">
       <screen x="0" y="27" width="3840" height="2133" />
@@ -689,10 +722,10 @@
     </state>
     <state x="424" y="725" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1582415938234" />
     <state x="424" y="728" width="992" height="737" key="SettingsEditor/0.27.3840.2133@0.27.3840.2133" timestamp="1579099590334" />
-    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1582410949734">
+    <state x="510" y="827" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1583458833510">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1582410949734" />
+    <state x="510" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1583458833510" />
     <state x="510" y="829" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.3840.2133@0.27.3840.2133" timestamp="1579219831002" />
     <state x="100" y="123" width="1630" height="1937" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582407563064">
       <screen x="0" y="23" width="3840" height="2137" />
@@ -719,15 +752,15 @@
       <screen x="0" y="27" width="3840" height="2133" />
     </state>
     <state x="512" y="832" width="886" height="529" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.3840.2133@0.27.3840.2133" timestamp="1579036905375" />
-    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1582412824268">
+    <state x="595" y="825" width="816" height="594" key="find.popup" timestamp="1583030082785">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582412824268" />
+    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1583030082785" />
     <state x="598" y="828" width="774" height="592" key="find.popup/0.27.3840.2133@0.27.3840.2133" timestamp="1579026912118" />
-    <state width="600" height="424" key="javadoc.popup" timestamp="1582407124542">
+    <state width="600" height="424" key="javadoc.popup" timestamp="1583029941799">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="600" height="424" key="javadoc.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1582407124542" />
+    <state width="600" height="424" key="javadoc.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1583029941799" />
     <state x="792" y="710" key="new project wizard" timestamp="1582396819067">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
@@ -741,17 +774,5 @@
     </state>
     <state x="685" y="928" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1582402554241" />
     <state x="685" y="930" width="540" height="334" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.3840.2133@0.27.3840.2133" timestamp="1578699980679" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/packages/server/src/session/session.service.ts</url>
-          <line>44</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
