@@ -14,7 +14,7 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
     <div className="session-list">
       <div className="sessions">
         {// @ts-ignore
-        props.sessions &&
+        props.sessions.length &&
           props.sessions.map((session) => (
             <SessionListItem
               session={session}
