@@ -3,12 +3,12 @@ import { VehicleData } from '@teslapp/common';
 import {
   ChargeSessionType,
   DriveSessionType,
-  VehicleType
 } from '@teslapp/common';
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
 import { ProductService } from '../../product/product.service';
 import { SessionService } from '../../session/session.service';
+import {Operator} from '@teslapp/common';
 
 @Injectable()
 export class TeslaSyncService {
@@ -43,11 +43,10 @@ export class TeslaSyncService {
             `${vehicleData.display_name} is currently ${vehicleStatus}`
           );
 
-          const [activeSession] = await this.sessionService.findRecentSessions(
+          const activeSession = (await this.sessionService.findSessions(
             product.username,
-            vin,
-            1
-          );
+              {predicates: [{priority: 1, operator: Operator.EQ, value: product, field: 'vehicle'}], page: {itemsPerPage: 1, currentPage: 0}, type: 'drive'}
+          )).results;
           if (!activeSession) {
             console.log('no recent sessions found');
           } else {
