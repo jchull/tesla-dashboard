@@ -82,7 +82,7 @@ export const fetchSessionListAction = (id: string) => async (
   dispatch(fetchSessionListStart());
   return extraArgument.api.queryService.getRecentSessions(id, 200).then(
     (result) => {
-      dispatch(fetchSessionListSuccess(result));
+      dispatch(fetchSessionListSuccess(result.results));
     },
     (error: any) => {
       dispatch(fetchSessionListFail());
