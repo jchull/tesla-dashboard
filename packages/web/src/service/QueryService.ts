@@ -3,8 +3,8 @@ import {
   ChargeSession,
   ChargeState,
   DriveSession,
-  DriveState,
-  Product
+  DriveState, Operator,
+  Product, QueryResult
 } from '@teslapp/common';
 
 export class QueryService {
@@ -25,9 +25,20 @@ export class QueryService {
   async getRecentSessions(
     id: string,
     limit = 1
-  ): Promise<[ChargeSession | DriveSession]> {
-    const result = await this.api.get(
-      `/session?limit=${limit}&productId=${id}`
+  ): Promise<QueryResult> {
+    const result = await this.api.post(
+      '/session',
+        {
+            type: 'drive',
+            sort: {},
+            page: {currentPage: 0, pageSize: limit},
+            predicates: [
+              {priority: 1, operator: Operator.EQ,
+                field: "vehicle",
+                value: id
+              }
+            ]
+        }
     );
     return result && result.data;
   }
