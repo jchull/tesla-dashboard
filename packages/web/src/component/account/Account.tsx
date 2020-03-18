@@ -8,7 +8,7 @@ import React, {
 import services from '@teslapp/web/src/service';
 import { useSelector } from 'react-redux';
 import { AppState } from '@teslapp/web/src/store';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
