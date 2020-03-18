@@ -7,6 +7,7 @@ import { ProductListItem } from './ProductListItem';
 import { fetchProductListAction, ProductState, selectProduct } from './actions';
 
 import './product.style.scss';
+import {NavLink} from 'react-router-dom';
 
 export const ProductList: React.FC<ProductState> = (props: ProductState) => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export const ProductList: React.FC<ProductState> = (props: ProductState) => {
           selected={props.selectedProductId === product._id}
         />
       ))}
+      <NavLink to="/tesla-account" className="add-more">add more linked accounts</NavLink>
     </div>
   );
 };
