@@ -14,7 +14,6 @@ export enum Operator {
 
 
 export interface Predicate {
-  priority: number,
   operator: Operator,
   field: keyof SessionType,
   value: any
@@ -22,13 +21,13 @@ export interface Predicate {
 
 export interface Sort {
   field: keyof SessionType,
-  desc: boolean,
-  priority: number
+  desc?: boolean
 }
 
 interface Pagination {
   itemsPerPage: number,
-  currentPage?: number
+  currentPage?: number,
+  totalCount?: number,
 }
 
 
@@ -40,8 +39,6 @@ export interface QuerySet {
 }
 
 export interface QueryResult {
-  total: number,
-  count: number,
   page: Pagination,
   results: SessionType[]
 }
@@ -56,7 +53,4 @@ export function decodeRequest(body:any): QuerySet {
   }
 }
 
-export function encodeResponse(result: [any]): QueryResult {
-  return {count: result.length, page: {currentPage: 0, itemsPerPage: 100}, results: result, total: 0}
-}
 
