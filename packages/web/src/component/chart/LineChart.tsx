@@ -183,9 +183,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
   }, [props.datum, config]);
 
   return (
-    <div>
-      {props.datum && (
-        <div className="chart-container">
+        <div className="card chart-container">
           <svg
             className="d3-chart"
             width={config.width}
@@ -194,7 +192,5 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           />
           <div className="chart-legend"></div>
         </div>
-      )}
-    </div>
   );
 };
