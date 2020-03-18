@@ -12,6 +12,9 @@ import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagLis
 import { SessionToolbar } from '@teslapp/web/src/component/toolbar/SessionToolbar';
 import { createSelector } from '@reduxjs/toolkit';
 import { fetchProductListAction } from '@teslapp/web/src/component/product/actions';
+import {StatsPanel} from '../stats/StatsPanel';
+import {FilterPanel} from '../filter/FilterPanel';
+import {CommandPanel} from '../command/CommandPanel';
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch();
@@ -64,28 +67,20 @@ export const ProductSessionView: React.FC = () => {
   return (
     <div>
       <ProductList products={products} selectedProductId={selectedProductId} />
-      {selectedProductId ? (
         <div className="block-flow">
           <SessionList
             sessions={sessions}
             selectedSessionId={selectedSessionId}
           />
-          {selectedSessionStates && selectedSessionId ? (
             <div className="vertical-flex">
               <LineChart datum={selectedSessionStates} />
               <SessionTagList />
-              <SessionToolbar sessionId={selectedSessionId} />
+              <CommandPanel/>
             </div>
-          ) : (
-            <span>No data selected</span>
-          )}
-        </div>
-      ) : (
-        <div>
-          <div>No products found</div>
-          <button onClick={() => dispatch(fetchProductListAction(true))}>
-            Sync Tesla Accounts Now
-          </button>
+              <div className="vertical-flex">
+                <StatsPanel/>
+                <FilterPanel/>
+              </div>
         </div>
       )}
     </div>
