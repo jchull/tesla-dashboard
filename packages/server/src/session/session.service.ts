@@ -8,9 +8,10 @@ import {
   DriveSession,
   DriveSessionType,
   DriveStateType,
+  QueryResult,
+  QuerySet,
   VehicleType
 } from '@teslapp/common';
-import {QuerySet, QueryResult} from '@teslapp/common';
 import {ProductService} from '../product/product.service';
 
 @Injectable()
@@ -123,17 +124,23 @@ export class SessionService {
   }
 
   async findSessions(username: string, query: QuerySet): Promise<QueryResult> {
-    const vehicleId = query.predicates.find((p) => p.field === "vehicle").value;
-    if(query.type === 'drive'){
-      const mongooseQuery = this.driveSessionModel.find();
-      mongooseQuery.where('vehicle', {_id: vehicleId});
+    const vehicleId = query.predicates.find((p) => p.field === 'vehicle').value;
+    if (query.type === 'drive') {
+      const criteria = {vehicle: {_id: vehicleId, username}};
+      const count = await this.driveSessionModel.countDocuments().setQuery(criteria);
+      const mongooseQuery = this.driveSessionModel.find()
+                                .setQuery(criteria)
+                                .skip(query.page.itemsPerPage * query.page.currentPage)
+                                .limit(query.page.itemsPerPage);
+      if(query.sort){
+        const { field, desc } = query.sort[0];
+        mongooseQuery.sort(`${desc? '-':''}${field}`);
+      }
       const result = await mongooseQuery.exec();
 
       return {
-        count: result.length,
-        page: {itemsPerPage: result.length},
-        results: result,
-        total: -1
+        page: {itemsPerPage: result.length, currentPage: 0, totalCount: count},
+        results: result
       };
     }
 

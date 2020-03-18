@@ -30,10 +30,14 @@ export class QueryService {
       '/session',
         {
             type: 'drive',
-            sort: {},
-            page: {currentPage: 0, pageSize: limit},
+            sort: [{
+              field: 'start_date',
+              desc: true
+            }],
+            page: {currentPage: 0, itemsPerPage: limit},
             predicates: [
-              {priority: 1, operator: Operator.EQ,
+              {
+                operator: Operator.EQ,
                 field: "vehicle",
                 value: id
               }
