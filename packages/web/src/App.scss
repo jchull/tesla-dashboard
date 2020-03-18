@@ -7,11 +7,19 @@ body,
   left: 0;
   bottom: 0;
   right: 0;
+  box-sizing: border-box;
+
+  .card {
+    background: #ffffff;
+    margin: 4px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #555555;
+    min-width: 300px;
+  }
+
 }
 
-div {
-  box-sizing: border-box;
-}
 
 .app {
   .header {
@@ -51,6 +59,7 @@ div {
     left: 0;
     right: 0;
     bottom: 20px;
+    background: #f0ede2;
 
     > div {
       position: relative;
@@ -80,9 +89,7 @@ div {
 
     button {
       line-height: 24px;
-      border-radius: 12px;
       background: #e1e1e1;
-      width: 160px;
       margin: 4px;
     }
 
