@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 
 import { SessionListItem } from './SessionListItem';
 import { selectSession, SessionState } from './actions';
-import { FilterToolbar } from '@teslapp/web/src/component/toolbar/FilterToolbar';
 
 export const SessionList: React.FC<SessionState> = (props: SessionState) => {
   const dispatch = useDispatch();
@@ -24,7 +23,6 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
             />
           ))}
       </div>
-      <FilterToolbar />
     </div>
   );
 };

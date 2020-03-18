@@ -1,16 +1,17 @@
 .session-list {
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  width: 340px;
+  margin: 4px;
+  width: 378px;
 
   .sessions {
     overflow-y: auto;
-
+    overflow-x: hidden;
     .list-item {
       padding: 6px;
-      border-bottom: 1px solid rgb(153, 154, 156);
+      border-top: 1px solid rgb(153, 154, 156);
       flex-direction: row;
+      background: #ffffff;
 
       &:hover {
         transition-duration: 150ms;
@@ -20,6 +21,7 @@
 
       &:active {
         transform: translate(-1px, 1px);
+        border-color: #000000;
       }
 
       &.drive {
