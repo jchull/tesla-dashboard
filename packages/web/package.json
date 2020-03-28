@@ -56,6 +56,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/parser": "^7.8.8",
+    "@babel/preset-typescript": "^7.9.0",
     "@babel/types": "^7.8.7",
     "@reduxjs/toolkit": "^1.2.5",
     "@svgr/webpack": "^5.2.0",
@@ -75,6 +76,7 @@
     "@types/redux-mock-store": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
+    "babel": "^6.23.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "^9.1.1",
