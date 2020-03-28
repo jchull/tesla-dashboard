@@ -48,7 +48,7 @@ export const ProductSessionView: React.FC = () => {
         (product) => product._id === selectedProductId
       );
       if (selectedProduct) {
-        dispatch(fetchSessionListAction(selectedProductId));
+        dispatch(fetchSessionListAction(selectedProductId, {current: 0, size: 100}));
       }
     }
   }, [selectedProductId]);
@@ -77,12 +77,11 @@ export const ProductSessionView: React.FC = () => {
               <SessionTagList />
               <CommandPanel/>
             </div>
-              <div className="vertical-flex">
+              <div className="vertical-flex stretch">
                 <StatsPanel/>
                 <FilterPanel/>
               </div>
         </div>
-      )}
     </div>
   );
 };
