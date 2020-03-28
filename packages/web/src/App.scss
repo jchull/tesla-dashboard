@@ -155,6 +155,10 @@ body,
   display: flex;
   flex-direction: column;
 
+  &.stretch {
+    flex: 1 1 auto;
+  }
+
   > div {
     flex: 1 1 100%;
   }
