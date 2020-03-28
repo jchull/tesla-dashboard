@@ -2,7 +2,7 @@ import {
   ChargeSession,
   ChargeState,
   DriveSession,
-  DriveState
+  DriveState, QueryResult
 } from '@teslapp/common';
 import { ApiType } from '@teslapp/web/src/service';
 import { createAction } from '@reduxjs/toolkit';
@@ -12,6 +12,9 @@ export interface SessionState {
   sessions: (ChargeSession | DriveSession)[];
   selectedSessionId?: string;
   selectedSessionStates?: ChargeState[] | DriveState[];
+  loading?: boolean;
+  loadedCount?: number;
+  totalCount?: number;
 }
 
 export enum SessionActionType {
@@ -42,9 +45,9 @@ export const fetchSessionListFail = createAction(
 
 export const fetchSessionListSuccess = createAction(
   SessionActionType.FETCH_SESSION_LIST__SUCCESS,
-  (sessions) => ({
+  (result: QueryResult) => ({
     payload: {
-      sessions
+      result
     }
   })
 );
@@ -74,15 +77,15 @@ export const fetchSessionDetailsSuccess = createAction(
   })
 );
 
-export const fetchSessionListAction = (id: string) => async (
+export const fetchSessionListAction = (id: string, page: {current: number, size: number}) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchSessionListStart());
-  return extraArgument.api.queryService.getRecentSessions(id, 200).then(
+  return extraArgument.api.queryService.getRecentSessions(id, page).then(
     (result) => {
-      dispatch(fetchSessionListSuccess(result.results));
+      dispatch(fetchSessionListSuccess(result));
     },
     (error: any) => {
       dispatch(fetchSessionListFail());
