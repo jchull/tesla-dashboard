@@ -24,7 +24,7 @@ export class QueryService {
 
   async getRecentSessions(
     id: string,
-    limit = 1
+    page: {current: number, size: number}
   ): Promise<QueryResult> {
     const result = await this.api.post(
       '/session',
@@ -34,7 +34,7 @@ export class QueryService {
               field: 'start_date',
               desc: true
             }],
-            page: {currentPage: 0, itemsPerPage: limit},
+            page: {currentPage: page.current, itemsPerPage: page.size},
             predicates: [
               {
                 operator: Operator.EQ,
