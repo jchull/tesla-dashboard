@@ -1,44 +1,72 @@
-import { SessionState, SessionActionType } from './actions';
-import { createReducer } from '@reduxjs/toolkit';
+import {SessionActionType, SessionState} from './actions';
+import {createReducer} from '@reduxjs/toolkit';
+import {QueryResult} from '@teslapp/common';
 
 const initialState: SessionState = {
-  sessions: []
+  sessions: [],
+  loading: true,
+  loadedCount: 0,
+  totalCount: 0
 };
 
 export const sessionListReducer = createReducer(initialState, {
-  // [SessionActionType.FETCH_SESSION_DETAILS__START]: (state, action) => {},
-  // [SessionActionType.FETCH_SESSION_DETAILS__FAIL]: (state, action) => {},
-  [SessionActionType.FETCH_SESSION_DETAILS__SUCCESS]: (state, action) => {
-    state.selectedSessionStates = action.payload.selectedSessionStates;
-  },
   [SessionActionType.SELECT_SESSION]: (state, action) => {
     state.selectedSessionId = action.payload.selectedSessionId;
   },
-  // [SessionActionType.FETCH_SESSION_LIST__START]: (state, action) => {},
-  [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
-    state.sessions = action.payload.sessions ?? [];
-    state.selectedSessionId = action.payload.selectedSessionId;
+
+  // Session details fetching
+  [SessionActionType.FETCH_SESSION_DETAILS__START]: (state, action) => {
+    state.selectedSessionStates = undefined;
+    state.loading = true;
   },
-  // [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {
-  //TODO: add failure message
-  // },
+  [SessionActionType.FETCH_SESSION_DETAILS__FAIL]: (state, action) => {
+    state.selectedSessionId = undefined;
+    state.selectedSessionStates = undefined;
+    state.loading = false;
+  },
+  [SessionActionType.FETCH_SESSION_DETAILS__SUCCESS]: (state, action) => {
+    state.selectedSessionStates = action.payload.selectedSessionStates;
+    state.loading = false;
+  },
+
+  // session list fetching
+  [SessionActionType.FETCH_SESSION_LIST__START]: (state, action) => {
+    state.loading = true;
+  },
+  [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
+    const result = action.payload.result as QueryResult;
+    if(result.results.length){
+      state.sessions = state.sessions.concat(...result.results);
+    }
+    state.loadedCount = state.sessions.length;
+    state.totalCount = result.page.totalCount;
+    state.loading = false;
+  },
+  [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {
+    // TODO: add failure message
+    state.loading = false;
+  },
+
+  // tags
   [SessionActionType.ADD_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
-      (session) => session._id === action.payload.sessionId
+        (session) => session._id === action.payload.sessionId
     );
     state.sessions[sessionIndex].tags.push(action.payload.tag);
   },
   [SessionActionType.REMOVE_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
-      (session) => session._id === action.payload.sessionId
+        (session) => session._id === action.payload.sessionId
     );
     state.sessions[sessionIndex].tags = state.sessions[
-      sessionIndex
-    ].tags.filter((tag) => action.payload.tag !== tag);
+        sessionIndex
+        ].tags.filter((tag) => action.payload.tag !== tag);
   },
+
+  // session actions
   [SessionActionType.REMOVE_SESSION__SUCCESS]: (state, action) => {
     state.sessions = state.sessions.filter(
-      (session) => session._id !== action.payload.sessionId
+        (session) => session._id !== action.payload.sessionId
     );
     if (state.selectedSessionId === action.payload.sessionId) {
       state.selectedSessionId = state.sessions[0]._id;
