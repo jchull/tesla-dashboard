@@ -127,10 +127,12 @@ export class SessionService {
     const vehicleId = query.predicates.find((p) => p.field === 'vehicle').value;
     if (query.type === 'drive') {
       const criteria = {vehicle: {_id: vehicleId, username}};
-      const count = await this.driveSessionModel.countDocuments().setQuery(criteria);
-      const mongooseQuery = this.driveSessionModel.find()
-                                .setQuery(criteria)
-                                .skip(query.page.itemsPerPage * query.page.currentPage)
+      const countQuery = this.driveSessionModel.countDocuments();
+      countQuery.setQuery(criteria);
+      const count = await countQuery.exec();
+      const mongooseQuery = this.driveSessionModel.find();
+      mongooseQuery.setQuery(criteria);
+      mongooseQuery.skip(query.page.itemsPerPage * query.page.currentPage)
                                 .limit(query.page.itemsPerPage);
       if(query.sort){
         const { field, desc } = query.sort[0];
