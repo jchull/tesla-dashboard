@@ -24,7 +24,7 @@ export const productListReducer = createReducer(initialState, {
 
     // if previously-selected product is not found in the new products list, select the first product in the list
     if (
-      !state.selectedProductId ??
+      !state.selectedProductId ||
       !action.payload.products.find(
         (product: Product) => product._id === state.selectedProductId
       )
