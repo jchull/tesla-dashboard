@@ -12,7 +12,7 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
   return (
     <div className="session-list">
       <div className="sessions">
-        {// @ts-ignore
+        {
         props.sessions.length &&
           props.sessions.map((session) => (
             <SessionListItem
