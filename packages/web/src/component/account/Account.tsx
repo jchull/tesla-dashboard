@@ -16,7 +16,7 @@ export const AccountComponent: FC = () => {
   const history = useHistory();
   const auth = useSelector((store: AppState) => store.auth);
   const [formData, setFormData] = useState({
-    username: auth.username ?? '',
+    username: auth.username || '',
     email: '',
     password1: '',
     password2: '',
