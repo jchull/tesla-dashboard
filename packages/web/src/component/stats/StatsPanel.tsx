@@ -15,13 +15,19 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
       store.session.loadedCount);
   const totalCount = useSelector((store: AppState) =>
       store.session.totalCount);
+  const loading = useSelector((store: AppState) =>
+      store.session.loading);
 
 
   return (
     <div className="card">
       <h5>Stats</h5>
       <div>Selected Session: {selectedSessionId || '-'}</div>
-      <div>Paging: {loadedCount}/{totalCount}</div>
+      <div>Showing {loadedCount} of {totalCount}</div>
+      {
+        loading &&
+        <div>loading...</div>
+      }
     </div>
   );
 };
