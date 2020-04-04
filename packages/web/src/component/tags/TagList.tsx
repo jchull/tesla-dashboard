@@ -17,7 +17,7 @@ export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
   ));
   return (
     <div className="card tag-list">
-      <div>Tags</div>
+      <h5>Tags</h5>
       {tags}
       {props.addListener && <TagInput addListener={props.addListener} />}
     </div>
