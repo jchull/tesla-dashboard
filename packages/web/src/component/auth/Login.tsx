@@ -37,7 +37,7 @@ export const LoginComponent = () => {
   }, [loggedIn]);
 
   return (
-    <div>
+    <div className="login">
       {loggedIn ? (
         <Redirect to={location} />
       ) : (
