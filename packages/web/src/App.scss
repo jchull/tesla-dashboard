@@ -2,11 +2,8 @@ body,
 #root,
 .app {
   margin: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
 
   .card {
@@ -58,7 +55,7 @@ body,
     top: 50px;
     left: 0;
     right: 0;
-    bottom: 20px;
+    bottom: 21px;
     background: #f0ede2;
 
     > div {
@@ -100,16 +97,34 @@ body,
         display: block;
         line-height: 24px;
         border-radius: 4px;
-        margin: 6px;
-        width: 320px;
+        width: 100%;
       }
     }
 
     .links {
       margin: 20px 12px;
+      display: flex;
       a {
-        margin: 4px 12px;
+        text-align: center;
+        flex: 0 1 100%;
+        display: block;
+        color: #333333;
+        text-decoration: none;
+
+        &:hover {
+          text-shadow: 1px 1px 2px #555555;
+        }
       }
+    }
+
+    .form-submit {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #e1e1e1;
+      background: #333333;
+      width: 100%;
+      margin: 20px 0;
     }
   }
 
