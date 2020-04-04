@@ -17,7 +17,7 @@ export const CommandPanel: React.FC<CommandState> = (props) => {
 
   return (
     <div className="card">
-      commands
+      <h5>Commands</h5>
       <SessionToolbar sessionId={selectedSessionId} />
 
     </div>
