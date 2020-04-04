@@ -10,10 +10,10 @@ import { Home } from '@teslapp/web/src/component/view/Home';
 import { TeslaAccountListComponent } from '@teslapp/web/src/component/account/TeslaAccountList';
 import { SyncPreferencesList } from '@teslapp/web/src/component/account/SyncPreferencesList';
 import { ForgotPassword } from '@teslapp/web/src/component/auth/Forgot';
-import { ProductSessionView } from '@teslapp/web/src/component/view/ProductSessionView';
 import { AppState } from '@teslapp/web/src/store';
 import { MainMenu } from '@teslapp/web/src/component/common/MainMenu';
 import { UserPreferences } from '@teslapp/web/src/component/account/UserPreferences';
+import {Dashboard} from './component/view/Dashboard';
 
 const NotFound = () => (
   <div className="not-found">
@@ -54,7 +54,7 @@ export const App: FC = () => {
           />
           <PrivateRoute
             path="/dashboard"
-            component={ProductSessionView}
+            component={Dashboard}
             auth={auth}
           />
           <Route component={NotFound} />
