@@ -9,7 +9,8 @@ export const FilterPanel: React.FC<FilterState> = (props) => {
 
   return (
     <div className="card">
-      filters
+      <h5>Filters</h5>
+      <div></div>
       <FilterToolbar />
     </div>
   );
