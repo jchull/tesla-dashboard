@@ -125,6 +125,7 @@ export class SessionService {
 
   async findSessions(username: string, query: QuerySet): Promise<QueryResult> {
     const vehicleId = query.predicates.find((p) => p.field === 'vehicle').value;
+    const skip = query.page.start;
     if (query.type === 'drive') {
       const criteria = {vehicle: {_id: vehicleId, username}};
       const countQuery = this.driveSessionModel.countDocuments();
@@ -132,8 +133,8 @@ export class SessionService {
       const count = await countQuery.exec();
       const mongooseQuery = this.driveSessionModel.find();
       mongooseQuery.setQuery(criteria);
-      mongooseQuery.skip(query.page.itemsPerPage * query.page.currentPage)
-                                .limit(query.page.itemsPerPage);
+      mongooseQuery.skip(query.page.start)
+                                .limit(query.page.size);
       if(query.sort){
         const { field, desc } = query.sort[0];
         mongooseQuery.sort(`${desc? '-':''}${field}`);
@@ -141,7 +142,7 @@ export class SessionService {
       const result = await mongooseQuery.exec();
 
       return {
-        page: {itemsPerPage: result.length, currentPage: 0, totalCount: count},
+        page: {size: result.length, start: skip, total: count},
         results: result
       };
     }

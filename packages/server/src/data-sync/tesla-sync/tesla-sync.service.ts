@@ -45,7 +45,7 @@ export class TeslaSyncService {
 
           const activeSession = (await this.sessionService.findSessions(
             product.username,
-              {predicates: [{priority: 1, operator: Operator.EQ, value: product, field: 'vehicle'}], page: {itemsPerPage: 1, currentPage: 0}, type: 'drive'}
+              {predicates: [{operator: Operator.EQ, value: product, field: 'vehicle'}], page: {size: 1, start: 0}, type: 'drive'}
           )).results;
           if (!activeSession) {
             console.log('no recent sessions found');
