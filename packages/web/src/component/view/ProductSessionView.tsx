@@ -48,7 +48,7 @@ export const ProductSessionView: React.FC = () => {
         (product) => product._id === selectedProductId
       );
       if (selectedProduct) {
-        dispatch(fetchSessionListAction(selectedProductId, {current: 0, size: 100}));
+        dispatch(fetchSessionListAction(selectedProductId, {start: 0, size: 100}));
       }
     }
   }, [selectedProductId]);
@@ -65,8 +65,7 @@ export const ProductSessionView: React.FC = () => {
   }, [selectedSessionId]);
 
   return (
-    <div>
-      <ProductList products={products} selectedProductId={selectedProductId} />
+    <>
         <div className="block-flow">
           <SessionList
             sessions={sessions}
@@ -82,6 +81,6 @@ export const ProductSessionView: React.FC = () => {
                 <FilterPanel/>
               </div>
         </div>
-    </div>
+    </>
   );
 };

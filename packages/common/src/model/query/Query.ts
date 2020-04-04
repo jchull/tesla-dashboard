@@ -25,9 +25,9 @@ export interface Sort {
 }
 
 interface Pagination {
-  itemsPerPage: number,
-  currentPage?: number,
-  totalCount?: number,
+  size: number,
+  start: number,
+  total?: number,
 }
 
 
@@ -47,7 +47,7 @@ export interface QueryResult {
 export function decodeRequest(body:any): QuerySet {
   return {
     type: body.type,
-    page: body.page ?? {itemsPerPage: 100, currentPage: 0},
+    page: body.page ?? {size: 100, start: 0},
     sort: body.sort ?? undefined,
     predicates: body.predicates
   }

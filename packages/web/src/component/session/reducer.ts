@@ -35,11 +35,18 @@ export const sessionListReducer = createReducer(initialState, {
   },
   [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
     const result = action.payload.result as QueryResult;
-    if(result.results.length){
-      state.sessions = state.sessions.concat(...result.results);
+    if (result.results.length) {
+      const sessions = state.sessions.concat(...result.results)
+                            .reduce((acc, cur) => {
+                              if (!acc.find((existing) => existing._id === cur._id)) {
+                                return acc.concat([cur]);
+                              }
+                              return acc;
+                            }, []);
+      state.loadedCount = sessions.length;
+      state.sessions = sessions;
     }
-    state.loadedCount = state.sessions.length;
-    state.totalCount = result.page.totalCount;
+    state.totalCount = result.page.total;
     state.loading = false;
   },
   [SessionActionType.FETCH_SESSION_LIST__FAIL]: (state, action) => {

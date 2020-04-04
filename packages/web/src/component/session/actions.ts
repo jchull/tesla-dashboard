@@ -1,12 +1,7 @@
-import {
-  ChargeSession,
-  ChargeState,
-  DriveSession,
-  DriveState, QueryResult
-} from '@teslapp/common';
-import { ApiType } from '@teslapp/web/src/service';
-import { createAction } from '@reduxjs/toolkit';
-import { batch } from 'react-redux';
+import {ChargeSession, ChargeState, DriveSession, DriveState, QueryResult} from '@teslapp/common';
+import {ApiType} from '@teslapp/web/src/service';
+import {createAction} from '@reduxjs/toolkit';
+import {batch} from 'react-redux';
 
 export interface SessionState {
   sessions: (ChargeSession | DriveSession)[];
@@ -19,6 +14,7 @@ export interface SessionState {
 
 export enum SessionActionType {
   FETCH_SESSION_LIST__START = 'FETCH_SESSION_LIST__START',
+  FETCH_SESSION_PAGE__START = 'FETCH_SESSION_PAGE__START',
   FETCH_SESSION_LIST__FAIL = 'FETCH_SESSION_LIST__FAIL',
   FETCH_SESSION_LIST__SUCCESS = 'FETCH_SESSION_LIST__SUCCESS',
   SELECT_SESSION = 'SELECT_SESSION',
@@ -37,178 +33,191 @@ export enum SessionActionType {
 }
 
 export const fetchSessionListStart = createAction(
-  SessionActionType.FETCH_SESSION_LIST__START
+    SessionActionType.FETCH_SESSION_LIST__START
 );
+
+export const fetchSessionListPage = createAction(
+    SessionActionType.FETCH_SESSION_PAGE__START
+);
+
 export const fetchSessionListFail = createAction(
-  SessionActionType.FETCH_SESSION_LIST__FAIL
+    SessionActionType.FETCH_SESSION_LIST__FAIL,
+    (error: any) => ({
+      payload: error
+    })
 );
 
 export const fetchSessionListSuccess = createAction(
-  SessionActionType.FETCH_SESSION_LIST__SUCCESS,
-  (result: QueryResult) => ({
-    payload: {
-      result
-    }
-  })
+    SessionActionType.FETCH_SESSION_LIST__SUCCESS,
+    (result: QueryResult) => ({
+      payload: {
+        result
+      }
+    })
 );
 
 export const selectSession = createAction(
-  SessionActionType.SELECT_SESSION,
-  (selectedSessionId: string) => ({
-    payload: {
-      selectedSessionId
-    }
-  })
+    SessionActionType.SELECT_SESSION,
+    (selectedSessionId: string) => ({
+      payload: {
+        selectedSessionId
+      }
+    })
 );
 
 export const fetchSessionDetailsStart = createAction(
-  SessionActionType.FETCH_SESSION_DETAILS__START
+    SessionActionType.FETCH_SESSION_DETAILS__START
 );
 export const fetchSessionDetailsFail = createAction(
-  SessionActionType.FETCH_SESSION_DETAILS__FAIL
+    SessionActionType.FETCH_SESSION_DETAILS__FAIL
 );
 
 export const fetchSessionDetailsSuccess = createAction(
-  SessionActionType.FETCH_SESSION_DETAILS__SUCCESS,
-  (states) => ({
-    payload: {
-      selectedSessionStates: states
-    }
-  })
+    SessionActionType.FETCH_SESSION_DETAILS__SUCCESS,
+    (states) => ({
+      payload: {
+        selectedSessionStates: states
+      }
+    })
 );
 
-export const fetchSessionListAction = (id: string, page: {current: number, size: number}) => async (
-  dispatch: any,
-  getState: any,
-  extraArgument: { api: ApiType }
+export const fetchSessionListAction = (id: string, page: { start: number, size: number }) => async (
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchSessionListStart());
-  return extraArgument.api.queryService.getRecentSessions(id, page).then(
-    (result) => {
-      dispatch(fetchSessionListSuccess(result));
-    },
-    (error: any) => {
-      dispatch(fetchSessionListFail());
-    }
-  );
+  return extraArgument.api.queryService.getRecentSessions(id, page)
+                      .then(
+                          (result) => {
+                            dispatch(fetchSessionListSuccess(result));
+                          },
+                          (error: any) => {
+                            dispatch(fetchSessionListFail(error));
+                          }
+                      );
 };
 
 export const fetchSessionDetailsAction = (sessionId: string) => async (
-  dispatch: any,
-  getState: any,
-  extraArgument: { api: ApiType }
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchSessionDetailsStart());
-  return extraArgument.api.queryService.getSessionDetails(sessionId).then(
-    (result: DriveState[] | ChargeState[]) => {
-      dispatch(fetchSessionDetailsSuccess(result));
-    },
-    (error: any) => {
-      dispatch(fetchSessionDetailsFail());
-    }
-  );
+  return extraArgument.api.queryService.getSessionDetails(sessionId)
+                      .then(
+                          (result: DriveState[] | ChargeState[]) => {
+                            dispatch(fetchSessionDetailsSuccess(result));
+                          },
+                          (error: any) => {
+                            dispatch(fetchSessionDetailsFail());
+                          }
+                      );
 };
 
 export const addSessionTagStart = createAction(
-  SessionActionType.ADD_SESSION_TAG__START
+    SessionActionType.ADD_SESSION_TAG__START
 );
 export const addSessionTagFail = createAction(
-  SessionActionType.ADD_SESSION_TAG__FAIL
+    SessionActionType.ADD_SESSION_TAG__FAIL
 );
 export const addSessionTagSuccess = createAction(
-  SessionActionType.ADD_SESSION_TAG__SUCCESS,
-  (sessionId: string, tag: string) => ({
-    payload: {
-      tag,
-      sessionId
-    }
-  })
+    SessionActionType.ADD_SESSION_TAG__SUCCESS,
+    (sessionId: string, tag: string) => ({
+      payload: {
+        tag,
+        sessionId
+      }
+    })
 );
 
 export const addSessionTagAction = (sessionId: string, tag: string) => async (
-  dispatch: any,
-  getState: any,
-  extraArgument: { api: ApiType }
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(addSessionTagStart());
-  return extraArgument.api.queryService.addTag(sessionId, tag).then(
-    (result) => {
-      batch(() => {
-        dispatch(addSessionTagSuccess(sessionId, tag));
-      });
-    },
-    (error: any) => {
-      dispatch(addSessionTagFail());
-    }
-  );
+  return extraArgument.api.queryService.addTag(sessionId, tag)
+                      .then(
+                          (result) => {
+                            batch(() => {
+                              dispatch(addSessionTagSuccess(sessionId, tag));
+                            });
+                          },
+                          (error: any) => {
+                            dispatch(addSessionTagFail());
+                          }
+                      );
 };
 
 export const removeSessionTagStart = createAction(
-  SessionActionType.REMOVE_SESSION_TAG__START
+    SessionActionType.REMOVE_SESSION_TAG__START
 );
 export const removeSessionTagFail = createAction(
-  SessionActionType.REMOVE_SESSION_TAG__FAIL
+    SessionActionType.REMOVE_SESSION_TAG__FAIL
 );
 export const removeSessionTagSuccess = createAction(
-  SessionActionType.REMOVE_SESSION_TAG__SUCCESS,
-  (sessionId: string, tag: string) => ({
-    payload: {
-      tag,
-      sessionId
-    }
-  })
+    SessionActionType.REMOVE_SESSION_TAG__SUCCESS,
+    (sessionId: string, tag: string) => ({
+      payload: {
+        tag,
+        sessionId
+      }
+    })
 );
 
 export const removeSessionTagAction = (
-  sessionId: string,
-  tag: string
+    sessionId: string,
+    tag: string
 ) => async (
-  dispatch: any,
-  getState: any,
-  extraArgument: { api: ApiType }
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(removeSessionTagStart());
-  return extraArgument.api.queryService.removeTag(sessionId, tag).then(
-    (result) => {
-      batch(() => {
-        dispatch(removeSessionTagSuccess(sessionId, tag));
-      });
-    },
-    (error: any) => {
-      dispatch(removeSessionTagFail());
-    }
-  );
+  return extraArgument.api.queryService.removeTag(sessionId, tag)
+                      .then(
+                          (result) => {
+                            batch(() => {
+                              dispatch(removeSessionTagSuccess(sessionId, tag));
+                            });
+                          },
+                          (error: any) => {
+                            dispatch(removeSessionTagFail());
+                          }
+                      );
 };
 
 export const removeSessionStart = createAction(
-  SessionActionType.REMOVE_SESSION__START
+    SessionActionType.REMOVE_SESSION__START
 );
 export const removeSessionFail = createAction(
-  SessionActionType.REMOVE_SESSION__FAIL
+    SessionActionType.REMOVE_SESSION__FAIL
 );
 export const removeSessionSuccess = createAction(
-  SessionActionType.REMOVE_SESSION__SUCCESS,
-  (sessionId: string) => ({
-    payload: {
-      sessionId
-    }
-  })
+    SessionActionType.REMOVE_SESSION__SUCCESS,
+    (sessionId: string) => ({
+      payload: {
+        sessionId
+      }
+    })
 );
 
 export const removeSessionAction = (sessionId: string) => async (
-  dispatch: any,
-  getState: any,
-  extraArgument: { api: ApiType }
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(removeSessionStart());
-  return extraArgument.api.queryService.removeSession(sessionId).then(
-    () => {
-      batch(() => {
-        dispatch(removeSessionSuccess(sessionId));
-      });
-    },
-    (error: any) => {
-      dispatch(removeSessionFail());
-    }
-  );
+  return extraArgument.api.queryService.removeSession(sessionId)
+                      .then(
+                          () => {
+                            batch(() => {
+                              dispatch(removeSessionSuccess(sessionId));
+                            });
+                          },
+                          (error: any) => {
+                            dispatch(removeSessionFail());
+                          }
+                      );
 };
