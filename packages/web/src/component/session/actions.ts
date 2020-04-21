@@ -7,6 +7,7 @@ export interface SessionState {
   sessions: (ChargeSession | DriveSession)[];
   selectedSessionId?: string;
   selectedSessionStates?: ChargeState[] | DriveState[];
+  filters?: { include: string[], exclude: string[] };
   loading?: boolean;
   loadedCount?: number;
   totalCount?: number;
@@ -29,7 +30,8 @@ export enum SessionActionType {
   REMOVE_SESSION_TAG__SUCCESS = 'REMOVE_SESSION_TAG__SUCCESS',
   REMOVE_SESSION__START = 'REMOVE_SESSION__START',
   REMOVE_SESSION__FAIL = 'REMOVE_SESSION__FAIL',
-  REMOVE_SESSION__SUCCESS = 'REMOVE_SESSION__SUCCESS'
+  REMOVE_SESSION__SUCCESS = 'REMOVE_SESSION__SUCCESS',
+  UPDATE_FILTERS = 'UPDATE_FILTERS'
 }
 
 export const fetchSessionListStart = createAction(
@@ -61,6 +63,15 @@ export const selectSession = createAction(
     (selectedSessionId: string) => ({
       payload: {
         selectedSessionId
+      }
+    })
+);
+
+export const updateFilters = createAction(
+    SessionActionType.UPDATE_FILTERS,
+    (filters: any) => ({
+      payload: {
+        //TODO: update filters in store, then requery
       }
     })
 );
