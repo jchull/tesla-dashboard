@@ -134,10 +134,10 @@ export class SessionService {
       const mongooseQuery = this.driveSessionModel.find();
       mongooseQuery.setQuery(criteria);
       mongooseQuery.skip(query.page.start)
-                                .limit(query.page.size);
-      if(query.sort){
-        const { field, desc } = query.sort[0];
-        mongooseQuery.sort(`${desc? '-':''}${field}`);
+                   .limit(query.page.size);
+      if (query.sort) {
+        const {field, desc} = query.sort[0];
+        mongooseQuery.sort(`${desc ? '-' : ''}${field}`);
       }
       const result = await mongooseQuery.exec();
 
