@@ -77,6 +77,13 @@ export class QueryService {
     return result && result.data;
   }
 
+  async getAllTags(): Promise<string[]> {
+    const result = await this.api.get(
+        '/tags'
+    );
+    return result && result.data;
+  }
+
   async removeSession(sessionId: string): Promise<string[]> {
     const result = await this.api.delete(`/session/${sessionId}`);
     return result && result.data;
