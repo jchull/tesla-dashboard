@@ -1,18 +1,14 @@
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchSessionListAction
-} from '@teslapp/web/src/component/session/actions';
+import { fetchSessionListAction } from '@teslapp/web/src/component/session/actions';
 import { AppState } from '@teslapp/web/src/store';
 import { ProductList } from '@teslapp/web/src/component/product';
-import {ProductSessionView} from './ProductSessionView';
+import { ProductSessionView } from './ProductSessionView';
 
 export enum DASHBOARD {
   OVERVIEW = 'OVERVIEW',
   SESSION = 'SESSION'
 }
-
-
 
 export const Dashboard: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,14 +24,9 @@ export const Dashboard: React.FC = () => {
   const viewMemo = useMemo(() => {
     switch (dashboardView) {
       case DASHBOARD.SESSION:
-        return (
-          <ProductSessionView/>
-        );
+        return <ProductSessionView />;
       case DASHBOARD.OVERVIEW:
-        return (
-            <h2>overview</h2>
-        )
-
+        return <h2>overview</h2>;
     }
   }, [dashboardView]);
 
@@ -45,23 +36,25 @@ export const Dashboard: React.FC = () => {
         (product) => product._id === selectedProductId
       );
       if (selectedProduct) {
-        dispatch(fetchSessionListAction(selectedProductId, {start: 0, size: 100}));
+        dispatch(
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
+        );
       }
     }
   }, [selectedProductId]);
-
 
   return (
     <div>
       <ProductList products={products} selectedProductId={selectedProductId} />
       <div>
-        <button onClick={() => setDashboardView(DASHBOARD.OVERVIEW)}>Overview</button>
-        <button onClick={() => setDashboardView(DASHBOARD.SESSION)}>Session</button>
-
+        <button onClick={() => setDashboardView(DASHBOARD.OVERVIEW)}>
+          Overview
+        </button>
+        <button onClick={() => setDashboardView(DASHBOARD.SESSION)}>
+          Session
+        </button>
       </div>
-        <div className="block-flow">
-          {viewMemo}
-        </div>
+      <div className="block-flow">{viewMemo}</div>
     </div>
   );
 };

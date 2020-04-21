@@ -13,7 +13,7 @@ import { ForgotPassword } from '@teslapp/web/src/component/auth/Forgot';
 import { AppState } from '@teslapp/web/src/store';
 import { MainMenu } from '@teslapp/web/src/component/common/MainMenu';
 import { UserPreferences } from '@teslapp/web/src/component/account/UserPreferences';
-import {Dashboard} from './component/view/Dashboard';
+import { Dashboard } from './component/view/Dashboard';
 
 const NotFound = () => (
   <div className="not-found">
@@ -52,11 +52,7 @@ export const App: FC = () => {
             component={AccountComponent}
             auth={auth}
           />
-          <PrivateRoute
-            path="/dashboard"
-            component={Dashboard}
-            auth={auth}
-          />
+          <PrivateRoute path="/dashboard" component={Dashboard} auth={auth} />
           <Route component={NotFound} />
         </Switch>
       </div>

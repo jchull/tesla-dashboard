@@ -1,6 +1,6 @@
-import {SessionActionType, SessionState} from './actions';
-import {createReducer} from '@reduxjs/toolkit';
-import {QueryResult} from '@teslapp/common';
+import { SessionActionType, SessionState } from './actions';
+import { createReducer } from '@reduxjs/toolkit';
+import { QueryResult } from '@teslapp/common';
 
 const initialState: SessionState = {
   sessions: [],
@@ -36,13 +36,14 @@ export const sessionListReducer = createReducer(initialState, {
   [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
     const result = action.payload.result as QueryResult;
     if (result.results.length) {
-      const sessions = state.sessions.concat(...result.results)
-                            .reduce((acc, cur) => {
-                              if (!acc.find((existing) => existing._id === cur._id)) {
-                                return acc.concat([cur]);
-                              }
-                              return acc;
-                            }, []);
+      const sessions = state.sessions
+        .concat(...result.results)
+        .reduce((acc, cur) => {
+          if (!acc.find((existing) => existing._id === cur._id)) {
+            return acc.concat([cur]);
+          }
+          return acc;
+        }, []);
       state.loadedCount = sessions.length;
       state.sessions = sessions;
     }
@@ -57,23 +58,23 @@ export const sessionListReducer = createReducer(initialState, {
   // tags
   [SessionActionType.ADD_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
-        (session) => session._id === action.payload.sessionId
+      (session) => session._id === action.payload.sessionId
     );
     state.sessions[sessionIndex].tags.push(action.payload.tag);
   },
   [SessionActionType.REMOVE_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
-        (session) => session._id === action.payload.sessionId
+      (session) => session._id === action.payload.sessionId
     );
     state.sessions[sessionIndex].tags = state.sessions[
-        sessionIndex
-        ].tags.filter((tag) => action.payload.tag !== tag);
+      sessionIndex
+    ].tags.filter((tag) => action.payload.tag !== tag);
   },
 
   // session actions
   [SessionActionType.REMOVE_SESSION__SUCCESS]: (state, action) => {
     state.sessions = state.sessions.filter(
-        (session) => session._id !== action.payload.sessionId
+      (session) => session._id !== action.payload.sessionId
     );
     if (state.selectedSessionId === action.payload.sessionId) {
       state.selectedSessionId = state.sessions[0]._id;

@@ -12,9 +12,9 @@ import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagLis
 import { SessionToolbar } from '@teslapp/web/src/component/toolbar/SessionToolbar';
 import { createSelector } from '@reduxjs/toolkit';
 import { fetchProductListAction } from '@teslapp/web/src/component/product/actions';
-import {StatsPanel} from '../stats/StatsPanel';
-import {FilterPanel} from '../filter/FilterPanel';
-import {CommandPanel} from '../command/CommandPanel';
+import { StatsPanel } from '../stats/StatsPanel';
+import { FilterPanel } from '../filter/FilterPanel';
+import { CommandPanel } from '../command/CommandPanel';
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,9 @@ export const ProductSessionView: React.FC = () => {
         (product) => product._id === selectedProductId
       );
       if (selectedProduct) {
-        dispatch(fetchSessionListAction(selectedProductId, {start: 0, size: 100}));
+        dispatch(
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
+        );
       }
     }
   }, [selectedProductId]);
@@ -66,21 +68,21 @@ export const ProductSessionView: React.FC = () => {
 
   return (
     <>
-        <div className="block-flow">
-          <SessionList
-            sessions={sessions}
-            selectedSessionId={selectedSessionId}
-          />
-            <div className="vertical-flex">
-              <LineChart datum={selectedSessionStates} />
-              <SessionTagList />
-              <CommandPanel/>
-            </div>
-              <div className="vertical-flex stretch">
-                <StatsPanel/>
-                <FilterPanel/>
-              </div>
+      <div className="block-flow">
+        <SessionList
+          sessions={sessions}
+          selectedSessionId={selectedSessionId}
+        />
+        <div className="vertical-flex">
+          <LineChart datum={selectedSessionStates} />
+          <SessionTagList />
+          <CommandPanel />
         </div>
+        <div className="vertical-flex stretch">
+          <StatsPanel />
+          <FilterPanel />
+        </div>
+      </div>
     </>
   );
 };

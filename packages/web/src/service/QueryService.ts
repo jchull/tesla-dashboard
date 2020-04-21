@@ -3,8 +3,10 @@ import {
   ChargeSession,
   ChargeState,
   DriveSession,
-  DriveState, Operator,
-  Product, QueryResult
+  DriveState,
+  Operator,
+  Product,
+  QueryResult
 } from '@teslapp/common';
 
 export class QueryService {
@@ -24,26 +26,25 @@ export class QueryService {
 
   async getRecentSessions(
     id: string,
-    page: {start: number, size: number}
+    page: { start: number; size: number }
   ): Promise<QueryResult> {
-    const result = await this.api.post(
-      '/session',
+    const result = await this.api.post('/session', {
+      type: 'drive',
+      sort: [
         {
-            type: 'drive',
-            sort: [{
-              field: 'start_date',
-              desc: true
-            }],
-            page,
-            predicates: [
-              {
-                operator: Operator.EQ,
-                field: "vehicle",
-                value: id
-              }
-            ]
+          field: 'start_date',
+          desc: true
         }
-    );
+      ],
+      page,
+      predicates: [
+        {
+          operator: Operator.EQ,
+          field: 'vehicle',
+          value: id
+        }
+      ]
+    });
     return result && result.data;
   }
 
@@ -78,9 +79,7 @@ export class QueryService {
   }
 
   async getAllTags(): Promise<string[]> {
-    const result = await this.api.get(
-        '/tags'
-    );
+    const result = await this.api.get('/tags');
     return result && result.data;
   }
 
