@@ -15,7 +15,7 @@ import { ProductModule } from './product/product.module';
 import { AccountModule } from './account/account.module';
 import { AuthModule } from './auth/auth.module';
 import { SessionModule } from './session/session.module';
-import { TagModule} from './tag/tag.module';
+import { TagModule } from './tag/tag.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { FrontEndMiddlewareMiddleware } from './middleware/front-end-middleware.middleware';
 import { TeslaAccountModule } from './tesla-account/tesla-account.module';

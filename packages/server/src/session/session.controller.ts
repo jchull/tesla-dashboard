@@ -1,7 +1,15 @@
-import {Controller, Delete, Get, Param, Post, Request, UseGuards} from '@nestjs/common';
-import {SessionService} from './session.service';
-import {AuthGuard} from '@nestjs/passport';
-import {decodeRequest, QueryResult} from '@teslapp/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Request,
+  UseGuards
+} from '@nestjs/common';
+import { SessionService } from './session.service';
+import { AuthGuard } from '@nestjs/passport';
+import { decodeRequest, QueryResult } from '@teslapp/common';
 
 @Controller('session')
 export class SessionController {
@@ -12,10 +20,7 @@ export class SessionController {
   async findSessions(@Request() req): Promise<QueryResult> {
     const query = decodeRequest(req.body);
     // TODO: update this to be more generic once it is working, only looking at driving right now
-    return await this.sessionService.findSessions(
-        req.user.username,
-        query
-    );
+    return await this.sessionService.findSessions(req.user.username, query);
   }
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')

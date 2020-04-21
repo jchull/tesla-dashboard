@@ -1,4 +1,4 @@
-import {forwardRef, Module} from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { SessionController } from './session.controller';
 import { SessionService } from './session.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -9,7 +9,7 @@ import {
   DriveStateSchema,
   VehicleSchema
 } from '@teslapp/common';
-import {ProductModule} from '../product/product.module';
+import { ProductModule } from '../product/product.module';
 
 @Module({
   imports: [
