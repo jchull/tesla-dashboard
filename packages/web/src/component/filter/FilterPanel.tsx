@@ -1,11 +1,13 @@
 import React from 'react';
-import {FilterToolbar} from '../toolbar/FilterToolbar';
+import { FilterToolbar } from '../toolbar/FilterToolbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../store';
 
-interface FilterState {
-
-}
+interface FilterState {}
 
 export const FilterPanel: React.FC<FilterState> = (props) => {
+  const dispatch = useDispatch();
+  const filters = useSelector((store: AppState) => store.session.filters);
 
   return (
     <div className="card">
