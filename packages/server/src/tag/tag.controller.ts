@@ -27,8 +27,8 @@ export class TagController {
   // }
 
   @UseGuards(AuthGuard('jwt'))
-  @Get()
-  getSessionTags(@Request() req) {
-    return this.tagService.getTags(req.user.username);
+  @Get(':productId')
+  getSessionTags(@Request() req, @Param('productId') productId) {
+    return this.tagService.getTags(req.user.username, productId);
   }
 }
