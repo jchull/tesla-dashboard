@@ -6,12 +6,8 @@ import {
   fetchSessionListAction
 } from '@teslapp/web/src/component/session/actions';
 import { AppState } from '@teslapp/web/src/store';
-import { ProductList } from '@teslapp/web/src/component/product';
 import { LineChart } from '@teslapp/web/src/component/chart/LineChart';
 import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagList';
-import { SessionToolbar } from '@teslapp/web/src/component/toolbar/SessionToolbar';
-import { createSelector } from '@reduxjs/toolkit';
-import { fetchProductListAction } from '@teslapp/web/src/component/product/actions';
 import { StatsPanel } from '../stats/StatsPanel';
 import { FilterPanel } from '../filter/FilterPanel';
 import { CommandPanel } from '../command/CommandPanel';
@@ -30,12 +26,6 @@ export const ProductSessionView: React.FC = () => {
     store.session.selectedSessionId;
   const sessions = useSelector(sessionsSelector);
 
-  // const tagsSelector = createSelector([sessionsSelector, sessionIdSelector],
-  //                                     (sessions, selectedSessionId) => {
-  //                                       const session = sessions.find(session => session._id === selectedSessionId);
-  //                                       return tagsToDisplay(session && session.tags ? session.tags : []);
-  //                                     }
-  // );
 
   const selectedSessionId = useSelector(selectedSessionIdSelector);
   const selectedSessionStates = useSelector(
