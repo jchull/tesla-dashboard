@@ -17,6 +17,7 @@ export interface SessionState {
   loading?: boolean;
   loadedCount?: number;
   totalCount?: number;
+  availableTags?: string[]
 }
 
 export enum SessionActionType {
@@ -37,7 +38,10 @@ export enum SessionActionType {
   REMOVE_SESSION__START = 'REMOVE_SESSION__START',
   REMOVE_SESSION__FAIL = 'REMOVE_SESSION__FAIL',
   REMOVE_SESSION__SUCCESS = 'REMOVE_SESSION__SUCCESS',
-  UPDATE_FILTERS = 'UPDATE_FILTERS'
+  UPDATE_FILTERS = 'UPDATE_FILTERS',
+  FETCH_ALL_TAGS__START = 'FETCH_ALL_TAGS__START',
+  FETCH_ALL_TAGS__SUCCESS = 'FETCH_ALL_TAGS__SUCCESS',
+  FETCH_ALL_TAGS__FAIL = 'FETCH_ALL_TAGS__FAIL'
 }
 
 export const fetchSessionListStart = createAction(
@@ -82,6 +86,23 @@ export const updateFilters = createAction(
   })
 );
 
+export const fetchAllTagsStart = createAction(
+    SessionActionType.FETCH_ALL_TAGS__START
+);
+
+export const fetchAllTagsSuccess = createAction(
+    SessionActionType.FETCH_ALL_TAGS__SUCCESS,
+    (tags) => ({
+      payload: {
+        availableTags: tags
+      }
+    })
+);
+
+export const fetchAllTagsFail = createAction(
+    SessionActionType.FETCH_ALL_TAGS__FAIL
+);
+
 export const fetchSessionDetailsStart = createAction(
   SessionActionType.FETCH_SESSION_DETAILS__START
 );
@@ -97,6 +118,24 @@ export const fetchSessionDetailsSuccess = createAction(
     }
   })
 );
+
+export const fetchAllTagsAction = (
+    id: string
+) => async (
+    dispatch: any,
+    getState: any,
+    extraArgument: { api: ApiType }
+): Promise<any> => {
+  dispatch(fetchAllTagsStart());
+  return extraArgument.api.queryService.getAllTags(id).then(
+      (result) => {
+        dispatch(fetchAllTagsSuccess(result));
+      },
+      (error: any) => {
+        dispatch(fetchAllTagsFail());
+      }
+  );
+};
 
 export const fetchSessionListAction = (
   id: string,
