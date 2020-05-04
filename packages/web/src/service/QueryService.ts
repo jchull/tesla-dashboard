@@ -78,8 +78,8 @@ export class QueryService {
     return result && result.data;
   }
 
-  async getAllTags(): Promise<string[]> {
-    const result = await this.api.get('/tags');
+  async getAllTags(productId: string): Promise<string[]> {
+    const result = await this.api.get(`/tag/${productId}`);
     return result && result.data;
   }
 
