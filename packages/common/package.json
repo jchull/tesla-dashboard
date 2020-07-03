@@ -13,7 +13,7 @@
     "lint": "eslint --ext=jsx,ts,tsx src"
   },
   "dependencies": {
-    "mongoose": "^5.9.5"
+    "mongoose": "^5.9.21"
   },
   "directories": {
     "dist": "dist"
@@ -22,12 +22,12 @@
     "dist"
   ],
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/parser": "^7.8.8",
-    "@babel/preset-typescript": "^7.9.0",
-    "@babel/types": "^7.8.7",
-    "@types/mongoose": "^5.7.6",
+    "@babel/core": "^7.10.4",
+    "@babel/parser": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/types": "^7.10.4",
+    "@types/mongoose": "^5.7.29",
     "babel": "^6.23.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.6"
   }
 }
