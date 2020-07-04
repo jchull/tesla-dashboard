@@ -1,6 +1,6 @@
-import { Document, Schema } from "mongoose";
-import { DriveState } from "./DriveState";
-import { Vehicle } from "./types/tesla/Vehicle";
+import { Document, Schema } from 'mongoose'
+import { DriveState } from './DriveState'
+import { Vehicle } from './types/tesla/Vehicle'
 
 export interface DriveSession {
   _id: string;
@@ -21,9 +21,9 @@ export const DriveSessionSchema = new Schema({
   archived: { type: Boolean },
   distance: { type: Number },
   tags: { type: [String] },
-  first: { type: Schema.Types.ObjectId, ref: "DriveState" },
-  last: { type: Schema.Types.ObjectId, ref: "DriveState" },
-  vehicle: { type: Schema.Types.ObjectId, ref: "Vehicle" }
-});
+  first: { type: Schema.Types.ObjectId, ref: 'DriveState' },
+  last: { type: Schema.Types.ObjectId, ref: 'DriveState' },
+  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
+})
 
 export type DriveSessionType = DriveSession & Document;

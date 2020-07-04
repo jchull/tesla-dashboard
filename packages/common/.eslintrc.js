@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'eslint-plugin-prettier'],
   env: {
-    browser: false,
+    browser: true,
     node: true,
     es6: true
   },

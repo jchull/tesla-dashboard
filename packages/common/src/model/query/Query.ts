@@ -1,4 +1,4 @@
-import {SessionType} from '../util';
+import { SessionType } from '../util'
 
 export enum Operator {
   EQ = 'EQ',
@@ -32,7 +32,7 @@ interface Pagination {
 
 
 export interface QuerySet {
-  type: "session" | "charge" | "drive",
+  type: 'session' | 'charge' | 'drive',
   page: Pagination,
   sort?: [Sort],
   predicates: [Predicate]
@@ -44,12 +44,12 @@ export interface QueryResult {
 }
 
 
-export function decodeRequest(body:any): QuerySet {
+export function decodeRequest(body: any): QuerySet {
   return {
     type: body.type,
-    page: body.page ?? {size: 100, start: 0},
+    page: body.page ?? { size: 100, start: 0 },
     sort: body.sort ?? undefined,
-    predicates: body.predicates
+    predicates: body.predicates,
   }
 }
 

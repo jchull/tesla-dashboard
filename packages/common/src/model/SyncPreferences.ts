@@ -1,4 +1,4 @@
-import { Document, Schema } from "mongoose";
+import { Document, Schema } from 'mongoose'
 
 export interface SyncPreferences {
   _id: string;
@@ -21,7 +21,7 @@ export interface SyncPreferences {
 }
 
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
-  _id: "default",
+  _id: 'default',
   enabled: false,
   chargingMaxGapSeconds: 300,
   chargingMinDurationMinutes: 5,
@@ -31,8 +31,8 @@ export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   drivingMaxGapSeconds: 300,
   drivingPollingIntervalSeconds: 60,
   drivingMinDurationMinutes: 5,
-  sleepTriggerSeconds: 300
-};
+  sleepTriggerSeconds: 300,
+}
 
 export const SyncPreferencesSchema = new Schema({
   enabled: { type: Boolean },
@@ -45,7 +45,7 @@ export const SyncPreferencesSchema = new Schema({
   charging_costPerKwhHome: { type: Number },
   charging_costPerKwhSupercharging: { type: Number },
   charging_pollingIntervalsSeconds: { type: [Number, Number, Number] },
-  charging_maxGapSeconds: { type: Number }
-});
+  charging_maxGapSeconds: { type: Number },
+})
 
 export type SyncPreferencesType = SyncPreferences & Document;

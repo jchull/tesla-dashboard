@@ -1,6 +1,7 @@
-import { Document, Schema } from "mongoose";
-import { ChargeState } from "./ChargeState";
-import { Vehicle } from "./types/tesla/Vehicle";
+import { Document, Schema } from 'mongoose'
+import { ChargeState } from './ChargeState'
+import { Vehicle } from './types/tesla/Vehicle'
+
 export interface ChargeSession {
   _id: string;
   id_s: string;
@@ -64,9 +65,9 @@ export const ChargeSessionSchema = new Schema({
   scheduled_charging_start_time: { type: Number },
   trip_charging: { type: Boolean },
   tags: { type: [String] },
-  first: { type: Schema.Types.ObjectId, ref: "ChargeState" },
-  last: { type: Schema.Types.ObjectId, ref: "ChargeState" },
-  vehicle: { type: Schema.Types.ObjectId, ref: "Vehicle" }
-});
+  first: { type: Schema.Types.ObjectId, ref: 'ChargeState' },
+  last: { type: Schema.Types.ObjectId, ref: 'ChargeState' },
+  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
+})
 
 export type ChargeSessionType = ChargeSession & Document;
