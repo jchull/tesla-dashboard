@@ -25,5 +25,5 @@ export const VehicleSchema = new Schema({
   sync_state: { type: String },
 })
 
-export type VehicleType = Product & Document;
+export type VehicleType = Product & Document
 export { Product }

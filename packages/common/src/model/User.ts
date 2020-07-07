@@ -2,19 +2,19 @@ import { Document, Schema } from 'mongoose'
 
 export enum UserRoles {
   Standard,
-  Admin
+  Admin,
 }
 
-type TUserRoles = UserRoles.Standard | UserRoles.Admin;
+type TUserRoles = UserRoles.Standard | UserRoles.Admin
 
 export interface User {
-  _id?: string;
-  sub?: string;
-  username: string;
-  email?: string;
-  role?: TUserRoles;
-  password?: string;
-  pwdHash?: string;
+  _id?: string
+  sub?: string
+  username: string
+  email?: string
+  role?: TUserRoles
+  password?: string
+  pwdHash?: string
 }
 
 export const UserSchema = new Schema({
@@ -26,4 +26,4 @@ export const UserSchema = new Schema({
   vehicles: [{ type: Schema.Types.ObjectId, ref: 'Vehicle' }],
 })
 
-export type UserType = User & Document;
+export type UserType = User & Document

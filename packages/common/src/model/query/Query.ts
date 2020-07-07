@@ -9,40 +9,37 @@ export enum Operator {
   IN = 'IN',
   EX = 'EX',
   BEFORE = 'BEFORE',
-  AFTER = 'AFTER'
+  AFTER = 'AFTER',
 }
 
-
 export interface Predicate {
-  operator: Operator,
-  field: keyof SessionType,
+  operator: Operator
+  field: keyof SessionType
   value: any
 }
 
 export interface Sort {
-  field: keyof SessionType,
+  field: keyof SessionType
   desc?: boolean
 }
 
 interface Pagination {
-  size: number,
-  start: number,
-  total?: number,
+  size: number
+  start: number
+  total?: number
 }
 
-
 export interface QuerySet {
-  type: 'session' | 'charge' | 'drive',
-  page: Pagination,
-  sort?: [Sort],
+  type: 'session' | 'charge' | 'drive'
+  page: Pagination
+  sort?: [Sort]
   predicates: [Predicate]
 }
 
 export interface QueryResult {
-  page: Pagination,
+  page: Pagination
   results: SessionType[]
 }
-
 
 export function decodeRequest(body: any): QuerySet {
   return {
@@ -52,5 +49,3 @@ export function decodeRequest(body: any): QuerySet {
     predicates: body.predicates,
   }
 }
-
-

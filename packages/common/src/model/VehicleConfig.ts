@@ -28,4 +28,4 @@ export const VehicleConfigSchema = new Schema({
   wheel_type: { type: String },
 })
 
-export type VehicleConfigType = VehicleConfig & Document;
+export type VehicleConfigType = VehicleConfig & Document

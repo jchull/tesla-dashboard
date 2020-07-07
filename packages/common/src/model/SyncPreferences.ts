@@ -1,23 +1,23 @@
 import { Document, Schema } from 'mongoose'
 
 export interface SyncPreferences {
-  _id: string;
-  enabled: boolean;
-  accountId?: string;
-  sleepTriggerSeconds: number;
-  chargingMinDurationMinutes: number;
-  chargingCostPerKwhHome: number;
-  chargingCostPerKwhSupercharging: number;
-  chargingMaxGapSeconds: number;
+  _id: string
+  enabled: boolean
+  accountId?: string
+  sleepTriggerSeconds: number
+  chargingMinDurationMinutes: number
+  chargingCostPerKwhHome: number
+  chargingCostPerKwhSupercharging: number
+  chargingMaxGapSeconds: number
   /**
    * tuple of polling intervals in seconds to use while charging
    * level 1 charging = [0], level 2 = [1], etc
    */
-  chargingPollingIntervalsSeconds: [number, number, number];
+  chargingPollingIntervalsSeconds: [number, number, number]
 
-  drivingPollingIntervalSeconds: number;
-  drivingMinDurationMinutes: number;
-  drivingMaxGapSeconds: number;
+  drivingPollingIntervalSeconds: number
+  drivingMinDurationMinutes: number
+  drivingMaxGapSeconds: number
 }
 
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
@@ -48,4 +48,4 @@ export const SyncPreferencesSchema = new Schema({
   charging_maxGapSeconds: { type: Number },
 })
 
-export type SyncPreferencesType = SyncPreferences & Document;
+export type SyncPreferencesType = SyncPreferences & Document

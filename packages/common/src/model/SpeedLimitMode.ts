@@ -9,4 +9,4 @@ export const SpeedLimitModeSchema = new Schema({
   pin_code_set: { type: Boolean, required: true },
 })
 
-export type SpeedLimitModeType = SpeedLimitMode & Document;
+export type SpeedLimitModeType = SpeedLimitMode & Document

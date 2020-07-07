@@ -1,12 +1,12 @@
 import { Document, Schema } from 'mongoose'
 
 export interface UserPreferences {
-  _id?: string;
-  username: string;
+  _id?: string
+  username: string
 
-  displayCurrencyCode: string;
-  displayDistanceUnits: 'mi' | 'km';
-  displayTempUnits: 'F' | 'C';
+  displayCurrencyCode: string
+  displayDistanceUnits: 'mi' | 'km'
+  displayTempUnits: 'F' | 'C'
 }
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
@@ -23,4 +23,4 @@ export const UserPreferencesSchema = new Schema({
   display_tempUnits: { type: String },
 })
 
-export type UserPreferencesType = UserPreferences & Document;
+export type UserPreferencesType = UserPreferences & Document

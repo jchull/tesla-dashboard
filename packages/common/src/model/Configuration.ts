@@ -1,11 +1,11 @@
 import { Document, Schema } from 'mongoose'
 
 export interface Configuration {
-  _id?: string;
-  apiPort: number;
-  ownerBaseUrl: string;
-  teslaClientKey: string;
-  teslaClientSecret: string;
+  _id?: string
+  apiPort: number
+  ownerBaseUrl: string
+  teslaClientKey: string
+  teslaClientSecret: string
 }
 
 export const DEFAULT_CONFIG = {
@@ -24,4 +24,4 @@ export const ConfigurationSchema = new Schema({
   teslaClientSecret: { type: String, required: true, unique: false },
 })
 
-export type ConfigurationType = Configuration & Document;
+export type ConfigurationType = Configuration & Document

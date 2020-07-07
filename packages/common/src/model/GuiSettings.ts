@@ -12,4 +12,4 @@ export const GuiSettingsSchema = new Schema({
   timestamp: { type: Number },
 })
 
-export type GuiSettingsType = GuiSettings & Document;
+export type GuiSettingsType = GuiSettings & Document

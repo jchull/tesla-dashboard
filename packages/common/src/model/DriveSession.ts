@@ -3,16 +3,16 @@ import { DriveState } from './DriveState'
 import { Vehicle } from './types/tesla/Vehicle'
 
 export interface DriveSession {
-  _id: string;
-  id_s: string;
-  start_date: number;
-  end_date?: number;
-  archived: boolean;
-  tags: string[];
-  distance?: number; // end of trip
-  first: DriveState;
-  last?: DriveState;
-  vehicle?: Vehicle;
+  _id: string
+  id_s: string
+  start_date: number
+  end_date?: number
+  archived: boolean
+  tags: string[]
+  distance?: number // end of trip
+  first: DriveState
+  last?: DriveState
+  vehicle?: Vehicle
 }
 
 export const DriveSessionSchema = new Schema({
@@ -26,4 +26,4 @@ export const DriveSessionSchema = new Schema({
   vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
 })
 
-export type DriveSessionType = DriveSession & Document;
+export type DriveSessionType = DriveSession & Document

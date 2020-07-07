@@ -3,16 +3,16 @@ import { VehicleState } from './types/VehicleState'
 import { DriveSession } from './DriveSession'
 
 export interface DriveState extends VehicleState {
-  _id: string;
-  gps_as_of: number;
-  heading: number;
-  latitude: number;
-  longitude: number;
-  power: number;
-  shift_state: string;
-  speed: number;
-  odometer: number;
-  session?: DriveSession;
+  _id: string
+  gps_as_of: number
+  heading: number
+  latitude: number
+  longitude: number
+  power: number
+  shift_state: string
+  speed: number
+  odometer: number
+  session?: DriveSession
 }
 
 export const DriveStateSchema = new Schema({
@@ -53,4 +53,4 @@ export const DriveStateSchema = new Schema({
   driveSession: { type: Schema.Types.ObjectId, ref: 'DriveSession' },
 })
 
-export type DriveStateType = DriveState & Document;
+export type DriveStateType = DriveState & Document
