@@ -27,3 +27,5 @@ key.pub
 key.pem
 
 /oldsrc/
+/.idea/dataSources.local.xml
+/.idea/dataSources.xml
