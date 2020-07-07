@@ -28,19 +28,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/web/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/common/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/GuiSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/SpeedLimitMode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/VehicleData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/util.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/util.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/tag/tag.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/tag/tag.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/filter/FilterPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/filter/FilterPanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/src/component/filter/TagFilter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/filter/TagFilter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/TagSelectionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/tags/TagSelectionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/store/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +83,11 @@
     <option name="groupingKeys">
       <option value="directory" />
     </option>
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="f1129d11-a335-481b-9bdf-bafe293f74ec" value="Orange" />
+    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,6 +131,8 @@
     </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/packages/common/package.json" />
+    <dismissed value="$PROJECT_DIR$/packages/server/package.json" />
     <dismissed value="$PROJECT_DIR$/packages/web/package.json" />
   </component>
   <component name="ProjectId" id="1VzgkDXywWnf1ywrjColpI67Vj8" />
@@ -105,6 +143,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mongo" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
@@ -114,11 +153,15 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.14.0" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/web/node_modules/jest" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettier.import.notification.dismissed" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -227,20 +270,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00142" summary="query type cleanup">
-      <created>1584501034928</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1584501034928</updated>
-    </task>
-    <task id="LOCAL-00143" summary="new panels">
-      <created>1584501049348</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1584501049348</updated>
     </task>
     <task id="LOCAL-00144" summary="clean up style, move filter">
       <created>1584501105411</created>
@@ -571,11 +600,35 @@
       <option name="project" value="LOCAL" />
       <updated>1593884979339</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="add prettier config at root, move dependencie in common to devdependency">
+      <created>1593885713067</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1593885713068</updated>
+    </task>
+    <task id="LOCAL-00192" summary="go back to working mongoose">
+      <created>1593994302998</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1593994302998</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -594,8 +647,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="more actions handled, more pagination" />
-    <MESSAGE value="styling for login submit" />
     <MESSAGE value="refactor UI to have intermediate dashboard component" />
     <MESSAGE value="pagination" />
     <MESSAGE value="update stats shown, add loading indicator" />
@@ -619,12 +670,15 @@
     <MESSAGE value="tag filter wip" />
     <MESSAGE value="tag filtering" />
     <MESSAGE value="formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
+    <MESSAGE value="add prettier config at root, move dependencie in common to devdependency" />
+    <MESSAGE value="go back to working mongoose" />
+    <option name="LAST_COMMIT_MESSAGE" value="go back to working mongoose" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="140" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587337509750">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594082466365">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1594082466365" />
     <state x="140" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1587337509750" />
     <state x="606" y="897" width="697" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585347198004">
       <screen x="0" y="23" width="3840" height="2137" />
@@ -639,21 +693,29 @@
     </state>
     <state x="137" y="128" width="1142" height="685" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1587511067147" />
     <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1586114072468" />
-    <state width="1398" height="288" key="GridCell.Tab.0.bottom" timestamp="1587679695626">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1594089232139">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1594089232139" />
+    <state width="958" height="238" key="GridCell.Tab.0.bottom" timestamp="1594084292782">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="958" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
     <state width="1398" height="288" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
-    <state width="1398" height="288" key="GridCell.Tab.0.center" timestamp="1587679695625">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="958" height="238" key="GridCell.Tab.0.center" timestamp="1594084292782">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="958" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
     <state width="1398" height="288" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1587679695625" />
-    <state width="1398" height="288" key="GridCell.Tab.0.left" timestamp="1587679695625">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="958" height="238" key="GridCell.Tab.0.left" timestamp="1594084292781">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="958" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594084292781" />
     <state width="1398" height="288" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1587679695625" />
-    <state width="1398" height="288" key="GridCell.Tab.0.right" timestamp="1587679695626">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="958" height="238" key="GridCell.Tab.0.right" timestamp="1594084292782">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="958" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
     <state width="1398" height="288" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
     <state width="1398" height="288" key="GridCell.Tab.1.bottom" timestamp="1587679695627">
       <screen x="0" y="23" width="1440" height="877" />
@@ -687,14 +749,27 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1398" height="288" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1587679695628" />
-    <state x="159" y="178" width="900" height="722" key="SettingsEditor" timestamp="1590940725886">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="159" y="178" width="900" height="722" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1590940725886" />
-    <state x="191" y="339" width="501" height="220" key="Vcs.Push.Dialog.v2" timestamp="1593884981553">
+    <state x="455" y="159" key="RollbackChangesDialog" timestamp="1594086452438">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="191" y="339" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1593884981553" />
+    <state x="455" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1594086452438" />
+    <state x="159" y="159" width="900" height="722" key="SettingsEditor" timestamp="1593900545776">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="159" y="159" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1593900545775" />
+    <state x="159" y="178" width="900" height="722" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1590940725886" />
+    <state x="477" y="154" key="VCS.ChangeListViewerDialog" timestamp="1594086655156">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="477" y="154" key="VCS.ChangeListViewerDialog/0.0.1440.900@0.0.1440.900" timestamp="1594086655156" />
+    <state x="100" y="100" width="1240" height="700" key="VCS.FileHistoryDialog" timestamp="1594089036317">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="VCS.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1594089036317" />
+    <state x="191" y="339" width="501" height="220" key="Vcs.Push.Dialog.v2" timestamp="1593994305043">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="191" y="339" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1593994305043" />
     <state x="191" y="353" width="501" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593812411157" />
     <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591480398394">
       <screen x="0" y="23" width="1440" height="877" />
@@ -708,18 +783,19 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="845" y="1006" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3840.2137@0.23.3840.2137" timestamp="1588520841704" />
-    <state x="223" y="338" width="574" height="490" key="find.popup" timestamp="1593885032494">
+    <state x="223" y="338" width="574" height="490" key="find.popup" timestamp="1594085743975">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="223" y="338" width="574" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1593885032494" />
+    <state x="223" y="338" width="574" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1594085743975" />
     <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1586024590517" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1588524241889">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1588524241889" />
-    <state x="806" y="526" width="670" height="676" key="search.everywhere.popup" timestamp="1585439997482">
-      <screen x="0" y="23" width="3840" height="2137" />
+    <state x="302" y="212" width="670" height="285" key="search.everywhere.popup" timestamp="1594089385444">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="302" y="212" width="670" height="285" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1594089385444" />
     <state x="806" y="526" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1585439997482" />
   </component>
 </project>

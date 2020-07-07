@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write ../../.prettierrc \"src/**/*.ts\"",
     "lint": "eslint --ext=jsx,ts,tsx src"
   },
   "dependencies": {
@@ -24,8 +24,8 @@
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/parser": "^7.8.7",
-    "@babel/types": "^7.8.3",
-    "@types/mongoose": "^5.7.1",
-    "typescript": "^3.8.2"
+    "@babel/types": "^7.8.7",
+    "@types/mongoose": "5.7.6",
+    "typescript": "^3.9.6"
   }
 }
