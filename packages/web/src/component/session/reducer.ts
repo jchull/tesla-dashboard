@@ -57,13 +57,11 @@ export const sessionListReducer = createReducer(initialState, {
   },
 
   // tags
-  [SessionActionType.FETCH_ALL_TAGS__START]: (state, action) => {
-  },
+  [SessionActionType.FETCH_ALL_TAGS__START]: (state, action) => {},
   [SessionActionType.FETCH_ALL_TAGS__SUCCESS]: (state, action) => {
     state.availableTags = action.payload.availableTags;
   },
-  [SessionActionType.FETCH_ALL_TAGS__FAIL]: (state, action) => {
-  },
+  [SessionActionType.FETCH_ALL_TAGS__FAIL]: (state, action) => {},
   [SessionActionType.ADD_SESSION_TAG__SUCCESS]: (state, action) => {
     const sessionIndex = state.sessions.findIndex(
       (session) => session._id === action.payload.sessionId

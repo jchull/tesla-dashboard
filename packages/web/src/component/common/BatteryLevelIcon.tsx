@@ -37,10 +37,7 @@ export const BatteryLevelIcon: React.FC<BatteryLevelState> = (
 
     // batteryLevel 0% - 100%
     const domain = [0, 100];
-    const scale = d3
-      .scaleLinear()
-      .domain(domain)
-      .range([0, innerWidth]);
+    const scale = d3.scaleLinear().domain(domain).range([0, innerWidth]);
 
     let fillColor = '#00dc31';
 

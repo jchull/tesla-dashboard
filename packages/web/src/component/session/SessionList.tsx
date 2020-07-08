@@ -32,7 +32,8 @@ export const SessionList: React.FC<SessionState> = (props: SessionState) => {
       loadedCount < totalCount &&
       Date.now().valueOf() - lastRequestTime > 1000 &&
       // @ts-ignore
-      event.target.scrollHeight - event.target.clientHeight - event.target.scrollTop - 100 < 0) {
+      event.target.scrollHeight - event.target.clientHeight - event.target.scrollTop - 100 < 0
+    ) {
       setLastRequestTime(Date.now().valueOf());
       dispatch(
         fetchSessionListAction(selectedProductId, {

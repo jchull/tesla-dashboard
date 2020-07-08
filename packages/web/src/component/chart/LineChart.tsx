@@ -68,9 +68,9 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .attr('class', 'axis axis-x')
         .attr(
           'transform',
-          `translate(${config.margin.left}, ${innerHeight +
-            config.margin.top -
-            config.xAxisHeight})`
+          `translate(${config.margin.left}, ${
+            innerHeight + config.margin.top - config.xAxisHeight
+          })`
         );
       const yAxisLeft = svg
         .append('g')

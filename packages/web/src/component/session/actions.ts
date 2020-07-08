@@ -17,7 +17,7 @@ export interface SessionState {
   loading?: boolean;
   loadedCount?: number;
   totalCount?: number;
-  availableTags?: string[]
+  availableTags?: string[];
 }
 
 export enum SessionActionType {
@@ -87,20 +87,20 @@ export const updateFilters = createAction(
 );
 
 export const fetchAllTagsStart = createAction(
-    SessionActionType.FETCH_ALL_TAGS__START
+  SessionActionType.FETCH_ALL_TAGS__START
 );
 
 export const fetchAllTagsSuccess = createAction(
-    SessionActionType.FETCH_ALL_TAGS__SUCCESS,
-    (tags) => ({
-      payload: {
-        availableTags: tags
-      }
-    })
+  SessionActionType.FETCH_ALL_TAGS__SUCCESS,
+  (tags) => ({
+    payload: {
+      availableTags: tags
+    }
+  })
 );
 
 export const fetchAllTagsFail = createAction(
-    SessionActionType.FETCH_ALL_TAGS__FAIL
+  SessionActionType.FETCH_ALL_TAGS__FAIL
 );
 
 export const fetchSessionDetailsStart = createAction(
@@ -119,21 +119,19 @@ export const fetchSessionDetailsSuccess = createAction(
   })
 );
 
-export const fetchAllTagsAction = (
-    id: string
-) => async (
-    dispatch: any,
-    getState: any,
-    extraArgument: { api: ApiType }
+export const fetchAllTagsAction = (id: string) => async (
+  dispatch: any,
+  getState: any,
+  extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchAllTagsStart());
   return extraArgument.api.queryService.getAllTags(id).then(
-      (result) => {
-        dispatch(fetchAllTagsSuccess(result));
-      },
-      (error: any) => {
-        dispatch(fetchAllTagsFail());
-      }
+    (result) => {
+      dispatch(fetchAllTagsSuccess(result));
+    },
+    (error: any) => {
+      dispatch(fetchAllTagsFail());
+    }
   );
 };
 

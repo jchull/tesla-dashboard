@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {fetchAllTagsAction, fetchSessionListAction} from '@teslapp/web/src/component/session/actions';
+import {
+  fetchAllTagsAction,
+  fetchSessionListAction
+} from '@teslapp/web/src/component/session/actions';
 import { AppState } from '@teslapp/web/src/store';
 import { ProductList } from '@teslapp/web/src/component/product';
 import { ProductSessionView } from './ProductSessionView';
@@ -36,7 +39,9 @@ export const Dashboard: React.FC = () => {
         (product) => product._id === selectedProductId
       );
       if (selectedProduct) {
-        dispatch(fetchSessionListAction(selectedProductId, { start: 0, size: 100 }));
+        dispatch(
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
+        );
         dispatch(fetchAllTagsAction(selectedProductId));
       }
     }

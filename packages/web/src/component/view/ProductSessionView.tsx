@@ -26,7 +26,6 @@ export const ProductSessionView: React.FC = () => {
     store.session.selectedSessionId;
   const sessions = useSelector(sessionsSelector);
 
-
   const selectedSessionId = useSelector(selectedSessionIdSelector);
   const selectedSessionStates = useSelector(
     (store: AppState) => store.session.selectedSessionStates

@@ -44,9 +44,6 @@ export function configureStore(services: ApiType): Store {
       sessions: []
     }
   };
-  return configureReduxStore({
-    preloadedState: initialState,
-    reducer: rootReducer,
-    middleware: middlewares
-  });
+  // @ts-ignore
+  return configureReduxStore({ preloadedState: initialState, reducer: rootReducer, middleware: middlewares });
 }
