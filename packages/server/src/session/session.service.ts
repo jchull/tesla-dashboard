@@ -18,19 +18,18 @@ import {ProductService} from '../product/product.service';
 @Injectable()
 export class SessionService {
   constructor(
-      @InjectModel('Vehicle') private readonly productModel: Model<VehicleType>,
-      @InjectModel('DriveSession')
-      private readonly driveSessionModel: Model<DriveSessionType>,
-      @InjectModel('ChargeSession')
-      private readonly chargeSessionModel: Model<ChargeSessionType>,
-      @InjectModel('DriveState')
-      private readonly driveStateModel: Model<DriveStateType>,
-      @InjectModel('ChargeState')
-      private readonly chargeStateModel: Model<ChargeStateType>,
-      @Inject(forwardRef(() => ProductService))
-      private readonly productService: ProductService
-  ) {
-  }
+    @InjectModel('Vehicle') private readonly productModel: Model<VehicleType>,
+    @InjectModel('DriveSession')
+    private readonly driveSessionModel: Model<DriveSessionType>,
+    @InjectModel('ChargeSession')
+    private readonly chargeSessionModel: Model<ChargeSessionType>,
+    @InjectModel('DriveState')
+    private readonly driveStateModel: Model<DriveStateType>,
+    @InjectModel('ChargeState')
+    private readonly chargeStateModel: Model<ChargeStateType>,
+    @Inject(forwardRef(() => ProductService))
+    private readonly productService: ProductService
+  ) {}
 
   async getSessionDetails(username: string, id: string) {
     // TODO: limit access by username
@@ -130,8 +129,9 @@ export class SessionService {
   }
 
   async findSessions(username: string, query: QuerySet): Promise<QueryResult> {
-    const vehicleId = query.predicates.find((p) => p.field === 'vehicle')?.value;
-    if(!vehicleId){
+    const vehicleId = query.predicates.find((p) => p.field === 'vehicle')
+      ?.value;
+    if (!vehicleId) {
       throw Error('vehicle/product required in session predicate');
     }
     const tags = query.predicates.filter((p) => p.field === 'tags');
@@ -140,11 +140,11 @@ export class SessionService {
     const skip = query.page.start;
     // TODO: handle charging later and organize this function better
     if (query.type === 'drive') {
-
       // set up criteria for count and query
       const criteria = {
-        vehicle: {_id: vehicleId, username},
-        tags: tags.map((p) => p.value)
+        vehicle: { _id: vehicleId, username },
+        tags: tags.map((p) => p.value),
+        start_date: { $gte: jan2019, $lte: dec2019 }
       };
 
       // get a total count for pagination info

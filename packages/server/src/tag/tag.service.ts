@@ -20,7 +20,10 @@ export class TagService {
   // TODO: charge/session filter
   async getTags(username: string, productId: string): Promise<string[]> {
     const query = this.driveSessionModel.find();
-    query.setQuery({ vehicle:{_id: productId}, tags: { $exists: true, $not: { $size: 0 } } });
+    query.setQuery({
+      vehicle: { _id: productId },
+      tags: { $exists: true, $not: { $size: 0 } }
+    });
     const results = await query.exec();
     return results.reduce((acc, cur) => {
       cur.tags.forEach((tag) => {
