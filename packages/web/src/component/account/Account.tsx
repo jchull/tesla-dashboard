@@ -70,7 +70,12 @@ export const AccountComponent: FC = () => {
         emailRegex.test(formData.email)) ||
       false;
     setFormValid(pv && fv);
-  }, [formData.username, formData.email, formData.password1, formData.password2]);
+  }, [
+    formData.username,
+    formData.email,
+    formData.password1,
+    formData.password2
+  ]);
 
   function resetForm() {
     // TODO: will have to handle existing users
