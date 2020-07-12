@@ -175,6 +175,34 @@ body,
   max-height: 90%;
 }
 
+.xy-fill {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  display: flex;
+
+  .column {
+    display: flex;
+
+    &.left {
+
+    }
+
+    &.right {
+      max-width: 368px;
+      align-items: flex-end;
+      flex-direction: column;
+      flex: 1 1 100%;
+
+      .card {
+        align-self: stretch;
+      }
+    }
+  }
+}
+
 .vertical-flex {
   display: flex;
   flex-direction: column;
