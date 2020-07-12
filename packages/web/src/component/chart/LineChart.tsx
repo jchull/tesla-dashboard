@@ -23,7 +23,7 @@ interface LineChartProps {
   options?: ChartConfig;
 }
 
-const defaultConfig = {
+export const defaultConfig = {
   width: 900,
   height: 600,
   margin: { top: 40, bottom: 20, left: 40, right: 40 },
@@ -34,13 +34,10 @@ const defaultConfig = {
 
 export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
   const container = React.createRef<SVGSVGElement>();
-  const [config, setConfig] = React.useState(props.options || defaultConfig);
-  const [innerWidth, setInnerWidth] = React.useState(
-    config.width - config.margin.left - config.margin.right
-  );
-  const [innerHeight, setInnerHeight] = React.useState(
-    config.height - config.margin.top - config.margin.bottom
-  );
+  const config = props.options ?? defaultConfig
+  const innerWidth = config.width - config.margin.left - config.margin.right
+  const innerHeight = config.height - config.margin.top - config.margin.bottom
+
 
   React.useLayoutEffect(() => {
     const svg = d3.select(container.current);
