@@ -9,11 +9,12 @@ interface TagSelectionListProps {
 export const TagSelectionList: React.FC<TagSelectionListProps> = (
   props: TagSelectionListProps
 ) => {
-  const tags = props.tags.map((tag) => (
-    <div key={tag} onClick={() => props.selectionListener(tag)}>
+  const {tags, selectionListener} = props;
+  const tagList = tags.map((tag) => (
+    <div key={tag} onClick={() => selectionListener(tag)}>
       {tag}
     </div>
   ));
 
-  return <div className="">{tags}</div>;
+  return <div className="">{tagList}</div>;
 };
