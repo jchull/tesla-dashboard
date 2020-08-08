@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { TagSelectionList } from '../tags/TagSelectionList';
+import React, { useState } from 'react'
+import { TagSelectionList } from '../tags/TagSelectionList'
 
 interface TagFilterProps {
   include: string[];
@@ -12,24 +12,27 @@ interface TagFilterProps {
 }
 
 export const TagFilter: React.FC<TagFilterProps> = (props: TagFilterProps) => {
-  const [showTagSelection, setTagSelectionShowing] = useState(false);
-  const toggleTagSelection = () => setTagSelectionShowing(!showTagSelection);
+  const [showTagSelection, setTagSelectionShowing] = useState(false)
+  const toggleTagSelection = () => setTagSelectionShowing(!showTagSelection)
 
   const renderTagSelection = (availableTags: string[], exclude = false) => {
     const tagSelected = (tag: string) => {
-      console.log(`tag selected: ${tag}`);
-    };
+      console.log(`tag selected: ${tag}`)
+    }
+
 
     return (
       <>
         <button onClick={() => setTagSelectionShowing(false)}>X</button>
+        { showTagSelection &&
         <TagSelectionList
           tags={availableTags}
           selectionListener={tagSelected}
         />
+        }
       </>
-    );
-  };
+    )
+  }
 
   return (
     <div className="">
@@ -41,5 +44,5 @@ export const TagFilter: React.FC<TagFilterProps> = (props: TagFilterProps) => {
       {props.exclude}
       {renderTagSelection(props.availableTags)}
     </div>
-  );
-};
+  )
+}
