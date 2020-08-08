@@ -18,7 +18,12 @@ body,
     display: flex;
     flex-direction: column;
 
+    section {
+      padding: 10px 6px;
+    }
+
     .card-footer {
+      padding-top: 40px;
       display: flex;
       flex-direction: column-reverse;
       flex-grow: inherit;
@@ -175,29 +180,27 @@ body,
   max-height: 90%;
 }
 
-.xy-fill {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .columns {
   display: flex;
+  flex: 1 0 0;
 
   .column {
-    display: flex;
+    flex-direction: column;
 
     &.left {
 
     }
 
+    &.middle {
+      flex: 1 100%;
+    }
+
     &.right {
-      max-width: 368px;
-      align-items: flex-end;
-      flex-direction: column;
-      flex: 1 1 100%;
+      min-width: 368px;
 
       .card {
-        align-self: stretch;
       }
     }
   }
