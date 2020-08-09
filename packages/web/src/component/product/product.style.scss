@@ -4,12 +4,16 @@
 
   button.toggle {
     float: right;
+    margin: 4px 20px 0 0;
     width: 0;
     height: 0;
-    border-right: 20px solid transparent;
-    border-left: 20px solid transparent;
-    border-top: 20px solid #222222;
-
+    padding: 0;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-top: 10px solid #333333;
+    border-bottom: none;
+    transform: rotate( 0deg );
+    transition: transform 250ms ease;
   }
 
 
@@ -74,10 +78,16 @@
     height: 32px;
     overflow: hidden;
 
-    .list-item {
+    button.toggle {
+      transform: rotate( -180deg );
+      transition: transform 250ms ease;
+    }
 
+    .list-item {
+      width: 180px;
       .name {
         font-size: 60%;
+        margin: 2px 4px 10px 4px;
       }
     }
   }
