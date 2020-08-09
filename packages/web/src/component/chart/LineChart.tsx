@@ -24,8 +24,8 @@ interface LineChartProps {
 }
 
 export const defaultConfig = {
-  width: 900,
-  height: 600,
+  width: 600,
+  height: 400,
   margin: { top: 40, bottom: 20, left: 40, right: 40 },
   barWidth: 25,
   xAxisHeight: 140,
