@@ -1,23 +1,25 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { Product } from '@teslapp/common';
+import { Product } from '@teslapp/common'
 
-import { ProductListItem } from './ProductListItem';
-import { fetchProductListAction, ProductState, selectProduct } from './actions';
+import { ProductListItem } from './ProductListItem'
+import { fetchProductListAction, ProductState, selectProduct } from './actions'
 
-import './product.style.scss';
-import { NavLink } from 'react-router-dom';
+import './product.style.scss'
+import { NavLink } from 'react-router-dom'
 
 export const ProductList: React.FC<ProductState> = (props: ProductState) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  
+  const [collapsed, setCollapsed] = useState(false)
 
   React.useEffect(() => {
-    dispatch(fetchProductListAction());
-  }, []);
+    dispatch(fetchProductListAction())
+  }, [])
 
   return (
-    <div className="product-list">
+    <div className={`product-list ${collapsed? 'collapsed' : ''}`}>
       {props.products.map((product: Product) => (
         <ProductListItem
           product={product}
@@ -29,6 +31,7 @@ export const ProductList: React.FC<ProductState> = (props: ProductState) => {
       <NavLink to="/tesla-account" className="add-more">
         add more linked accounts
       </NavLink>
+      <button className="toggle" onClick={() => setCollapsed(!collapsed)}></button>
     </div>
-  );
-};
+  )
+}

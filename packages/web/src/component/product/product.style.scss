@@ -2,6 +2,19 @@
   border-bottom: 1px solid #f4f4f4;
   box-shadow: 1px 2px 3px rgba(111, 113, 114, 0.3);
 
+  button.toggle {
+    float: right;
+    width: 0;
+    height: 0;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-top: 20px solid #222222;
+
+  }
+
+
+
+
   .list-item {
     border: none;
     display: inline-block;
@@ -53,6 +66,19 @@
     }
     &:hover {
       text-shadow: 0.5px 0.5px 1px #555555;
+    }
+  }
+
+
+  &.collapsed {
+    height: 32px;
+    overflow: hidden;
+
+    .list-item {
+
+      .name {
+        font-size: 60%;
+      }
     }
   }
 }
