@@ -71,10 +71,6 @@ body,
     bottom: 21px;
     background: #f0ede2;
 
-    > div {
-      position: relative;
-      height: 100%;
-    }
 
     .centered {
       width: 400px;
@@ -184,25 +180,21 @@ body,
 
 .columns {
   display: flex;
-  flex: 1 0 0;
+  flex-flow: row nowrap;
+  height: 100%;
 
-  .column {
+  &.three > * {
+    flex: 0 1 auto;
+    display: flex;
     flex-direction: column;
+    overflow-y: auto;
 
-    &.left {
-
+    /* center column in 3-column layout */
+    &:nth-child(2) {
+      flex: 1 0 auto;
     }
 
-    &.middle {
-      flex: 1 100%;
-    }
 
-    &.right {
-      min-width: 368px;
-
-      .card {
-      }
-    }
   }
 }
 
