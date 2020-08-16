@@ -30,12 +30,16 @@
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
       <change afterPath="$PROJECT_DIR$/packages/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/web/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +117,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="12.14.0" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.12.54" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -215,11 +220,12 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.esImporter.js" />
         <item itemvalue="npm.start:debug" />
+        <item itemvalue="Node.js.esImporter.js" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -233,132 +239,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00149" summary="Add some basic info to stats panel">
-      <created>1585417773385</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417773386</updated>
-    </task>
-    <task id="LOCAL-00150" summary="update packages for babel">
-      <created>1585417813673</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417813673</updated>
-    </task>
-    <task id="LOCAL-00151" summary="current babel version doesn't like nullish coalescing">
-      <created>1585417882955</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417882955</updated>
-    </task>
-    <task id="LOCAL-00152" summary="more data in query">
-      <created>1585417906691</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417906691</updated>
-    </task>
-    <task id="LOCAL-00153" summary="stretch column width">
-      <created>1585417921056</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417921056</updated>
-    </task>
-    <task id="LOCAL-00154" summary="update paging and right column layout">
-      <created>1585417940661</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417940662</updated>
-    </task>
-    <task id="LOCAL-00155" summary="improve pagination">
-      <created>1585417964758</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417964758</updated>
-    </task>
-    <task id="LOCAL-00156" summary="remove ts-ignore">
-      <created>1585417980676</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417980676</updated>
-    </task>
-    <task id="LOCAL-00157" summary="improve session query">
-      <created>1585417995503</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1585417995503</updated>
-    </task>
-    <task id="LOCAL-00158" summary="current babel version doesn't like nullish coalescing">
-      <created>1585418012592</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1585418012592</updated>
-    </task>
-    <task id="LOCAL-00159" summary="more actions handled, more pagination">
-      <created>1585418033627</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1585418033627</updated>
-    </task>
-    <task id="LOCAL-00160" summary="styling for login submit">
-      <created>1586044214217</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044214217</updated>
-    </task>
-    <task id="LOCAL-00161" summary="refactor UI to have intermediate dashboard component">
-      <created>1586044269751</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044269751</updated>
-    </task>
-    <task id="LOCAL-00162" summary="pagination">
-      <created>1586044317784</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044317784</updated>
-    </task>
-    <task id="LOCAL-00163" summary="update stats shown, add loading indicator">
-      <created>1586044349555</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044349555</updated>
-    </task>
-    <task id="LOCAL-00164" summary="card title">
-      <created>1586044362368</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044362368</updated>
-    </task>
-    <task id="LOCAL-00165" summary="infinite scrolling pagination">
-      <created>1586044378635</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044378635</updated>
-    </task>
-    <task id="LOCAL-00166" summary="add card title">
-      <created>1586044396888</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044396888</updated>
     </task>
     <task id="LOCAL-00167" summary="add card title">
       <created>1586044407742</created>
@@ -577,11 +457,137 @@
       <option name="project" value="LOCAL" />
       <updated>1594166949119</updated>
     </task>
-    <option name="localTasksCounter" value="198" />
+    <task id="LOCAL-00198" summary="add missing dependency for effect">
+      <created>1594338415211</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1594338415211</updated>
+    </task>
+    <task id="LOCAL-00199" summary="add in some more stats and some better layout">
+      <created>1594338438723</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1594338438723</updated>
+    </task>
+    <task id="LOCAL-00200" summary="project files">
+      <created>1594338480753</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1594338480753</updated>
+    </task>
+    <task id="LOCAL-00201" summary="formatting">
+      <created>1594340912542</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1594340912542</updated>
+    </task>
+    <task id="LOCAL-00202" summary="fix type export">
+      <created>1594495218381</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1594495218382</updated>
+    </task>
+    <task id="LOCAL-00203" summary="hardcoded filters for date and tag">
+      <created>1594495371521</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1594495371521</updated>
+    </task>
+    <task id="LOCAL-00204" summary="just export everything from common">
+      <created>1594497458907</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1594497458909</updated>
+    </task>
+    <task id="LOCAL-00205" summary="dynamic chart sizing based on container size">
+      <created>1594520251598</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1594520251598</updated>
+    </task>
+    <task id="LOCAL-00206" summary="formatting">
+      <created>1594520276737</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1594520276737</updated>
+    </task>
+    <task id="LOCAL-00207" summary="new layout styles WIP">
+      <created>1594520296569</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1594520296569</updated>
+    </task>
+    <task id="LOCAL-00208" summary="Added padding for card sections and footers">
+      <created>1596904968577</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1596904968578</updated>
+    </task>
+    <task id="LOCAL-00209" summary="Cleaned up stats panel">
+      <created>1596904989887</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1596904989887</updated>
+    </task>
+    <task id="LOCAL-00210" summary="added tag selection listener">
+      <created>1596905203641</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1596905203642</updated>
+    </task>
+    <task id="LOCAL-00211" summary="tag filter selection">
+      <created>1596905312108</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1596905312109</updated>
+    </task>
+    <task id="LOCAL-00212" summary="Add collapsed style and toggle for products list">
+      <created>1596987467075</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1596987467075</updated>
+    </task>
+    <task id="LOCAL-00213" summary="remove extra margin from menu items">
+      <created>1596987499182</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1596987499182</updated>
+    </task>
+    <task id="LOCAL-00214" summary="change default size">
+      <created>1596987627957</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1596987627957</updated>
+    </task>
+    <task id="LOCAL-00215" summary="update toggle styles and animation">
+      <created>1596988305005</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1596988305005</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -610,22 +616,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="update stats shown, add loading indicator" />
-    <MESSAGE value="card title" />
-    <MESSAGE value="infinite scrolling pagination" />
-    <MESSAGE value="add card title" />
-    <MESSAGE value="new pagination" />
-    <MESSAGE value="minor style updates" />
-    <MESSAGE value="add base styles" />
-    <MESSAGE value="add call to get all tags" />
-    <MESSAGE value="add tag module" />
-    <MESSAGE value="Add filter actions and state" />
-    <MESSAGE value="filters" />
-    <MESSAGE value="API for getting list of available tags for a product" />
-    <MESSAGE value="query available tags" />
-    <MESSAGE value="format" />
-    <MESSAGE value="fetch all tags for filter autocomplete" />
-    <MESSAGE value="cleanup" />
     <MESSAGE value="all tags fetch" />
     <MESSAGE value="fetch tags on product selection" />
     <MESSAGE value="tag filter wip" />
@@ -634,28 +624,38 @@
     <MESSAGE value="go back to working mongoose" />
     <MESSAGE value="fix package dependencies mess, add global format target" />
     <MESSAGE value="update ignores" />
+    <MESSAGE value="add missing dependency for effect" />
+    <MESSAGE value="add in some more stats and some better layout" />
+    <MESSAGE value="project files" />
+    <MESSAGE value="fix type export" />
+    <MESSAGE value="hardcoded filters for date and tag" />
+    <MESSAGE value="just export everything from common" />
+    <MESSAGE value="dynamic chart sizing based on container size" />
     <MESSAGE value="formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatting" />
+    <MESSAGE value="new layout styles WIP" />
+    <MESSAGE value="Added padding for card sections and footers" />
+    <MESSAGE value="Cleaned up stats panel" />
+    <MESSAGE value="added tag selection listener" />
+    <MESSAGE value="tag filter selection" />
+    <MESSAGE value="Add collapsed style and toggle for products list" />
+    <MESSAGE value="remove extra margin from menu items" />
+    <MESSAGE value="change default size" />
+    <MESSAGE value="update toggle styles and animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="update toggle styles and animation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594082466365">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1594082466365" />
-    <state x="140" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1587337509750" />
-    <state x="606" y="897" width="697" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585347198004">
-      <screen x="0" y="23" width="3840" height="2137" />
-    </state>
-    <state x="606" y="897" key="#com.intellij.fileTypes.FileTypeChooser/0.23.3840.2137@0.23.3840.2137" timestamp="1585347198004" />
     <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1593885112734">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1593885112734" />
-    <state x="137" y="128" width="1142" height="685" key="CommitChangelistDialog2" timestamp="1587511067147">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="137" y="108" width="1142" height="685" key="CommitChangelistDialog2" timestamp="1594495371545">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="137" y="128" width="1142" height="685" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1587511067147" />
-    <state x="366" y="278" key="CommitChangelistDialog2/0.23.3840.2137@0.23.3840.2137" timestamp="1586114072468" />
+    <state x="137" y="108" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1594495371545" />
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1594089232139">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -664,62 +664,26 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="958" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state width="1398" height="288" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
     <state width="958" height="238" key="GridCell.Tab.0.center" timestamp="1594084292782">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="958" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state width="1398" height="288" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1587679695625" />
     <state width="958" height="238" key="GridCell.Tab.0.left" timestamp="1594084292781">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="958" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594084292781" />
-    <state width="1398" height="288" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1587679695625" />
     <state width="958" height="238" key="GridCell.Tab.0.right" timestamp="1594084292782">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="958" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state width="1398" height="288" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
-    <state width="1398" height="288" key="GridCell.Tab.1.bottom" timestamp="1587679695627">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587679695627" />
-    <state width="1398" height="288" key="GridCell.Tab.1.center" timestamp="1587679695626">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
-    <state width="1398" height="288" key="GridCell.Tab.1.left" timestamp="1587679695626">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1587679695626" />
-    <state width="1398" height="288" key="GridCell.Tab.1.right" timestamp="1587679695627">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1587679695627" />
-    <state width="1398" height="288" key="GridCell.Tab.2.bottom" timestamp="1587679695628">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587679695628" />
-    <state width="1398" height="288" key="GridCell.Tab.2.center" timestamp="1587679695628">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1587679695628" />
-    <state width="1398" height="288" key="GridCell.Tab.2.left" timestamp="1587679695627">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1587679695627" />
-    <state width="1398" height="288" key="GridCell.Tab.2.right" timestamp="1587679695628">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1398" height="288" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1587679695628" />
-    <state x="455" y="159" key="RollbackChangesDialog" timestamp="1594166535340">
+    <state x="455" y="159" key="RollbackChangesDialog" timestamp="1594340869026">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="455" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1594166535340" />
-    <state x="159" y="159" width="900" height="722" key="SettingsEditor" timestamp="1593900545776">
+    <state x="455" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1594340869026" />
+    <state x="159" y="159" width="900" height="722" key="SettingsEditor" timestamp="1594495097373">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="159" y="159" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1593900545775" />
+    <state x="159" y="159" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1594495097373" />
     <state x="159" y="178" width="900" height="722" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1590940725886" />
     <state x="477" y="154" key="VCS.ChangeListViewerDialog" timestamp="1594086655156">
       <screen x="0" y="0" width="1440" height="900" />
@@ -729,11 +693,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="VCS.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1594089036317" />
-    <state x="191" y="339" width="501" height="220" key="Vcs.Push.Dialog.v2" timestamp="1594166986564">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2" timestamp="1596988308571">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="191" y="339" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1594166986564" />
-    <state x="191" y="353" width="501" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593812411157" />
+    <state x="191" y="339" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1594520298374" />
+    <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1596988308571" />
     <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591480398394">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -746,11 +710,11 @@
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
     <state x="845" y="1006" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3840.2137@0.23.3840.2137" timestamp="1588520841704" />
-    <state x="223" y="338" width="574" height="490" key="find.popup" timestamp="1594337263144">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="223" y="352" width="574" height="490" key="find.popup" timestamp="1596986984863">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="223" y="338" width="574" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1594337263144" />
-    <state x="595" y="825" width="816" height="594" key="find.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1586024590517" />
+    <state x="223" y="352" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1596986984863" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1588524241889">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
@@ -759,6 +723,5 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="302" y="212" width="670" height="285" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1594167875478" />
-    <state x="806" y="526" width="670" height="676" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1585439997482" />
   </component>
 </project>
