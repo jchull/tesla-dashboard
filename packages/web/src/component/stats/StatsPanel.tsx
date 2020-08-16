@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../store'
 import { DriveSession } from '@teslapp/common'
-import numbro from 'numbro';
+import numbro from 'numbro'
 
 interface StatsState {
 }
@@ -49,23 +49,32 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
         <>
           <section>
             <h6>Current</h6>
-            <div>Distance: {numbro(currentDistance).format(NUMBER_FORMAT_DEC)} mi</div>
-            <div>Range Used: {numbro(currentRangeMilesUsed).format(NUMBER_FORMAT_DEC)} mi</div>
+            <div>Distance: {numbro(currentDistance)
+              .format(NUMBER_FORMAT_DEC)} mi
+            </div>
+            <div>Range Used: {numbro(currentRangeMilesUsed)
+              .format(NUMBER_FORMAT_DEC)} mi
+            </div>
           </section>
-          <section>
-            <h6>Total</h6>
-            <div>Distance: {numbro(totalMiles).format(NUMBER_FORMAT_DEC)} mi</div>
-            <div>Range Used: {numbro(allRangeMilesUsed).format(NUMBER_FORMAT_DEC)} mi</div>
-          </section>
+
         </>
       ) : (
         <span>select something</span>
       )}
+      <section>
+        <h6>Total</h6>
+        <div>Distance: {numbro(totalMiles)
+          .format(NUMBER_FORMAT_DEC)} mi
+        </div>
+        <div>Range Used: {numbro(allRangeMilesUsed)
+          .format(NUMBER_FORMAT_DEC)} mi
+        </div>
+      </section>
       <div className="card-footer">
         <div>
-          Showing {loadedCount} of {totalCount}
+          {loading ? 'Loading...' : `Showing ${loadedCount} of ${totalCount}`}
         </div>
-        {loading && <div>loading...</div>}
+
       </div>
     </div>
   )
