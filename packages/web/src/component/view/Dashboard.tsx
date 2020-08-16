@@ -22,7 +22,7 @@ export const Dashboard: React.FC = () => {
   const products = useSelector(productsSelector);
   const selectedProductId = useSelector(selectedProductIdSelector);
 
-  const [dashboardView, setDashboardView] = useState(DASHBOARD.OVERVIEW);
+  const [dashboardView, setDashboardView] = useState(DASHBOARD.SESSION);
 
   const viewMemo = useMemo(() => {
     switch (dashboardView) {
@@ -48,7 +48,7 @@ export const Dashboard: React.FC = () => {
   }, [selectedProductId]);
 
   return (
-    <div>
+    <>
       <ProductList products={products} selectedProductId={selectedProductId} />
       <div>
         <button onClick={() => setDashboardView(DASHBOARD.OVERVIEW)}>
@@ -58,7 +58,7 @@ export const Dashboard: React.FC = () => {
           Session
         </button>
       </div>
-      <div className="block-flow">{viewMemo}</div>
-    </div>
+      {viewMemo}
+    </>
   );
 };
