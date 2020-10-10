@@ -99,6 +99,21 @@ body,
       margin: 4px;
     }
 
+
+    .tab-buttons {
+      border-bottom: 4px solid #FFFFFF;
+
+      button {
+        margin-bottom: -2px;
+        border-bottom: transparent;
+
+        &.selected {
+          background: #FFFFFF;
+          border-bottom: #FFFFFF;
+        }
+      }
+    }
+
     form {
       margin: 20px;
 
@@ -210,3 +225,5 @@ body,
     flex: 1 1 100%;
   }
 }
+
+
