@@ -1,13 +1,7 @@
-import {
-  ChargeSession,
-  ChargeState,
-  DriveSession,
-  DriveState,
-  QueryResult
-} from '@teslapp/common';
-import { ApiType } from '@teslapp/web/src/service';
-import { createAction } from '@reduxjs/toolkit';
-import { batch } from 'react-redux';
+import { ChargeSession, ChargeState, DriveSession, DriveState, QueryResult } from '@teslapp/common'
+import { ApiType } from '@teslapp/web/src/service'
+import { createAction } from '@reduxjs/toolkit'
+import { batch } from 'react-redux'
 
 export interface SessionState {
   sessions: (ChargeSession | DriveSession)[];
@@ -18,9 +12,11 @@ export interface SessionState {
   loadedCount?: number;
   totalCount?: number;
   availableTags?: string[];
+  type?: string
 }
 
 export enum SessionActionType {
+  FETCH_SESSION_LIST__CLEAR = 'FETCH_SESSION_LIST__CLEAR',
   FETCH_SESSION_LIST__START = 'FETCH_SESSION_LIST__START',
   FETCH_SESSION_PAGE__START = 'FETCH_SESSION_PAGE__START',
   FETCH_SESSION_LIST__FAIL = 'FETCH_SESSION_LIST__FAIL',
@@ -46,18 +42,22 @@ export enum SessionActionType {
 
 export const fetchSessionListStart = createAction(
   SessionActionType.FETCH_SESSION_LIST__START
-);
+)
+
+export const fetchSessionListClear = createAction(
+  SessionActionType.FETCH_SESSION_LIST__CLEAR
+)
 
 export const fetchSessionListPage = createAction(
   SessionActionType.FETCH_SESSION_PAGE__START
-);
+)
 
 export const fetchSessionListFail = createAction(
   SessionActionType.FETCH_SESSION_LIST__FAIL,
   (error: any) => ({
     payload: error
   })
-);
+)
 
 export const fetchSessionListSuccess = createAction(
   SessionActionType.FETCH_SESSION_LIST__SUCCESS,
@@ -66,7 +66,7 @@ export const fetchSessionListSuccess = createAction(
       result
     }
   })
-);
+)
 
 export const selectSession = createAction(
   SessionActionType.SELECT_SESSION,
@@ -75,7 +75,7 @@ export const selectSession = createAction(
       selectedSessionId
     }
   })
-);
+)
 
 export const updateFilters = createAction(
   SessionActionType.UPDATE_FILTERS,
@@ -84,11 +84,11 @@ export const updateFilters = createAction(
       //TODO: update filters in store, then requery
     }
   })
-);
+)
 
 export const fetchAllTagsStart = createAction(
   SessionActionType.FETCH_ALL_TAGS__START
-);
+)
 
 export const fetchAllTagsSuccess = createAction(
   SessionActionType.FETCH_ALL_TAGS__SUCCESS,
@@ -97,18 +97,18 @@ export const fetchAllTagsSuccess = createAction(
       availableTags: tags
     }
   })
-);
+)
 
 export const fetchAllTagsFail = createAction(
   SessionActionType.FETCH_ALL_TAGS__FAIL
-);
+)
 
 export const fetchSessionDetailsStart = createAction(
   SessionActionType.FETCH_SESSION_DETAILS__START
-);
+)
 export const fetchSessionDetailsFail = createAction(
   SessionActionType.FETCH_SESSION_DETAILS__FAIL
-);
+)
 
 export const fetchSessionDetailsSuccess = createAction(
   SessionActionType.FETCH_SESSION_DETAILS__SUCCESS,
@@ -117,65 +117,69 @@ export const fetchSessionDetailsSuccess = createAction(
       selectedSessionStates: states
     }
   })
-);
+)
 
 export const fetchAllTagsAction = (id: string) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(fetchAllTagsStart());
-  return extraArgument.api.queryService.getAllTags(id).then(
-    (result) => {
-      dispatch(fetchAllTagsSuccess(result));
-    },
-    (error: any) => {
-      dispatch(fetchAllTagsFail());
-    }
-  );
-};
+  dispatch(fetchAllTagsStart())
+  return extraArgument.api.queryService.getAllTags(id)
+                      .then(
+                        (result) => {
+                          dispatch(fetchAllTagsSuccess(result))
+                        },
+                        (error: any) => {
+                          dispatch(fetchAllTagsFail())
+                        }
+                      )
+}
 
 export const fetchSessionListAction = (
   id: string,
-  page: { start: number; size: number }
+  page: { start: number; size: number },
+  type: string
 ) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(fetchSessionListStart());
-  return extraArgument.api.queryService.getRecentSessions(id, page).then(
-    (result) => {
-      dispatch(fetchSessionListSuccess(result));
-    },
-    (error: any) => {
-      dispatch(fetchSessionListFail(error));
-    }
-  );
-};
+  dispatch(fetchSessionListStart())
+  return extraArgument.api.queryService.getRecentSessions(id, page, type)
+                      .then(
+                        (result) => {
+                          dispatch(fetchSessionListSuccess(result))
+                        },
+                        (error: any) => {
+                          dispatch(fetchSessionListFail(error))
+                        }
+                      )
+}
 
 export const fetchSessionDetailsAction = (sessionId: string) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(fetchSessionDetailsStart());
-  return extraArgument.api.queryService.getSessionDetails(sessionId).then(
-    (result: DriveState[] | ChargeState[]) => {
-      dispatch(fetchSessionDetailsSuccess(result));
-    },
-    (error: any) => {
-      dispatch(fetchSessionDetailsFail());
-    }
-  );
-};
+  dispatch(fetchSessionDetailsStart())
+  return extraArgument.api.queryService.getSessionDetails(sessionId)
+                      .then(
+                        (result: DriveState[] | ChargeState[]) => {
+                          dispatch(fetchSessionDetailsSuccess(result))
+                        },
+                        (error: any) => {
+                          dispatch(fetchSessionDetailsFail())
+                        }
+                      )
+}
 
 export const addSessionTagStart = createAction(
   SessionActionType.ADD_SESSION_TAG__START
-);
+)
 export const addSessionTagFail = createAction(
   SessionActionType.ADD_SESSION_TAG__FAIL
-);
+)
 export const addSessionTagSuccess = createAction(
   SessionActionType.ADD_SESSION_TAG__SUCCESS,
   (sessionId: string, tag: string) => ({
@@ -184,32 +188,33 @@ export const addSessionTagSuccess = createAction(
       sessionId
     }
   })
-);
+)
 
 export const addSessionTagAction = (sessionId: string, tag: string) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(addSessionTagStart());
-  return extraArgument.api.queryService.addTag(sessionId, tag).then(
-    (result) => {
-      batch(() => {
-        dispatch(addSessionTagSuccess(sessionId, tag));
-      });
-    },
-    (error: any) => {
-      dispatch(addSessionTagFail());
-    }
-  );
-};
+  dispatch(addSessionTagStart())
+  return extraArgument.api.queryService.addTag(sessionId, tag)
+                      .then(
+                        (result) => {
+                          batch(() => {
+                            dispatch(addSessionTagSuccess(sessionId, tag))
+                          })
+                        },
+                        (error: any) => {
+                          dispatch(addSessionTagFail())
+                        }
+                      )
+}
 
 export const removeSessionTagStart = createAction(
   SessionActionType.REMOVE_SESSION_TAG__START
-);
+)
 export const removeSessionTagFail = createAction(
   SessionActionType.REMOVE_SESSION_TAG__FAIL
-);
+)
 export const removeSessionTagSuccess = createAction(
   SessionActionType.REMOVE_SESSION_TAG__SUCCESS,
   (sessionId: string, tag: string) => ({
@@ -218,7 +223,7 @@ export const removeSessionTagSuccess = createAction(
       sessionId
     }
   })
-);
+)
 
 export const removeSessionTagAction = (
   sessionId: string,
@@ -228,25 +233,26 @@ export const removeSessionTagAction = (
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(removeSessionTagStart());
-  return extraArgument.api.queryService.removeTag(sessionId, tag).then(
-    (result) => {
-      batch(() => {
-        dispatch(removeSessionTagSuccess(sessionId, tag));
-      });
-    },
-    (error: any) => {
-      dispatch(removeSessionTagFail());
-    }
-  );
-};
+  dispatch(removeSessionTagStart())
+  return extraArgument.api.queryService.removeTag(sessionId, tag)
+                      .then(
+                        (result) => {
+                          batch(() => {
+                            dispatch(removeSessionTagSuccess(sessionId, tag))
+                          })
+                        },
+                        (error: any) => {
+                          dispatch(removeSessionTagFail())
+                        }
+                      )
+}
 
 export const removeSessionStart = createAction(
   SessionActionType.REMOVE_SESSION__START
-);
+)
 export const removeSessionFail = createAction(
   SessionActionType.REMOVE_SESSION__FAIL
-);
+)
 export const removeSessionSuccess = createAction(
   SessionActionType.REMOVE_SESSION__SUCCESS,
   (sessionId: string) => ({
@@ -254,22 +260,23 @@ export const removeSessionSuccess = createAction(
       sessionId
     }
   })
-);
+)
 
 export const removeSessionAction = (sessionId: string) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
-  dispatch(removeSessionStart());
-  return extraArgument.api.queryService.removeSession(sessionId).then(
-    () => {
-      batch(() => {
-        dispatch(removeSessionSuccess(sessionId));
-      });
-    },
-    (error: any) => {
-      dispatch(removeSessionFail());
-    }
-  );
-};
+  dispatch(removeSessionStart())
+  return extraArgument.api.queryService.removeSession(sessionId)
+                      .then(
+                        () => {
+                          batch(() => {
+                            dispatch(removeSessionSuccess(sessionId))
+                          })
+                        },
+                        (error: any) => {
+                          dispatch(removeSessionFail())
+                        }
+                      )
+}
