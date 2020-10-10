@@ -5,20 +5,21 @@ import { DriveSession } from '@teslapp/common'
 import numbro from 'numbro'
 
 interface StatsState {
+  type: string
 }
 
 const NUMBER_FORMAT_DEC = '0,0.00'
 
 export const StatsPanel: React.FC<StatsState> = (props) => {
   const selectedSessionId = useSelector(
-    (store: AppState) => store.session.selectedSessionId,
+    (store: AppState) => store.session.selectedSessionId
   )
   const selectedSession = useSelector(
-    (store: AppState) => store.session.sessions.find(sess => sess._id === selectedSessionId),
+    (store: AppState) => store.session.sessions.find(sess => sess._id === selectedSessionId)
   )
 
   const loadedCount = useSelector(
-    (store: AppState) => store.session.loadedCount,
+    (store: AppState) => store.session.loadedCount
   )
   const totalCount = useSelector((store: AppState) => store.session.totalCount)
   const loading = useSelector((store: AppState) => store.session.loading)
@@ -38,6 +39,7 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
     return acc
   }, 0)
 
+
   const currentRangeMilesUsed = (selectedSession?.first?.battery_range ?? 0) - (selectedSession?.last?.battery_range ?? 0)
   // @ts-ignore
   const currentDistance = (selectedSession?.last?.odometer ?? 0) - (selectedSession?.first?.odometer ?? 0)
@@ -45,30 +47,55 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
   return (
     <div className="card">
       <h5>Stats</h5>
-      {selectedSessionId ? (
-        <>
-          <section>
-            <h6>Current</h6>
-            <div>Distance: {numbro(currentDistance)
-              .format(NUMBER_FORMAT_DEC)} mi
-            </div>
-            <div>Range Used: {numbro(currentRangeMilesUsed)
-              .format(NUMBER_FORMAT_DEC)} mi
-            </div>
-          </section>
+      {props.type.toLowerCase() === 'drive' && selectedSessionId ?
+        (
+          <>
+            <section>
+              <h6>Current</h6>
+              <div>Distance: {numbro(currentDistance)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+              <div>Range Used: {numbro(currentRangeMilesUsed)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+            </section>
 
-        </>
-      ) : (
-        <span>select something</span>
-      )}
+          </>
+        ) : (
+          <>
+            <section>
+              <h6>Current</h6>
+              <div>Range Added: {numbro(1)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+
+            </section>
+
+          </>
+        )}
       <section>
         <h6>Total</h6>
-        <div>Distance: {numbro(totalMiles)
-          .format(NUMBER_FORMAT_DEC)} mi
-        </div>
-        <div>Range Used: {numbro(allRangeMilesUsed)
-          .format(NUMBER_FORMAT_DEC)} mi
-        </div>
+        {props.type.toLowerCase() === 'drive' ?
+          (
+            <>
+              <div>Distance: {numbro(totalMiles)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+              <div>Range Used: {numbro(allRangeMilesUsed)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+            </>
+          ) : (
+            <>
+              <div>Range Added: {numbro(allRangeMilesUsed * -1.0)
+                .format(NUMBER_FORMAT_DEC)} mi
+              </div>
+              <div>Energy Added: {numbro(-1.0)
+                .format(NUMBER_FORMAT_DEC)} kWh
+              </div>
+            </>
+          )
+        }
       </section>
       <div className="card-footer">
         <div>

@@ -98,8 +98,8 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) =>
         <CommandPanel/>
       </div>
       <div>
-        <StatsPanel/>
-        <FilterPanel/>
+        <StatsPanel type={type}/>
+        <FilterPanel type={type}/>
       </div>
     </div>
   )
