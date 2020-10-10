@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { FilterToolbar } from '../toolbar/FilterToolbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../store';
 import { TagFilter } from './TagFilter';
@@ -42,7 +41,6 @@ export const FilterPanel: React.FC<FilterState> = (props) => {
         addListener={addTagFilter}
         removeListener={removeTagFilter}
       />
-      <FilterToolbar />
     </div>
   );
 };
