@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { User } from '../types'
 
 
-export const UserSchema = new Schema({
+export const UserSchema = new Schema<User>({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   role: { type: Number, required: true, unique: false },

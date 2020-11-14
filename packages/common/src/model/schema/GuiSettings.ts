@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { GuiSettings } from '../types'
 
 
-export const GuiSettingsSchema = new Schema({
+export const GuiSettingsSchema = new Schema<GuiSettings>({
   vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
   gui_24_hour_time: { type: Boolean },
   gui_charge_rate_units: { type: String },

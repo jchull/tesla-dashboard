@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { Vehicle, VehicleSession } from '../types'
 
 
-export const VehicleSessionSchema = new Schema({
+export const VehicleSessionSchema = new Schema<VehicleSession>({
   start_date: { type: Number, required: true },
   end_date: { type: Number },
   archived: { type: Boolean },

@@ -11,7 +11,7 @@ export const DEFAULT_CONFIG = {
     'c7257eb71a564034f9419ee651c7d0e5f7aa6bfbd18bafb5c5c033b093bb2fa3'
 }
 
-export const ConfigurationSchema = new Schema({
+export const ConfigurationSchema = new Schema<Configuration>({
   apiPort: { type: Number, required: true, unique: false },
   ownerBaseUrl: { type: String, required: true, unique: false },
   teslaClientKey: { type: String, required: true, unique: false },

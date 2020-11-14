@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { Vehicle } from '../types'
 
 
-export const VehicleSchema = new Schema({
+export const VehicleSchema = new Schema<Vehicle>({
   id_s: { type: String, required: true, unique: true },
   vin: { type: String, required: true, unique: true },
   display_name: { type: String, required: true },

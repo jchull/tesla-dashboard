@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { VehicleConfig } from '../types'
 
 
-export const VehicleConfigSchema = new Schema({
+export const VehicleConfigSchema = new Schema<VehicleConfig>({
   id_s: { type: String, required: true },
   can_accept_navigation_requests: { type: Boolean },
   can_actuate_trunks: { type: Boolean },

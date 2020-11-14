@@ -9,7 +9,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   displayTempUnits: 'F'
 }
 
-export const UserPreferencesSchema = new Schema({
+export const UserPreferencesSchema = new Schema<UserPreferences>({
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   display_distanceUnits: { type: String },
   display_currencyCode: { type: String },

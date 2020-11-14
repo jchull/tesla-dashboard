@@ -1,8 +1,9 @@
 import { Document, Schema } from 'mongoose'
 import { VehicleData } from '../types'
+import { VehicleState } from '../../../dist/model/types/VehicleState'
 
 
-export const VehicleStateSchema = new Schema({
+export const VehicleStateSchema = new Schema<VehicleState>({
   is_key_state: { type: Boolean },
   battery_heater_on: { type: Boolean },
   battery_level: { type: Number },

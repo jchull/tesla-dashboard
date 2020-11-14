@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { TeslaAccount } from '../types'
 
 
-export const TeslaAccountSchema = new Schema({
+export const TeslaAccountSchema = new Schema<TeslaAccount>({
   username: { type: String },
   email: { type: String, required: true },
   token_created_at: { type: Number, required: false },

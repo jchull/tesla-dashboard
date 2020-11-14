@@ -15,7 +15,7 @@ export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   sleepTriggerSeconds: 300
 }
 
-export const SyncPreferencesSchema = new Schema({
+export const SyncPreferencesSchema = new Schema<SyncPreferences>({
   enabled: { type: Boolean },
   account_id: { type: String },
   sleepTriggerSeconds: { type: Number },

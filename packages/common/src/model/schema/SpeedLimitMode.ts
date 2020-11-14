@@ -2,7 +2,7 @@ import { Document, Schema } from 'mongoose'
 import { SpeedLimitMode } from '../types'
 
 
-export const SpeedLimitModeSchema = new Schema({
+export const SpeedLimitModeSchema = new Schema<SpeedLimitMode>({
   active: { type: Boolean, required: true },
   current_limit_mph: { type: Number, required: false },
   max_limit_mph: { type: Number, required: false },
