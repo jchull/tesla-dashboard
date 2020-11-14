@@ -3,7 +3,7 @@ export enum UserRoles {
   Admin,
 }
 
-type TUserRoles = UserRoles.Standard | UserRoles.Admin
+export type TUserRoles = UserRoles.Standard | UserRoles.Admin
 
 export interface User {
   sub?: string
