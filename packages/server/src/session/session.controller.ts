@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { SessionService } from './session.service';
 import { AuthGuard } from '@nestjs/passport';
-import { decodeRequest, QueryResult } from '@teslapp/common';
+import { query } from '@teslapp/common';
 
 @Controller('session')
 export class SessionController {
@@ -17,10 +17,10 @@ export class SessionController {
 
   @UseGuards(AuthGuard('jwt'))
   @Post()
-  async findSessions(@Request() req): Promise<QueryResult> {
-    const query = decodeRequest(req.body);
+  async findSessions(@Request() req): Promise<query.QueryResult> {
+    const findQuery = query.decodeRequest(req.body);
     // TODO: update this to be more generic once it is working, only looking at driving right now
-    return await this.sessionService.findSessions(req.user.username, query);
+    return await this.sessionService.findSessions(req.user.username, findQuery);
   }
   @UseGuards(AuthGuard('jwt'))
   @Get(':id')

@@ -1,31 +1,17 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import {
-  ChargeSession,
-  ChargeSessionType,
-  ChargeStateType,
-  DriveSession,
-  DriveSessionType,
-  DriveStateType,
-  QueryResult,
-  QuerySet,
-  VehicleType
-} from '@teslapp/common'
+import { query, schema } from '@teslapp/common'
 import { ProductService } from '../product/product.service'
 
 @Injectable()
 export class SessionService {
   constructor(
-    @InjectModel('Vehicle') private readonly productModel: Model<VehicleType>,
-    @InjectModel('DriveSession')
-    private readonly driveSessionModel: Model<DriveSessionType>,
-    @InjectModel('ChargeSession')
-    private readonly chargeSessionModel: Model<ChargeSessionType>,
-    @InjectModel('DriveState')
-    private readonly driveStateModel: Model<DriveStateType>,
-    @InjectModel('ChargeState')
-    private readonly chargeStateModel: Model<ChargeStateType>,
+    @InjectModel('Vehicle') private readonly productModel: Model<schema.VehicleType>,
+    @InjectModel('VehicleSession')
+    private readonly vehicleSessionModel: Model<schema.VehicleSessionType>,
+    @InjectModel('VehicleState')
+    private readonly vehicleStateModel: Model<schema.VehicleStateType>,
     @Inject(forwardRef(() => ProductService))
     private readonly productService: ProductService
   ) {
@@ -33,102 +19,56 @@ export class SessionService {
 
   async getSessionDetails(username: string, id: string) {
     // TODO: limit access by username
-    const driveStates = await this.driveStateModel
-                                  .find({ driveSession: id })
-                                  .sort({ timestamp: 1 })
-    if (driveStates.length) {
-      return driveStates
-    } else {
-      const chargeStates = await this.chargeStateModel
-                                     .find({ chargeSession: id })
-                                     .sort({ timestamp: 1 })
-      if (chargeStates.length) {
-        return chargeStates
-      }
-    }
+    const vehicleStates = await this.vehicleStateModel
+                                    .find({ vehicleSession: id })
+                                    .sort({ timestamp: 1 })
+
   }
 
   async deleteSession(username: string, id: string) {
     // TODO: limit access by username matching
-    const deleteCount = await this.driveSessionModel.deleteOne({ _id: id })
+    const deleteCount = await this.vehicleStateModel.deleteOne({ _id: id })
     if (deleteCount.deletedCount) {
-      const deleteItemCount = await this.driveStateModel.deleteMany({
-        driveSession: id
+      const deleteItemCount = await this.vehicleStateModel.deleteMany({
+        vehicleSession: id
       })
       if (deleteItemCount.deletedCount) {
         return (
           (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0)
         )
       }
-    } else {
-      const deleteCount = await this.chargeSessionModel.deleteOne({ _id: id })
-      if (deleteCount.deletedCount) {
-        const deleteItemCount = await this.chargeStateModel.deleteMany({
-          chargeSession: id
-        })
-        if (deleteItemCount.deletedCount) {
-          return (
-            (deleteCount.deletedCount || 0) +
-            (deleteItemCount.deletedCount || 0)
-          )
-        }
-      }
     }
   }
 
   async addTag(username: string, sessionId: string, tag: string) {
-    const driveSession = await this.driveSessionModel.findOne({
+    const vehicleSession = await this.vehicleSessionModel.findOne({
       _id: sessionId
     })
-    if (driveSession && !driveSession.tags.includes(tag)) {
-      driveSession.tags.push(tag)
-      const result = await this.driveSessionModel.updateOne(
+    if (vehicleSession && !vehicleSession.tags.includes(tag)) {
+      vehicleSession.tags.push(tag)
+      const result = await this.vehicleStateModel.updateOne(
         { _id: sessionId },
-        driveSession
+        vehicleSession
       )
       return result.tags
-    } else {
-      const chargeSession = await this.chargeSessionModel.findOne({
-        _id: sessionId
-      })
-      if (chargeSession && !chargeSession.tags.includes(tag)) {
-        chargeSession.tags.push(tag)
-        const result = await this.chargeSessionModel.updateOne(
-          { _id: sessionId },
-          chargeSession
-        )
-        return result.tags
-      }
     }
   }
 
   async removeTag(username: string, sessionId: string, tag: string) {
-    const driveSession = await this.driveSessionModel.findOne({
+    const vehicleSession = await this.vehicleSessionModel.findOne({
       _id: sessionId
     })
-    if (driveSession && driveSession.tags.includes(tag)) {
-      driveSession.tags.splice(driveSession.tags.indexOf(tag), 1)
-      const result = await this.driveSessionModel.updateOne(
+    if (vehicleSession && vehicleSession.tags.includes(tag)) {
+      vehicleSession.tags.splice(vehicleSession.tags.indexOf(tag), 1)
+      const result = await this.vehicleStateModel.updateOne(
         { _id: sessionId },
-        driveSession
+        vehicleSession
       )
       return result.tags
-    } else {
-      const chargeSession = await this.chargeSessionModel.findOne({
-        _id: sessionId
-      })
-      if (chargeSession && chargeSession.tags.includes(tag)) {
-        chargeSession.tags.splice(chargeSession.tags.indexOf(tag), 1)
-        const result = await this.chargeSessionModel.updateOne(
-          { _id: sessionId },
-          chargeSession
-        )
-        return result.tags
-      }
     }
   }
 
-  async findSessions(username: string, query: QuerySet): Promise<QueryResult> {
+  async findSessions(username: string, query: query.QuerySet): Promise<query.QueryResult> {
     const vehicleId = query.predicates.find((p) => p.field === 'vehicle')
       ?.value
     if (!vehicleId) {
@@ -143,17 +83,15 @@ export class SessionService {
       tags: tags.map((p) => p.value)
       // start_date: { $gte: jan2019, $lte: dec2019 }
     }
-    const model = query.type.toLowerCase() === 'drive' ?
-      this.driveSessionModel : this.chargeSessionModel
 
     // get a total count for pagination info
-    const countQuery = model.countDocuments()
+    const countQuery = this.vehicleSessionModel.countDocuments()
     countQuery.setQuery(criteria)
     const count = await countQuery.exec()
 
     // do query with same criteria as count
     // @ts-ignore
-    const mongooseQuery = model.find()
+    const mongooseQuery = this.vehicleSessionModel.find()
     mongooseQuery.setQuery(criteria)
     mongooseQuery.populate('first')
     mongooseQuery.populate('last')

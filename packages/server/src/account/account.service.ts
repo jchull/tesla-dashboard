@@ -3,31 +3,31 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 
-import { UserType, User, UserRoles } from '@teslapp/common';
+import { schema, types} from '@teslapp/common';
 
 @Injectable()
 export class AccountService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<UserType>
+    @InjectModel('User') private readonly userModel: Model<schema.UserType>
   ) {}
 
-  sanitizeUser(user: User): User {
+  sanitizeUser(user: types.User): types.User {
     const { username, email, role } = user;
-    return { sub: user._id.toString(), username, email, role };
+    return { sub: user.sub, username, email, role };
   }
 
-  async get(username: string): Promise<User | undefined> {
+  async get(username: string): Promise<schema.UserType | undefined> {
     return this.userModel.findOne({ username });
   }
 
-  async validateNewAccount(user: User): Promise<string | undefined> {
+  async validateNewAccount(user: types.User): Promise<string | undefined> {
     const exists = await this.get(user.username);
     if (exists) {
       return 'Username taken';
     }
   }
 
-  async create(user: User): Promise<UserType> {
+  async create(user: types.User): Promise<schema.UserType> {
     if (!bcrypt) {
       throw Error('Cannot run bcrypt in worker!');
     }
@@ -38,11 +38,11 @@ export class AccountService {
       username: user.username,
       email: user.email,
       pwdHash: hash,
-      role: UserRoles.Standard
+      role: types.UserRoles.Standard
     });
   }
 
-  async update(user: User): Promise<UserType> {
+  async update(user: types.User): Promise<schema.UserType> {
     return this.userModel.updateOne({ username: user.username }, user);
   }
 

@@ -3,16 +3,13 @@ import axios from 'axios';
 
 import { TeslaAccountService } from '../tesla-account.service';
 import {
-  Configuration,
-  TeslaAccount,
-  VehicleData,
-  Vehicle
+  schema, types
 } from '@teslapp/common';
 import { ConfigurationService } from '../../configuration/configuration.service';
 
 @Injectable()
 export class TeslaOwnerService {
-  private config: Configuration;
+  private config: types.Configuration;
 
   constructor(
     private readonly configurationService: ConfigurationService,
@@ -20,7 +17,7 @@ export class TeslaOwnerService {
     private readonly teslaAccountService: TeslaAccountService
   ) {}
 
-  async checkToken(teslaAccount: TeslaAccount): Promise<TeslaAccount> {
+  async checkToken(teslaAccount: types.TeslaAccount): Promise<types.TeslaAccount> {
     if (!this.config) {
       this.config = await this.configurationService.getConfiguration();
     }
@@ -45,7 +42,7 @@ export class TeslaOwnerService {
   }
 
   async updateToken(
-    teslaAccount: TeslaAccount,
+    teslaAccount: types.TeslaAccount,
     grant_type: string,
     password?: string
   ) {
@@ -82,7 +79,7 @@ export class TeslaOwnerService {
     );
   }
 
-  async getVehicles(teslaAccount: TeslaAccount): Promise<Vehicle[]> {
+  async getVehicles(teslaAccount: types.TeslaAccount): Promise<types.Vehicle[]> {
     return this.checkToken(teslaAccount)
       .then(() =>
         axios.get(`${this.config.ownerBaseUrl}/api/1/vehicles`, {
@@ -96,9 +93,9 @@ export class TeslaOwnerService {
   }
 
   async getVehicleData(
-    teslaAccount: TeslaAccount,
+    teslaAccount: types.TeslaAccount,
     id_s: string
-  ): Promise<VehicleData | undefined> {
+  ): Promise<types.VehicleData | undefined> {
     await this.checkToken(teslaAccount);
     const vehicleData = await axios.get(
       `${this.config.ownerBaseUrl}/api/1/vehicles/${id_s}/vehicle_data`,
@@ -114,7 +111,7 @@ export class TeslaOwnerService {
     }
   }
 
-  async getNearbyChargers(teslaAccount: TeslaAccount, id_s: string) {
+  async getNearbyChargers(teslaAccount: types.TeslaAccount, id_s: string) {
     return this.checkToken(teslaAccount)
       .then(() =>
         axios.get(
@@ -145,7 +142,7 @@ export class TeslaOwnerService {
       );
   }
 
-  async getVehicle(teslaAccount: TeslaAccount, id_s: string) {
+  async getVehicle(teslaAccount: types.TeslaAccount, id_s: string) {
     return this.checkToken(teslaAccount)
       .then(() =>
         axios.get(`${this.config.ownerBaseUrl}/api/1/vehicles/${id_s}`, {

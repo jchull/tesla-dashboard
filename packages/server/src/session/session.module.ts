@@ -3,28 +3,18 @@ import { SessionController } from './session.controller';
 import { SessionService } from './session.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
-  ChargeSessionSchema,
-  ChargeStateSchema,
-  DriveSessionSchema,
-  DriveStateSchema,
-  VehicleSchema
+  schema
 } from '@teslapp/common';
 import { ProductModule } from '../product/product.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Vehicle', schema: VehicleSchema }]),
+    MongooseModule.forFeature([{ name: 'Vehicle', schema: schema.VehicleSchema }]),
     MongooseModule.forFeature([
-      { name: 'ChargeSession', schema: ChargeSessionSchema }
+      { name: 'VehicleSession', schema: schema.VehicleSessionSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'ChargeState', schema: ChargeStateSchema }
-    ]),
-    MongooseModule.forFeature([
-      { name: 'DriveSession', schema: DriveSessionSchema }
-    ]),
-    MongooseModule.forFeature([
-      { name: 'DriveState', schema: DriveStateSchema }
+      { name: 'VehicleState', schema: schema.VehicleStateSchema }
     ]),
     forwardRef(() => ProductModule)
   ],

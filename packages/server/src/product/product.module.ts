@@ -3,32 +3,21 @@ import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
-  ChargeSessionSchema,
-  ChargeStateSchema,
-  DriveSessionSchema,
-  DriveStateSchema,
-  SyncPreferencesSchema,
-  VehicleSchema
+  schema
 } from '@teslapp/common';
 import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Vehicle', schema: VehicleSchema }]),
+    MongooseModule.forFeature([{ name: 'Vehicle', schema: schema.VehicleSchema }]),
     MongooseModule.forFeature([
-      { name: 'SyncPreferences', schema: SyncPreferencesSchema }
+      { name: 'SyncPreferences', schema: schema.SyncPreferencesSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'ChargeSession', schema: ChargeSessionSchema }
+      { name: 'VehicleSession', schema: schema.VehicleSessionSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'ChargeState', schema: ChargeStateSchema }
-    ]),
-    MongooseModule.forFeature([
-      { name: 'DriveSession', schema: DriveSessionSchema }
-    ]),
-    MongooseModule.forFeature([
-      { name: 'DriveState', schema: DriveStateSchema }
+      { name: 'VehicleState', schema: schema.VehicleStateSchema }
     ]),
     forwardRef(() => TeslaAccountModule)
   ],

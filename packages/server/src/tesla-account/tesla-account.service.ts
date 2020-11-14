@@ -1,5 +1,5 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { TeslaAccount, TeslaAccountType } from '@teslapp/common';
+import { schema, types } from '@teslapp/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { TeslaOwnerService } from './tesla-owner/tesla-owner.service';
@@ -9,34 +9,32 @@ import { ProductService } from '../product/product.service';
 export class TeslaAccountService {
   constructor(
     @InjectModel('TeslaAccount')
-    private readonly teslaAccountModel: Model<TeslaAccountType>,
+    private readonly teslaAccountModel: Model<schema.TeslaAccountType>,
     @Inject(forwardRef(() => TeslaOwnerService))
     private readonly teslaOwnerService: TeslaOwnerService,
     @Inject(forwardRef(() => ProductService))
     private readonly productService: ProductService
   ) {}
 
-  async create(teslaAccount: TeslaAccount) {
+  async create(teslaAccount: types.TeslaAccount) {
     return this.teslaAccountModel.create(teslaAccount);
   }
 
-  async update(teslaAccount: TeslaAccount) {
+  async update(teslaAccount: types.TeslaAccount) {
     return this.teslaAccountModel.updateOne(
-      { _id: teslaAccount._id },
+      { username: teslaAccount.username },
       teslaAccount
     );
   }
 
-  sanitizeTeslaAccount(account: TeslaAccount): TeslaAccount {
+  sanitizeTeslaAccount(account: schema.TeslaAccountType): types.TeslaAccount {
     const {
-      _id,
       email,
       token_created_at,
       token_expires_in,
       username
     } = account;
     return {
-      _id,
       email,
       refresh_token: 'saved',
       access_token: 'saved',
@@ -49,7 +47,7 @@ export class TeslaAccountService {
   async getTeslaAccounts(
     username: string,
     vehicleId?: string
-  ): Promise<TeslaAccount[] | undefined> {
+  ): Promise<types.TeslaAccount[] | undefined> {
     const accountList = await this.teslaAccountModel.find({ username });
     if (accountList?.length) {
       if (vehicleId) {
@@ -61,7 +59,7 @@ export class TeslaAccountService {
         //
         // }
       }
-      return accountList.map((account: TeslaAccountType) =>
+      return accountList.map((account: schema.TeslaAccountType) =>
         this.sanitizeTeslaAccount(account)
       );
     }

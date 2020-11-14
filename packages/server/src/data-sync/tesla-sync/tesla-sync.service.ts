@@ -1,11 +1,9 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { VehicleData } from '@teslapp/common';
-import { ChargeSessionType, DriveSessionType } from '@teslapp/common';
+import { types, schema, query } from '@teslapp/common';
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
 import { ProductService } from '../../product/product.service';
 import { SessionService } from '../../session/session.service';
-import { Operator } from '@teslapp/common';
 
 @Injectable()
 export class TeslaSyncService {
@@ -43,10 +41,9 @@ export class TeslaSyncService {
           const activeSession = (
             await this.sessionService.findSessions(product.username, {
               predicates: [
-                { operator: Operator.EQ, value: product, field: 'vehicle' }
+                { operator: query.Operator.EQ, value: product, field: 'vehicle' }
               ],
-              page: { size: 1, start: 0 },
-              type: 'drive'
+              page: { size: 1, start: 0 }
             })
           ).results;
           if (!activeSession) {
@@ -79,9 +76,9 @@ export class TeslaSyncService {
     }
   }
 
-  private async appendChargeState(
-    session: ChargeSessionType,
-    vehicleData: VehicleData
+  private async appendVehicleState(
+    session: schema.VehicleSessionType,
+    vehicleData: types.VehicleData
   ): Promise<any> {
     // // @ts-ignore
     // if (!session.last || this.hasChanges(session.last, vehicleData)) {
@@ -159,78 +156,17 @@ export class TeslaSyncService {
     // }
   }
 
-  private async appendDriveState(
-    session: DriveSessionType,
-    vehicleData: VehicleData
-  ): Promise<any> {
-    // const vin = vehicleData.vin;
-    // const state = await DriveState.create({
-    //                                         gps_as_of: vehicleData.drive_state.gps_as_of,
-    //                                         heading: vehicleData.drive_state.heading,
-    //                                         latitude: vehicleData.drive_state.latitude,
-    //                                         longitude: vehicleData.drive_state.longitude,
-    //                                         power: vehicleData.drive_state.power,
-    //                                         shift_state: vehicleData.drive_state.shift_state,
-    //                                         speed: vehicleData.drive_state.speed,
-    //                                         odometer: vehicleData.vehicle_state.odometer,
-    //                                         timestamp: vehicleData.drive_state.timestamp,
-    //                                         battery_heater: vehicleData.climate_state.battery_heater,
-    //                                         battery_level: vehicleData.charge_state.battery_level,
-    //                                         battery_range: vehicleData.charge_state.battery_range,
-    //                                         est_battery_range: vehicleData.charge_state.est_battery_range,
-    //                                         ideal_battery_range: vehicleData.charge_state.ideal_battery_range,
-    //                                         usable_battery_level: vehicleData.charge_state.usable_battery_level,
-    //                                         driver_temp_setting: vehicleData.climate_state.driver_temp_setting,
-    //                                         fan_status: vehicleData.climate_state.fan_status,
-    //                                         inside_temp: vehicleData.climate_state.inside_temp,
-    //                                         is_auto_conditioning_on: vehicleData.climate_state.is_auto_conditioning_on,
-    //                                         is_climate_on: vehicleData.climate_state.is_climate_on,
-    //                                         is_front_defroster_on: vehicleData.climate_state.is_front_defroster_on,
-    //                                         is_preconditioning: vehicleData.climate_state.is_preconditioning,
-    //                                         is_rear_defroster_on: vehicleData.climate_state.is_rear_defroster_on,
-    //                                         outside_temp: vehicleData.climate_state.outside_temp,
-    //                                         passenger_temp_setting: vehicleData.climate_state.passenger_temp_setting,
-    //                                         seat_heater_left: vehicleData.climate_state.seat_heater_left,
-    //                                         seat_heater_rear_center: vehicleData.climate_state.seat_heater_rear_center,
-    //                                         seat_heater_rear_left: vehicleData.climate_state.seat_heater_rear_left,
-    //                                         seat_heater_rear_right: vehicleData.climate_state.seat_heater_rear_right,
-    //                                         seat_heater_right: vehicleData.climate_state.seat_heater_right,
-    //                                         side_mirror_heaters: vehicleData.climate_state.side_mirror_heaters,
-    //                                         smart_preconditioning: vehicleData.climate_state.is_preconditioning,
-    //                                         wiper_blade_heater: vehicleData.climate_state.wiper_blade_heater,
-    //                                         driveSession: session
-    //                                       });
-    //
-    // if (!session.first) {
-    //   session.first = state;
-    // }
-    // session.last = state;
-    // session.end_date = session.last.timestamp;
-    // session.distance = session.last.odometer - session.first.odometer;
-    //
-    // const vehicle = await this.productModel.findOne({vin});
-    // if (vehicle) {
-    //   vehicle.odometer = state.odometer;
-    //   vehicle.display_name = vehicleData.display_name;
-    //   vehicle.api_version = vehicleData.api_version;
-    //   vehicle.color = vehicleData.vehicle_config.exterior_color;
-    //   vehicle.car_type = vehicleData.vehicle_config.car_type;
-    //   vehicle.timestamp = state.timestamp;
-    //   await this..updateOne({vin}, vehicle);
-    // }
-    //
-    // return this.driveSessionModel.updateOne({_id: session._id}, session);
-  }
 
-  private isCharging(vehicleData: VehicleData): boolean {
+
+  private isCharging(vehicleData: types.VehicleData): boolean {
     return vehicleData.charge_state.charging_state === 'Charging';
   }
 
-  private isDriving(vehicleData: VehicleData): boolean {
+  private isDriving(vehicleData: types.VehicleData): boolean {
     return vehicleData.drive_state.shift_state !== null;
   }
 
-  private findVehicleState(vehicleData: VehicleData): string {
+  private findVehicleState(vehicleData: types.VehicleData): string {
     if (vehicleData.drive_state.shift_state) {
       return 'Driving';
     }
