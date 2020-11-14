@@ -1,5 +1,4 @@
 export interface Vehicle {
-  _id: string
   id_s: string
   vehicle_id: number
   vin: string

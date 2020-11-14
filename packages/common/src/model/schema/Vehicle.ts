@@ -1,5 +1,6 @@
 import { Document, Schema } from 'mongoose'
-import { Vehicle as Product } from './types/tesla/Vehicle'
+import { Vehicle } from '../types'
+
 
 export const VehicleSchema = new Schema({
   id_s: { type: String, required: true, unique: true },
@@ -22,8 +23,7 @@ export const VehicleSchema = new Schema({
   last_session_id: { type: String },
   username: { type: String },
   sync_preferences: { type: Schema.Types.ObjectId, ref: 'SyncPreferences' },
-  sync_state: { type: String },
+  sync_state: { type: String }
 })
 
-export type VehicleType = Product & Document
-export type { Product }
+export type VehicleType = Vehicle & Document

@@ -1,5 +1,6 @@
 import { Document, Schema } from 'mongoose'
-import { VehicleConfig } from './types/tesla/VehicleConfig'
+import { VehicleConfig } from '../types'
+
 
 export const VehicleConfigSchema = new Schema({
   id_s: { type: String, required: true },
@@ -25,7 +26,7 @@ export const VehicleConfigSchema = new Schema({
   third_row_seats: { type: String },
   timestamp: { type: Number },
   use_range_badging: { type: Boolean },
-  wheel_type: { type: String },
+  wheel_type: { type: String }
 })
 
 export type VehicleConfigType = VehicleConfig & Document

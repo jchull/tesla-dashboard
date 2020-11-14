@@ -1,26 +1,8 @@
 import { Document, Schema } from 'mongoose'
-import { VehicleState } from './types/VehicleState'
-import { ChargeSession } from './ChargeSession'
+import { VehicleData } from '../types'
 
-export interface ChargeState extends VehicleState {
-  _id: string
-  charge_current_request: number
-  charge_energy_added: number
-  charge_miles_added_ideal: number
-  charge_miles_added_rated: number
-  charge_port_door_open: boolean
-  charge_port_latch: string
-  charge_rate: number
-  charger_actual_current: number
-  charger_power: number
-  charger_voltage: number
-  charging_state: string
-  time_to_full_charge: number
 
-  session?: ChargeSession
-}
-
-export const ChargeStateSchema = new Schema({
+export const VehicleStateSchema = new Schema({
   is_key_state: { type: Boolean },
   battery_heater_on: { type: Boolean },
   battery_level: { type: Number },
@@ -59,7 +41,7 @@ export const ChargeStateSchema = new Schema({
   smart_preconditioning: { type: Boolean },
   is_user_present: { type: Boolean },
 
-  chargeSession: { type: Schema.Types.ObjectId, ref: 'ChargeSession' },
+  vehicleSession: { type: Schema.Types.ObjectId, ref: 'VehicleSession' }
 })
 
-export type ChargeStateType = ChargeState & Document
+export type VehicleStateType = VehicleData & Document

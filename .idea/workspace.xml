@@ -28,18 +28,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
+      <change afterPath="$PROJECT_DIR$/.idea/ClojureProjectResolveSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/SyncPreferences.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/TeslaAccount.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/UserPreferences.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleSession.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/common/src/model/types/Configuration.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/web/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/VehicleSession.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/Configuration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/GuiSettings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/SpeedLimitMode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/SyncPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/TeslaAccount.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/UserPreferences.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/Vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/util.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +125,7 @@
   <component name="ProjectId" id="1VzgkDXywWnf1ywrjColpI67Vj8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -120,7 +141,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.12.54" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/common/src/model/types" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -129,26 +150,47 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettier.import.notification.dismissed" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/common/src/model/schema" />
+      <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
+      <recent name="$PROJECT_DIR$/packages/common/src/model" />
+      <recent name="$PROJECT_DIR$/packages/web" />
+      <recent name="$PROJECT_DIR$/packages/server" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/web/src/component/tags" />
       <recent name="$PROJECT_DIR$/packages/web/src/component/filter" />
       <recent name="$PROJECT_DIR$/packages/server/src/tag" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/view" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/web" />
-      <recent name="$PROJECT_DIR$/packages/server" />
-      <recent name="$PROJECT_DIR$/packages" />
-      <recent name="$PROJECT_DIR$/common/src" />
-      <recent name="$PROJECT_DIR$/bin" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start server">
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <setting name="replType" value="NREPL" />
+      <setting name="execution" value="LEININGEN" />
+      <setting name="jvmArgs" value="" />
+      <setting name="parameters" value="" />
+      <setting name="workingDir" value="" />
+      <setting name="profiles" value="" />
+      <setting name="aliases" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="Server Unit Tests" type="JavaScriptTestRunnerJest">
       <config-file value="$PROJECT_DIR$/server/jest.config.js" />
       <node-interpreter value="project" />
@@ -239,97 +281,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00167" summary="add card title">
-      <created>1586044407742</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044407742</updated>
-    </task>
-    <task id="LOCAL-00168" summary="new pagination">
-      <created>1586044450291</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044450291</updated>
-    </task>
-    <task id="LOCAL-00169" summary="minor style updates">
-      <created>1586044472625</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1586044472626</updated>
-    </task>
-    <task id="LOCAL-00170" summary="minor style updates">
-      <created>1586114072714</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1586114072715</updated>
-    </task>
-    <task id="LOCAL-00171" summary="add base styles">
-      <created>1587425330627</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1587425330628</updated>
-    </task>
-    <task id="LOCAL-00172" summary="add tag module">
-      <created>1587433461964</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433461964</updated>
-    </task>
-    <task id="LOCAL-00173" summary="format">
-      <created>1587433493166</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433493167</updated>
-    </task>
-    <task id="LOCAL-00174" summary="add call to get all tags">
-      <created>1587433529880</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433529880</updated>
-    </task>
-    <task id="LOCAL-00175" summary="add tag module">
-      <created>1587433539030</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433539030</updated>
-    </task>
-    <task id="LOCAL-00176" summary="Add filter actions and state">
-      <created>1587433563519</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1587433563519</updated>
-    </task>
-    <task id="LOCAL-00177" summary="format">
-      <created>1587510601789</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1587510601789</updated>
-    </task>
-    <task id="LOCAL-00178" summary="formatting">
-      <created>1587511040428</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1587511040428</updated>
-    </task>
-    <task id="LOCAL-00179" summary="formatting">
-      <created>1587511176404</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1587511176404</updated>
     </task>
     <task id="LOCAL-00180" summary="filters">
       <created>1588370513833</created>
@@ -583,7 +534,98 @@
       <option name="project" value="LOCAL" />
       <updated>1596988305005</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="update layout of stats">
+      <created>1597598838602</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1597598838602</updated>
+    </task>
+    <task id="LOCAL-00217" summary="default to overview">
+      <created>1597598862049</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1597598862049</updated>
+    </task>
+    <task id="LOCAL-00218" summary="clean up 3 column styling, utilize flex better">
+      <created>1597598900133</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1597598900133</updated>
+    </task>
+    <task id="LOCAL-00219" summary="moved some stuff to 3-column styles">
+      <created>1597598923996</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1597598923996</updated>
+    </task>
+    <task id="LOCAL-00220" summary="ide files">
+      <created>1597598948997</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1597598948997</updated>
+    </task>
+    <task id="LOCAL-00221" summary="initial resize only">
+      <created>1602344525869</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1602344525870</updated>
+    </task>
+    <task id="LOCAL-00222" summary="make sure all tests follow pattern *.spec.*">
+      <created>1602347408809</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1602347408809</updated>
+    </task>
+    <task id="LOCAL-00223" summary="handle charge/drive query transparently">
+      <created>1602351632692</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351632693</updated>
+    </task>
+    <task id="LOCAL-00224" summary="remove filter toolbar">
+      <created>1602351656625</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351656625</updated>
+    </task>
+    <task id="LOCAL-00225" summary="handle selection and query for drive/charge sessions">
+      <created>1602351691493</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351691493</updated>
+    </task>
+    <task id="LOCAL-00226" summary="clear sessions when switching session type">
+      <created>1602351718570</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351718570</updated>
+    </task>
+    <task id="LOCAL-00227" summary="handle session type">
+      <created>1602351737135</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351737136</updated>
+    </task>
+    <task id="LOCAL-00228" summary="WIP some styles for tab bar">
+      <created>1602351763362</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1602351763362</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,19 +658,6 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="all tags fetch" />
-    <MESSAGE value="fetch tags on product selection" />
-    <MESSAGE value="tag filter wip" />
-    <MESSAGE value="tag filtering" />
-    <MESSAGE value="add prettier config at root, move dependencie in common to devdependency" />
-    <MESSAGE value="go back to working mongoose" />
-    <MESSAGE value="fix package dependencies mess, add global format target" />
-    <MESSAGE value="update ignores" />
-    <MESSAGE value="add missing dependency for effect" />
-    <MESSAGE value="add in some more stats and some better layout" />
-    <MESSAGE value="project files" />
-    <MESSAGE value="fix type export" />
-    <MESSAGE value="hardcoded filters for date and tag" />
     <MESSAGE value="just export everything from common" />
     <MESSAGE value="dynamic chart sizing based on container size" />
     <MESSAGE value="formatting" />
@@ -641,87 +670,47 @@
     <MESSAGE value="remove extra margin from menu items" />
     <MESSAGE value="change default size" />
     <MESSAGE value="update toggle styles and animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="update toggle styles and animation" />
+    <MESSAGE value="update layout of stats" />
+    <MESSAGE value="default to overview" />
+    <MESSAGE value="clean up 3 column styling, utilize flex better" />
+    <MESSAGE value="moved some stuff to 3-column styles" />
+    <MESSAGE value="ide files" />
+    <MESSAGE value="initial resize only" />
+    <MESSAGE value="make sure all tests follow pattern *.spec.*" />
+    <MESSAGE value="handle charge/drive query transparently" />
+    <MESSAGE value="remove filter toolbar" />
+    <MESSAGE value="handle selection and query for drive/charge sessions" />
+    <MESSAGE value="clear sessions when switching session type" />
+    <MESSAGE value="handle session type" />
+    <MESSAGE value="WIP some styles for tab bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP some styles for tab bar" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594082466365">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605383491563">
+      <screen x="0" y="25" width="3840" height="2135" />
     </state>
-    <state x="189" y="77" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1594082466365" />
-    <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1593885112734">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="466" y="312" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1593885112734" />
-    <state x="137" y="108" width="1142" height="685" key="CommitChangelistDialog2" timestamp="1594495371545">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="137" y="108" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1594495371545" />
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1594089232139">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1594089232139" />
-    <state width="958" height="238" key="GridCell.Tab.0.bottom" timestamp="1594084292782">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="958" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state width="958" height="238" key="GridCell.Tab.0.center" timestamp="1594084292782">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="958" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state width="958" height="238" key="GridCell.Tab.0.left" timestamp="1594084292781">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="958" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594084292781" />
-    <state width="958" height="238" key="GridCell.Tab.0.right" timestamp="1594084292782">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="958" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594084292782" />
-    <state x="455" y="159" key="RollbackChangesDialog" timestamp="1594340869026">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="455" y="159" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1594340869026" />
-    <state x="159" y="159" width="900" height="722" key="SettingsEditor" timestamp="1594495097373">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="159" y="159" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1594495097373" />
-    <state x="159" y="178" width="900" height="722" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1590940725886" />
-    <state x="477" y="154" key="VCS.ChangeListViewerDialog" timestamp="1594086655156">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="477" y="154" key="VCS.ChangeListViewerDialog/0.0.1440.900@0.0.1440.900" timestamp="1594086655156" />
-    <state x="100" y="100" width="1240" height="700" key="VCS.FileHistoryDialog" timestamp="1594089036317">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="100" y="100" width="1240" height="700" key="VCS.FileHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1594089036317" />
-    <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2" timestamp="1596988308571">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="191" y="339" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1594520298374" />
-    <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1596988308571" />
-    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591480398394">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1591480398394" />
-    <state x="0" y="0" width="1440" height="900" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1594167350577">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="0" y="0" width="1440" height="900" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1591477934431" />
-    <state x="845" y="1006" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588520841704">
+    <state x="2541" y="751" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1602350904105" />
+    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.3840.2135@0.25.3840.2135" timestamp="1605383491563" />
+    <state x="424" y="401" width="900" height="722" key="SettingsEditor" timestamp="1602348453720">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="845" y="1006" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.3840.2137@0.23.3840.2137" timestamp="1588520841704" />
+    <state x="424" y="401" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1602348453720" />
+    <state x="509" y="827" width="513" height="220" key="Vcs.Push.Dialog.v2" timestamp="1602351765316">
+      <screen x="0" y="23" width="3840" height="2137" />
+    </state>
+    <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1597598953973" />
+    <state x="509" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1602351765316" />
     <state x="223" y="352" width="574" height="490" key="find.popup" timestamp="1596986984863">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="223" y="338" width="574" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1594337263144" />
     <state x="223" y="352" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1596986984863" />
-    <state width="600" height="424" key="javadoc.popup" timestamp="1588524241889">
+    <state x="2587" y="779" key="refactoring.ChangeSignatureDialog" timestamp="1602348062502">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state width="600" height="424" key="javadoc.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1588524241889" />
-    <state x="302" y="212" width="670" height="285" key="search.everywhere.popup" timestamp="1594167875478">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2587" y="779" key="refactoring.ChangeSignatureDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1602348062502" />
+    <state x="805" y="526" width="1787" height="677" key="search.everywhere.popup" timestamp="1602351800544">
+      <screen x="0" y="23" width="3840" height="2137" />
     </state>
-    <state x="302" y="212" width="670" height="285" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1594167875478" />
+    <state x="805" y="526" width="1787" height="677" key="search.everywhere.popup/0.23.3840.2137@0.23.3840.2137" timestamp="1602351800544" />
   </component>
 </project>
