@@ -1,5 +1,5 @@
-import { VehicleData } from './tesla/VehicleData'
-import { Vehicle } from './tesla/Vehicle'
+import { VehicleData } from '../tesla/VehicleData'
+import { Vehicle } from '../tesla/Vehicle'
 import { Entity } from './common'
 
 export enum ActivityType {

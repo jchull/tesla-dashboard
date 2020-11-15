@@ -1,8 +1,8 @@
 import { Document, Schema } from 'mongoose'
-import { VehicleData } from '../types'
+import { VehicleState } from '../types'
 
 
-export const VehicleStateSchema = new Schema<VehicleData>({
+export const VehicleStateSchema = new Schema<VehicleState>({
   is_key_state: { type: Boolean },
   battery_heater_on: { type: Boolean },
   battery_level: { type: Number },
@@ -44,4 +44,4 @@ export const VehicleStateSchema = new Schema<VehicleData>({
   vehicleSession: { type: Schema.Types.ObjectId, ref: 'VehicleSession' }
 })
 
-export type VehicleStateType = VehicleData & Document
+export type VehicleStateType = VehicleState & Document
