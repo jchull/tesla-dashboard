@@ -3,6 +3,7 @@ import { UserPreferences } from '../types'
 
 
 export const DEFAULT_PREFERENCES: UserPreferences = {
+  _id: 'default',
   username: 'default',
   displayDistanceUnits: 'mi',
   displayCurrencyCode: 'USD',

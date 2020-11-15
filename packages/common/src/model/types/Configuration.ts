@@ -1,4 +1,6 @@
-export interface Configuration {
+import { Entity } from './common'
+
+export interface Configuration extends Entity {
   apiPort: number
   ownerBaseUrl: string
   teslaClientKey: string

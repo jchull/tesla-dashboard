@@ -1,3 +1,5 @@
+import { Entity } from './common'
+
 export enum UserRoles {
   Standard,
   Admin,
@@ -5,7 +7,7 @@ export enum UserRoles {
 
 export type TUserRoles = UserRoles.Standard | UserRoles.Admin
 
-export interface User {
+export interface User extends Entity {
   sub?: string
   username: string
   email?: string

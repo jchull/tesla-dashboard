@@ -1,4 +1,6 @@
-export interface SyncPreferences {
+import { Entity } from './common'
+
+export interface SyncPreferences extends Entity {
   enabled: boolean
   accountId?: string
   sleepTriggerSeconds: number

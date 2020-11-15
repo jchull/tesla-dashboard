@@ -3,6 +3,7 @@ import { SyncPreferences } from '../types'
 
 
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
+  _id: 'default',
   enabled: false,
   chargingMaxGapSeconds: 300,
   chargingMinDurationMinutes: 5,
