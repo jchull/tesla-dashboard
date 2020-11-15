@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { query, schema, types } from '@teslapp/common'
+import { query, schema, types, tesla } from '@teslapp/common'
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service'
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service'
 import { ProductService } from '../../product/product.service'
@@ -15,19 +15,17 @@ export class TeslaSyncService {
   ) {
   }
 
-  async updateVehicleData(vin: string): Promise<any> {
+  async syncVehicle(vin: string): Promise<any> {
     const product = await this.productService.findByVin(vin)
     if (!product) {
-      throw new Error(
-        'Invalid state, ensure products exist before updating data!'
-      )
+      throw new Error('Invalid state, ensure products exist before updating data!')
     } else {
       const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(
         product.username,
         product._id
       )
       // we should not have more than one result when providing both parameters
-      if (teslaAccounts && teslaAccounts.length === 1) {
+      if (teslaAccounts?.length === 1) {
         const vehicleData = await this.teslaOwnerService.getVehicleData(
           teslaAccounts[0],
           product.id_s
@@ -35,10 +33,10 @@ export class TeslaSyncService {
 
         if (vehicleData) {
           const vehicleStatus = this.findVehicleState(vehicleData)
-          console.log(
-            `${vehicleData.display_name} is currently ${vehicleStatus}`
-          )
+          console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`)
 
+          // TODO: add time to query so we only find active session, sort by time descending
+          // TODO: also limit to activity type>?
           const activeSession = (
             await this.sessionService.findSessions(product.username, {
               predicates: [
@@ -46,32 +44,11 @@ export class TeslaSyncService {
               ],
               page: { size: 1, start: 0 }
             })
-          ).results
-          if (!activeSession) {
-            console.log('no recent sessions found')
-          } else {
-            // TODO: check conditions to decide if we want to save this data or ignore it
-            // if (activeSession.end_date) {
-            // }
-          }
-
-          //
-          //   this.appendChargeState(activeChargingSession, vehicleData);
-          //
-          //
-          // vehicle.odometer = vehicleData.vehicle_state.odometer;
-          // vehicle.display_name = vehicleData.display_name;
-          // vehicle.api_version = vehicleData.api_version;
-          // vehicle.color = vehicleData.vehicle_config.exterior_color;
-          // vehicle.car_type = vehicleData.vehicle_config.car_type;
-          // vehicle.timestamp = vehicleData.vehicle_state.timestamp;
-          // vehicle.battery_level = vehicleData.charge_state.battery_level;
-          // vehicle.battery_range = vehicleData.charge_state.battery_range;
-          // vehicle.charging_state = vehicleData.charge_state.charging_state || 'Disconnected';
-          // vehicle.time_to_full_charge = vehicleData.charge_state.time_to_full_charge;
-          // vehicle.charge_limit_soc = vehicleData.charge_state.charge_limit_soc;
-          // vehicle.state = vehicleStatus;
-          // return this.productService.update(vehicle);
+          )?.results
+          return activeSession?.length === 1 ?
+            this.appendVehicleState(activeSession[0], vehicleData)
+            :
+            this.createNewActivity(vehicleData)
         }
       }
     }
@@ -79,103 +56,37 @@ export class TeslaSyncService {
 
   private async appendVehicleState(
     session: schema.VehicleSessionType,
-    vehicleData: types.VehicleData
+    vehicleData: tesla.VehicleData
   ): Promise<any> {
-    // // @ts-ignore
-    // if (!session.last || this.hasChanges(session.last, vehicleData)) {
-    //
-    //   const state = await this.chargeSessionModel.create({
-    //                                            battery_heater_on: vehicleData.charge_state.battery_heater_on || false,
-    //                                            battery_level: vehicleData.charge_state.battery_level,
-    //                                            battery_range: vehicleData.charge_state.battery_range,
-    //                                            charge_current_request: vehicleData.charge_state.charge_current_request,
-    //                                            charge_energy_added: vehicleData.charge_state.charge_energy_added,
-    //                                            charge_miles_added_ideal: vehicleData.charge_state.charge_miles_added_ideal,
-    //                                            charge_miles_added_rated: vehicleData.charge_state.charge_miles_added_rated,
-    //                                            charge_port_door_open: vehicleData.charge_state.charge_port_door_open,
-    //                                            charge_port_latch: vehicleData.charge_state.charge_port_latch,
-    //                                            charge_rate: vehicleData.charge_state.charge_rate,
-    //                                            charger_actual_current: vehicleData.charge_state.charger_actual_current,
-    //                                            charger_power: vehicleData.charge_state.charger_power || 0,
-    //                                            charger_voltage: vehicleData.charge_state.charger_voltage || 0,
-    //                                            charging_state: vehicleData.charge_state.charging_state || 'Disconnected',
-    //                                            est_battery_range: vehicleData.charge_state.est_battery_range,
-    //                                            ideal_battery_range: vehicleData.charge_state.ideal_battery_range,
-    //                                            time_to_full_charge: vehicleData.charge_state.time_to_full_charge || 0,
-    //                                            timestamp: vehicleData.charge_state.timestamp,
-    //                                            driver_temp_setting: vehicleData.climate_state.driver_temp_setting,
-    //                                            fan_status: vehicleData.climate_state.fan_status || 0,
-    //                                            inside_temp: vehicleData.climate_state.inside_temp,
-    //                                            is_auto_conditioning_on: vehicleData.climate_state.is_auto_conditioning_on,
-    //                                            is_climate_on: vehicleData.climate_state.is_climate_on || undefined,
-    //                                            is_front_defroster_on: vehicleData.climate_state.is_front_defroster_on || undefined,
-    //                                            is_preconditioning: vehicleData.climate_state.is_preconditioning || undefined,
-    //                                            is_rear_defroster_on: vehicleData.climate_state.is_rear_defroster_on || undefined,
-    //                                            outside_temp: vehicleData.climate_state.outside_temp,
-    //                                            passenger_temp_setting: vehicleData.climate_state.passenger_temp_setting,
-    //                                            seat_heater_left: vehicleData.climate_state.seat_heater_left,
-    //                                            seat_heater_rear_center: vehicleData.climate_state.seat_heater_rear_center,
-    //                                            seat_heater_rear_left: vehicleData.climate_state.seat_heater_rear_left,
-    //                                            seat_heater_rear_right: vehicleData.climate_state.seat_heater_rear_right,
-    //                                            seat_heater_right: vehicleData.climate_state.seat_heater_right,
-    //                                            side_mirror_heaters: vehicleData.climate_state.side_mirror_heaters,
-    //                                            smart_preconditioning: vehicleData.climate_state.smart_preconditioning,
-    //                                            is_user_present: vehicleData.vehicle_state.is_user_present || undefined,
-    //                                            chargeSession: session
-    //                                          });
-    //
-    //   if (!session.first) {
-    //     session.first = state;
-    //   }
-    //   session.last = state;
-    //   session.trip_charging = session.trip_charging || vehicleData.charge_state.trip_charging || false;
-    //   session.end_date = state.timestamp;
-    //   session.charge_current_request_max = vehicleData.charge_state.charge_current_request_max;
-    //   session.charge_enable_request = vehicleData.charge_state.charge_enable_request;
-    //   session.charge_limit_soc = vehicleData.charge_state.charge_limit_soc;
-    //   session.charge_limit_soc_max = vehicleData.charge_state.charge_limit_soc_max;
-    //   session.charge_limit_soc_min = vehicleData.charge_state.charge_limit_soc_min;
-    //   session.charge_limit_soc_std = vehicleData.charge_state.charge_limit_soc_std;
-    //   session.charge_port_cold_weather_mode = vehicleData.charge_state.charge_port_cold_weather_mode;
-    //   session.charge_to_max_range = session.charge_to_max_range || vehicleData.charge_state.charge_to_max_range || false;
-    //   session.charger_phases = vehicleData.charge_state.charger_phases;
-    //   session.charger_pilot_current = vehicleData.charge_state.charger_pilot_current;
-    //   session.conn_charge_cable = vehicleData.charge_state.conn_charge_cable;
-    //   session.fast_charger_brand = vehicleData.charge_state.fast_charger_brand;
-    //   session.fast_charger_present = vehicleData.charge_state.fast_charger_present || false;
-    //   session.fast_charger_type = vehicleData.charge_state.fast_charger_type;
-    //   session.managed_charging_active = vehicleData.charge_state.managed_charging_active;
-    //   session.managed_charging_start_time = vehicleData.charge_state.managed_charging_start_time;
-    //   session.managed_charging_user_canceled = vehicleData.charge_state.managed_charging_user_canceled;
-    //   session.max_range_charge_counter = vehicleData.charge_state.max_range_charge_counter;
-    //   session.scheduled_charging_pending = vehicleData.charge_state.scheduled_charging_pending;
-    //   session.scheduled_charging_start_time = vehicleData.charge_state.scheduled_charging_start_time;
-    //
-    //   await ChargeSession.updateOne({_id: session._id}, session);
-    // } else {
-    //   console.log('No Changes detected');
-    // }
+    //TODO: build state from vehicle data
+    // then update session roll-up fields
+  }
+
+  private async createNewActivity(vehicleData: tesla.VehicleData): Promise<any> {
+    //TODO:
   }
 
 
-  private isCharging(vehicleData: types.VehicleData): boolean {
-    return vehicleData.charge_state.charging_state === 'Charging'
+  private isCharging(vehicleData: tesla.VehicleData): boolean {
+    return vehicleData.charge_state?.charging_state === 'Charging'
   }
 
-  private isDriving(vehicleData: types.VehicleData): boolean {
-    return vehicleData.drive_state.shift_state !== null
-  }
-
-  private findVehicleState(vehicleData: types.VehicleData): string {
-    if (vehicleData.drive_state.shift_state) {
-      return 'Driving'
-    }
-    if (
-      vehicleData.charge_state.charging_state &&
+  private isDriving(vehicleData: tesla.VehicleData): boolean {
+    return vehicleData.charge_state?.charging_state?.length &&
       vehicleData.charge_state.charging_state !== 'Disconnected'
-    ) {
-      return vehicleData.charge_state.charging_state
-    }
-    return 'Parked'
+  }
+
+  private findVehicleState(vehicleData: tesla.VehicleData): types.ActivityType {
+    return this.isDriving(vehicleData) ?
+      types.ActivityType.DRIVING
+      :
+      this.isCharging(vehicleData) ?
+        types.ActivityType.CHARGING // todo: handle other states
+        :
+        types.ActivityType.PARKED
+  }
+
+  private isActive(vehicleData: tesla.VehicleData): boolean {
+    return true // TODO: logic ya
   }
 }

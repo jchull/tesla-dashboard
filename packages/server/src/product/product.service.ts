@@ -38,31 +38,22 @@ export class ProductService {
     })
   }
 
-  async getMyProducts(username: string, syncUpstream = false) {
+  async getMyProducts(username: string, syncUpstream: boolean = false) {
     if (syncUpstream != false) {
-      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(
-        username
-      )
-      if (teslaAccounts) {
-        await teslaAccounts.forEach(async (teslaAccount) => {
-          const products = await this.teslaOwnerService.getVehicles(
-            teslaAccount
-          )
-          await this.upsertMany(
-            products.map((product) => ({ ...product, username }))
-          )
+      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(username)
+      if (teslaAccounts?.length) {
+        teslaAccounts.forEach(async (teslaAccount) => {
+          const products = await this.teslaOwnerService.getVehicles(teslaAccount)
+          // TODO: get _id from persisted store
+          await this.upsertMany(products.map((product) => ({ ...product, username })))
         })
-        return this.productModel
-                   .find({ username })
-                   .populate(['sync_preferences'])
-                   .sort({ $natural: -1 })
       }
-    } else {
-      return this.productModel
-                 .find({ username })
-                 .populate(['sync_preferences'])
-                 .sort({ $natural: -1 })
     }
+    return this.productModel
+               .find({ username })
+               .populate(['sync_preferences'])
+               .sort({ $natural: -1 })
+
   }
 
   async findByVin(vin: string) {

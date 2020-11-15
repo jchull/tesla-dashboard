@@ -30,12 +30,14 @@ export class TeslaAccountService {
 
   sanitizeTeslaAccount(account: schema.TeslaAccountType): types.TeslaAccount {
     const {
+      _id,
       email,
       token_created_at,
       token_expires_in,
       username
     } = account
     return {
+      _id,
       email,
       refresh_token: 'saved',
       access_token: 'saved',

@@ -13,7 +13,7 @@ export class AuthService {
   ) {
   }
 
-  async validate(username: string, password: string): Promise<types.User | null> {
+  async validate(username: string, password: string): Promise<Partial<types.User> | null> {
     const user = await this.accountService.get(username)
     return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash)
       ? this.accountService.sanitizeUser(user)
@@ -31,7 +31,7 @@ export class AuthService {
         username: user.username,
         email: user.email,
         role: user.role,
-        sub: user.sub
+        sub: user._id
       }
       const token = this.jwtService.sign(payload)
       console.log(`generated token: ${token} from ${JSON.stringify(payload)}`)

@@ -12,23 +12,23 @@ export class AccountService {
   ) {
   }
 
-  sanitizeUser(user: types.User): types.User {
+  sanitizeUser(user: types.User): Partial<types.User> {
     const { username, email, role } = user
-    return { sub: user.sub, username, email, role }
+    return { sub: user._id, username, email, role }
   }
 
-  async get(username: string): Promise<schema.UserType | undefined> {
+  async get(username: string): Promise<types.User | undefined> {
     return this.userModel.findOne({ username })
   }
 
-  async validateNewAccount(user: types.User): Promise<string | undefined> {
+  async validateNewAccount(user: Partial<types.User>): Promise<string | undefined> {
     const exists = await this.get(user.username)
     if (exists) {
       return 'Username taken'
     }
   }
 
-  async create(user: types.User): Promise<schema.UserType> {
+  async create(user: Partial<types.User>): Promise<types.User> {
     if (!bcrypt) {
       throw Error('Cannot run bcrypt in worker!')
     }
@@ -43,7 +43,7 @@ export class AccountService {
     })
   }
 
-  async update(user: types.User): Promise<schema.UserType> {
+  async update(user: types.User): Promise<types.User> {
     return this.userModel.updateOne({ username: user.username }, user)
   }
 

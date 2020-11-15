@@ -15,7 +15,6 @@ export class AccountController {
     )
   }
 
-  // @UseGuards(AuthGuard('local'))
   @Put()
   async signup(@Request() req) {
     const { username, password, email } = req.body
