@@ -1,11 +1,7 @@
-import { VehicleData } from '../tesla/VehicleData'
-import { Vehicle } from '../tesla/Vehicle'
+import { Vehicle, VehicleData } from '../tesla'
 import { Entity } from './common'
+import { ActivityType } from './Vehicle'
 
-export enum ActivityType {
-  CHARGING = 'CHARGING',
-  DRIVING = 'DRIVING'
-}
 
 export interface VehicleSession extends Entity {
   id_s: string
