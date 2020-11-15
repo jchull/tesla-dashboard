@@ -55,7 +55,7 @@ export class TeslaOwnerService {
     )
   }
 
-  async getVehicles(teslaAccount: types.TeslaAccount): Promise<types.Vehicle[]> {
+  async getVehicles(teslaAccount: types.TeslaAccount): Promise<tesla.Vehicle[]> {
     return await this.checkToken(teslaAccount) ?
       fetchVehicles(this.config, teslaAccount)
       :
@@ -66,20 +66,14 @@ export class TeslaOwnerService {
     teslaAccount: types.TeslaAccount,
     id_s: string
   ): Promise<tesla.VehicleData | undefined> {
-    if (await this.checkToken(teslaAccount)) {
-      return fetchVehicleData(this.config, teslaAccount, id_s)
-    }
+    return await this.checkToken(teslaAccount) && fetchVehicleData(this.config, teslaAccount, id_s)
   }
 
   async getNearbyChargers(teslaAccount: types.TeslaAccount, id_s: string) {
-    if (await this.checkToken(teslaAccount)) {
-      return fetchNearbyChargers(this.config, teslaAccount, id_s)
-    }
+    return await this.checkToken(teslaAccount) && fetchNearbyChargers(this.config, teslaAccount, id_s)
   }
 
   async getVehicle(teslaAccount: types.TeslaAccount, id_s: string) {
-    if (await this.checkToken(teslaAccount)) {
-      return fetchVehicle(this.config, teslaAccount, id_s)
-    }
+    return await this.checkToken(teslaAccount) && fetchVehicle(this.config, teslaAccount, id_s)
   }
 }
