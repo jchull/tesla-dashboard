@@ -1,11 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { SchedulerRegistry } from '@nestjs/schedule';
+import { Injectable } from '@nestjs/common'
+import { SchedulerRegistry } from '@nestjs/schedule'
 
 @Injectable()
 export class SyncSchedulerService {
-  constructor(private readonly schedulerRegistry: SchedulerRegistry) {}
+  constructor(private readonly schedulerRegistry: SchedulerRegistry) {
+  }
 
   getSchedules() {
-    this.schedulerRegistry.getIntervals();
+    this.schedulerRegistry.getIntervals()
   }
 }

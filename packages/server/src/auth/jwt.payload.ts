@@ -1,4 +1,4 @@
-import { types } from '@teslapp/common';
+import { types } from '@teslapp/common'
 
 export interface JwtPayload {
   sub: string;

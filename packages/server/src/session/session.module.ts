@@ -1,11 +1,9 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { SessionController } from './session.controller';
-import { SessionService } from './session.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import {
-  schema
-} from '@teslapp/common';
-import { ProductModule } from '../product/product.module';
+import { forwardRef, Module } from '@nestjs/common'
+import { SessionController } from './session.controller'
+import { SessionService } from './session.service'
+import { MongooseModule } from '@nestjs/mongoose'
+import { schema } from '@teslapp/common'
+import { ProductModule } from '../product/product.module'
 
 @Module({
   imports: [
@@ -22,4 +20,5 @@ import { ProductModule } from '../product/product.module';
   providers: [SessionService],
   exports: [SessionService]
 })
-export class SessionModule {}
+export class SessionModule {
+}

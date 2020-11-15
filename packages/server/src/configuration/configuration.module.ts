@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigurationController } from './configuration.controller';
-import { ConfigurationService } from './configuration.service';
-import { schema } from '@teslapp/common';
+import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
+import { ConfigurationController } from './configuration.controller'
+import { ConfigurationService } from './configuration.service'
+import { schema } from '@teslapp/common'
 
 @Module({
   imports: [
@@ -14,4 +14,5 @@ import { schema } from '@teslapp/common';
   providers: [ConfigurationService],
   exports: [ConfigurationService]
 })
-export class ConfigurationModule {}
+export class ConfigurationModule {
+}

@@ -1,11 +1,9 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { ProductController } from './product.controller';
-import { ProductService } from './product.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import {
-  schema
-} from '@teslapp/common';
-import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
+import { forwardRef, Module } from '@nestjs/common'
+import { ProductController } from './product.controller'
+import { ProductService } from './product.service'
+import { MongooseModule } from '@nestjs/mongoose'
+import { schema } from '@teslapp/common'
+import { TeslaAccountModule } from '../tesla-account/tesla-account.module'
 
 @Module({
   imports: [
@@ -25,4 +23,5 @@ import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
   providers: [ProductService],
   exports: [ProductService]
 })
-export class ProductModule {}
+export class ProductModule {
+}

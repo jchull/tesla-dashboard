@@ -1,17 +1,11 @@
-import {
-  Controller,
-  Get,
-  Param,
-  Query,
-  Request,
-  UseGuards
-} from '@nestjs/common';
-import { ProductService } from './product.service';
-import { AuthGuard } from '@nestjs/passport';
+import { Controller, Get, Query, Request, UseGuards } from '@nestjs/common'
+import { ProductService } from './product.service'
+import { AuthGuard } from '@nestjs/passport'
 
 @Controller('product')
 export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productService: ProductService) {
+  }
 
   @UseGuards(AuthGuard('jwt'))
   @Get()
@@ -19,6 +13,6 @@ export class ProductController {
     return this.productService.getMyProducts(
       req.user.username,
       query.syncUpstream
-    );
+    )
   }
 }

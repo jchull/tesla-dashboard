@@ -1,18 +1,20 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { TeslaAccountController } from './tesla-account.controller';
+import { Test, TestingModule } from '@nestjs/testing'
+import { TeslaAccountController } from './tesla-account.controller'
 
 describe('TeslaAccount Controller', () => {
-  let controller: TeslaAccountController;
+  let controller: TeslaAccountController
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TeslaAccountController]
-    }).compile();
+                                              controllers: [TeslaAccountController]
+                                            })
+                                            .compile()
 
-    controller = module.get<TeslaAccountController>(TeslaAccountController);
-  });
+    controller = module.get<TeslaAccountController>(TeslaAccountController)
+  })
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
-});
+    expect(controller)
+      .toBeDefined()
+  })
+})

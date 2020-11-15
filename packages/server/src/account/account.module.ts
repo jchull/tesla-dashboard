@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
 
-import { AccountController } from './account.controller';
-import { AccountService } from './account.service';
-import { schema } from '@teslapp/common';
+import { AccountController } from './account.controller'
+import { AccountService } from './account.service'
+import { schema } from '@teslapp/common'
 
 @Module({
   imports: [
@@ -16,4 +16,5 @@ import { schema } from '@teslapp/common';
   providers: [AccountService],
   exports: [AccountService]
 })
-export class AccountModule {}
+export class AccountModule {
+}

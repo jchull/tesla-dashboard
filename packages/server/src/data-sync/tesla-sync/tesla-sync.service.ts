@@ -1,9 +1,9 @@
-import { forwardRef, Inject, Injectable } from '@nestjs/common';
-import { types, schema, query } from '@teslapp/common';
-import { TeslaAccountService } from '../../tesla-account/tesla-account.service';
-import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service';
-import { ProductService } from '../../product/product.service';
-import { SessionService } from '../../session/session.service';
+import { Injectable } from '@nestjs/common'
+import { query, schema, types } from '@teslapp/common'
+import { TeslaAccountService } from '../../tesla-account/tesla-account.service'
+import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service'
+import { ProductService } from '../../product/product.service'
+import { SessionService } from '../../session/session.service'
 
 @Injectable()
 export class TeslaSyncService {
@@ -12,31 +12,32 @@ export class TeslaSyncService {
     private readonly sessionService: SessionService,
     private readonly teslaOwnerService: TeslaOwnerService,
     private readonly teslaAccountService: TeslaAccountService
-  ) {}
+  ) {
+  }
 
   async updateVehicleData(vin: string): Promise<any> {
-    const product = await this.productService.findByVin(vin);
+    const product = await this.productService.findByVin(vin)
     if (!product) {
       throw new Error(
         'Invalid state, ensure products exist before updating data!'
-      );
+      )
     } else {
       const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(
         product.username,
         product._id
-      );
+      )
       // we should not have more than one result when providing both parameters
       if (teslaAccounts && teslaAccounts.length === 1) {
         const vehicleData = await this.teslaOwnerService.getVehicleData(
           teslaAccounts[0],
           product.id_s
-        );
+        )
 
         if (vehicleData) {
-          const vehicleStatus = this.findVehicleState(vehicleData);
+          const vehicleStatus = this.findVehicleState(vehicleData)
           console.log(
             `${vehicleData.display_name} is currently ${vehicleStatus}`
-          );
+          )
 
           const activeSession = (
             await this.sessionService.findSessions(product.username, {
@@ -45,9 +46,9 @@ export class TeslaSyncService {
               ],
               page: { size: 1, start: 0 }
             })
-          ).results;
+          ).results
           if (!activeSession) {
-            console.log('no recent sessions found');
+            console.log('no recent sessions found')
           } else {
             // TODO: check conditions to decide if we want to save this data or ignore it
             // if (activeSession.end_date) {
@@ -157,25 +158,24 @@ export class TeslaSyncService {
   }
 
 
-
   private isCharging(vehicleData: types.VehicleData): boolean {
-    return vehicleData.charge_state.charging_state === 'Charging';
+    return vehicleData.charge_state.charging_state === 'Charging'
   }
 
   private isDriving(vehicleData: types.VehicleData): boolean {
-    return vehicleData.drive_state.shift_state !== null;
+    return vehicleData.drive_state.shift_state !== null
   }
 
   private findVehicleState(vehicleData: types.VehicleData): string {
     if (vehicleData.drive_state.shift_state) {
-      return 'Driving';
+      return 'Driving'
     }
     if (
       vehicleData.charge_state.charging_state &&
       vehicleData.charge_state.charging_state !== 'Disconnected'
     ) {
-      return vehicleData.charge_state.charging_state;
+      return vehicleData.charge_state.charging_state
     }
-    return 'Parked';
+    return 'Parked'
   }
 }
