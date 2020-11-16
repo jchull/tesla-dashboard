@@ -1,4 +1,4 @@
-import { SyncPreferences, TeslaAccount, User } from '@teslapp/common';
+import { types } from '@teslapp/common';
 import { AxiosInstance } from 'axios';
 
 export class UserService {
@@ -12,32 +12,32 @@ export class UserService {
     username: string,
     email: string,
     password: string
-  ): Promise<User> {
+  ): Promise<types.User> {
     return await this.api.put('/account', { username, email, password });
   }
 
   async getTeslaAccounts(
     username: string
-  ): Promise<[TeslaAccount] | undefined> {
+  ): Promise<[types.TeslaAccount] | undefined> {
     const data = await this.api.get(`/tesla-account`);
     if (data) {
       return data.data;
     }
   }
 
-  async updateTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
-    return this.api.post(`/tesla-account/${account._id}`, account);
+  async updateTeslaAccount(account: types.TeslaAccount): Promise<types.TeslaAccount> {
+    return this.api.post(`/tesla-account/${account.username}`, account);
   }
 
-  async linkTeslaAccount(account: TeslaAccount): Promise<TeslaAccount> {
+  async linkTeslaAccount(account: types.TeslaAccount): Promise<types.TeslaAccount> {
     return this.api.put(`/tesla-account`, account);
   }
 
   async updateTeslaToken(
-    account: TeslaAccount,
+    account: types.TeslaAccount,
     password: string
-  ): Promise<TeslaAccount | void> {
-    return this.api.post(`/tesla-account/${account._id}/token`, { password });
+  ): Promise<types.TeslaAccount | void> {
+    return this.api.post(`/tesla-account/${account.username}/token`, { password });
   }
 
   //: Promise<IUser>
@@ -47,8 +47,8 @@ export class UserService {
 
   async updateProductSyncPreferences(
     vin: string,
-    prefs: SyncPreferences
-  ): Promise<SyncPreferences> {
+    prefs: types.SyncPreferences
+  ): Promise<types.SyncPreferences> {
     return this.api.put(`/vehicle/${vin}/sync`, prefs);
   }
 }

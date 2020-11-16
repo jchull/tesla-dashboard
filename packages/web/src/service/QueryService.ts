@@ -1,5 +1,5 @@
 import { AxiosInstance } from 'axios'
-import { ChargeState, DriveState, Operator, Product, QueryResult } from '@teslapp/common'
+import { query, types } from '@teslapp/common'
 
 export class QueryService {
   private readonly api: AxiosInstance
@@ -8,10 +8,10 @@ export class QueryService {
     this.api = api
   }
 
-  async getProducts(syncFromTesla = false): Promise<Product[]> {
+  async getProducts(syncFromTesla = false): Promise<types.Vehicle[]> {
     const result = await this.api.get('/product', {
       params: { syncUpstream: syncFromTesla },
-      headers: { 'Cache-Control': 'no-cache' },
+      headers: { 'Cache-Control': 'no-cache' }
     })
     return result && result.data
   }
@@ -19,31 +19,31 @@ export class QueryService {
   async getRecentSessions(
     id: string,
     page: { start: number; size: number },
-    type: string,
-  ): Promise<QueryResult> {
+    type: string
+  ): Promise<query.QueryResult> {
     const result = await this.api.post('/session', {
       type,
       sort: [
         {
           field: 'start_date',
-          desc: true,
-        },
+          desc: true
+        }
       ],
       page,
       predicates: [
         {
-          operator: Operator.EQ,
+          operator: query.Operator.EQ,
           field: 'vehicle',
-          value: id,
-        },
-      ],
+          value: id
+        }
+      ]
     })
     return result && result.data
   }
 
   async getSessionDetails(
-    sessionId: string,
-  ): Promise<ChargeState[] | DriveState[]> {
+    sessionId: string
+  ): Promise<types.VehicleData[]> {
     const result = await this.api.get(`/session/${sessionId}`)
     return result && result.data
   }
@@ -56,7 +56,7 @@ export class QueryService {
                             .toLowerCase()
     const result = await this.api.post(
       `/session/${sessionId}/tag/${sanitizedTag}`,
-      { sanitizedTag },
+      { sanitizedTag }
     )
     return result && result.data
   }
@@ -68,7 +68,7 @@ export class QueryService {
     const sanitizedTag = tag.replace(' ', '_')
                             .toLowerCase()
     const result = await this.api.delete(
-      `/session/${sessionId}/tag/${sanitizedTag}`,
+      `/session/${sessionId}/tag/${sanitizedTag}`
     )
     return result && result.data
   }

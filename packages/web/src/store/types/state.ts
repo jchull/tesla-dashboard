@@ -1,26 +1,18 @@
-import { ChargeSession, DriveSession, Product } from '@teslapp/common';
-
-export interface ChargeListItemState {
-  session: ChargeSession;
-}
-
-export interface DriveListItemState {
-  session: DriveSession;
-}
+import { types } from '@teslapp/common';
 
 export interface ProductListState {
-  products: Product[];
+  products: types.Vehicle[];
   selectedProductId?: string;
 }
 
 export interface ProductListItemState {
-  product: Product;
+  product: types.Vehicle;
   handleSelection: (productId: string) => void;
   selected?: boolean;
 }
 
 export interface SessionListItemState {
-  session: ChargeSession | DriveSession;
+  session: types.VehicleSession;
   selected: boolean;
 
   selectionHandler(sessionId: string): any;
