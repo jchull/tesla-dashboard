@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { TagSelectionList } from '../tags/TagSelectionList'
 
 interface TagFilterProps {
-  include: string[];
-  exclude: string[];
-  availableTags: string[];
+  include: string[]
+  exclude: string[]
+  availableTags: string[]
 
-  addListener(tag: string, exclude: boolean): void;
+  addListener(tag: string, exclude: boolean): void
 
-  removeListener(tag: string): void;
+  removeListener(tag: string): void
 }
 
 export const TagFilter: React.FC<TagFilterProps> = (props: TagFilterProps) => {
@@ -24,7 +24,7 @@ export const TagFilter: React.FC<TagFilterProps> = (props: TagFilterProps) => {
     return (
       <>
         <button onClick={() => setTagSelectionShowing(false)}>X</button>
-        { showTagSelection &&
+        {showTagSelection &&
         <TagSelectionList
           tags={availableTags}
           selectionListener={tagSelected}

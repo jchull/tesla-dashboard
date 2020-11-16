@@ -1,9 +1,9 @@
-import { Product } from '@teslapp/common';
+import { types } from '@teslapp/common';
 import { ProductListState } from '@teslapp/web/src/store/types/state';
 import { createReducer } from '@reduxjs/toolkit';
 
 const initialState: ProductListState = {
-  products: [] as Product[]
+  products: [] as types.Vehicle[]
 };
 
 export const productListReducer = createReducer(initialState, {
@@ -26,7 +26,7 @@ export const productListReducer = createReducer(initialState, {
     if (
       !state.selectedProductId ||
       !action.payload.products.find(
-        (product: Product) => product._id === state.selectedProductId
+        (product: types.Vehicle) => product._id === state.selectedProductId
       )
     ) {
       state.selectedProductId = action.payload.productList[0]._id;

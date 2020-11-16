@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { AppState } from '../../store'
-import { DriveSession } from '@teslapp/common'
+import { types } from '@teslapp/common'
 import numbro from 'numbro'
 
 interface StatsState {
@@ -25,14 +25,14 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
   const loading = useSelector((store: AppState) => store.session.loading)
 
   const sessions = useSelector((store: AppState) => store.session.sessions)
-  const totalMiles = sessions.reduce((acc, cur: DriveSession) => {
+  const totalMiles = sessions.reduce((acc, cur: types.VehicleSession) => {
     if (cur.last?.odometer && cur.first?.odometer) {
       return acc + (cur.last.odometer - cur.first.odometer)
     }
     return acc
   }, 0)
 
-  const allRangeMilesUsed = sessions.reduce((acc, cur: DriveSession) => {
+  const allRangeMilesUsed = sessions.reduce((acc, cur: types.VehicleSession) => {
     if (cur.last?.battery_range && cur.first?.battery_range) {
       return acc + (cur.first.battery_range - cur.last.battery_range)
     }

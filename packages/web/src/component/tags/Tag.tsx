@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 interface TagState {
   value: string;
@@ -10,10 +10,11 @@ interface TagState {
 export const Tag: React.FC<TagState> = (props: TagState) => {
   const style = {
     border: `2px solid ${props.color || '#f4f4f4'}`
-  };
+  }
 
   return (
-    <div className="tag" style={style}>
+    <div className="tag"
+         style={style}>
       <span>{props.value}</span>
       {props.removeListener && (
         <button
@@ -26,5 +27,5 @@ export const Tag: React.FC<TagState> = (props: TagState) => {
         </button>
       )}
     </div>
-  );
-};
+  )
+}

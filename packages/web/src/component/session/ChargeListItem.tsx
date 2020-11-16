@@ -1,8 +1,8 @@
-import React from 'react';
-import moment from 'moment';
-import numbro from 'numbro';
-import { ChargeListItemState } from '@teslapp/web/src/store/types/state';
-import { ChargeSession } from '@teslapp/common';
+import React from 'react'
+import moment from 'moment'
+import numbro from 'numbro'
+import { ChargeListItemState } from '@teslapp/web/src/store/types/state'
+import { ChargeSession } from '@teslapp/common'
 
 export const ChargeListItem: React.FC<ChargeListItemState> = (
   props: ChargeListItemState

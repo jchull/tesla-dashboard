@@ -1,6 +1,6 @@
 import { SessionActionType, SessionState } from './actions'
 import { createReducer } from '@reduxjs/toolkit'
-import { DriveSession, QueryResult } from '@teslapp/common'
+import { query } from '@teslapp/common'
 
 const initialState: SessionState = {
   sessions: [],
@@ -40,7 +40,7 @@ export const sessionListReducer = createReducer(initialState, {
     state.loading = true
   },
   [SessionActionType.FETCH_SESSION_LIST__SUCCESS]: (state, action) => {
-    const result = action.payload.result as QueryResult
+    const result = action.payload.result as query.QueryResult
     if (result?.results?.length) {
       const sessions = state.sessions
                             .concat(...result.results)
@@ -51,7 +51,7 @@ export const sessionListReducer = createReducer(initialState, {
                               return acc
                             }, [])
       state.loadedCount = sessions.length
-      if(!state.sessions?.length){
+      if (!state.sessions?.length) {
         state.selectedSessionId = sessions[0]._id
       }
       state.sessions = sessions

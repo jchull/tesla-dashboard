@@ -1,15 +1,15 @@
-import React from 'react';
-import numbro from 'numbro';
-import { BatteryLevelIcon } from '../common/BatteryLevelIcon';
-import moment from 'moment';
-import { ProductListItemState } from '@teslapp/web/src/store/types/state';
+import React from 'react'
+import numbro from 'numbro'
+import { BatteryLevelIcon } from '../common/BatteryLevelIcon'
+import moment from 'moment'
+import { ProductListItemState } from '@teslapp/web/src/store/types/state'
 
 export const ProductListItem: React.FC<ProductListItemState> = (
   props: ProductListItemState
 ) => {
   const timeToFull = moment
     .duration(props.product.time_to_full_charge || 0, 'hours')
-    .humanize();
+    .humanize()
   return (
     <div
       className="list-item product red_pinwheel18"
@@ -26,12 +26,14 @@ export const ProductListItem: React.FC<ProductListItemState> = (
             chargeLimit={90}
             width={40}
           />
-          <span>{numbro(props.product.battery_range).format('0,0.0')} mi</span>
+          <span>{numbro(props.product.battery_range)
+            .format('0,0.0')} mi</span>
         </div>
       </div>
       <div className="row">
         <div className="odometer start">
-          {numbro(props.product.odometer).format('0,0.0')} miles
+          {numbro(props.product.odometer)
+            .format('0,0.0')} miles
         </div>
       </div>
 
@@ -43,5 +45,5 @@ export const ProductListItem: React.FC<ProductListItemState> = (
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

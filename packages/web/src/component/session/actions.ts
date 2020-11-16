@@ -1,17 +1,17 @@
-import { ChargeSession, ChargeState, DriveSession, DriveState, QueryResult } from '@teslapp/common'
+import { query, types } from '@teslapp/common'
 import { ApiType } from '@teslapp/web/src/service'
 import { createAction } from '@reduxjs/toolkit'
 import { batch } from 'react-redux'
 
 export interface SessionState {
-  sessions: (ChargeSession | DriveSession)[];
-  selectedSessionId?: string;
-  selectedSessionStates?: ChargeState[] | DriveState[];
-  filters?: { include: string[]; exclude: string[] };
-  loading?: boolean;
-  loadedCount?: number;
-  totalCount?: number;
-  availableTags?: string[];
+  sessions: types.VehicleSession[]
+  selectedSessionId?: string
+  selectedSessionStates?: types.VehicleState[]
+  filters?: { include: string[]; exclude: string[] }
+  loading?: boolean
+  loadedCount?: number
+  totalCount?: number
+  availableTags?: string[]
   type?: string
 }
 
@@ -61,7 +61,7 @@ export const fetchSessionListFail = createAction(
 
 export const fetchSessionListSuccess = createAction(
   SessionActionType.FETCH_SESSION_LIST__SUCCESS,
-  (result: QueryResult) => ({
+  (result: query.QueryResult) => ({
     payload: {
       result
     }
@@ -165,7 +165,7 @@ export const fetchSessionDetailsAction = (sessionId: string) => async (
   dispatch(fetchSessionDetailsStart())
   return extraArgument.api.queryService.getSessionDetails(sessionId)
                       .then(
-                        (result: DriveState[] | ChargeState[]) => {
+                        (result: types.VehicleState[]) => {
                           dispatch(fetchSessionDetailsSuccess(result))
                         },
                         (error: any) => {

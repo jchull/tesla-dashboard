@@ -1,23 +1,24 @@
-import React from 'react';
-import moment from 'moment';
-import numbro from 'numbro';
-import { DriveListItemState } from '@teslapp/web/src/store/types/state';
+import React from 'react'
+import moment from 'moment'
+import numbro from 'numbro'
+import { DriveListItemState } from '@teslapp/web/src/store/types/state'
 
 export const DriveListItem: React.FC<DriveListItemState> = (
   props: DriveListItemState
 ) => {
   const durationHours = moment
     .duration(
-      moment(props.session.end_date).diff(moment(props.session.start_date))
+      moment(props.session.end_date)
+        .diff(moment(props.session.start_date))
     )
-    .asHours();
+    .asHours()
   // const rangeUsed = props.session.first.battery_range - props.session.last.battery_range;
 
   const distanceTraveled = props.session.last
     ? props.session.last.odometer - props.session.first.odometer
-    : 0;
+    : 0
 
-  const averageSpeed = distanceTraveled / durationHours;
+  const averageSpeed = distanceTraveled / durationHours
 
   // const energyUsed = 0;
 
@@ -29,10 +30,12 @@ export const DriveListItem: React.FC<DriveListItemState> = (
         <div>
           <div className="row">
             <div className="start">
-              <span>{numbro(distanceTraveled).format('0.0')} miles</span>
+              <span>{numbro(distanceTraveled)
+                .format('0.0')} miles</span>
             </div>
             <div className="end">
-              {numbro(averageSpeed).format('0,0.0')} mph
+              {numbro(averageSpeed)
+                .format('0,0.0')} mph
             </div>
           </div>
           <div className="row">
@@ -55,5 +58,5 @@ export const DriveListItem: React.FC<DriveListItemState> = (
         <div className="row"></div>
       )}
     </div>
-  );
-};
+  )
+}

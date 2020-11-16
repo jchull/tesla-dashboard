@@ -1,26 +1,26 @@
-import React from 'react';
-import * as d3 from 'd3';
-import './LineChart.scss';
-import { ChargeState, DriveState } from '@teslapp/common';
+import React from 'react'
+import * as d3 from 'd3'
+import './LineChart.scss'
+import { types } from '@teslapp/common'
 
 interface Margin {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
+  top: number
+  right: number
+  bottom: number
+  left: number
 }
 
 interface ChartConfig {
-  width: number;
-  height: number;
-  xAxisHeight: number;
-  yAxisWidth: number;
-  margin: Margin;
+  width: number
+  height: number
+  xAxisHeight: number
+  yAxisWidth: number
+  margin: Margin
 }
 
 interface LineChartProps {
-  datum: DriveState[] | ChargeState[];
-  options?: ChartConfig;
+  datum: types.VehicleState[]
+  options?: ChartConfig
 }
 
 export const defaultConfig = {
@@ -30,36 +30,39 @@ export const defaultConfig = {
   barWidth: 25,
   xAxisHeight: 140,
   yAxisWidth: 25
-};
+}
 
 export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
-  const container = React.createRef<SVGSVGElement>();
+  const container = React.createRef<SVGSVGElement>()
   const config = props.options ?? defaultConfig
   const innerWidth = config.width - config.margin.left - config.margin.right
   const innerHeight = config.height - config.margin.top - config.margin.bottom
 
 
   React.useLayoutEffect(() => {
-    const svg = d3.select(container.current);
+    const svg = d3.select(container.current)
 
     // clean up existing x-axis or lines
-    svg.selectAll('.axis').remove();
-    svg.selectAll('path.line').remove();
+    svg.selectAll('.axis')
+       .remove()
+    svg.selectAll('path.line')
+       .remove()
 
     if (props.datum && config && container.current) {
-      const yDomainLeft = [0, 100];
-      const maxValRight = 300;
+      const yDomainLeft = [0, 100]
+      const maxValRight = 300
 
-      const yDomainRight = d3.extent([0, maxValRight]) as number[];
-      const xScale = d3.scaleTime().range([0, innerWidth]);
+      const yDomainRight = d3.extent([0, maxValRight]) as number[]
+      const xScale = d3.scaleTime()
+                       .range([0, innerWidth])
       const yScaleLeft = d3
         .scaleLinear()
         .domain(yDomainLeft)
-        .range([innerHeight - config.xAxisHeight, 0]);
+        .range([innerHeight - config.xAxisHeight, 0])
       const yScaleRight = d3
         .scaleLinear()
         .domain(yDomainRight)
-        .range([innerHeight - config.xAxisHeight, 0]);
+        .range([innerHeight - config.xAxisHeight, 0])
       const xAxis = svg
         .append('g')
         .attr('class', 'axis axis-x')
@@ -68,7 +71,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           `translate(${config.margin.left}, ${
             innerHeight + config.margin.top - config.xAxisHeight
           })`
-        );
+        )
       const yAxisLeft = svg
         .append('g')
         .attr('class', 'axis axis-y')
@@ -76,7 +79,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           'transform',
           `translate(${config.margin.left}, ${config.margin.top})`
         )
-        .call(d3.axisLeft(yScaleLeft));
+        .call(d3.axisLeft(yScaleLeft))
       const yAxisRight = svg
         .append('g')
         .attr('class', 'axis axis-y right')
@@ -84,7 +87,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           'transform',
           `translate(${config.margin.left + innerWidth} , ${config.margin.top})`
         )
-        .call(d3.axisRight(yScaleRight));
+        .call(d3.axisRight(yScaleRight))
       xScale.domain(
         // eslint-disable-next-line
         // @ts-ignore
@@ -92,7 +95,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
           Date,
           Date
         ]
-      );
+      )
 
       xAxis
         .transition()
@@ -104,10 +107,12 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .style('text-anchor', 'end')
         .attr('dx', '-.8em')
         .attr('dy', '.15em')
-        .attr('transform', 'rotate(-65)');
-      yAxisLeft.transition().call(d3.axisLeft(yScaleLeft));
+        .attr('transform', 'rotate(-65)')
+      yAxisLeft.transition()
+               .call(d3.axisLeft(yScaleLeft))
 
-      yAxisRight.transition().call(d3.axisRight(yScaleRight));
+      yAxisRight.transition()
+                .call(d3.axisRight(yScaleRight))
 
       // const chargeLimitLine = d3.line()
       //                           .x((d: any) => xScale(new Date(d.timestamp)))
@@ -145,7 +150,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
       const batteryLevelLine = d3
         .line()
         .x((d: any) => xScale(new Date(d.timestamp)))
-        .y((d: any) => yScaleLeft(d.battery_level));
+        .y((d: any) => yScaleLeft(d.battery_level))
       svg
         .append('path')
         .datum(props.datum)
@@ -156,7 +161,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .attr(
           'transform',
           `translate(${config.margin.left}, ${config.margin.top})`
-        );
+        )
 
       // TODO: this will cause console errors for now when showing a driving session,
       // rather than fix it here, the datum abstraction will solve it
@@ -164,7 +169,7 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
       const powerLine = d3
         .line()
         .x((d: any) => xScale(new Date(d.timestamp)))
-        .y((d: any) => yScaleRight(d.charger_power || 0));
+        .y((d: any) => yScaleRight(d.charger_power || 0))
       svg
         .append('path')
         .datum(props.datum)
@@ -175,9 +180,9 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
         .attr(
           'transform',
           `translate(${config.margin.left}, ${config.margin.top})`
-        );
+        )
     }
-  }, [props.datum, config]);
+  }, [props.datum, config])
 
   return (
     <div className="card chart-container">
@@ -189,5 +194,5 @@ export const LineChart: React.FC<LineChartProps> = (props: LineChartProps) => {
       />
       <div className="chart-legend"></div>
     </div>
-  );
-};
+  )
+}
