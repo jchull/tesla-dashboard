@@ -1,28 +1,28 @@
-import React, { FC, useEffect, useState } from 'react';
-import { TeslaAccount } from '@teslapp/common/src/model';
-import services from '@teslapp/web/src/service';
-import { TeslaAccountComponent } from '@teslapp/web/src/component/account/TeslaAccount';
-import { AppState } from '@teslapp/web/src/store';
-import { useSelector } from 'react-redux';
+import React, { FC, useEffect, useState } from 'react'
+import { types } from '@teslapp/common'
+import services from '@teslapp/web/src/service'
+import { TeslaAccountComponent } from '@teslapp/web/src/component/account/TeslaAccount'
+import { AppState } from '@teslapp/web/src/store'
+import { useSelector } from 'react-redux'
 
 export const TeslaAccountListComponent: FC = () => {
-  const [accounts, setAccounts] = useState([] as TeslaAccount[]);
-  const [selectedAccount, setSelectedAccount] = useState({} as TeslaAccount);
-  const username = useSelector((store: AppState) => store.auth.username);
+  const [accounts, setAccounts] = useState([] as Partial<types.TeslaAccount>[])
+  const [selectedAccount, setSelectedAccount] = useState({} as Partial<types.TeslaAccount>)
+  const username = useSelector((store: AppState) => store.auth.username)
 
   function addTeslaAccount() {
-    const newAccount = { email: '', username };
-    setAccounts([newAccount, ...accounts]);
-    setSelectedAccount(newAccount);
+    const newAccount = { email: '', username }
+    setAccounts([newAccount, ...accounts])
+    setSelectedAccount(newAccount)
   }
 
   useEffect(() => {
     if (username) {
       services.userService
-        .getTeslaAccounts(username)
-        .then((data: TeslaAccount[] | undefined) => data && setAccounts(data));
+              .getTeslaAccounts(username)
+              .then((data: types.TeslaAccount[] | undefined) => data && setAccounts(data))
     }
-  }, []);
+  }, [])
 
   return (
     <div>
@@ -50,10 +50,10 @@ export const TeslaAccountListComponent: FC = () => {
       )}
 
       {selectedAccount.username ? (
-        <TeslaAccountComponent account={selectedAccount} />
+        <TeslaAccountComponent account={selectedAccount}/>
       ) : (
         accounts.length > 0 && <span>Select an Account</span>
       )}
     </div>
-  );
-};
+  )
+}

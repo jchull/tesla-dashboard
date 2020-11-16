@@ -1,25 +1,19 @@
-import React, {
-  ChangeEvent,
-  FC,
-  SyntheticEvent,
-  useEffect,
-  useState
-} from 'react';
-import { TeslaAccount } from '@teslapp/common';
-import services from '@teslapp/web/src/service';
-import { TeslaTokenComponent } from '@teslapp/web/src/component/account/TeslaTokenUpdater';
+import React, { ChangeEvent, FC, SyntheticEvent, useEffect, useState } from 'react'
+import { types } from '@teslapp/common'
+import services from '@teslapp/web/src/service'
+import { TeslaTokenComponent } from '@teslapp/web/src/component/account/TeslaTokenUpdater'
 
 interface TeslaAccountProps {
-  account: TeslaAccount;
+  account: types.TeslaAccount;
 }
 
 export const TeslaAccountComponent: FC<TeslaAccountProps> = (
   props: TeslaAccountProps
 ) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const [showTeslaTokenUpdater, setShowTeslaTokenUpdater] = useState(false);
-  const [account, setAccount] = useState(props.account || ({} as TeslaAccount));
-  const [formValid, setFormValid] = useState(false);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const [showTeslaTokenUpdater, setShowTeslaTokenUpdater] = useState(false)
+  const [account, setAccount] = useState(props.account || ({} as types.TeslaAccount))
+  const [formValid, setFormValid] = useState(false)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     // eslint-disable-next-line @typescript-eslint/camelcase
@@ -29,24 +23,24 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
       email,
       access_token,
       refresh_token
-    } = Object.assign({}, account, { [event.target.name]: event.target.value });
+    } = Object.assign({}, account, { [event.target.name]: event.target.value })
     // eslint-disable-next-line @typescript-eslint/camelcase
-    setAccount({ _id, username, email, access_token, refresh_token });
+    setAccount({ _id, username, email, access_token, refresh_token })
   }
 
   async function handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
+    event.preventDefault()
     if (account.username && account.email) {
       // TODO: Validation
-      console.log('submit tesla account form');
+      console.log('submit tesla account form')
       if (account._id) {
-        const result = await services.userService.updateTeslaAccount(account);
+        const result = await services.userService.updateTeslaAccount(account)
       } else {
         const newTeslaAccount = await services.userService.linkTeslaAccount(
           account
-        );
+        )
         if (newTeslaAccount._id) {
-          console.log('new tesla account linked');
+          console.log('new tesla account linked')
           // TODO: global message
         }
       }
@@ -55,17 +49,17 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
 
   useEffect(() => {
     const fv =
-      (account && account.email && emailRegex.test(account.email)) || false;
-    setFormValid(fv);
-  }, [account.email]);
+      (account && account.email && emailRegex.test(account.email)) || false
+    setFormValid(fv)
+  }, [account.email])
 
   function resetForm() {
-    setAccount(props.account || ({} as TeslaAccount));
-    setShowTeslaTokenUpdater(false);
+    setAccount(props.account || ({} as types.TeslaAccount))
+    setShowTeslaTokenUpdater(false)
   }
 
   function getTokens() {
-    setShowTeslaTokenUpdater(true);
+    setShowTeslaTokenUpdater(true)
   }
 
   function validateToken() {
@@ -100,7 +94,8 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
           value={account.refresh_token}
           onChange={handleChange}
         />
-        <button onClick={getTokens} disabled={!account.email || !account._id}>
+        <button onClick={getTokens}
+                disabled={!account.email || !account._id}>
           Get Tokens From Tesla
         </button>
         <button
@@ -111,15 +106,18 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
         </button>
 
         <div>
-          <button value="SUBMIT" type="submit" disabled={!formValid}>
+          <button value="SUBMIT"
+                  type="submit"
+                  disabled={!formValid}>
             Save
           </button>
-          <button type="reset" onClick={resetForm}>
+          <button type="reset"
+                  onClick={resetForm}>
             Reset
           </button>
         </div>
       </form>
-      {showTeslaTokenUpdater && <TeslaTokenComponent account={account} />}
+      {showTeslaTokenUpdater && <TeslaTokenComponent account={account}/>}
     </div>
-  );
-};
+  )
+}

@@ -9,11 +9,12 @@ import { StatsPanel } from '../stats/StatsPanel'
 import { FilterPanel } from '../filter/FilterPanel'
 import { CommandPanel } from '../command/CommandPanel'
 import { DASHBOARD } from './Dashboard'
+
 export interface ProductSessionViewProps {
   type: DASHBOARD.CHARGE | DASHBOARD.DRIVE
 }
 
-export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) => {
+export const ProductSessionView: React.FC<ProductSessionViewProps> = ({ type }) => {
   const dispatch = useDispatch()
 
   const productsSelector = (store: AppState) => store.product.products
@@ -29,7 +30,7 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) =>
 
   const selectedSessionId = useSelector(selectedSessionIdSelector)
   const selectedSessionStates = useSelector(
-    (store: AppState) => store.session.selectedSessionStates,
+    (store: AppState) => store.session.selectedSessionStates
   )
 
   const [lastResize, setLastResize] = useState(0)
@@ -39,11 +40,11 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) =>
   React.useEffect(() => {
     if (selectedProductId) {
       const selectedProduct = products.find(
-        (product) => product._id === selectedProductId,
+        (product) => product._id === selectedProductId
       )
       if (selectedProduct) {
         dispatch(
-          fetchSessionListAction(selectedProductId, { start: 0, size: 100 }, type),
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 }, type)
         )
       }
     }
@@ -52,7 +53,7 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) =>
   React.useEffect(() => {
     if (selectedSessionId) {
       const selectedSession = sessions.find(
-        (session) => session._id === selectedSessionId,
+        (session) => session._id === selectedSessionId
       )
       if (selectedSession) {
         dispatch(fetchSessionDetailsAction(selectedSessionId))
@@ -79,7 +80,7 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({type}) =>
       setChartOptions({
         ...chartOptions,
         width: calcWidth,
-        height: calcHeight,
+        height: calcHeight
       })
     }
   }

@@ -1,20 +1,19 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Product } from '@teslapp/common/src/model';
-import { SyncPreferences } from './SyncPreferences';
-import services from '@teslapp/web/src/service';
+import React, { FC, useEffect, useState } from 'react'
+import { types } from '@teslapp/common'
+import services from '@teslapp/web/src/service'
 
 export const SyncPreferencesList: FC = () => {
-  const [products, setProducts] = useState([] as Product[]);
-  const [selectedProduct, setSelectedProduct] = useState({} as Product);
+  const [products, setProducts] = useState([] as types.Vehicle[])
+  const [selectedProduct, setSelectedProduct] = useState({} as types.Vehicle)
 
   useEffect(() => {
-    const username = services.auth.getUsername();
+    const username = services.auth.getUsername()
     if (username) {
       services.queryService
-        .getProducts()
-        .then((data: Product[] | undefined) => data && setProducts(data));
+              .getProducts()
+              .then((data: types.Vehicle[] | undefined) => data && setProducts(data))
     }
-  }, []);
+  }, [])
 
   return (
     <div>
@@ -43,5 +42,5 @@ export const SyncPreferencesList: FC = () => {
       {/*  <span>Select a product</span>*/}
       {/*}*/}
     </div>
-  );
-};
+  )
+}

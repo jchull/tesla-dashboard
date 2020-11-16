@@ -1,26 +1,26 @@
-import React, { ChangeEvent, useState } from 'react';
-import services from '@teslapp/web/src/service';
-import { Redirect } from 'react-router';
+import React, { ChangeEvent, useState } from 'react'
+import services from '@teslapp/web/src/service'
+import { Redirect } from 'react-router'
 
 export const ForgotPassword = () => {
-  const [username, setUsername] = useState('');
-  const [message, setMessage] = useState('');
-  const loggedIn = services.auth.loggedIn();
+  const [username, setUsername] = useState('')
+  const [message, setMessage] = useState('')
+  const loggedIn = services.auth.loggedIn()
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setUsername(event.target.value);
+    setUsername(event.target.value)
   }
 
   async function handleSubmit(event: any) {
-    event.preventDefault();
-    await services.auth.forgot(username);
-    setMessage('If an account exists for this user, an email has been sent.');
+    event.preventDefault()
+    await services.auth.forgot(username)
+    setMessage('If an account exists for this user, an email has been sent.')
   }
 
   return (
     <div>
       {loggedIn ? (
-        <Redirect to="/" />
+        <Redirect to="/"/>
       ) : (
         <div className="centered">
           <h3>Reset Password</h3>
@@ -47,5 +47,5 @@ export const ForgotPassword = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

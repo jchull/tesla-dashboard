@@ -1,46 +1,40 @@
-import React, {
-  ChangeEvent,
-  FC,
-  SyntheticEvent,
-  useEffect,
-  useState
-} from 'react';
-import services from '@teslapp/web/src/service';
-import { TeslaAccount } from '@teslapp/common/src/model';
+import React, { ChangeEvent, FC, SyntheticEvent, useState } from 'react'
+import services from '@teslapp/web/src/service'
+import { types } from '@teslapp/common'
 
 interface TeslaTokenProps {
-  account: TeslaAccount;
+  account: types.TeslaAccount;
 }
 
 export const TeslaTokenComponent: FC<TeslaTokenProps> = (
   props: TeslaTokenProps
 ) => {
-  const [formValid, setFormValid] = useState(false);
-  const [message, setMessage] = useState('');
-  const [password, setPassword] = useState('');
+  const [formValid, setFormValid] = useState(false)
+  const [message, setMessage] = useState('')
+  const [password, setPassword] = useState('')
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     // validate and update input value
-    setPassword(event.target.value);
+    setPassword(event.target.value)
     if (password && password.length) {
-      setFormValid(true);
+      setFormValid(true)
     }
   }
 
   async function handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
+    event.preventDefault()
     if (props.account && password) {
       const account = await services.userService.updateTeslaToken(
         props.account,
         password
-      );
+      )
       if (account) {
-        setMessage('Tesla ID Token validated');
+        setMessage('Tesla ID Token validated')
       } else {
-        setMessage('Error validating Tesla ID Token');
+        setMessage('Error validating Tesla ID Token')
       }
     } else {
-      setMessage('account or password missing');
+      setMessage('account or password missing')
     }
   }
 
@@ -56,11 +50,13 @@ export const TeslaTokenComponent: FC<TeslaTokenProps> = (
           value={password}
           onChange={handleChange}
         />
-        <button value="SUBMIT" type="submit" disabled={!formValid}>
+        <button value="SUBMIT"
+                type="submit"
+                disabled={!formValid}>
           Get new token from Tesla
         </button>
       </form>
       {message}
     </div>
-  );
-};
+  )
+}

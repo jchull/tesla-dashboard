@@ -1,22 +1,17 @@
 /* eslint camelcase: 0 */
-import React, { ChangeEvent, FC, SyntheticEvent, useState } from 'react';
-import {
-  DEFAULT_SYNC_PREFERENCES,
-  SyncPreferences as ISyncPreferences
-} from '@teslapp/common/src';
-import services from '@teslapp/web/src/service';
+import React, { ChangeEvent, FC, SyntheticEvent, useState } from 'react'
+import { types } from '@teslapp/common'
+import services from '@teslapp/web/src/service'
 
 interface SyncPreferencesState {
-  preferences?: ISyncPreferences;
+  preferences?: types.SyncPreferences;
   vehicleId: string;
 }
 
 export const SyncPreferences: FC<SyncPreferencesState> = (
   props: SyncPreferencesState
 ) => {
-  const [preferences, setPreferences] = useState(
-    props.preferences || DEFAULT_SYNC_PREFERENCES
-  );
+  const [preferences, setPreferences] = useState(props.preferences)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const {
@@ -34,7 +29,7 @@ export const SyncPreferences: FC<SyncPreferencesState> = (
       chargingPollingIntervalsSeconds
     } = Object.assign({}, preferences, {
       [event.target.name]: event.target.value
-    });
+    })
     setPreferences({
       _id,
       enabled,
@@ -48,26 +43,24 @@ export const SyncPreferences: FC<SyncPreferencesState> = (
       chargingCostPerKwhHome,
       chargingCostPerKwhSupercharging,
       chargingPollingIntervalsSeconds
-    });
+    })
   }
 
   function resetForm() {
-    setPreferences(DEFAULT_SYNC_PREFERENCES);
+    // setPreferences(DEFAULT_SYNC_PREFERENCES);
   }
 
   async function handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
+    event.preventDefault()
     // TODO: Validation
     await services.userService.updateProductSyncPreferences(
       props.vehicleId,
       preferences
-    );
+    )
   }
 
   function toggleEnabled() {
-    setPreferences(
-      Object.assign({}, preferences, { enabled: !preferences.enabled })
-    );
+    setPreferences({ ...preferences, enabled: !preferences.enabled })
   }
 
   return (
@@ -172,14 +165,16 @@ export const SyncPreferences: FC<SyncPreferencesState> = (
         </section>
 
         <div>
-          <button value="SUBMIT" type="submit">
+          <button value="SUBMIT"
+                  type="submit">
             Save
           </button>
-          <button type="reset" onClick={resetForm}>
+          <button type="reset"
+                  onClick={resetForm}>
             Reset
           </button>
         </div>
       </form>
     </div>
-  );
-};
+  )
+}

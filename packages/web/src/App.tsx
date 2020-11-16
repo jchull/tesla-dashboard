@@ -28,10 +28,15 @@ export const App: FC = () => {
     <Router>
       <div className="content">
         <Switch>
-          <Route path="/login" component={LoginComponent} />
-          <Route path="/signup" component={AccountComponent} />
-          <Route path="/forgot" component={ForgotPassword} />
-          <Route exact path="/" component={Home} />
+          <Route path="/login"
+                 component={LoginComponent}/>
+          <Route path="/signup"
+                 component={AccountComponent}/>
+          <Route path="/forgot"
+                 component={ForgotPassword}/>
+          <Route exact
+                 path="/"
+                 component={Home}/>
           <PrivateRoute
             path="/tesla-account"
             component={TeslaAccountListComponent}
@@ -52,18 +57,20 @@ export const App: FC = () => {
             component={AccountComponent}
             auth={auth}
           />
-          <PrivateRoute path="/dashboard" component={Dashboard} auth={auth} />
-          <Route component={NotFound} />
+          <PrivateRoute path="/dashboard"
+                        component={Dashboard}
+                        auth={auth}/>
+          <Route component={NotFound}/>
         </Switch>
       </div>
-      <MainMenu />
+      <MainMenu/>
     </Router>
   )
 
   return (
     <div className="app">
       <header className="header">
-        <div className="logo" />
+        <div className="logo"/>
         Energy Dashboard
       </header>
       {routing}

@@ -1,35 +1,29 @@
-import React, {
-  ChangeEvent,
-  FC,
-  SyntheticEvent,
-  useEffect,
-  useState
-} from 'react';
-import services from '@teslapp/web/src/service';
-import { useSelector } from 'react-redux';
-import { AppState } from '@teslapp/web/src/store';
-import { useHistory } from 'react-router-dom';
+import React, { ChangeEvent, FC, SyntheticEvent, useEffect, useState } from 'react'
+import services from '@teslapp/web/src/service'
+import { useSelector } from 'react-redux'
+import { AppState } from '@teslapp/web/src/store'
+import { useHistory } from 'react-router-dom'
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export const AccountComponent: FC = () => {
-  const history = useHistory();
-  const auth = useSelector((store: AppState) => store.auth);
+  const history = useHistory()
+  const auth = useSelector((store: AppState) => store.auth)
   const [formData, setFormData] = useState({
     username: auth.username || '',
     email: '',
     password1: '',
     password2: '',
     authPassword: ''
-  });
-  const [formValid, setFormValid] = useState(false);
+  })
+  const [formValid, setFormValid] = useState(false)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   async function handleSubmit(event: SyntheticEvent) {
-    event.preventDefault();
+    event.preventDefault()
     if (auth.loggedIn) {
       // update account
       // TODO
@@ -41,16 +35,16 @@ export const AccountComponent: FC = () => {
         formData.password1 !== formData.password2 ||
         !formData.email.match(emailRegex)
       ) {
-        console.log('Missing parameters for signup');
-        return;
+        console.log('Missing parameters for signup')
+        return
       }
       const user = await services.userService.createUser(
         formData.username,
         formData.email,
         formData.password1
-      );
+      )
       if (user) {
-        history.push('/tesla-account', {});
+        history.push('/tesla-account', {})
       }
     }
   }
@@ -61,21 +55,21 @@ export const AccountComponent: FC = () => {
       (formData.password1 &&
         formData.password1.length > 9 &&
         formData.password1 === formData.password2) ||
-      false;
+      false
     // check form valid
     const fv =
       (pv &&
         formData.username &&
         formData.email &&
         emailRegex.test(formData.email)) ||
-      false;
-    setFormValid(pv && fv);
+      false
+    setFormValid(pv && fv)
   }, [
     formData.username,
     formData.email,
     formData.password1,
     formData.password2
-  ]);
+  ])
 
   function resetForm() {
     // TODO: will have to handle existing users
@@ -123,14 +117,17 @@ export const AccountComponent: FC = () => {
           onChange={handleChange}
         />
         <div>
-          <button value="SUBMIT" type="submit" disabled={!formValid}>
+          <button value="SUBMIT"
+                  type="submit"
+                  disabled={!formValid}>
             Submit
           </button>
-          <button type="reset" onClick={resetForm}>
+          <button type="reset"
+                  onClick={resetForm}>
             Reset
           </button>
         </div>
       </form>
     </div>
-  );
-};
+  )
+}

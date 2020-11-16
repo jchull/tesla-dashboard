@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '@teslapp/web/src/store';
-import './MainMenu.scss';
-import { logoutAction } from '../auth/actions';
-import { useHistory, useLocation } from 'react-router-dom';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppState } from '@teslapp/web/src/store'
+import './MainMenu.scss'
+import { logoutAction } from '../auth/actions'
+import { useHistory, useLocation } from 'react-router-dom'
 
 interface MenuItem {
-  name: string;
+  name: string
 
-  action(): void;
+  action(): void
 }
 
 export const MainMenu: React.FC = () => {
-  const dispatch = useDispatch();
-  const username = useSelector((store: AppState) => store.auth.username);
-  const history = useHistory();
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const username = useSelector((store: AppState) => store.auth.username)
+  const history = useHistory()
+  const location = useLocation()
 
-  const [showing, setShowing] = useState(false);
+  const [showing, setShowing] = useState(false)
 
   const loggedInMenuItems: MenuItem[] = [
     {
@@ -40,7 +40,7 @@ export const MainMenu: React.FC = () => {
       name: 'logout',
       action: () => dispatch(logoutAction())
     }
-  ];
+  ]
 
   const loggedOutMenuItems = [
     {
@@ -51,22 +51,24 @@ export const MainMenu: React.FC = () => {
       name: 'about',
       action: () => console.log('dispatch navigation action')
     }
-  ];
+  ]
 
   function mapItemsToElements(items: MenuItem[]): JSX.Element[] {
     return items.map((item) => (
-      <div key={item.name} onClick={() => item.action()}>
+      <div key={item.name}
+           onClick={() => item.action()}>
         {item.name}
       </div>
-    ));
+    ))
   }
 
   const content = username
     ? mapItemsToElements(loggedInMenuItems)
-    : mapItemsToElements(loggedOutMenuItems);
+    : mapItemsToElements(loggedOutMenuItems)
 
   return (
-    <div className="main-menu" onClick={() => setShowing(!showing)}>
+    <div className="main-menu"
+         onClick={() => setShowing(!showing)}>
       <div>
         <div className="username">{username}</div>
         <i className="material-icons">menu</i>
@@ -76,5 +78,5 @@ export const MainMenu: React.FC = () => {
         {content}
       </div>
     </div>
-  );
-};
+  )
+}
