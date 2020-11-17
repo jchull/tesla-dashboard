@@ -1,10 +1,10 @@
 import React from 'react'
 import moment from 'moment'
 import numbro from 'numbro'
-import { DriveListItemState } from '@teslapp/web/src/store/types/state'
+import { SessionListItemState } from '@teslapp/web/src/store/types/state'
 
-export const DriveListItem: React.FC<DriveListItemState> = (
-  props: DriveListItemState
+export const DriveListItemDetail: React.FC<SessionListItemState> = (
+  props
 ) => {
   const durationHours = moment
     .duration(
@@ -15,7 +15,7 @@ export const DriveListItem: React.FC<DriveListItemState> = (
   // const rangeUsed = props.session.first.battery_range - props.session.last.battery_range;
 
   const distanceTraveled = props.session.last
-    ? props.session.last.odometer - props.session.first.odometer
+    ? props.session.last.vehicle_state.odometer - props.session.first.vehicle_state.odometer
     : 0
 
   const averageSpeed = distanceTraveled / durationHours

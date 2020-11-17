@@ -1,8 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 import { isoDurationToHuman } from '../../type/util'
-import { ChargeListItem } from './ChargeListItem'
-import { DriveListItem } from './DriveListItem'
+import { ChargeListItemDetail } from './ChargeListItemDetail'
+import { DriveListItemDetail } from './DriveListItemDetail'
 import { types } from '@teslapp/common'
 import { SessionListItemState } from '@teslapp/web/src/store/types/state'
 
@@ -19,8 +19,8 @@ export const SessionListItem: React.FC<SessionListItemState> = (
   const displayDuration = isoDurationToHuman(duration.toISOString())
 
   let color = '#3f6ae1'
-  if (!props.session.activity === types.ActivityType.DRIVING) {
-    color = (props.session as ChargeSession).fast_charger_present
+  if (props.session.activity !== types.ActivityType.DRIVING) {
+    color = props.session.fast_charger_present
       ? '#E31937'
       : '#00dc31'
   }
@@ -30,23 +30,23 @@ export const SessionListItem: React.FC<SessionListItemState> = (
     <div
       className={
         props.selected
-          ? `${sessionType.toLowerCase()} list-item selected`
-          : `list-item ${sessionType.toLowerCase()} `
+          ? `${props.session.activity.toLowerCase()} list-item selected`
+          : `list-item ${props.session.activity.toLowerCase()} `
       }
       onClick={() => props.selectionHandler(props.session._id)}
     >
       <div className="row">
         <i className="material-icons"
            style={iconStyle}>
-          {sessionType === 'Drive' ? 'directions_car' : 'battery_charging_full'}
+          {props.session.activity === types.ActivityType.DRIVING ? 'directions_car' : 'battery_charging_full'}
         </i>
         <div className="start">{displayDate}</div>
         <div className="end">{displayDuration}</div>
       </div>
-      {sessionType === 'Drive' ? (
-        <DriveListItem session={props.session as DriveSession}/>
+      {props.session.activity === types.ActivityType.DRIVING ? (
+        <DriveListItemDetail {...props}/>
       ) : (
-        <ChargeListItem session={props.session as ChargeSession}/>
+        <ChargeListItemDetail {...props}/>
       )}
     </div>
   )

@@ -26,23 +26,22 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
 
   const sessions = useSelector((store: AppState) => store.session.sessions)
   const totalMiles = sessions.reduce((acc, cur: types.VehicleSession) => {
-    if (cur.last?.odometer && cur.first?.odometer) {
-      return acc + (cur.last.odometer - cur.first.odometer)
+    if (cur.last?.vehicle_state.odometer && cur.first?.vehicle_state.odometer) {
+      return acc + (cur.last.vehicle_state.odometer - cur.first.vehicle_state.odometer)
     }
     return acc
   }, 0)
 
   const allRangeMilesUsed = sessions.reduce((acc, cur: types.VehicleSession) => {
-    if (cur.last?.battery_range && cur.first?.battery_range) {
-      return acc + (cur.first.battery_range - cur.last.battery_range)
+    if (cur.last?.charge_state.battery_range && cur.first?.charge_state.battery_range) {
+      return acc + (cur.first.charge_state.battery_range - cur.last.charge_state.battery_range)
     }
     return acc
   }, 0)
 
 
-  const currentRangeMilesUsed = (selectedSession?.first?.battery_range ?? 0) - (selectedSession?.last?.battery_range ?? 0)
-  // @ts-ignore
-  const currentDistance = (selectedSession?.last?.odometer ?? 0) - (selectedSession?.first?.odometer ?? 0)
+  const currentRangeMilesUsed = (selectedSession?.first?.charge_state.battery_range ?? 0) - (selectedSession?.last?.charge_state.battery_range ?? 0)
+  const currentDistance = (selectedSession?.last?.vehicle_state.odometer ?? 0) - (selectedSession?.first?.vehicle_state.odometer ?? 0)
 
   return (
     <div className="card">

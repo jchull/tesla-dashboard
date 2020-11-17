@@ -43,9 +43,9 @@ export class QueryService {
 
   async getSessionDetails(
     sessionId: string
-  ): Promise<types.VehicleData[]> {
+  ): Promise<types.VehicleState[]> {
     const result = await this.api.get(`/session/${sessionId}`)
-    return result && result.data
+    return result?.data
   }
 
   async addTag(sessionId: string, tag: string): Promise<string[]> {
