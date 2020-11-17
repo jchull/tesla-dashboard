@@ -28,38 +28,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/.idea/ClojureProjectResolveSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/SyncPreferences.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/TeslaAccount.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/User.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/UserPreferences.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleSession.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/schema/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/common/src/model/types/Configuration.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/server/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/packages/web/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/VehicleSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/ChargeState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Configuration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/Configuration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveSession.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/DriveState.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/GuiSettings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/GuiSettings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SpeedLimitMode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/SpeedLimitMode.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/SyncPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/SyncPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/TeslaAccount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/TeslaAccount.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/UserPreferences.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/UserPreferences.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/VehicleConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/common/src/model/types/tesla/Vehicle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/common/src/model/util.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/ChargeListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/ChargeListItemDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/DriveListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/DriveListItemDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +120,7 @@
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.12.54" />
     <property name="jdk.selected.JAVA_MODULE" value="1.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/common/src/model/types" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -155,18 +134,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/common/src/model" />
       <recent name="$PROJECT_DIR$/packages/common/src/model/schema" />
       <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model" />
       <recent name="$PROJECT_DIR$/packages/web" />
       <recent name="$PROJECT_DIR$/packages/server" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner" />
+      <recent name="$PROJECT_DIR$/packages/common/src/model/tesla" />
       <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/web/src/component/tags" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/filter" />
-      <recent name="$PROJECT_DIR$/packages/server/src/tag" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start server">
@@ -281,139 +260,6 @@
       <workItem from="1578261479569" duration="2186000" />
       <workItem from="1578339398430" duration="47875000" />
       <workItem from="1578582310572" duration="127339000" />
-    </task>
-    <task id="LOCAL-00180" summary="filters">
-      <created>1588370513833</created>
-      <option name="number" value="00180" />
-      <option name="presentableId" value="LOCAL-00180" />
-      <option name="project" value="LOCAL" />
-      <updated>1588370513834</updated>
-    </task>
-    <task id="LOCAL-00181" summary="API for getting list of available tags for a product">
-      <created>1588527094933</created>
-      <option name="number" value="00181" />
-      <option name="presentableId" value="LOCAL-00181" />
-      <option name="project" value="LOCAL" />
-      <updated>1588527094934</updated>
-    </task>
-    <task id="LOCAL-00182" summary="query available tags">
-      <created>1588550422480</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1588550422480</updated>
-    </task>
-    <task id="LOCAL-00183" summary="format">
-      <created>1588550494609</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1588550494609</updated>
-    </task>
-    <task id="LOCAL-00184" summary="fetch all tags for filter autocomplete">
-      <created>1588551308383</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1588551308383</updated>
-    </task>
-    <task id="LOCAL-00185" summary="cleanup">
-      <created>1588551433617</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1588551433617</updated>
-    </task>
-    <task id="LOCAL-00186" summary="all tags fetch">
-      <created>1588551598098</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1588551598099</updated>
-    </task>
-    <task id="LOCAL-00187" summary="fetch tags on product selection">
-      <created>1588551652388</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1588551652389</updated>
-    </task>
-    <task id="LOCAL-00188" summary="tag filter wip">
-      <created>1589040531724</created>
-      <option name="number" value="00188" />
-      <option name="presentableId" value="LOCAL-00188" />
-      <option name="project" value="LOCAL" />
-      <updated>1589040531724</updated>
-    </task>
-    <task id="LOCAL-00189" summary="tag filtering">
-      <created>1590940626046</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1590940626046</updated>
-    </task>
-    <task id="LOCAL-00190" summary="formatting">
-      <created>1593884979338</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1593884979339</updated>
-    </task>
-    <task id="LOCAL-00191" summary="add prettier config at root, move dependencie in common to devdependency">
-      <created>1593885713067</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1593885713068</updated>
-    </task>
-    <task id="LOCAL-00192" summary="go back to working mongoose">
-      <created>1593994302998</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1593994302998</updated>
-    </task>
-    <task id="LOCAL-00193" summary="fix package dependencies mess, add global format target">
-      <created>1594089798957</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1594089798957</updated>
-    </task>
-    <task id="LOCAL-00194" summary="formatting">
-      <created>1594089815193</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1594089815193</updated>
-    </task>
-    <task id="LOCAL-00195" summary="update ignores">
-      <created>1594164668571</created>
-      <option name="number" value="00195" />
-      <option name="presentableId" value="LOCAL-00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1594164668571</updated>
-    </task>
-    <task id="LOCAL-00196" summary="formatting">
-      <created>1594166839165</created>
-      <option name="number" value="00196" />
-      <option name="presentableId" value="LOCAL-00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1594166839165</updated>
-    </task>
-    <task id="LOCAL-00197" summary="formatting">
-      <created>1594166949119</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1594166949119</updated>
-    </task>
-    <task id="LOCAL-00198" summary="add missing dependency for effect">
-      <created>1594338415211</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1594338415211</updated>
     </task>
     <task id="LOCAL-00199" summary="add in some more stats and some better layout">
       <created>1594338438723</created>
@@ -625,7 +471,140 @@
       <option name="project" value="LOCAL" />
       <updated>1602351763362</updated>
     </task>
-    <option name="localTasksCounter" value="229" />
+    <task id="LOCAL-00229" summary="Refactor of model/type/schema">
+      <created>1605386038877</created>
+      <option name="number" value="00229" />
+      <option name="presentableId" value="LOCAL-00229" />
+      <option name="project" value="LOCAL" />
+      <updated>1605386038878</updated>
+    </task>
+    <task id="LOCAL-00230" summary="export query module, type schema constructors">
+      <created>1605388220644</created>
+      <option name="number" value="00230" />
+      <option name="presentableId" value="LOCAL-00230" />
+      <option name="project" value="LOCAL" />
+      <updated>1605388220645</updated>
+    </task>
+    <task id="LOCAL-00231" summary="update model usages">
+      <created>1605389375845</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1605389375845</updated>
+    </task>
+    <task id="LOCAL-00232" summary="export user enum type, reorder exports">
+      <created>1605389532817</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1605389532817</updated>
+    </task>
+    <task id="LOCAL-00233" summary="reformat server package">
+      <created>1605452308053</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1605452308053</updated>
+    </task>
+    <task id="LOCAL-00234" summary="add base type for native id encapsulation">
+      <created>1605454577259</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1605454577260</updated>
+    </task>
+    <task id="LOCAL-00235" summary="more types organization for base model and tesla types">
+      <created>1605455400759</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1605455400759</updated>
+    </task>
+    <task id="LOCAL-00236" summary="expose tesla types for tesla API integration">
+      <created>1605457200223</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1605457200223</updated>
+    </task>
+    <task id="LOCAL-00237" summary="move external API fetch calls to own module">
+      <created>1605460834405</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1605460834406</updated>
+    </task>
+    <task id="LOCAL-00238" summary="simplify token check before external API call">
+      <created>1605461505500</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1605461505500</updated>
+    </task>
+    <task id="LOCAL-00239" summary="update vehicle activity enum and clean up import paths">
+      <created>1605462273165</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1605462273165</updated>
+    </task>
+    <task id="LOCAL-00240" summary="WIP migrating model, extracting methods">
+      <created>1605464097338</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1605464097338</updated>
+    </task>
+    <task id="LOCAL-00241" summary="updated to match new data structures, reformatting">
+      <created>1605570497491</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1605570497491</updated>
+    </task>
+    <task id="LOCAL-00242" summary="remove convenience method for session type">
+      <created>1605570540831</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1605570540831</updated>
+    </task>
+    <task id="LOCAL-00243" summary="new types refactor">
+      <created>1605570590902</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1605570590902</updated>
+    </task>
+    <task id="LOCAL-00244" summary="component types refactor">
+      <created>1605570621821</created>
+      <option name="number" value="00244" />
+      <option name="presentableId" value="LOCAL-00244" />
+      <option name="project" value="LOCAL" />
+      <updated>1605570621821</updated>
+    </task>
+    <task id="LOCAL-00245" summary="prefer local types">
+      <created>1605571527568</created>
+      <option name="number" value="00245" />
+      <option name="presentableId" value="LOCAL-00245" />
+      <option name="project" value="LOCAL" />
+      <updated>1605571527568</updated>
+    </task>
+    <task id="LOCAL-00246" summary="prefer local types">
+      <created>1605571952482</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1605571952482</updated>
+    </task>
+    <task id="LOCAL-00247" summary="don't use partial unnecessarily">
+      <created>1605572006426</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1605572006426</updated>
+    </task>
+    <option name="localTasksCounter" value="248" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,52 +637,65 @@
       <path value="$PROJECT_DIR$/server" />
       <path value="$PROJECT_DIR$/web" />
     </ignored-roots>
-    <MESSAGE value="just export everything from common" />
-    <MESSAGE value="dynamic chart sizing based on container size" />
-    <MESSAGE value="formatting" />
-    <MESSAGE value="new layout styles WIP" />
-    <MESSAGE value="Added padding for card sections and footers" />
-    <MESSAGE value="Cleaned up stats panel" />
-    <MESSAGE value="added tag selection listener" />
-    <MESSAGE value="tag filter selection" />
-    <MESSAGE value="Add collapsed style and toggle for products list" />
-    <MESSAGE value="remove extra margin from menu items" />
-    <MESSAGE value="change default size" />
-    <MESSAGE value="update toggle styles and animation" />
-    <MESSAGE value="update layout of stats" />
-    <MESSAGE value="default to overview" />
-    <MESSAGE value="clean up 3 column styling, utilize flex better" />
-    <MESSAGE value="moved some stuff to 3-column styles" />
-    <MESSAGE value="ide files" />
-    <MESSAGE value="initial resize only" />
-    <MESSAGE value="make sure all tests follow pattern *.spec.*" />
     <MESSAGE value="handle charge/drive query transparently" />
     <MESSAGE value="remove filter toolbar" />
     <MESSAGE value="handle selection and query for drive/charge sessions" />
     <MESSAGE value="clear sessions when switching session type" />
     <MESSAGE value="handle session type" />
     <MESSAGE value="WIP some styles for tab bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP some styles for tab bar" />
+    <MESSAGE value="Refactor of model/type/schema" />
+    <MESSAGE value="export query module, type schema constructors" />
+    <MESSAGE value="update model usages" />
+    <MESSAGE value="export user enum type, reorder exports" />
+    <MESSAGE value="reformat server package" />
+    <MESSAGE value="reformat common package" />
+    <MESSAGE value="add base type for native id encapsulation" />
+    <MESSAGE value="more types organization for base model and tesla types" />
+    <MESSAGE value="expose tesla types for tesla API integration" />
+    <MESSAGE value="move external API fetch calls to own module" />
+    <MESSAGE value="simplify token check before external API call" />
+    <MESSAGE value="update vehicle activity enum and clean up import paths" />
+    <MESSAGE value="WIP migrating model, extracting methods" />
+    <MESSAGE value="updated to match new data structures, reformatting" />
+    <MESSAGE value="remove convenience method for session type" />
+    <MESSAGE value="new types refactor" />
+    <MESSAGE value="component types refactor" />
+    <MESSAGE value="prefer local types" />
+    <MESSAGE value="don't use partial unnecessarily" />
+    <option name="LAST_COMMIT_MESSAGE" value="don't use partial unnecessarily" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605383491563">
+    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605386202677">
       <screen x="0" y="25" width="3840" height="2135" />
     </state>
     <state x="2541" y="751" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.3840.2137@0.23.3840.2137" timestamp="1602350904105" />
-    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.3840.2135@0.25.3840.2135" timestamp="1605383491563" />
-    <state x="424" y="401" width="900" height="722" key="SettingsEditor" timestamp="1602348453720">
-      <screen x="0" y="23" width="3840" height="2137" />
+    <state x="2541" y="752" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.3840.2135@0.25.3840.2135" timestamp="1605386202677" />
+    <state x="2472" y="655" key="RollbackChangesDialog" timestamp="1605386287526">
+      <screen x="0" y="25" width="3840" height="2135" />
     </state>
+    <state x="2472" y="655" key="RollbackChangesDialog/0.25.3840.2135@0.25.3840.2135" timestamp="1605386287526" />
+    <state x="159" y="159" width="900" height="728" key="SettingsEditor" timestamp="1605570422023">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="159" y="159" width="900" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1605570422023" />
     <state x="424" y="401" key="SettingsEditor/0.23.3840.2137@0.23.3840.2137" timestamp="1602348453720" />
-    <state x="509" y="827" width="513" height="220" key="Vcs.Push.Dialog.v2" timestamp="1602351765316">
-      <screen x="0" y="23" width="3840" height="2137" />
+    <state x="424" y="403" width="900" height="728" key="SettingsEditor/0.25.3840.2135@0.25.3840.2135" timestamp="1605458067793" />
+    <state x="191" y="339" width="509" height="122" key="Vcs.Push.Dialog.v2" timestamp="1605572008169">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="191" y="339" width="509" height="122" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1605572008169" />
     <state x="191" y="353" width="513" height="220" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1597598953973" />
     <state x="509" y="827" key="Vcs.Push.Dialog.v2/0.23.3840.2137@0.23.3840.2137" timestamp="1602351765316" />
-    <state x="223" y="352" width="574" height="490" key="find.popup" timestamp="1596986984863">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="509" y="828" key="Vcs.Push.Dialog.v2/0.25.3840.2135@0.25.3840.2135" timestamp="1605464099421" />
+    <state x="595" y="826" width="1531" height="1193" key="find.popup" timestamp="1605460792407">
+      <screen x="0" y="25" width="3840" height="2135" />
     </state>
     <state x="223" y="352" width="574" height="490" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1596986984863" />
+    <state x="595" y="826" width="1531" height="1193" key="find.popup/0.25.3840.2135@0.25.3840.2135" timestamp="1605460792407" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1605460633946">
+      <screen x="0" y="25" width="3840" height="2135" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.25.3840.2135@0.25.3840.2135" timestamp="1605460633946" />
     <state x="2587" y="779" key="refactoring.ChangeSignatureDialog" timestamp="1602348062502">
       <screen x="0" y="23" width="3840" height="2137" />
     </state>
