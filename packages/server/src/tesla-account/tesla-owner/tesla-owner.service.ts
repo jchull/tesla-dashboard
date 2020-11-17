@@ -55,7 +55,7 @@ export class TeslaOwnerService {
     )
   }
 
-  async getVehicles(teslaAccount: types.TeslaAccount): Promise<tesla.Vehicle[]> {
+  async getVehicles(teslaAccount: types.TeslaAccount): Promise<types.Vehicle[]> {
     return await this.checkToken(teslaAccount) ?
       fetchVehicles(this.config, teslaAccount)
       :

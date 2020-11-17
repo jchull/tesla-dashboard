@@ -44,8 +44,7 @@ export class ProductService {
       if (teslaAccounts?.length) {
         teslaAccounts.forEach(async (teslaAccount) => {
           const products = await this.teslaOwnerService.getVehicles(teslaAccount)
-          // TODO: get _id from persisted store
-          await this.upsertMany(products.map((product) => ({ ...product, username })))
+          this.upsertMany(products.map((product) => ({ ...product, username })))
         })
       }
     }
