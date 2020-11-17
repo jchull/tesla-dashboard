@@ -6,12 +6,12 @@ import { AppState } from '@teslapp/web/src/store'
 import { useSelector } from 'react-redux'
 
 export const TeslaAccountListComponent: FC = () => {
-  const [accounts, setAccounts] = useState([] as Partial<types.TeslaAccount>[])
-  const [selectedAccount, setSelectedAccount] = useState({} as Partial<types.TeslaAccount>)
+  const [accounts, setAccounts] = useState([] as types.TeslaAccount[])
+  const [selectedAccount, setSelectedAccount] = useState({} as types.TeslaAccount)
   const username = useSelector((store: AppState) => store.auth.username)
 
   function addTeslaAccount() {
-    const newAccount = { email: '', username }
+    const newAccount = { _id: undefined, email: '', username }
     setAccounts([newAccount, ...accounts])
     setSelectedAccount(newAccount)
   }
