@@ -1,6 +1,6 @@
-import { Vehicle, VehicleData } from '../tesla'
 import { Entity } from './common'
-import { ActivityType } from './Vehicle'
+import { ActivityType, Vehicle } from './Vehicle'
+import { VehicleState } from './VehicleState'
 
 
 export interface VehicleSession extends Entity {
@@ -9,8 +9,8 @@ export interface VehicleSession extends Entity {
   end_date?: number
   archived: boolean
   tags: string[]
-  first: VehicleData
-  last?: VehicleData
+  first: VehicleState
+  last?: VehicleState
   vehicle?: Vehicle
   activity: ActivityType
 
