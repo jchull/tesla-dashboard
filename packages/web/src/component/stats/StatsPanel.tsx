@@ -47,10 +47,10 @@ export const StatsPanel: React.FC = () => {
           <>
             <section>
               <h6>Current</h6>
-              <div>Distance: {numbro(currentDistance)
+              <div>Distance: {numbro(currentDistance ?? 0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
-              <div>Range Used: {numbro(currentRangeMilesUsed)
+              <div>Range Used: {numbro(currentRangeMilesUsed ?? 0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
             </section>
@@ -60,7 +60,7 @@ export const StatsPanel: React.FC = () => {
           <>
             <section>
               <h6>Current</h6>
-              <div>Range Added: {numbro(1)
+              <div>Range Added: {numbro(0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
 
@@ -73,10 +73,10 @@ export const StatsPanel: React.FC = () => {
         {selectedSession?.activity === types.ActivityType.DRIVING ?
           (
             <>
-              <div>Distance: {numbro(totalMiles)
+              <div>Distance: {numbro(totalMiles ?? 0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
-              <div>Range Used: {numbro(allRangeMilesUsed)
+              <div>Range Used: {numbro(allRangeMilesUsed ?? 0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
             </>
@@ -85,7 +85,7 @@ export const StatsPanel: React.FC = () => {
               <div>Range Added: {numbro(allRangeMilesUsed * -1.0)
                 .format(NUMBER_FORMAT_DEC)} mi
               </div>
-              <div>Energy Added: {numbro(-1.0)
+              <div>Energy Added: {numbro(0)
                 .format(NUMBER_FORMAT_DEC)} kWh
               </div>
             </>
@@ -94,7 +94,7 @@ export const StatsPanel: React.FC = () => {
       </section>
       <div className="card-footer">
         <div>
-          {loading ? 'Loading...' : `Showing ${loadedCount} of ${totalCount}`}
+          {loading ? 'Loading...' : `Showing ${loadedCount ?? 0} of ${totalCount ?? 'unknown'}`}
         </div>
 
       </div>
