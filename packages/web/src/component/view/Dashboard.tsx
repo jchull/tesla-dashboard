@@ -60,7 +60,7 @@ export const Dashboard: React.FC = () => {
         </button>
         <button onClick={() => clear() && setDashboardView(DASHBOARD.SESSION)}
                 className={dashboardView === DASHBOARD.SESSION ? 'selected' : ''}>
-          Activities
+          Activity
         </button>
       </div>
       {viewMemo}
