@@ -26,7 +26,7 @@ export class UserService {
   }
 
   async updateTeslaAccount(account: types.TeslaAccount): Promise<types.TeslaAccount> {
-    return this.api.post(`/tesla-account/${account.username}`, account);
+    return this.api.post(`/tesla-account/${account._id}`, account);
   }
 
   async linkTeslaAccount(account: types.TeslaAccount): Promise<types.TeslaAccount> {
@@ -37,7 +37,7 @@ export class UserService {
     account: types.TeslaAccount,
     password: string
   ): Promise<types.TeslaAccount | void> {
-    return this.api.post(`/tesla-account/${account.username}/token`, { password });
+    return this.api.post(`/tesla-account/${account._id}/token`, { password });
   }
 
   //: Promise<IUser>
