@@ -51,8 +51,7 @@ export const TeslaTokenComponent: FC<TeslaTokenProps> = (
           onChange={handleChange}
         />
         <button value="SUBMIT"
-                type="submit"
-                disabled={!formValid}>
+                type="submit">
           Get new token from Tesla
         </button>
       </form>
