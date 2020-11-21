@@ -44,7 +44,7 @@ export class ProductService {
       if (teslaAccounts?.length) {
         teslaAccounts.forEach(async (teslaAccount) => {
           const products = await this.teslaOwnerService.getVehicles(teslaAccount)
-          this.upsertMany(products.map((product) => ({ ...product, username })))
+          this.upsertMany(products.map((product) => ({ ...product, username, timestamp: Date.now() })))
         })
       }
     }
