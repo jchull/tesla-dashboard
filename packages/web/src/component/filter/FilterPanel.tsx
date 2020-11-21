@@ -4,11 +4,8 @@ import { AppState } from '../../store'
 import { TagFilter } from './TagFilter'
 import { updateFilters } from '../session/actions'
 
-interface FilterState {
-  type: string
-}
 
-export const FilterPanel: React.FC<FilterState> = (props) => {
+export const FilterPanel: React.FC = () => {
   const { filters, availableTags } = useSelector(
     (store: AppState) => store.session
   )

@@ -11,8 +11,7 @@ import { ProductSessionView } from './ProductSessionView'
 
 export enum DASHBOARD {
   OVERVIEW = 'OVERVIEW',
-  DRIVE = 'DRIVE',
-  CHARGE = 'CHARGE'
+  SESSION = 'SESSION'
 }
 
 export const Dashboard: React.FC = () => {
@@ -24,13 +23,12 @@ export const Dashboard: React.FC = () => {
   const products = useSelector(productsSelector)
   const selectedProductId = useSelector(selectedProductIdSelector)
 
-  const [dashboardView, setDashboardView] = useState(DASHBOARD.DRIVE)
+  const [dashboardView, setDashboardView] = useState(DASHBOARD.SESSION)
 
   const viewMemo = useMemo(() => {
     switch (dashboardView) {
-      case DASHBOARD.DRIVE: // fall through
-      case DASHBOARD.CHARGE:
-        return <ProductSessionView type={dashboardView}/>
+      case DASHBOARD.SESSION:
+        return <ProductSessionView/>
       case DASHBOARD.OVERVIEW:
         return <h2>overview</h2>
     }
@@ -43,7 +41,7 @@ export const Dashboard: React.FC = () => {
       )
       if (selectedProduct && dashboardView) {
         dispatch(
-          fetchSessionListAction(selectedProductId, { start: 0, size: 100 }, dashboardView.toString()))
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 }))
         dispatch(fetchAllTagsAction(selectedProductId))
       }
     }
@@ -60,13 +58,9 @@ export const Dashboard: React.FC = () => {
                 className={dashboardView === DASHBOARD.OVERVIEW ? 'selected' : ''}>
           Overview
         </button>
-        <button onClick={() => clear() && setDashboardView(DASHBOARD.DRIVE)}
-                className={dashboardView === DASHBOARD.DRIVE ? 'selected' : ''}>
-          Driving
-        </button>
-        <button onClick={() => clear() && setDashboardView(DASHBOARD.CHARGE)}
-                className={dashboardView === DASHBOARD.CHARGE ? 'selected' : ''}>
-          Charging
+        <button onClick={() => clear() && setDashboardView(DASHBOARD.SESSION)}
+                className={dashboardView === DASHBOARD.SESSION ? 'selected' : ''}>
+          Activities
         </button>
       </div>
       {viewMemo}

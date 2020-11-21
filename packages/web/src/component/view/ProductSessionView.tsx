@@ -8,13 +8,9 @@ import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagLis
 import { StatsPanel } from '../stats/StatsPanel'
 import { FilterPanel } from '../filter/FilterPanel'
 import { CommandPanel } from '../command/CommandPanel'
-import { DASHBOARD } from './Dashboard'
 
-export interface ProductSessionViewProps {
-  type: DASHBOARD.CHARGE | DASHBOARD.DRIVE
-}
 
-export const ProductSessionView: React.FC<ProductSessionViewProps> = ({ type }) => {
+export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch()
 
   const productsSelector = (store: AppState) => store.product.products
@@ -44,11 +40,11 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({ type }) 
       )
       if (selectedProduct) {
         dispatch(
-          fetchSessionListAction(selectedProductId, { start: 0, size: 100 }, type)
+          fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
         )
       }
     }
-  }, [selectedProductId, type])
+  }, [selectedProductId])
 
   React.useEffect(() => {
     if (selectedSessionId) {
@@ -90,7 +86,6 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({ type }) 
       <SessionList
         sessions={sessions}
         selectedSessionId={selectedSessionId}
-        type={type}
       />
       <div ref={mainContent}>
         <LineChart datum={selectedSessionStates}
@@ -99,8 +94,8 @@ export const ProductSessionView: React.FC<ProductSessionViewProps> = ({ type }) 
         <CommandPanel/>
       </div>
       <div>
-        <StatsPanel type={type}/>
-        <FilterPanel type={type}/>
+        <StatsPanel/>
+        <FilterPanel/>
       </div>
     </div>
   )

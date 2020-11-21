@@ -13,16 +13,14 @@ export class QueryService {
       params: { syncUpstream: syncFromTesla },
       headers: { 'Cache-Control': 'no-cache' }
     })
-    return result && result.data
+    return result?.data
   }
 
   async getRecentSessions(
     id: string,
-    page: { start: number; size: number },
-    type: string
+    page: { start: number; size: number }
   ): Promise<query.QueryResult> {
     const result = await this.api.post('/session', {
-      type,
       sort: [
         {
           field: 'start_date',

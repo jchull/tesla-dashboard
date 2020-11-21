@@ -4,13 +4,9 @@ import { AppState } from '../../store'
 import { types } from '@teslapp/common'
 import numbro from 'numbro'
 
-interface StatsState {
-  type: string
-}
-
 const NUMBER_FORMAT_DEC = '0,0.00'
 
-export const StatsPanel: React.FC<StatsState> = (props) => {
+export const StatsPanel: React.FC = () => {
   const selectedSessionId = useSelector(
     (store: AppState) => store.session.selectedSessionId
   )
@@ -46,7 +42,7 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
   return (
     <div className="card">
       <h5>Stats</h5>
-      {props.type.toLowerCase() === 'drive' && selectedSessionId ?
+      {selectedSession?.activity === types.ActivityType.DRIVING ?
         (
           <>
             <section>
@@ -74,7 +70,7 @@ export const StatsPanel: React.FC<StatsState> = (props) => {
         )}
       <section>
         <h6>Total</h6>
-        {props.type.toLowerCase() === 'drive' ?
+        {selectedSession?.activity === types.ActivityType.DRIVING ?
           (
             <>
               <div>Distance: {numbro(totalMiles)

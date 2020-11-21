@@ -42,7 +42,7 @@ export const SessionList: React.FC<SessionState> = (props) => {
         fetchSessionListAction(selectedProductId, {
           start: loadedCount,
           size: 100
-        }, props.type)
+        })
       )
     }
   }

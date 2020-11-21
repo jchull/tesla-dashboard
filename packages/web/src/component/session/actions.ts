@@ -138,15 +138,14 @@ export const fetchAllTagsAction = (id: string) => async (
 
 export const fetchSessionListAction = (
   id: string,
-  page: { start: number; size: number },
-  type: string
+  page: { start: number; size: number }
 ) => async (
   dispatch: any,
   getState: any,
   extraArgument: { api: ApiType }
 ): Promise<any> => {
   dispatch(fetchSessionListStart())
-  return extraArgument.api.queryService.getRecentSessions(id, page, type)
+  return extraArgument.api.queryService.getRecentSessions(id, page)
                       .then(
                         (result) => {
                           dispatch(fetchSessionListSuccess(result))
