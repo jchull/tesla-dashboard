@@ -50,9 +50,8 @@ export class TeslaOwnerService {
     }
     const response = await fetchToken(this.config, teslaAccount, grant_type, password)
     console.log('saving updated token')
-    return this.teslaAccountService.sanitizeTeslaAccount(
-      await this.teslaAccountService.update(response)
-    )
+    const updatedAccount = await this.teslaAccountService.update(response)
+    return this.teslaAccountService.sanitizeTeslaAccount(updatedAccount)
   }
 
   async getVehicles(teslaAccount: types.TeslaAccount): Promise<types.Vehicle[]> {

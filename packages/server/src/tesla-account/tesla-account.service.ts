@@ -23,7 +23,7 @@ export class TeslaAccountService {
 
   async update(teslaAccount: types.TeslaAccount) {
     return this.teslaAccountModel.updateOne(
-      { username: teslaAccount.username },
+      { _id: teslaAccount._id },
       teslaAccount
     )
   }
@@ -62,9 +62,7 @@ export class TeslaAccountService {
         //
         // }
       }
-      return accountList.map((account: schema.TeslaAccountType) =>
-        this.sanitizeTeslaAccount(account)
-      )
+      return accountList
     }
   }
 

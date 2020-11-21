@@ -7,7 +7,7 @@ export const fetchToken = async (
   teslaAccount: types.TeslaAccount,
   grant_type: string,
   password?: string
-) => {
+): Promise<types.TeslaAccount> => {
   const data = {
     email: teslaAccount.email,
     client_id: config.teslaClientKey,
@@ -19,22 +19,23 @@ export const fetchToken = async (
   } else {
     data[grant_type] = teslaAccount[grant_type]
   }
-  const res = await axios({
-    method: 'post',
-    url: `${config.ownerBaseUrl}/oauth/token?grant_type=${grant_type}`,
-    data,
-    headers: {
-      'User-Agent': 'coderado-tesla-sync'
-    }
-  })
-  console.log('Authenticated with Tesla API')
-  const { access_token, refresh_token, token_expires_in } = res.data
-  return {
-    ...teslaAccount,
-    access_token,
-    refresh_token,
-    token_expires_in,
-    token_created_at: Date.now()
+  try {
+    const res = await axios({
+      method: 'post',
+      url: `${config.ownerBaseUrl}/oauth/token?grant_type=${grant_type}`,
+      data,
+      headers: {
+        'User-Agent': 'coderado-tesla-sync'
+      }
+    })
+    console.log('Authenticated with Tesla API')
+    teslaAccount.access_token = res.data.access_token
+    teslaAccount.refresh_token = res.data.refresh_token
+    teslaAccount.token_expires_in = res.data.expires_in
+    teslaAccount.token_created_at = Date.now()
+    return teslaAccount
+  }catch(e){
+    console.error('Unable to authenticate with Tesla API', e)
   }
 }
 
