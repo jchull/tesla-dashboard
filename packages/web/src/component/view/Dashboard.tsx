@@ -8,6 +8,7 @@ import {
 import { AppState } from '@teslapp/web/src/store'
 import { ProductList } from '@teslapp/web/src/component/product'
 import { ProductSessionView } from './ProductSessionView'
+import { Overview } from '../vehicle/Overview'
 
 export enum DASHBOARD {
   OVERVIEW = 'OVERVIEW',
@@ -29,8 +30,8 @@ export const Dashboard: React.FC = () => {
     switch (dashboardView) {
       case DASHBOARD.SESSION:
         return <ProductSessionView/>
-      case DASHBOARD.OVERVIEW:
-        return <h2>overview</h2>
+      default:
+        return <Overview selectedProductId={selectedProductId}/>
     }
   }, [dashboardView])
 

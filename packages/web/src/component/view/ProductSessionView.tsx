@@ -8,15 +8,14 @@ import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagLis
 import { StatsPanel } from '../stats/StatsPanel'
 import { FilterPanel } from '../filter/FilterPanel'
 import { CommandPanel } from '../command/CommandPanel'
+import { useProduct } from '../../hooks'
 
 
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch()
 
-  const productsSelector = (store: AppState) => store.product.products
   const selectedProductIdSelector = (store: AppState) =>
     store.product.selectedProductId
-  const products = useSelector(productsSelector)
   const selectedProductId = useSelector(selectedProductIdSelector)
 
   const sessionsSelector = (store: AppState) => store.session.sessions
@@ -33,18 +32,15 @@ export const ProductSessionView: React.FC = () => {
   const [chartOptions, setChartOptions] = useState(defaultConfig)
   const mainContent = useRef(null)
 
+  const selectedProduct = useProduct(selectedProductId)
+
   React.useEffect(() => {
-    if (selectedProductId) {
-      const selectedProduct = products.find(
-        (product) => product._id === selectedProductId
-      )
       if (selectedProduct) {
         dispatch(
           fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
         )
-      }
     }
-  }, [selectedProductId])
+  }, [selectedProduct])
 
   React.useEffect(() => {
     if (selectedSessionId) {
