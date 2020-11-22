@@ -8,7 +8,7 @@ import { SessionTagList } from '@teslapp/web/src/component/vehicle/SessionTagLis
 import { StatsPanel } from '../stats/StatsPanel'
 import { FilterPanel } from '../filter/FilterPanel'
 import { CommandPanel } from '../command/CommandPanel'
-import { useProduct } from '../../hooks'
+import { useProduct, useVehicleSession } from '../../hooks'
 
 
 export const ProductSessionView: React.FC = () => {
@@ -33,26 +33,22 @@ export const ProductSessionView: React.FC = () => {
   const mainContent = useRef(null)
 
   const selectedProduct = useProduct(selectedProductId)
+  const selectedSession = useVehicleSession(selectedSessionId)
 
   React.useEffect(() => {
-      if (selectedProduct) {
-        dispatch(
-          fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
-        )
+    if (selectedProduct) {
+      dispatch(
+        fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
+      )
     }
   }, [selectedProduct])
 
   React.useEffect(() => {
-    if (selectedSessionId) {
-      const selectedSession = sessions.find(
-        (session) => session._id === selectedSessionId
-      )
-      if (selectedSession) {
-        dispatch(fetchSessionDetailsAction(selectedSessionId))
-        onResize()
-      }
+    if (selectedSession) {
+      dispatch(fetchSessionDetailsAction(selectedSessionId))
+      onResize()
     }
-  }, [selectedSessionId])
+  }, [selectedSession])
 
   // React.useLayoutEffect(() => {
   //   window.addEventListener('resize', onResize)
