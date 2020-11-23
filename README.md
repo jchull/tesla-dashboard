@@ -3,11 +3,6 @@
 
 **_This is a work in-progress!_**
 
-_Nearing completion of "MVP" release. Remaining critical issues to complete before release_
-- Ability to specify admin user of the app
-- SSL easy setup for self-signed certs
-- Migrate polling code to Nest scheduled events
-
 
 Here is some charging data at a V2 Supercharger. 
 ![charging](./images/Charging.png)
@@ -54,6 +49,10 @@ Use docker-compose to build
 `docker-compose build`
 
 This creates images for DB and App services
+
+#### Tests
+
+yarn test
 
 
 #### Starting services
