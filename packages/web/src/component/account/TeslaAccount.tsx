@@ -16,7 +16,6 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
   const [formValid, setFormValid] = useState(false)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    // eslint-disable-next-line @typescript-eslint/camelcase
     const {
       _id,
       username,
@@ -24,7 +23,6 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
       access_token,
       refresh_token
     } = Object.assign({}, account, { [event.target.name]: event.target.value })
-    // eslint-disable-next-line @typescript-eslint/camelcase
     setAccount({ _id, username, email, access_token, refresh_token })
   }
 
