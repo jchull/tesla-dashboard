@@ -12,7 +12,6 @@ export class SessionController {
   @Post()
   async findSessions(@Request() req): Promise<query.QueryResult> {
     const findQuery = query.decodeRequest(req.body)
-    // TODO: update this to be more generic once it is working, only looking at driving right now
     return await this.sessionService.findSessions(req.user.username, findQuery)
   }
 

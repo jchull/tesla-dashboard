@@ -1,16 +1,12 @@
-import { Test, TestingModule } from '@nestjs/testing'
 import { TagService } from './tag.service'
 
 describe('TagService', () => {
   let service: TagService
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-                                              providers: [TagService]
-                                            })
-                                            .compile()
+  const mockModel = {}
 
-    service = module.get<TagService>(TagService)
+  beforeEach(async () => {
+    service = new TagService(mockModel)
   })
 
   it('should be defined', () => {
