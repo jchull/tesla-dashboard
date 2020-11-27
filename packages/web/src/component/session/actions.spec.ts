@@ -14,8 +14,8 @@ const mockStore = configureMockStore([
 describe('session actions', () => {
   it('should handle empty session list', async () => {
     services.queryService.getRecentSessions = jest.fn(
-      (vin): Promise<types.VehicleSession[]> => {
-        return new Promise<types.VehicleSession[]>((resolve, reject) =>
+      (vin): Promise<types.VehicleActivity[]> => {
+        return new Promise<types.VehicleActivity[]>((resolve, reject) =>
           resolve()
         )
       }

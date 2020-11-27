@@ -21,14 +21,14 @@ export const StatsPanel: React.FC = () => {
   const loading = useSelector((store: AppState) => store.session.loading)
 
   const sessions = useSelector((store: AppState) => store.session.sessions)
-  const totalMiles = sessions.reduce((acc, cur: types.VehicleSession) => {
+  const totalMiles = sessions.reduce((acc, cur: types.VehicleActivity) => {
     if (cur.last?.vehicle_state.odometer && cur.first?.vehicle_state.odometer) {
       return acc + (cur.last.vehicle_state.odometer - cur.first.vehicle_state.odometer)
     }
     return acc
   }, 0)
 
-  const allRangeMilesUsed = sessions.reduce((acc, cur: types.VehicleSession) => {
+  const allRangeMilesUsed = sessions.reduce((acc, cur: types.VehicleActivity) => {
     if (cur.last?.charge_state.battery_range && cur.first?.charge_state.battery_range) {
       return acc + (cur.first.charge_state.battery_range - cur.last.charge_state.battery_range)
     }

@@ -4,7 +4,7 @@ import { createAction } from '@reduxjs/toolkit'
 import { batch } from 'react-redux'
 
 export interface SessionState {
-  sessions: types.VehicleSession[]
+  sessions: types.VehicleActivity[]
   selectedSessionId?: string
   selectedSessionStates?: types.VehicleState[]
   filters?: { include: string[]; exclude: string[] }
@@ -81,7 +81,7 @@ export const updateFilters = createAction(
   SessionActionType.UPDATE_FILTERS,
   (filters: any) => ({
     payload: {
-      //TODO: update filters in store, then requery
+      //TODO: updateAccount filters in store, then requery
     }
   })
 )

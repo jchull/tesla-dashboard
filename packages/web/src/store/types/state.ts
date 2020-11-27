@@ -12,7 +12,7 @@ export interface ProductListItemState {
 }
 
 export interface SessionListItemState {
-  session: types.VehicleSession;
+  session: types.VehicleActivity;
   selected: boolean;
 
   selectionHandler(sessionId: string): any;
