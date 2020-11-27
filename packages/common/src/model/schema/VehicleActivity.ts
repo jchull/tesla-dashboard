@@ -1,8 +1,8 @@
 import { Document, Schema } from 'mongoose'
-import { Vehicle, VehicleSession } from '../types'
+import { Vehicle, VehicleActivity } from '../types'
 
 
-export const VehicleSessionSchema = new Schema<VehicleSession>({
+export const VehicleActivitySchema = new Schema<VehicleActivity>({
   start_date: { type: Number, required: true },
   end_date: { type: Number },
   archived: { type: Boolean },
@@ -39,4 +39,4 @@ export const VehicleSessionSchema = new Schema<VehicleSession>({
 })
 
 
-export type VehicleSessionType = VehicleSession & Document
+export type VehicleActivityType = VehicleActivity & Document

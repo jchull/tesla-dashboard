@@ -41,7 +41,7 @@ export const VehicleStateSchema = new Schema<VehicleState>({
   smart_preconditioning: { type: Boolean },
   is_user_present: { type: Boolean },
 
-  vehicleSession: { type: Schema.Types.ObjectId, ref: 'VehicleSession' }
+  vehicleActivity: { type: Schema.Types.ObjectId, ref: 'VehicleActivity' }
 })
 
 export type VehicleStateType = VehicleState & Document

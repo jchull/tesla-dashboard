@@ -1,4 +1,4 @@
-import { VehicleSessionType } from '../schema'
+import { VehicleActivityType } from '../schema'
 
 export enum Operator {
   EQ = 'EQ',
@@ -14,12 +14,12 @@ export enum Operator {
 
 export interface Predicate {
   operator: Operator
-  field: keyof VehicleSessionType
+  field: keyof VehicleActivityType
   value: any
 }
 
 export interface Sort {
-  field: keyof VehicleSessionType
+  field: keyof VehicleActivityType
   desc?: boolean
 }
 
@@ -31,13 +31,13 @@ interface Pagination {
 
 export interface QuerySet {
   page: Pagination
-  sort?: [Sort]
-  predicates: [Predicate]
+  sort?: Sort[]
+  predicates: Predicate[]
 }
 
 export interface QueryResult {
   page: Pagination
-  results: VehicleSessionType[]
+  results: VehicleActivityType[]
 }
 
 export function decodeRequest(body: any): QuerySet {

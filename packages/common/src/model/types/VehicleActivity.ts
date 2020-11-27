@@ -3,7 +3,7 @@ import { ActivityType, Vehicle } from './Vehicle'
 import { VehicleState } from './VehicleState'
 
 
-export interface VehicleSession extends Entity {
+export interface VehicleActivity extends Entity {
   id_s: string
   start_date: number
   end_date?: number
