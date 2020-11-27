@@ -4,6 +4,7 @@ import { ProductService } from './product.service'
 import { MongooseModule } from '@nestjs/mongoose'
 import { schema } from '@teslapp/common'
 import { TeslaAccountModule } from '../tesla-account/tesla-account.module'
+import { DataSyncModule } from '../data-sync/data-sync.module'
 
 @Module({
   imports: [
@@ -12,12 +13,13 @@ import { TeslaAccountModule } from '../tesla-account/tesla-account.module'
       { name: 'SyncPreferences', schema: schema.SyncPreferencesSchema }
     ]),
     MongooseModule.forFeature([
-      { name: 'VehicleSession', schema: schema.VehicleSessionSchema }
+      { name: 'VehicleActivity', schema: schema.VehicleActivitySchema }
     ]),
     MongooseModule.forFeature([
       { name: 'VehicleState', schema: schema.VehicleStateSchema }
     ]),
-    forwardRef(() => TeslaAccountModule)
+    forwardRef(() => TeslaAccountModule),
+    forwardRef(() => DataSyncModule)
   ],
   controllers: [ProductController],
   providers: [ProductService],

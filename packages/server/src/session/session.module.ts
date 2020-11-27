@@ -9,7 +9,7 @@ import { ProductModule } from '../product/product.module'
   imports: [
     MongooseModule.forFeature([{ name: 'Vehicle', schema: schema.VehicleSchema }]),
     MongooseModule.forFeature([
-      { name: 'VehicleSession', schema: schema.VehicleActivitySchema }
+      { name: 'VehicleActivity', schema: schema.VehicleActivitySchema }
     ]),
     MongooseModule.forFeature([
       { name: 'VehicleState', schema: schema.VehicleStateSchema }

@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Request, UseGuards } from '@nestjs/common'
+import { Controller, Get, Param, Post, Query, Request, UseGuards } from '@nestjs/common'
 import { ProductService } from './product.service'
 import { AuthGuard } from '@nestjs/passport'
 
@@ -14,5 +14,11 @@ export class ProductController {
       req.user.username,
       query.syncUpstream
     )
+  }
+
+  @UseGuards(AuthGuard('jwt'))
+  @Post(':id')
+  syncVehicleData(@Request() req, @Param('id') id) {
+    return this.productService.syncVehicleState(id)
   }
 }

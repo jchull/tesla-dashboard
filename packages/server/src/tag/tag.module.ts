@@ -1,18 +1,13 @@
-import { Module } from '@nestjs/common'
+import { forwardRef, Module } from '@nestjs/common'
 import { TagController } from './tag.controller'
-import { TagService } from './tag.service'
-import { MongooseModule } from '@nestjs/mongoose'
-import { schema } from '@teslapp/common'
+import { SessionModule } from '../session/session.module'
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-      { name: 'VehicleSession', schema: schema.VehicleActivitySchema }
-    ])
-  ],
+    forwardRef(() => SessionModule)],
   controllers: [TagController],
-  providers: [TagService],
-  exports: [TagService]
+  providers: [],
+  exports: []
 })
 export class TagModule {
 }

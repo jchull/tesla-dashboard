@@ -8,7 +8,7 @@ import { ProductService } from '../product/product.service'
 export class SessionService {
   constructor(
     @InjectModel('Vehicle') private readonly productModel: Model<schema.VehicleType>,
-    @InjectModel('VehicleSession')
+    @InjectModel('VehicleActivity')
     private readonly vehicleSessionModel: Model<schema.VehicleActivityType>,
     @InjectModel('VehicleState')
     private readonly vehicleStateModel: Model<schema.VehicleStateType>,
@@ -117,4 +117,23 @@ export class SessionService {
     }
     return this.vehicleSessionModel.create(session)
   }
+
+  async findTags(username:string, productId: string){
+    const query = this.vehicleSessionModel.find()
+    query.setQuery({
+      vehicle: { _id: productId },
+      tags: { $exists: true, $not: { $size: 0 } }
+    })
+    const results = await query.exec()
+    return results.reduce((acc, cur) => {
+      cur.tags.forEach((tag) => {
+        if (tag.length && !acc.includes(tag)) {
+          acc.push(tag)
+        }
+      })
+      return acc
+    }, [] as string[])
+  }
+
+
 }
