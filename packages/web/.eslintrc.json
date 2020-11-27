@@ -10,7 +10,6 @@
     "jest": true
   },
   "rules": {
-    "@typescript-eslint/camelcase": 0
   },
   "settings": {
     "react": {
