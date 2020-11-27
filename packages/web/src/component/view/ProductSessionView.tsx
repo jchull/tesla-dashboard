@@ -14,31 +14,24 @@ import { useProduct, useVehicleSession } from '../../hooks'
 export const ProductSessionView: React.FC = () => {
   const dispatch = useDispatch()
 
-  const selectedProductIdSelector = (store: AppState) =>
-    store.product.selectedProductId
-  const selectedProductId = useSelector(selectedProductIdSelector)
+  const selectedProductId = useSelector((store: AppState) => store.product.selectedProductId)
+  const selectedProduct = useProduct(selectedProductId)
+  const sessions = useSelector((store: AppState) => store.session.sessions)
 
-  const sessionsSelector = (store: AppState) => store.session.sessions
-  const selectedSessionIdSelector = (store: AppState) =>
-    store.session.selectedSessionId
-  const sessions = useSelector(sessionsSelector)
+  const selectedSessionId = useSelector((store: AppState) => store.session.selectedSessionId)
+  const selectedSession = useVehicleSession(selectedSessionId)
 
-  const selectedSessionId = useSelector(selectedSessionIdSelector)
-  const selectedSessionStates = useSelector(
-    (store: AppState) => store.session.selectedSessionStates
-  )
+  const selectedSessionStates = useSelector((store: AppState) => store.session.selectedSessionStates)
 
   const [lastResize, setLastResize] = useState(0)
   const [chartOptions, setChartOptions] = useState(defaultConfig)
   const mainContent = useRef(null)
 
-  const selectedProduct = useProduct(selectedProductId)
-  const selectedSession = useVehicleSession(selectedSessionId)
 
   React.useEffect(() => {
     if (selectedProduct) {
       dispatch(
-        fetchSessionListAction(selectedProductId, { start: 0, size: 100 })
+        fetchSessionListAction(selectedProduct._id, { start: 0, size: 100 })
       )
     }
   }, [selectedProduct])
