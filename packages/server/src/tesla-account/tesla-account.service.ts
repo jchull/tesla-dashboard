@@ -3,7 +3,6 @@ import { schema, types } from '@teslapp/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { TeslaOwnerService } from './tesla-owner/tesla-owner.service'
-import { ProductService } from '../product/product.service'
 
 @Injectable()
 export class TeslaAccountService {
@@ -11,24 +10,22 @@ export class TeslaAccountService {
     @InjectModel('TeslaAccount')
     private readonly teslaAccountModel: Model<schema.TeslaAccountType>,
     @Inject(forwardRef(() => TeslaOwnerService))
-    private readonly teslaOwnerService: TeslaOwnerService,
-    @Inject(forwardRef(() => ProductService))
-    private readonly productService: ProductService
+    private readonly teslaOwnerService: TeslaOwnerService
   ) {
   }
 
-  async create(teslaAccount: types.TeslaAccount) {
+  async createAccount(teslaAccount: types.TeslaAccount) {
     return this.teslaAccountModel.create(teslaAccount)
   }
 
-  async update(teslaAccount: types.TeslaAccount) {
+  async updateAccount(teslaAccount: types.TeslaAccount) {
     return this.teslaAccountModel.updateOne(
       { _id: teslaAccount._id },
       teslaAccount
     )
   }
 
-  sanitizeTeslaAccount(account: schema.TeslaAccountType): types.TeslaAccount {
+  sanitizeAccount(account: schema.TeslaAccountType): types.TeslaAccount {
     const {
       _id,
       email,
@@ -47,38 +44,18 @@ export class TeslaAccountService {
     }
   }
 
-  async getTeslaAccounts(
-    username: string,
-    vehicleId?: string
-  ): Promise<types.TeslaAccount[] | undefined> {
-    const accountList = await this.teslaAccountModel.find({ username })
-    if (accountList?.length) {
-      if (vehicleId) {
-        // const vehicle = await vs.get(vehicleId);
-        // if (vehicle?.sync_preferences) {
-        //   const {accountId} = vehicle.sync_preferences;
-        //   return accountList.filter(account => accountId === account._id)
-        //                     .map((account: TeslaAccountType) => this.sanitizeTeslaAccount(account));
-        //
-        // }
-      }
-      return accountList
-    }
+  async getAccounts(
+    username: string
+  ): Promise<types.TeslaAccount[]> {
+    return this.teslaAccountModel.find({ username })
   }
 
-  async validateTeslaConnection(id: string) {
+  async validate(id: string): Promise<boolean> {
     const teslaAccount = await this.getById(id)
     const resultTeslaAccount = await this.teslaOwnerService.checkToken(
       teslaAccount
     )
-    if (resultTeslaAccount) {
-      const vehicles = await this.teslaOwnerService.getVehicles(
-        resultTeslaAccount
-      )
-      if (vehicles) {
-        return this.productService.upsertMany(vehicles)
-      }
-    }
+    return !!resultTeslaAccount
   }
 
   async requestTeslaToken(id: string, password: string) {

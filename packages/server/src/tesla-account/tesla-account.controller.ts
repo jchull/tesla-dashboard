@@ -1,4 +1,4 @@
-import { Controller, Get, HttpException, Param, Post, Put, Query, Request, UseGuards } from '@nestjs/common'
+import { Controller, Get, HttpException, Param, Post, Put, Request, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { TeslaAccountService } from './tesla-account.service'
 
@@ -9,8 +9,8 @@ export class TeslaAccountController {
 
   @UseGuards(AuthGuard('jwt'))
   @Get()
-  async getMyTeslaAccounts(@Request() req, @Query('vid') vid?: string) {
-    return this.teslaAccountService.getTeslaAccounts(req.user.username, vid)
+  async getMyTeslaAccounts(@Request() req) {
+    return this.teslaAccountService.getAccounts(req.user.username)
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -19,8 +19,8 @@ export class TeslaAccountController {
     if (req.user.username !== req.body.username) {
       throw new HttpException('data validation error', 401)
     }
-    return this.teslaAccountService.sanitizeTeslaAccount(
-      await this.teslaAccountService.create(req.body)
+    return this.teslaAccountService.sanitizeAccount(
+      await this.teslaAccountService.createAccount(req.body)
     )
   }
 
@@ -30,15 +30,15 @@ export class TeslaAccountController {
     if (id !== req.body._id || req.user.username !== req.body.username) {
       throw new HttpException('data validation error', 401)
     }
-    return this.teslaAccountService.sanitizeTeslaAccount(
-      await this.teslaAccountService.update(req.body)
+    return this.teslaAccountService.sanitizeAccount(
+      await this.teslaAccountService.updateAccount(req.body)
     )
   }
 
   @UseGuards(AuthGuard('jwt'))
   @Get(':id/validate')
   async validateAccount(@Request() req, @Param('id') id: string) {
-    return this.teslaAccountService.validateTeslaConnection(id)
+    return this.teslaAccountService.validate(id)
   }
 
   @UseGuards(AuthGuard('jwt'))
