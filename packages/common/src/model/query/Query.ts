@@ -30,7 +30,7 @@ interface Pagination {
 }
 
 export interface QuerySet {
-  page: Pagination
+  page?: Pagination
   sort?: Sort[]
   predicates: Predicate[]
 }
