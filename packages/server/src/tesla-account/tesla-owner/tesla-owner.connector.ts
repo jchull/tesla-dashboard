@@ -2,23 +2,21 @@ import axios from 'axios'
 import { tesla, types } from '@teslapp/common'
 
 
-export const fetchToken = async (
-  config: types.Configuration,
-  teslaAccount: types.TeslaAccount,
-  grant_type: string,
-  password?: string
+export const fetchToken = async (config: types.Configuration,
+                                 teslaAccount: types.TeslaAccount,
+                                 grant_type: string,
+                                 password?: string
 ): Promise<types.TeslaAccount> => {
   const data = {
     email: teslaAccount.email,
     client_id: config.teslaClientKey,
     client_secret: config.teslaClientSecret,
-    grant_type
+    grant_type: password?.length && grant_type === 'password' ?
+      password
+      :
+      teslaAccount[grant_type]
   }
-  if (password?.length && grant_type === 'password') {
-    data[grant_type] = password
-  } else {
-    data[grant_type] = teslaAccount[grant_type]
-  }
+
   try {
     const res = await axios({
       method: 'post',
@@ -34,7 +32,7 @@ export const fetchToken = async (
     teslaAccount.token_expires_in = res.data.expires_in
     teslaAccount.token_created_at = Date.now()
     return teslaAccount
-  }catch(e){
+  } catch (e) {
     console.error('Unable to authenticate with Tesla API', e)
   }
 }
@@ -48,10 +46,9 @@ export const fetchVehicles = async (config: types.Configuration,
   return response?.data?.response
 }
 
-export const fetchVehicleData = async (
-  config: types.Configuration,
-  teslaAccount: types.TeslaAccount,
-  id_s: string
+export const fetchVehicleData = async (config: types.Configuration,
+                                       teslaAccount: types.TeslaAccount,
+                                       id_s: string
 ): Promise<tesla.VehicleData | undefined> => {
   const vehicleData = await axios.get(
     `${config.ownerBaseUrl}/api/1/vehicles/${id_s}/vehicle_data`,
@@ -60,7 +57,9 @@ export const fetchVehicleData = async (
   return vehicleData?.data?.response
 }
 
-export const fetchNearbyChargers = async (config: types.Configuration, teslaAccount: types.TeslaAccount, id_s: string) => {
+export const fetchNearbyChargers = async (config: types.Configuration,
+                                          teslaAccount: types.TeslaAccount,
+                                          id_s: string) => {
   const response = await axios.get(
     `${config.ownerBaseUrl}/api/1/vehicles/${id_s}/nearby_charging_sites`,
     buildAuthorizedTeslaConfig(teslaAccount.access_token)
@@ -69,7 +68,8 @@ export const fetchNearbyChargers = async (config: types.Configuration, teslaAcco
 }
 
 export const fetchVehicle = async (config: types.Configuration,
-                                   teslaAccount: types.TeslaAccount, id_s: string) => {
+                                   teslaAccount: types.TeslaAccount,
+                                   id_s: string) => {
   const response = await axios.get(
     `${config.ownerBaseUrl}/api/1/vehicles/${id_s}`,
     buildAuthorizedTeslaConfig(teslaAccount.access_token))
@@ -77,7 +77,7 @@ export const fetchVehicle = async (config: types.Configuration,
 }
 
 
-const buildAuthorizedTeslaConfig = (token) => ({
+const buildAuthorizedTeslaConfig = (token: string) => ({
     headers: {
       'User-Agent': 'coderado-tesla-sync',
       Authorization: `Bearer ${token}`
