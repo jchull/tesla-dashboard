@@ -12,7 +12,7 @@ export class SessionController {
   @Post()
   async findSessions(@Request() req): Promise<query.QueryResult> {
     const findQuery = query.decodeRequest(req.body)
-    return await this.sessionService.findSessions(req.user.username, findQuery)
+    return await this.sessionService.findActivities(req.user.username, findQuery)
   }
 
   @UseGuards(AuthGuard('jwt'))

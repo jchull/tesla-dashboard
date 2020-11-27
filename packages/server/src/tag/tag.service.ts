@@ -7,7 +7,7 @@ import { schema } from '@teslapp/common'
 export class TagService {
   constructor(
     @InjectModel('VehicleSession')
-    private readonly vehicleSessionModel: Model<schema.VehicleSessionType>
+    private readonly vehicleSessionModel: Model<schema.VehicleActivityType>
   ) {
   }
 

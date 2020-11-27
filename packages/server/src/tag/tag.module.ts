@@ -7,7 +7,7 @@ import { schema } from '@teslapp/common'
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: 'VehicleSession', schema: schema.VehicleSessionSchema }
+      { name: 'VehicleSession', schema: schema.VehicleActivitySchema }
     ])
   ],
   controllers: [TagController],

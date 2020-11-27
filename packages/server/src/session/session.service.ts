@@ -1,7 +1,7 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { query, schema } from '@teslapp/common'
+import { query, schema, tesla } from '@teslapp/common'
 import { ProductService } from '../product/product.service'
 
 @Injectable()
@@ -9,7 +9,7 @@ export class SessionService {
   constructor(
     @InjectModel('Vehicle') private readonly productModel: Model<schema.VehicleType>,
     @InjectModel('VehicleSession')
-    private readonly vehicleSessionModel: Model<schema.VehicleSessionType>,
+    private readonly vehicleSessionModel: Model<schema.VehicleActivityType>,
     @InjectModel('VehicleState')
     private readonly vehicleStateModel: Model<schema.VehicleStateType>,
     @Inject(forwardRef(() => ProductService))
@@ -68,7 +68,7 @@ export class SessionService {
     }
   }
 
-  async findSessions(username: string, query: query.QuerySet): Promise<query.QueryResult> {
+  async findActivities(username: string, query: query.QuerySet): Promise<query.QueryResult> {
     const vehicleId = query.predicates.find((p) => p.field === 'vehicle')
       ?.value
     if (!vehicleId) {
@@ -110,8 +110,11 @@ export class SessionService {
   }
 
 
-  async createNewSession() {
+  async createNewSession(vehicleData: tesla.VehicleData) {
     // TODO
-    const session = {}
+    const session = {
+      activity: ''
+    }
+    return this.vehicleSessionModel.create(session)
   }
 }
