@@ -10,8 +10,8 @@ export class ProductService {
   constructor(
     @InjectModel('Vehicle')
     private readonly productModel: Model<schema.VehicleType>,
-    @InjectModel('VehicleActivity')
-    private readonly vehicleSessionModel: Model<schema.VehicleActivityType>,
+    @InjectModel('SyncPreferences')
+    private readonly syncPreferencesModel: Model<schema.SyncPreferencesType>,
     @Inject(forwardRef(() => TeslaSyncService))
     private readonly teslaSyncService: TeslaSyncService
   ) {
