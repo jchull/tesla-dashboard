@@ -53,7 +53,6 @@ export class AccountService {
   }
 
   async getPreferences(username: string) {
-    const prefs = username
-    //await UserPreferences.findOne({username});
+    return this.userModel.findOne({username});
   }
 }

@@ -10,7 +10,8 @@ import { schema } from '@teslapp/common'
     MongooseModule.forFeature([{ name: 'User', schema: schema.UserSchema }]),
     MongooseModule.forFeature([
       { name: 'UserPreferences', schema: schema.UserPreferencesSchema }
-    ])
+    ]),
+
   ],
   controllers: [AccountController],
   providers: [AccountService],
