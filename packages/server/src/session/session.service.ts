@@ -7,7 +7,6 @@ import { ProductService } from '../product/product.service'
 @Injectable()
 export class SessionService {
   constructor(
-    @InjectModel('Vehicle') private readonly productModel: Model<schema.VehicleType>,
     @InjectModel('VehicleActivity')
     private readonly vehicleSessionModel: Model<schema.VehicleActivityType>,
     @InjectModel('VehicleState')
