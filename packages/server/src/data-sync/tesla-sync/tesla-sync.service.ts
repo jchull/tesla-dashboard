@@ -19,7 +19,7 @@ export class TeslaSyncService {
   ) {
   }
 
-  async syncVehicle(id: string): Promise<any> {
+  async syncVehicle(id: string): Promise<types.Vehicle> {
     const product = await this.productService.findById(id)
     if (!product) {
       throw new Error('Invalid state, ensure products exist before updating data!')
@@ -32,6 +32,7 @@ export class TeslaSyncService {
           product.id_s
         )
 
+        // TODO: throws 408 timeout when vehicle sleeping
         product.odometer = vehicleData.vehicle_state.odometer
         product.charge_limit_soc = vehicleData.charge_state.charge_limit_soc
         product.battery_level = vehicleData.charge_state.battery_level
@@ -46,15 +47,16 @@ export class TeslaSyncService {
           console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`)
 
           const activeSession = await this.sessionService.findCurrentActivity(product, vehicleStatus, vehicleData.vehicle_state.timestamp - activityTimeoutSeconds)
-          return activeSession ?
-            this.sessionService.appendVehicleState(activeSession[0], vehicleData)
+          activeSession ?
+            await this.sessionService.appendVehicleState(activeSession, vehicleData)
             :
-            this.sessionService.createNewActivity(product, vehicleStatus, vehicleData)
+            await this.sessionService.createNewActivity(product, vehicleStatus, vehicleData)
         } else {
           console.error('unable to fetch vehicle data from Tesla')
         }
       }
     }
+    return this.productService.update(product)
   }
 
   async syncVehiclesByAccount(username: string) {
