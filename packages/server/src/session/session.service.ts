@@ -1,8 +1,9 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { query, schema, tesla } from '@teslapp/common'
+import { query, schema, tesla, types } from '@teslapp/common'
 import { ProductService } from '../product/product.service'
+import { VehicleState } from '@teslapp/common/dist/model/types'
 
 @Injectable()
 export class SessionService {
@@ -17,16 +18,14 @@ export class SessionService {
   }
 
   async getSessionDetails(username: string, id: string) {
-    // TODO: limit access by username
-    const vehicleStates = await this.vehicleStateModel
-                                    .find({ vehicleSession: id })
-                                    .sort({ timestamp: 1 })
+    return this.vehicleStateModel
+               .find({ vehicleSession: id })
+               .sort({ timestamp: 1 })
 
   }
 
   async deleteSession(username: string, id: string) {
-    // TODO: limit access by username matching
-    const deleteCount = await this.vehicleStateModel.deleteOne({ _id: id })
+    const deleteCount = await this.vehicleStateModel.deleteOne({ _id: id, username })
     if (deleteCount.deletedCount) {
       const deleteItemCount = await this.vehicleStateModel.deleteMany({
         vehicleSession: id
@@ -109,15 +108,71 @@ export class SessionService {
   }
 
 
-  async createNewSession(vehicleData: tesla.VehicleData) {
-    // TODO
+  async createNewActivity(vehicle: schema.VehicleType, activity: types.ActivityType, vehicleData: tesla.VehicleData) {
+    const first = await this.vehicleStateModel.create(vehicleData)
+    const {
+      charge_current_request_max,
+      charge_enable_request,
+      charge_to_max_range,
+      charge_port_cold_weather_mode,
+      charge_limit_soc,
+      charge_limit_soc_std,
+      charge_limit_soc_min,
+      charge_limit_soc_max,
+      charger_phases,
+      charger_pilot_current,
+      conn_charge_cable,
+      fast_charger_brand,
+      fast_charger_present,
+      fast_charger_type,
+      managed_charging_active,
+      managed_charging_start_time,
+      managed_charging_user_canceled,
+      max_range_charge_counter,
+      scheduled_charging_pending,
+      scheduled_charging_start_time,
+      trip_charging
+    } = vehicleData.charge_state
+
     const session = {
-      activity: ''
+      vehicle,
+      activity,
+      first,
+      archived: false,
+
+      charge_current_request_max,
+      charge_enable_request,
+      charge_to_max_range,
+      charge_port_cold_weather_mode,
+      charge_limit_soc,
+      charge_limit_soc_std,
+      charge_limit_soc_min,
+      charge_limit_soc_max,
+      charger_phases,
+      charger_pilot_current,
+      conn_charge_cable,
+      fast_charger_brand,
+      fast_charger_present,
+      fast_charger_type,
+      managed_charging_active,
+      managed_charging_start_time,
+      managed_charging_user_canceled,
+      max_range_charge_counter,
+      scheduled_charging_pending,
+      scheduled_charging_start_time,
+      trip_charging,
+      distance: 0,
+      duration_seconds: 0,
+      id_s: vehicle.id_s,
+      tags: [],
+      start_date: vehicleData.vehicle_state.timestamp,
+      latitude: vehicleData.drive_state.latitude,
+      longitude: vehicleData.drive_state.longitude
     }
     return this.vehicleSessionModel.create(session)
   }
 
-  async findTags(username:string, productId: string){
+  async findTags(username: string, productId: string) {
     const query = this.vehicleSessionModel.find()
     query.setQuery({
       vehicle: { _id: productId },
@@ -135,4 +190,16 @@ export class SessionService {
   }
 
 
+  async appendVehicleState(vehicleActivity: schema.VehicleActivityType, vehicleData: tesla.VehicleData): Promise<schema.VehicleActivityType> {
+    const vehicleState = await this.vehicleStateModel.create(vehicleData)
+    vehicleActivity.last = vehicleState;
+    vehicleActivity.end_date = vehicleState.vehicle_state.timestamp
+    vehicleActivity.duration_seconds = vehicleActivity.end_date - vehicleActivity.start_date
+    vehicleActivity.distance = vehicleActivity.last.vehicle_state.odometer - vehicleActivity.first.vehicle_state.odometer
+
+    // TODO: any other data aggregation for this activity
+
+    return this.vehicleSessionModel.update({_id: vehicleActivity._id}, vehicleActivity)
+
+  }
 }
