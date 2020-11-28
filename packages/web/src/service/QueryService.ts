@@ -16,6 +16,14 @@ export class QueryService {
     return result?.data
   }
 
+  async syncCurrentActivity(vehicleId:string): Promise<any> {
+    const result = await this.api.post(`/product/${vehicleId}`, {
+      params: { },
+      headers: { 'Cache-Control': 'no-cache' }
+    })
+    return result?.data
+  }
+
   async getRecentSessions(
     id: string,
     page: { start: number; size: number }

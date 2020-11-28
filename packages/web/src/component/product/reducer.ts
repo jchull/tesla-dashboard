@@ -1,10 +1,10 @@
-import { types } from '@teslapp/common';
-import { ProductListState } from '@teslapp/web/src/store/types/state';
-import { createReducer } from '@reduxjs/toolkit';
+import { types } from '@teslapp/common'
+import { ProductListState } from '@teslapp/web/src/store/types/state'
+import { createReducer } from '@reduxjs/toolkit'
 
 const initialState: ProductListState = {
   products: [] as types.Vehicle[]
-};
+}
 
 export const productListReducer = createReducer(initialState, {
   SELECT_PRODUCT: (state, action) => {
@@ -15,12 +15,12 @@ export const productListReducer = createReducer(initialState, {
         (product) => product._id === action.payload.selectedProductId
       )
     ) {
-      state.selectedProductId = action.payload.selectedProductId;
+      state.selectedProductId = action.payload.selectedProductId
     }
   },
   // FETCH_PRODUCT_LIST__START: (state, action) => {},
   FETCH_PRODUCT_LIST__SUCCESS: (state, action) => {
-    state.products = action.payload.productList;
+    state.products = action.payload.productList
 
     // if previously-selected product is not found in the new products list, select the first product in the list
     if (
@@ -29,10 +29,14 @@ export const productListReducer = createReducer(initialState, {
         (product: types.Vehicle) => product._id === state.selectedProductId
       )
     ) {
-      state.selectedProductId = action.payload.productList[0]._id;
+      state.selectedProductId = action.payload.productList[0]._id
     } else {
-      state.selectedProductId = action.payload.selectedProductId;
+      state.selectedProductId = action.payload.selectedProductId
     }
+  },
+  // FETCH_PRODUCT_LIST__FAIL: (state, action) => {},
+
+  SYNC_UPSTREAM__SUCCESS: (state, action) => {
+
   }
-  // FETCH_PRODUCT_LIST__FAIL: (state, action) => {}
-});
+})

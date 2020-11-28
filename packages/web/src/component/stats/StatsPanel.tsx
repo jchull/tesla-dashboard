@@ -36,10 +36,10 @@ export const StatsPanel: React.FC = () => {
   }, 0)
 
 
-  const currentRangeMilesUsed = (selectedSession?.first?.charge_state.battery_range ?? 0) - (selectedSession?.last?.charge_state.battery_range ?? 0)
-  const currentDistance = (selectedSession?.last?.vehicle_state.odometer ?? 0) - (selectedSession?.first?.vehicle_state.odometer ?? 0)
+  const currentRangeMilesUsed = (selectedSession?.first?.charge_state?.battery_range ?? 0) - (selectedSession?.last?.charge_state?.battery_range ?? 0)
+  const currentDistance = (selectedSession?.last?.vehicle_state?.odometer ?? 0) - (selectedSession?.first?.vehicle_state?.odometer ?? 0)
 
-  return (
+  return selectedSession.last?(
     <div className="card">
       <h5>Stats</h5>
       {selectedSession?.activity === types.ActivityType.DRIVING ?
@@ -100,4 +100,6 @@ export const StatsPanel: React.FC = () => {
       </div>
     </div>
   )
+    :
+    <span>nothing here</span>
 }
