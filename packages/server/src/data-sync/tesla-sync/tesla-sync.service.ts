@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common'
-import { query, schema, types, tesla } from '@teslapp/common'
+import { forwardRef, Inject, Injectable } from '@nestjs/common'
+import { query, schema, tesla, types } from '@teslapp/common'
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service'
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service'
 import { ProductService } from '../../product/product.service'
@@ -8,62 +8,66 @@ import { SessionService } from '../../session/session.service'
 @Injectable()
 export class TeslaSyncService {
   constructor(
+    @Inject(forwardRef(() => ProductService))
     private readonly productService: ProductService,
+    @Inject(forwardRef(() => SessionService))
     private readonly sessionService: SessionService,
+    @Inject(forwardRef(() => TeslaOwnerService))
     private readonly teslaOwnerService: TeslaOwnerService,
+    @Inject(forwardRef(() => TeslaAccountService))
     private readonly teslaAccountService: TeslaAccountService
   ) {
   }
 
-  async syncVehicle(vin: string): Promise<any> {
-    const product = await this.productService.findByVin(vin)
+  async syncVehicle(id: string): Promise<any> {
+    const product = await this.productService.findById(id)
     if (!product) {
       throw new Error('Invalid state, ensure products exist before updating data!')
     } else {
-      const teslaAccounts = await this.teslaAccountService.getTeslaAccounts(
-        product.username,
-        product._id
-      )
-      // we should not have more than one result when providing both parameters
+      const teslaAccounts = await this.teslaAccountService.getAccounts(product.username)
+      // TODO: verify this is still true: we should not have more than one result when providing both parameters
       if (teslaAccounts?.length === 1) {
         const vehicleData = await this.teslaOwnerService.getVehicleData(
           teslaAccounts[0],
           product.id_s
         )
 
+        // TODO: get from sync preferences
+        const activityTimeoutSeconds = 300 // 5 minutes
+
         if (vehicleData) {
           const vehicleStatus = this.findVehicleState(vehicleData)
           console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`)
 
           // TODO: add time to query so we only find active session, sort by time descending
-          // TODO: also limit to activity type>?
           const activeSession = (
-            await this.sessionService.findSessions(product.username, {
+            await this.sessionService.findActivities(product.username, {
               predicates: [
-                { operator: query.Operator.EQ, value: product, field: 'vehicle' }
+                { operator: query.Operator.EQ, value: product, field: 'vehicle' },
+                { operator: query.Operator.EQ, value: vehicleStatus, field: 'activity' },
+                { operator: query.Operator.GTE,
+                  value: Date.now()
+                             .valueOf() - activityTimeoutSeconds,
+                  field: 'end_date'
+                }
               ],
               page: { size: 1, start: 0 }
             })
           )?.results
           return activeSession?.length === 1 ?
-            this.appendVehicleState(activeSession[0], vehicleData)
+            this.sessionService.appendVehicleState(activeSession[0], vehicleData)
             :
-            this.createNewActivity(vehicleData)
+            this.sessionService.createNewActivity(product, vehicleStatus, vehicleData)
+        } else {
+          console.error('unable to fetch vehicle data from Tesla')
         }
       }
     }
   }
 
-  private async appendVehicleState(
-    session: schema.VehicleSessionType,
-    vehicleData: tesla.VehicleData
-  ): Promise<any> {
-    //TODO: build state from vehicle data
-    // then update session roll-up fields
-  }
-
-  private async createNewActivity(vehicleData: tesla.VehicleData): Promise<any> {
-    //TODO:
+  async syncVehiclesByAccount(username: string) {
+    const accountList = await this.teslaAccountService.getAccounts(username)
+    // TODO
   }
 
 
