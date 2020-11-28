@@ -1,5 +1,5 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common'
-import { query, schema, tesla, types } from '@teslapp/common'
+import { query, tesla, types } from '@teslapp/common'
 import { TeslaAccountService } from '../../tesla-account/tesla-account.service'
 import { TeslaOwnerService } from '../../tesla-account/tesla-owner/tesla-owner.service'
 import { ProductService } from '../../product/product.service'
@@ -45,9 +45,9 @@ export class TeslaSyncService {
               predicates: [
                 { operator: query.Operator.EQ, value: product, field: 'vehicle' },
                 { operator: query.Operator.EQ, value: vehicleStatus, field: 'activity' },
-                { operator: query.Operator.GTE,
-                  value: Date.now()
-                             .valueOf() - activityTimeoutSeconds,
+                {
+                  operator: query.Operator.GTE,
+                  value: vehicleData.vehicle_state.timestamp - activityTimeoutSeconds,
                   field: 'end_date'
                 }
               ],
