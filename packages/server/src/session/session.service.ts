@@ -192,14 +192,30 @@ export class SessionService {
 
   async appendVehicleState(vehicleActivity: schema.VehicleActivityType, vehicleData: tesla.VehicleData): Promise<schema.VehicleActivityType> {
     const vehicleState = await this.vehicleStateModel.create(vehicleData)
-    vehicleActivity.last = vehicleState;
+    vehicleActivity.last = vehicleState
     vehicleActivity.end_date = vehicleState.vehicle_state.timestamp
     vehicleActivity.duration_seconds = vehicleActivity.end_date - vehicleActivity.start_date
     vehicleActivity.distance = vehicleActivity.last.vehicle_state.odometer - vehicleActivity.first.vehicle_state.odometer
 
     // TODO: any other data aggregation for this activity
 
-    return this.vehicleSessionModel.update({_id: vehicleActivity._id}, vehicleActivity)
+    return this.vehicleSessionModel.update({ _id: vehicleActivity._id }, vehicleActivity)
 
+  }
+
+  async findCurrentActivity(product: schema.VehicleType, vehicleStatus: types.ActivityType, after: number) {
+    const result = await this.findActivities(product.username, {
+      predicates: [
+        { operator: query.Operator.EQ, value: product, field: 'vehicle' },
+        { operator: query.Operator.EQ, value: vehicleStatus, field: 'activity' },
+        {
+          operator: query.Operator.GTE,
+          value: after,
+          field: 'end_date'
+        }
+      ],
+      page: { size: 1, start: 0 }
+    })
+    return result?.results[0]
   }
 }
