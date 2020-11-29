@@ -62,6 +62,7 @@ export class TeslaSyncService {
           console.error(JSON.stringify(e))
         }
         await this.productService.update(product)
+        return product
       }
     }
   }
@@ -78,8 +79,7 @@ export class TeslaSyncService {
   }
 
   private isDriving(vehicleData: tesla.VehicleData): boolean {
-    return vehicleData.charge_state?.charging_state?.length &&
-      vehicleData.charge_state.charging_state !== 'Disconnected'
+    return !!vehicleData.drive_state.shift_state
   }
 
   private findVehicleState(vehicleData: tesla.VehicleData): types.ActivityType {
