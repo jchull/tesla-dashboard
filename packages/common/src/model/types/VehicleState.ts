@@ -1,6 +1,8 @@
 import { Entity } from './common'
+import { VehicleActivity } from './VehicleActivity'
 
 export interface VehicleState extends Entity {
+  vehicleActivity?: VehicleActivity,
   id: number
   id_s: string
   user_id: number
@@ -9,7 +11,7 @@ export interface VehicleState extends Entity {
   display_name: string
   option_codes?: string
   color?: string
-  tokens?: string[]
+ // tokens?: string[]
   state?: string
   in_service?: boolean
   calendar_enabled?: boolean
