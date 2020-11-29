@@ -39,12 +39,10 @@ export const ProductListItem: React.FC<ProductListItemState> = (
 
       <div className="row">
         <div className="status start">
-          as of {moment(props.product.timestamp).fromNow()}
-        </div>
-       <div className="status end">
-         {props.product.charging_state === 'Charging'
-           ? `${timeToFull} remaining`
-           : props.product.state}
+          {`${props.product.state[0]}${props.product.state.substr(1)
+                                            .toLowerCase()} `}
+          as of {moment(props.product.timestamp)
+          .fromNow()}
         </div>
 
       </div>

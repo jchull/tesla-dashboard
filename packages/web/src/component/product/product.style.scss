@@ -58,6 +58,10 @@
       background-repeat: no-repeat;
       background-position: 215px 25px;
     }
+
+    & .row:not(:first-child) {
+      padding: 4px 0;
+    }
   }
 
   .add-more {
