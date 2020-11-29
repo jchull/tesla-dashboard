@@ -19,7 +19,7 @@ export class SessionService {
 
   async getSessionDetails(username: string, id: string) {
     return this.vehicleStateModel
-               .find({ vehicleSession: id })
+               .find({ vehicleActivity: id })
                .sort({ timestamp: 1 })
 
   }
@@ -199,7 +199,6 @@ export class SessionService {
     // TODO: any other data aggregation for this activity
 
     return this.vehicleSessionModel.update({ _id: vehicleActivity._id }, vehicleActivity)
-
   }
 
   async findCurrentActivity(product: schema.VehicleType, vehicleStatus: types.ActivityType, after: number) {
