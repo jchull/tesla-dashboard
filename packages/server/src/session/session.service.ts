@@ -198,8 +198,7 @@ export class SessionService {
   async appendVehicleState(vehicleActivity: schema.VehicleActivityType, vehicleData: tesla.VehicleData): Promise<schema.VehicleActivityType> {
     const vehicleState = schema.flattenVehicleData(vehicleData)
     vehicleState.vehicleActivity = vehicleActivity
-    await this.vehicleStateModel.create(vehicleState)
-    vehicleActivity.last = vehicleState as schema.VehicleStateType
+    vehicleActivity.last = await this.vehicleStateModel.create(vehicleState)
     vehicleActivity.end_date = vehicleState.timestamp
     vehicleActivity.duration_seconds = vehicleActivity.end_date - vehicleActivity.start_date
     vehicleActivity.distance = vehicleState.odometer - vehicleActivity.first.odometer
