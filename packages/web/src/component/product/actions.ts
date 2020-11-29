@@ -68,10 +68,10 @@ export const syncUpstreamFail = createAction(
 )
 
 export const syncUpstreamSuccess = createAction(
-  ProductActionType.FETCH_PRODUCT_LIST__SUCCESS,
+  ProductActionType.SYNC_UPSTREAM__SUCCESS,
   (product: types.Vehicle) => ({
     payload: {
-      productList: product
+      product: product
     }
   })
 )

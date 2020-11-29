@@ -37,6 +37,11 @@ export const productListReducer = createReducer(initialState, {
   // FETCH_PRODUCT_LIST__FAIL: (state, action) => {},
 
   SYNC_UPSTREAM__SUCCESS: (state, action) => {
+    // replace one existing product in list
+    state.products = state.products.map((product) => product._id === action.payload.product._id? action.payload.product : product)
+  },
 
+  SYNC_UPSTREAM__FAIL: (state, action) => {
+    // TODO: handle failure, message
   }
 })

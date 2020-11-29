@@ -15,7 +15,7 @@ export const DriveListItemDetail: React.FC<SessionListItemState> = (
   // const rangeUsed = props.session.first.battery_range - props.session.last.battery_range;
 
   const distanceTraveled = props.session.last
-    ? props.session.last.vehicle_state.odometer - props.session.first.vehicle_state.odometer
+    ? props.session.distance
     : 0
 
   const averageSpeed = distanceTraveled / durationHours

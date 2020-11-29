@@ -269,9 +269,13 @@ export const removeSessionAction = (sessionId: string) => async (
   dispatch(removeSessionStart())
   return extraArgument.api.queryService.removeSession(sessionId)
                       .then(
-                        () => {
+                        (result) => {
                           batch(() => {
-                            dispatch(removeSessionSuccess(sessionId))
+                            if (result !== 0) {
+                              dispatch(removeSessionSuccess(sessionId))
+                            } else {
+                              dispatch(removeSessionFail())
+                            }
                           })
                         },
                         (error: any) => {
