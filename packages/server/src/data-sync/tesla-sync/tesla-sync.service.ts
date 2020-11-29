@@ -27,36 +27,43 @@ export class TeslaSyncService {
       const teslaAccounts = await this.teslaAccountService.getAccounts(product.username)
       // TODO: verify this is still true: we should not have more than one result when providing both parameters
       if (teslaAccounts?.length === 1) {
-        const vehicleData = await this.teslaOwnerService.getVehicleData(
-          teslaAccounts[0],
-          product.id_s
-        )
 
-        // TODO: throws 408 timeout when vehicle sleeping
+        try {
+          const vehicleData = await this.teslaOwnerService.getVehicleData(
+            teslaAccounts[0],
+            product.id_s
+          )
+
         product.odometer = vehicleData.vehicle_state.odometer
         product.charge_limit_soc = vehicleData.charge_state.charge_limit_soc
         product.battery_level = vehicleData.charge_state.battery_level
         product.charging_state = vehicleData.charge_state.charging_state
         product.timestamp = vehicleData.vehicle_state.timestamp
 
-        // TODO: get from sync preferences
-        const activityTimeoutSeconds = 300 // 5 minutes
+          // TODO: get from sync preferences
+          const activityTimeoutSeconds = 300 // 5 minutes
 
-        if (vehicleData) {
-          const vehicleStatus = this.findVehicleState(vehicleData)
-          console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`)
+          if (vehicleData) {
+            const vehicleStatus = this.findVehicleState(vehicleData)
+            console.log(`${vehicleData.display_name} is currently ${vehicleStatus}`)
 
-          const activeSession = await this.sessionService.findCurrentActivity(product, vehicleStatus, vehicleData.vehicle_state.timestamp - activityTimeoutSeconds)
-          activeSession ?
-            await this.sessionService.appendVehicleState(activeSession, vehicleData)
-            :
-            await this.sessionService.createNewActivity(product, vehicleStatus, vehicleData)
-        } else {
-          console.error('unable to fetch vehicle data from Tesla')
+            if (vehicleStatus === types.ActivityType.DRIVING || vehicleStatus === types.ActivityType.CHARGING) {
+              const activeSession = await this.sessionService.findCurrentActivity(product, vehicleStatus,  vehicleData.vehicle_state.timestamp - activityTimeoutSeconds)
+              activeSession ?
+                await this.sessionService.appendVehicleState(activeSession, vehicleData)
+                :
+                await this.sessionService.createNewActivity(product, vehicleStatus, vehicleData)
+            }
+          } else {
+            console.error('unable to fetch vehicle data from Tesla')
+          }
+        } catch (e) {
+          // TODO: throws 408 timeout when vehicle sleeping
+          console.error(JSON.stringify(e))
         }
+        await this.productService.update(product)
       }
     }
-    return this.productService.update(product)
   }
 
   async syncVehiclesByAccount(username: string) {
