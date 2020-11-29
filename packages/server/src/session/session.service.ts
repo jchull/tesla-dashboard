@@ -18,10 +18,11 @@ export class SessionService {
   }
 
   async getSessionDetails(username: string, id: string) {
-    return this.vehicleStateModel
-               .find({ vehicleActivity: id })
-               .sort({ timestamp: 1 })
-
+    const activity = await this.vehicleSessionModel.findById(id)
+    const result = await this.vehicleStateModel
+                             .find({ vehicleActivity: activity })
+                             .sort({ timestamp: 1 })
+    return result
   }
 
   async deleteSession(username: string, id: string) {
@@ -36,6 +37,7 @@ export class SessionService {
         )
       }
     }
+    return 0
   }
 
   async addTag(username: string, sessionId: string, tag: string) {
@@ -109,7 +111,7 @@ export class SessionService {
 
 
   async createNewActivity(vehicle: schema.VehicleType, activity: types.ActivityType, vehicleData: tesla.VehicleData) {
-    const first = await this.vehicleStateModel.create(vehicleData)
+    const vehicleState = await this.vehicleStateModel.create(schema.flattenVehicleData(vehicleData))
     const {
       charge_current_request_max,
       charge_enable_request,
@@ -132,12 +134,12 @@ export class SessionService {
       scheduled_charging_pending,
       scheduled_charging_start_time,
       trip_charging
-    } = vehicleData.charge_state
+    } = vehicleState
 
     const session = {
       vehicle,
       activity,
-      first,
+      first: vehicleState,
       archived: false,
 
       charge_current_request_max,
@@ -169,7 +171,10 @@ export class SessionService {
       latitude: vehicleData.drive_state.latitude,
       longitude: vehicleData.drive_state.longitude
     }
-    return this.vehicleSessionModel.create(session)
+    const newActivity = await this.vehicleSessionModel.create(session)
+    vehicleState.vehicleActivity = newActivity
+    await this.vehicleStateModel.update({ _id: vehicleState._id }, vehicleState)
+    return newActivity
   }
 
   async findTags(username: string, productId: string) {
@@ -191,10 +196,13 @@ export class SessionService {
 
 
   async appendVehicleState(vehicleActivity: schema.VehicleActivityType, vehicleData: tesla.VehicleData): Promise<schema.VehicleActivityType> {
-    vehicleActivity.last = await this.vehicleStateModel.create(vehicleData)
-    vehicleActivity.end_date = vehicleData.vehicle_state.timestamp
+    const vehicleState = schema.flattenVehicleData(vehicleData)
+    vehicleState.vehicleActivity = vehicleActivity
+    await this.vehicleStateModel.create(vehicleState)
+    vehicleActivity.last = vehicleState as schema.VehicleStateType
+    vehicleActivity.end_date = vehicleState.timestamp
     vehicleActivity.duration_seconds = vehicleActivity.end_date - vehicleActivity.start_date
-    vehicleActivity.distance = vehicleActivity.last.vehicle_state.odometer - vehicleActivity.first.vehicle_state.odometer
+    vehicleActivity.distance = vehicleState.odometer - vehicleActivity.first.odometer
 
     // TODO: any other data aggregation for this activity
 
