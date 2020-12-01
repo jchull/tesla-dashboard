@@ -35,11 +35,17 @@
       padding: 0 2px;
     }
 
-    .battery_level span {
-      font-size: 21px;
-      line-height: 21px;
-      vertical-align: top;
-      padding: 0 0 0 2px;
+    .battery_level {
+      &.end {
+        align-content: flex-end;
+      }
+
+      span {
+        font-size: 21px;
+        line-height: 21px;
+        vertical-align: top;
+        padding: 0 4px 4px 2px;
+      }
     }
 
     &:hover {
