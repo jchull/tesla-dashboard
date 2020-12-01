@@ -19,7 +19,6 @@ export interface Vehicle {
   charging_state?: string
   time_to_full_charge?: number
   charge_limit_soc?: number
-  last_session_id: string
   username?: string
   sync_state?: string
 }
