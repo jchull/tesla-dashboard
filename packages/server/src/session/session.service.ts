@@ -75,7 +75,11 @@ export class SessionService {
       throw Error('vehicle/product required in session predicate')
     }
     const tags = query.predicates.filter((p) => p.field === 'tags')
-
+//TODO: handle other predicates here!
+    const usedPredicates = ['tags', 'vehicle']
+    const restPredicates = query.predicates.filter((p) => !usedPredicates.includes(p.field))
+    if(restPredicates?.length)
+      console.log('rest of predicates', restPredicates)
     const skip = query.page.start
     // set up criteria for count and query
     const criteria = {
@@ -83,6 +87,7 @@ export class SessionService {
       tags: tags.map((p) => p.value)
       // start_date: { $gte: jan2019, $lte: dec2019 }
     }
+
 
     // get a total count for pagination info
     const countQuery = this.vehicleSessionModel.countDocuments()
