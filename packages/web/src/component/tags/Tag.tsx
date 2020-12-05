@@ -7,22 +7,23 @@ interface TagState {
   removeListener(tag: string): any;
 }
 
-export const Tag: React.FC<TagState> = (props: TagState) => {
+export const Tag: React.FC<TagState> = (props) => {
+  const { color, value, removeListener } = props
   const style = {
-    border: `2px solid ${props.color || '#f4f4f4'}`
+    border: `2px solid ${color || '#f4f4f4'}`
   }
+
+  const handleRemove = (tag) =>
+    () => removeListener && removeListener(tag)
 
   return (
     <div className="tag"
          style={style}>
-      <span>{props.value}</span>
-      {props.removeListener && (
+      <span>{value}</span>
+      {removeListener && (
         <button
           className="remove"
-          onClick={() =>
-            props.removeListener && props.removeListener(props.value)
-          }
-        >
+          onClick={handleRemove(value)}>
           <i className="material-icons">remove</i>
         </button>
       )}
