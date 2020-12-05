@@ -42,27 +42,25 @@ export class SessionService {
   }
 
   async addTag(username: string, sessionId: string, tag: string) {
-    const vehicleSession = await this.vehicleSessionModel.findOne({
-      _id: sessionId
-    })
+    const conditions = { _id: sessionId }
+    const vehicleSession = await this.vehicleSessionModel.findOne(conditions)
     if (vehicleSession && !vehicleSession.tags.includes(tag)) {
-      vehicleSession.tags.push(tag)
-      const result = await this.vehicleStateModel.updateOne(
-        { _id: sessionId },
+      vehicleSession.tags = [...vehicleSession.tags, tag]
+      const result = await this.vehicleSessionModel.updateOne(
+        conditions,
         vehicleSession
       )
-      return result.tags
+      return result.nModified ? vehicleSession.tags : []
     }
   }
 
   async removeTag(username: string, sessionId: string, tag: string) {
-    const vehicleSession = await this.vehicleSessionModel.findOne({
-      _id: sessionId
-    })
+    const conditions = { _id: sessionId }
+    const vehicleSession = await this.vehicleSessionModel.findOne(conditions)
     if (vehicleSession && vehicleSession.tags.includes(tag)) {
       vehicleSession.tags.splice(vehicleSession.tags.indexOf(tag), 1)
-      const result = await this.vehicleStateModel.updateOne(
-        { _id: sessionId },
+      const result = await this.vehicleSessionModel.updateOne(
+        conditions,
         vehicleSession
       )
       return result.tags
@@ -75,15 +73,15 @@ export class SessionService {
     if (!vehicleId) {
       throw Error('vehicle/product required in session predicate')
     }
-    const tags = query.predicates.filter((p) => p.field === 'tags')
+//    const tags = query.predicates.filter((p) => p.field === 'tags')
 //TODO: handle other predicates here!
-    const usedPredicates = ['tags', 'vehicle']
-    const restPredicates = decodePredicates(query.predicates.filter((p) => !usedPredicates.includes(p.field)))
+    const skipPredicates = new Set(['vehicle'])
+    const restPredicates = decodePredicates(query.predicates.filter((p) => !skipPredicates.has(p.field)))
     const skip = query.page.start
     // set up criteria for count and query
     const criteria = {
       vehicle: { _id: vehicleId, username },
-      tags: tags.map((p) => p.value),
+      // tags: tags.map((p) => p.value), // TODO: enable query by arrays in query predicates
       ...restPredicates
     }
 
@@ -95,7 +93,6 @@ export class SessionService {
     const count = await countQuery.exec()
 
     // do query with same criteria as count
-    // @ts-ignore
     const mongooseQuery = this.vehicleSessionModel.find()
     mongooseQuery.setQuery(criteria)
     mongooseQuery.populate('first')
@@ -226,7 +223,7 @@ export class SessionService {
         }
       ],
       page: { size: 1, start: 0 },
-      sort: [{field: 'end_date', desc: true}]
+      sort: [{ field: 'end_date', desc: true }]
     })
     return result?.results[0]
   }
