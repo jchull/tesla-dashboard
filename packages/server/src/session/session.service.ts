@@ -176,7 +176,7 @@ export class SessionService {
     }
     const newActivity = await this.vehicleSessionModel.create(session)
     vehicleState.vehicleActivity = newActivity
-    await this.vehicleStateModel.update({ _id: vehicleState._id }, vehicleState)
+    await this.vehicleStateModel.updateOne({ _id: vehicleState._id }, vehicleState)
     return newActivity
   }
 
@@ -208,7 +208,7 @@ export class SessionService {
 
     // TODO: any other data aggregation for this activity
 
-    return this.vehicleSessionModel.update({ _id: vehicleActivity._id }, vehicleActivity)
+    return this.vehicleSessionModel.updateOne({ _id: vehicleActivity._id }, vehicleActivity)
   }
 
   async findCurrentActivity(product: schema.VehicleType, vehicleStatus: types.ActivityType, after: number) {
