@@ -20,18 +20,16 @@ export class SessionService {
 
   async getSessionDetails(username: string, id: string) {
     const activity = await this.vehicleSessionModel.findById(id)
-    const result = await this.vehicleStateModel
-                             .find({ vehicleActivity: activity })
-                             .sort({ timestamp: 1 })
-    return result
+    return this.vehicleStateModel
+               .find({ vehicleActivity: activity })
+               .sort({ timestamp: 1 })
   }
 
   async deleteSession(username: string, id: string) {
-    const deleteCount = await this.vehicleStateModel.deleteOne({ _id: id, username })
+    const deleteCount = await this.vehicleSessionModel.deleteOne({ _id: id })
     if (deleteCount.deletedCount) {
-      const deleteItemCount = await this.vehicleStateModel.deleteMany({
-        vehicleSession: id
-      })
+      // @ts-ignore  // not sure why it wants the entire object instead of partial, TODO: investigate
+      const deleteItemCount = await this.vehicleStateModel.deleteMany({ vehicleActivity: { _id: id } })
       if (deleteItemCount.deletedCount) {
         return (
           (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0)
