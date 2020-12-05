@@ -33,22 +33,20 @@ export class TeslaSyncService {
             teslaAccounts[0],
             product.id_s
           )
-
-          product.odometer = vehicleData.vehicle_state.odometer
-          product.charge_limit_soc = vehicleData.charge_state.charge_limit_soc
-          product.battery_range = vehicleData.charge_state.battery_range
-          product.display_name = vehicleData.display_name
-          product.time_to_full_charge = vehicleData.charge_state.time_to_full_charge
-          product.battery_level = vehicleData.charge_state.battery_level
-          product.state = this.findVehicleState(vehicleData)
-          product.timestamp = vehicleData.vehicle_state.timestamp
-          product.charging_state = vehicleData.charge_state?.charging_state
-
-          // TODO: get from sync preferences
-          const activityTimeoutMs = 600000 // 10 minutes
-
           if (vehicleData) {
             console.log(`${vehicleData.display_name} is currently ${product.state}`)
+            product.odometer = vehicleData.vehicle_state.odometer
+            product.charge_limit_soc = vehicleData.charge_state.charge_limit_soc
+            product.battery_range = vehicleData.charge_state.battery_range
+            product.display_name = vehicleData.display_name
+            product.time_to_full_charge = vehicleData.charge_state.time_to_full_charge
+            product.battery_level = vehicleData.charge_state.battery_level
+            product.state = this.findVehicleState(vehicleData)
+            product.timestamp = vehicleData.vehicle_state.timestamp
+            product.charging_state = vehicleData.charge_state?.charging_state
+
+            // TODO: get from sync preferences
+            const activityTimeoutMs = 600000 // 10 minutes
 
             if (product.state === types.ActivityType.DRIVING || product.state === types.ActivityType.CHARGING) {
               const activeSession = await this.sessionService.findCurrentActivity(product, product.state, vehicleData.vehicle_state.timestamp - activityTimeoutMs)
