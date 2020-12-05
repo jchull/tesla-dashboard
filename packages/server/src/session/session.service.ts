@@ -4,6 +4,7 @@ import { Model } from 'mongoose'
 import { query, schema, tesla, types } from '@teslapp/common'
 import { ProductService } from '../product/product.service'
 import { VehicleState } from '@teslapp/common/dist/model/types'
+import { decodePredicates } from '@teslapp/common/dist/model/query/Query'
 
 @Injectable()
 export class SessionService {
@@ -77,17 +78,16 @@ export class SessionService {
     const tags = query.predicates.filter((p) => p.field === 'tags')
 //TODO: handle other predicates here!
     const usedPredicates = ['tags', 'vehicle']
-    const restPredicates = query.predicates.filter((p) => !usedPredicates.includes(p.field))
-    if(restPredicates?.length)
-      console.log('rest of predicates', restPredicates)
+    const restPredicates = decodePredicates(query.predicates.filter((p) => !usedPredicates.includes(p.field)))
     const skip = query.page.start
     // set up criteria for count and query
     const criteria = {
       vehicle: { _id: vehicleId, username },
-      tags: tags.map((p) => p.value)
-      // start_date: { $gte: jan2019, $lte: dec2019 }
+      tags: tags.map((p) => p.value),
+      ...restPredicates
     }
 
+    console.log(JSON.stringify(criteria))
 
     // get a total count for pagination info
     const countQuery = this.vehicleSessionModel.countDocuments()
@@ -173,6 +173,7 @@ export class SessionService {
       id_s: vehicle.id_s,
       tags: [],
       start_date: vehicleData.vehicle_state.timestamp,
+      end_date: vehicleData.vehicle_state.timestamp,
       latitude: vehicleData.drive_state.latitude,
       longitude: vehicleData.drive_state.longitude
     }
@@ -205,7 +206,7 @@ export class SessionService {
     vehicleState.vehicleActivity = vehicleActivity
     vehicleActivity.last = await this.vehicleStateModel.create(vehicleState)
     vehicleActivity.end_date = vehicleState.timestamp
-    vehicleActivity.duration_seconds = vehicleActivity.end_date - vehicleActivity.start_date
+    vehicleActivity.duration_seconds = (vehicleActivity.end_date - vehicleActivity.start_date) / 1000
     vehicleActivity.distance = vehicleState.odometer - vehicleActivity.first.odometer
 
     // TODO: any other data aggregation for this activity
@@ -224,7 +225,8 @@ export class SessionService {
           field: 'end_date'
         }
       ],
-      page: { size: 1, start: 0 }
+      page: { size: 1, start: 0 },
+      sort: [{field: 'end_date', desc: true}]
     })
     return result?.results[0]
   }
