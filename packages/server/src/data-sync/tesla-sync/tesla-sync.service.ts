@@ -45,13 +45,13 @@ export class TeslaSyncService {
           product.charging_state = vehicleData.charge_state?.charging_state
 
           // TODO: get from sync preferences
-          const activityTimeoutSeconds = 300 // 5 minutes
+          const activityTimeoutMs = 600000 // 10 minutes
 
           if (vehicleData) {
             console.log(`${vehicleData.display_name} is currently ${product.state}`)
 
             if (product.state === types.ActivityType.DRIVING || product.state === types.ActivityType.CHARGING) {
-              const activeSession = await this.sessionService.findCurrentActivity(product, product.state, vehicleData.vehicle_state.timestamp - activityTimeoutSeconds)
+              const activeSession = await this.sessionService.findCurrentActivity(product, product.state, vehicleData.vehicle_state.timestamp - activityTimeoutMs)
               activeSession ?
                 await this.sessionService.appendVehicleState(activeSession, vehicleData)
                 :
