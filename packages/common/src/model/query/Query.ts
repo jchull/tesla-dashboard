@@ -47,3 +47,21 @@ export function decodeRequest(body: any): QuerySet {
     predicates: body.predicates
   }
 }
+
+export function decodePredicates(predicates: Predicate[]) {
+  return predicates.reduce((acc, predicate) => {
+      acc[predicate.field] = predicate.operator === Operator.EQ.toString() ?
+        predicate.value
+        : predicate.operator === Operator.GTE.toString() ?
+          { $gte: predicate.value }
+          : predicate.operator === Operator.LTE.toString() ?
+            { $lte: predicate.value }
+            : predicate.operator === Operator.GT.toString() ?
+              { $gt: predicate.value }
+              : predicate.operator === Operator.LT.toString() ?
+                { $lt: predicate.value }
+                : null
+      return acc
+    }, {}
+  )
+}
