@@ -4,11 +4,10 @@ import { Tag } from './Tag'
 import { TagInput } from './TagInput'
 
 interface TagListProps {
-  tags: string[];
+  tags: string[]
 
-  addListener(tag: string): void;
-
-  removeListener(tag: string): void;
+  addListener(tag: string)
+  removeListener(tag: string)
 }
 
 export const TagList: React.FC<TagListProps> = (props: TagListProps) => {
