@@ -59,8 +59,11 @@ export class TeslaSyncService {
             console.error('unable to fetch vehicle data from Tesla')
           }
         } catch (e) {
-          // TODO: throws 408 timeout when vehicle sleeping
-          console.error(JSON.stringify(e))
+          if (e?.response?.status === 408) {
+            console.log(`${product.display_name} is sleeping, last updated: ${new Date(product.timestamp)}`)
+          } else {
+            console.error(JSON.stringify(e))
+          }
         }
         await this.productService.update(product)
         return product
