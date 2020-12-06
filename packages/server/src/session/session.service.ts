@@ -93,8 +93,7 @@ export class SessionService {
     // do query with same criteria as count
     const mongooseQuery = this.vehicleSessionModel.find()
     mongooseQuery.setQuery(criteria)
-    mongooseQuery.populate('first')
-    mongooseQuery.populate('last')
+    mongooseQuery.populate(['first', 'last'])
     mongooseQuery.skip(query.page.start)
                  .limit(query.page.size)
     if (query.sort) {
