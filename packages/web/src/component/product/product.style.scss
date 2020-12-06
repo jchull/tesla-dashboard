@@ -12,11 +12,9 @@
     border-left: 10px solid transparent;
     border-top: 10px solid #333333;
     border-bottom: none;
-    transform: rotate( 0deg );
+    transform: rotate(0deg);
     transition: transform 250ms ease;
   }
-
-
 
 
   .list-item {
@@ -35,16 +33,21 @@
       padding: 0 2px;
     }
 
-    .battery_level {
-      &.end {
-        align-content: flex-end;
-      }
+    .row {
+      justify-content: space-between;
+      align-items: baseline;
 
-      span {
-        font-size: 21px;
-        line-height: 21px;
-        vertical-align: top;
-        padding: 0 4px 4px 2px;
+      .battery_level {
+        &.end {
+          align-content: flex-end;
+        }
+
+        span {
+          font-size: 21px;
+          line-height: 21px;
+          vertical-align: top;
+          padding: 0 4px 4px 2px;
+        }
       }
     }
 
@@ -75,9 +78,11 @@
     padding-bottom: 6px;
     text-decoration: none;
     vertical-align: bottom;
+
     &:visited {
       color: inherit;
     }
+
     &:hover {
       text-shadow: 0.5px 0.5px 1px #555555;
     }
@@ -89,12 +94,13 @@
     overflow: hidden;
 
     button.toggle {
-      transform: rotate( -180deg );
+      transform: rotate(-180deg);
       transition: transform 250ms ease;
     }
 
     .list-item {
       width: 180px;
+
       .name {
         font-size: 60%;
         margin: 2px 4px 10px 4px;
