@@ -36,7 +36,7 @@ export class ProductService {
   }
 
   async getMyProducts(username: string, syncUpstream: boolean = false) {
-    if (syncUpstream) {
+    if (syncUpstream != false) {
       await this.teslaSyncService.syncVehiclesByAccount(username)
     }
     return this.productModel
