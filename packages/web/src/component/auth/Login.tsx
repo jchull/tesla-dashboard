@@ -32,7 +32,7 @@ export const LoginComponent = () => {
 
   useEffect(() => {
     if (loggedIn) {
-      history.replace(location)
+      history.push('/dashboard')
     }
   }, [loggedIn])
 
