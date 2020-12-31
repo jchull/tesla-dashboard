@@ -102,33 +102,6 @@ body,
       margin: 4px;
     }
 
-
-    .tab-buttons {
-      padding: 4px 20px 0 10px;
-      border-bottom: 4px solid #FFFFFF;
-
-      button {
-        margin-bottom: -2px;
-        border-bottom: transparent;
-
-        &:focus,
-        &:active {
-          outline: none;
-        }
-
-        &.selected {
-          background: #FFFFFF;
-          border-bottom: #FFFFFF;
-
-          &:focus,
-          &:active {
-            border-bottom: #FFFFFF;
-
-          }
-        }
-      }
-    }
-
     form {
       margin: 20px;
 
