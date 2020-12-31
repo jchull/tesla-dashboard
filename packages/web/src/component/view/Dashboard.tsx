@@ -1,19 +1,13 @@
 import React, { useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  fetchAllTagsAction,
-  fetchSessionListAction,
-  fetchSessionListClear
-} from '@teslapp/web/src/component/session/actions'
+import { fetchAllTagsAction, fetchSessionListAction } from '@teslapp/web/src/component/session/actions'
 import { AppState } from '@teslapp/web/src/store'
 import { ProductList } from '@teslapp/web/src/component/product'
 import { ProductSessionView } from './ProductSessionView'
 import { Overview } from '../vehicle/Overview'
+import { VehicleSettings } from '../vehicle/VehicleSettings'
+import { Tabs } from '../common/Tabs'
 
-export enum DASHBOARD {
-  OVERVIEW = 'OVERVIEW',
-  SESSION = 'SESSION'
-}
 
 export const Dashboard: React.FC = () => {
   const dispatch = useDispatch()
@@ -23,24 +17,27 @@ export const Dashboard: React.FC = () => {
     store.product.selectedProductId
   const products = useSelector(productsSelector)
   const selectedProductId = useSelector(selectedProductIdSelector)
+  const tabItems = ['Overview', 'Settings', 'Activity']
 
-  const [dashboardView, setDashboardView] = useState(DASHBOARD.SESSION)
+  const [selectedIndex, setSelectedIndex] = useState(2)
 
   const viewMemo = useMemo(() => {
-    switch (dashboardView) {
-      case DASHBOARD.SESSION:
+    switch (selectedIndex) {
+      case 2:
         return <ProductSessionView/>
+      case 1:
+        return <VehicleSettings selectedProductId={selectedProductId}/>
       default:
         return <Overview selectedProductId={selectedProductId}/>
     }
-  }, [dashboardView])
+  }, [selectedIndex])
 
   React.useEffect(() => {
     if (selectedProductId) {
       const selectedProduct = products.find(
         (product) => product._id === selectedProductId
       )
-      if (selectedProduct && dashboardView) {
+      if (selectedProduct) {
         dispatch(
           fetchSessionListAction(selectedProductId, { start: 0, size: 100 }))
         dispatch(fetchAllTagsAction(selectedProductId))
@@ -48,23 +45,17 @@ export const Dashboard: React.FC = () => {
     }
   }, [selectedProductId])
 
-  const clear = () => dispatch(fetchSessionListClear())
 
   return (
     <>
       <ProductList products={products}
                    selectedProductId={selectedProductId}/>
-      <div className='tab-buttons'>
-        <button onClick={() => setDashboardView(DASHBOARD.OVERVIEW)}
-                className={dashboardView === DASHBOARD.OVERVIEW ? 'selected' : ''}>
-          Overview
-        </button>
-        <button onClick={() => clear() && setDashboardView(DASHBOARD.SESSION)}
-                className={dashboardView === DASHBOARD.SESSION ? 'selected' : ''}>
-          Activity
-        </button>
-      </div>
+      <Tabs onSelect={setSelectedIndex}
+            selectedIndex={selectedIndex}
+            tabs={tabItems}/>
       {viewMemo}
     </>
   )
 }
+
+
