@@ -5,8 +5,8 @@ import { AppState } from '@teslapp/web/src/store'
 import { ProductList } from '@teslapp/web/src/component/product'
 import { ProductSessionView } from './ProductSessionView'
 import { Overview } from '../vehicle/Overview'
-import { VehicleSettings } from '../vehicle/VehicleSettings'
 import { Tabs } from '../common/Tabs'
+import { SyncPreferences } from '../account/SyncPreferences'
 
 
 export const Dashboard: React.FC = () => {
@@ -26,9 +26,9 @@ export const Dashboard: React.FC = () => {
       case 2:
         return <ProductSessionView/>
       case 1:
-        return <VehicleSettings selectedProductId={selectedProductId}/>
+        return <SyncPreferences vehicleId={selectedProductId}/>
       default:
-        return <Overview selectedProductId={selectedProductId}/>
+        return <Overview productId={selectedProductId}/>
     }
   }, [selectedIndex])
 
