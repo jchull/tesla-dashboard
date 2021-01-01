@@ -43,16 +43,6 @@ export const App: FC = () => {
             auth={auth}
           />
           <PrivateRoute
-            path="/sync-preferences"
-            component={SyncPreferencesList}
-            auth={auth}
-          />
-          <PrivateRoute
-            path="/preferences"
-            component={UserPreferences}
-            auth={auth}
-          />
-          <PrivateRoute
             path="/account"
             component={AccountComponent}
             auth={auth}
