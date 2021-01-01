@@ -41,7 +41,7 @@ export const LoginComponent = () => {
       {loggedIn ? (
         <Redirect to={location}/>
       ) : (
-        <div className="centered">
+        <div className="centered narrow">
           <h3>Login</h3>
           <form>
             <input
@@ -71,7 +71,7 @@ export const LoginComponent = () => {
           </div>
         </div>
       )}
-      <div className="centered">{message && <h5>{message}</h5>}</div>
+      <div className="centered narrow">{message && <h5>{message}</h5>}</div>
     </div>
   )
 }

@@ -76,7 +76,7 @@ export const AccountComponent: FC = () => {
   }
 
   return (
-    <div className="centered">
+    <div className="centered narrow">
       <h3>Create Account</h3>
       <form onSubmit={handleSubmit}>
         <input

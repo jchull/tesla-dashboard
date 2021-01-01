@@ -65,7 +65,7 @@ export const TeslaAccountComponent: FC<TeslaAccountProps> = (
   }
 
   return (
-    <div className="centered">
+    <div className="centered narrow">
       <h3>Tesla Account</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>

@@ -22,7 +22,7 @@ export const ForgotPassword = () => {
       {loggedIn ? (
         <Redirect to="/"/>
       ) : (
-        <div className="centered">
+        <div className="centered narrow">
           <h3>Reset Password</h3>
           <form>
             <input
@@ -43,7 +43,7 @@ export const ForgotPassword = () => {
             <a href="/login">Login</a>
             <a href="/signup">Create Account</a>
           </div>
-          <div className="centered">{message && <h5>{message}</h5>}</div>
+          <div className="centered narrow">{message && <h5>{message}</h5>}</div>
         </div>
       )}
     </div>
