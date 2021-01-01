@@ -4,17 +4,17 @@ import { useProduct } from '../../hooks'
 import { syncUpstreamAction } from '../product/actions'
 
 export interface OverviewProps {
-  selectedProductId: string
+  productId: string
 }
 
 export const Overview: React.FC<OverviewProps> = (props) => {
   const dispatch = useDispatch()
-  const { selectedProductId } = props
+  const { productId } = props
 
-  const product = useProduct(selectedProductId)
+  const product = useProduct(productId)
 
   async function syncNow() {
-    dispatch(syncUpstreamAction(selectedProductId))
+    dispatch(syncUpstreamAction(productId))
   }
 
   return (
