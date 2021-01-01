@@ -14,7 +14,7 @@ export const Tabs: React.FC<TabProps> = (props) => {
     return items.map((item, index) => (
       <button key={item}
               onClick={() => props.onSelect(index)}
-              className={index === selectedIndex ? 'selected' : ''}>
+              className={index === selectedIndex ? 'selected tab' : 'tab'}>
         {item}
       </button>
     ))

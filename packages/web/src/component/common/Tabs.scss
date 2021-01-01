@@ -1,25 +1,29 @@
 .tab-buttons {
   padding: 4px 20px 0 10px;
-  border-bottom: 4px solid #FFFFFF;
+  border-bottom: 1px solid #555555;
 
-  button {
-    margin-bottom: -2px;
-    border-bottom: transparent;
+  button.tab {
+    margin-bottom: -1px;
+    border: 1px solid #555555;
+    width: 100px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    color: #999a9c;
 
     &:focus,
     &:active {
       outline: none;
     }
 
+    &:hover {
+      font-weight: 700;
+    }
+
     &.selected {
-      background: #FFFFFF;
-      border-bottom: #FFFFFF;
-
-      &:focus,
-      &:active {
-        border-bottom: #FFFFFF;
-
-      }
+      font-weight: 700;
+      background: #f0ede2;
+      border-bottom-color: #f0ede2;
+      color: #222222;
     }
   }
 }
