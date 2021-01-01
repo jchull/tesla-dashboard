@@ -2,15 +2,14 @@
   <code_scheme name="Project" version="173">
     <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="200" />
     <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="20" />
-    <option name="HTML_ATTRIBUTE_WRAP" value="2" />
-    <option name="HTML_ALIGN_TEXT" value="true" />
-    <option name="HTML_ELEMENTS_TO_INSERT_NEW_LINE_BEFORE" value="body,div,p,form,h1,h2,h3,html,table,thead,td,md-content,md-card" />
-    <DB2CodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <DB2CodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -42,12 +41,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </DB2CodeStyleSettings>
-    <DerbyCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <DerbyCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -79,12 +80,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </DerbyCodeStyleSettings>
-    <H2CodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <H2CodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -116,12 +119,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </H2CodeStyleSettings>
-    <HSQLCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <HSQLCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -180,12 +185,14 @@
       <option name="CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND" value="200" />
       <option name="NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND" value="20" />
     </JavaCodeStyleSettings>
-    <MSSQLCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <MSSQLCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -217,12 +224,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </MSSQLCodeStyleSettings>
-    <MySQLCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <MySQLCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -254,12 +263,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </MySQLCodeStyleSettings>
-    <OracleCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <OracleCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -291,12 +302,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </OracleCodeStyleSettings>
-    <PostgresCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <PostgresCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -328,12 +341,14 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </PostgresCodeStyleSettings>
-    <SQLiteCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <SQLiteCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -365,12 +380,13 @@
       <option name="EXPR_CASE_THEN_WRAP" value="true" />
       <option name="PRIMARY_KEY_NAME_TEMPLATE" value="{table}_{columns}_pk" />
     </SQLiteCodeStyleSettings>
-    <SqlCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <SqlCodeStyleSettings version="5">
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -404,12 +420,14 @@
       <option name="INDENT_SELECT_INTO_CLAUSE" value="true" />
       <option name="NEW_LINE_AFTER_SELECT_ITEM" value="false" />
     </SqlCodeStyleSettings>
-    <SybaseCodeStyleSettings version="0">
-      <option name="myVersion" value="0" />
-      <option name="ALIAS_CASE" value="1" />
+    <SybaseCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
+      <option name="IDENTIFIER_CASE" value="2" />
       <option name="TYPE_CASE" value="1" />
-      <option name="IDENTIFIER_CASE" value="0" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
+      <option name="BUILT_IN_CASE" value="0" />
       <option name="QUERY_TRUE_INDENT" value="false" />
       <option name="QUERY_ALIGN_ELEMENTS" value="false" />
       <option name="QUERY_ALIGN_LINE_COMMENTS" value="false" />
@@ -512,7 +530,7 @@
       <option name="DOWHILE_BRACE_FORCE" value="3" />
       <option name="WHILE_BRACE_FORCE" value="3" />
       <option name="FOR_BRACE_FORCE" value="3" />
-      <option name="SOFT_MARGINS" value="100" />
+      <option name="SOFT_MARGINS" value="120" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
         <option name="CONTINUATION_INDENT_SIZE" value="2" />
