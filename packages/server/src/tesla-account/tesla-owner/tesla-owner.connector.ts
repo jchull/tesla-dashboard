@@ -11,7 +11,8 @@ export const fetchToken = async (config: types.Configuration,
     email: teslaAccount.email,
     client_id: config.teslaClientKey,
     client_secret: config.teslaClientSecret,
-    grant_type: password?.length && grant_type === 'password' ?
+    grant_type,
+    [grant_type]: password?.length && grant_type === 'password' ?
       password
       :
       teslaAccount[grant_type]
