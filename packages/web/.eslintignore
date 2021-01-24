@@ -1,5 +1,0 @@
-src/**
-src/**.{spec,test}.{ts,tsx,js,jsx}
-src/**/__mocks__/
-src/serviceWorker.ts
-src/**/*.d.ts

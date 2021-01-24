@@ -1,5 +1,0 @@
-src/**/*.spec.*
-src/**/*.test.*
-__mocks__
-node_modules
-

@@ -2,14 +2,7 @@
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/server/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/web/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/oldsrc" />
-      <excludeFolder url="file://$MODULE_DIR$/packages/server/dump" />
-      <excludeFolder url="file://$MODULE_DIR$/server/dist" />
-      <excludeFolder url="file://$MODULE_DIR$/web/dist" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

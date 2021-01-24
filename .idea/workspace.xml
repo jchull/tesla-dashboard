@@ -1,77 +1,254 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/packages/server/src/data-migration/01_merge_charge_drive_to_session.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ClojureProjectResolveSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/jchull.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/Overview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/vehicle/Overview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/VehicleSettings.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/init-mongo.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Charging.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Driving.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lerna.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/query/Query.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/Configuration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/GuiSettings.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/SpeedLimitMode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/SyncPreferences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/TeslaAccount.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/User.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/UserPreferences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/Vehicle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleActivity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleConfig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/VehicleState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/schema/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/GuiSettings.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/SpeedLimitMode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/Vehicle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/VehicleConfig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/VehicleData.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/tesla/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/Configuration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/GuiSettings.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/SpeedLimitMode.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/SyncPreferences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/TeslaAccount.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/User.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/UserPreferences.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/Vehicle.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleActivity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleConfig.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/VehicleState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/common.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/src/model/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/common/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/env/sample.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/env/test.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/nest-cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/account/account.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/app.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/auth.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/auth.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/jwt.payload.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/strategy/jwt.strategy.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/strategy/local.strategy.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/auth/strategy/local.strategy.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/configuration/configuration.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/data-sync.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/middleware/front-end-middleware.middleware.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/middleware/front-end-middleware.middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/middleware/logger.middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/product/product.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/session/session.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tag/tag.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tag/tag.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tag/tag.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-account.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.connector.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/src/tesla-account/tesla-owner/tesla-owner.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/test/jest-e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/server/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/jest/cssTransform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/jest/fileTransform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/jest/jest.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/jest/jest.setup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/jest/jest.setupAfterEnv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/modules.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/paths.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/pnpTs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/config/webpackDevServer.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/images/tm3_black_pinwheel18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/images/tm3_blue_pinwheel18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/images/tm3_gray_pinwheel18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/images/tm3_pearl_pinwheel18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/images/tm3_red_pinwheel18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/public/static/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/scripts/build.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/scripts/start.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/scripts/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/App.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/__mocks__/ReduxMockWrapper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/__mocks__/axios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/_base.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferencesList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccountList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaTokenUpdater.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/UserPreferences.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/PrivateRoute.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/actions.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/chart/LineChart.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/command/CommandPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.spec.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/BatteryLevelIcon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/MainMenu.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/MainMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/filter/FilterPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/filter/TagFilter.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/ProductList.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/ProductList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/ProductListItem.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/ProductListItem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/actions.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/product.style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/product/reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/ChargeListItemDetail.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/DriveListItemDetail.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/SessionListItem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/stats/StatsPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/Tag.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/TagInput.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/TagList.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/TagList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/TagSelectionList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/tags/tag.style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/toolbar/SessionToolbar.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/toolbar/SessionToolbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/toolbar/toolbar.style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/Overview.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/SessionTagList.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/SessionTagList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/ProductSessionView.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/hooks/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/hooks/useProduct.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/hooks/useVehicleSession.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/react-app-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/AuthenticationService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/ConfigurationService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/QueryService.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/QueryService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/UserService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/service/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/serviceWorker.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/setupProxy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/setupTests.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/store/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/store/reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/store/types/state.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/src/type/util.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/web/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tesla-dashboard.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tesla-dashboard.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
-  </component>
-  <component name="DatabaseLocalColorSettings">
-    <colors>
-      <entry key="f1129d11-a335-481b-9bdf-bafe293f74ec" value="Orange" />
-    </colors>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -91,12 +268,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="tax_stats" />
-                    <option name="lastUsedInstant" value="1591478201" />
+                    <option name="branchName" value="nx" />
+                    <option name="lastUsedInstant" value="1611506647" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1591478200" />
+                    <option name="lastUsedInstant" value="1611506646" />
                   </RecentBranch>
                 </list>
               </option>
@@ -107,545 +284,117 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/packages/common/package.json" />
-    <dismissed value="$PROJECT_DIR$/packages/server/package.json" />
-    <dismissed value="$PROJECT_DIR$/packages/web/package.json" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
-  <component name="ProjectId" id="1VzgkDXywWnf1ywrjColpI67Vj8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1nUbWqT3qf76TvAVv3HhdKBpCz7" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.14.10" />
-    <property name="jdk.selected.JAVA_MODULE" value="1.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/web/src/component/account" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
-    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="prettier.import.notification.dismissed" value="true" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
-    <property name="ts.rename.search.for.dynamic.occurrences" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.karateca.jstoolbox.config.JsToolboxConfigurable" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/web/src/component/account" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/common" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/vehicle" />
-      <recent name="$PROJECT_DIR$/packages/web/src/hooks" />
-      <recent name="$PROJECT_DIR$/bin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/server/src/data-migration" />
-      <recent name="$PROJECT_DIR$/packages/server/src" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model/schema" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
-    </key>
-  </component>
-  <component name="RunManager" selected="npm.start web">
-    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
-      <setting name="replType" value="NREPL" />
-      <setting name="execution" value="LEININGEN" />
-      <setting name="jvmArgs" value="" />
-      <setting name="parameters" value="" />
-      <setting name="workingDir" value="" />
-      <setting name="profiles" value="" />
-      <setting name="aliases" value="" />
-      <setting name="fixLineNumbers" value="false" />
-      <method v="2" />
+  <component name="RunManager" selected="Nx.server:serve">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
     </configuration>
-    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
-      <setting name="host" value="" />
-      <setting name="port" value="0" />
-      <setting name="replType" value="SOCKET" />
-      <setting name="configType" value="SPECIFY" />
-      <setting name="replPortFileType" value="STANDARD" />
-      <setting name="customPortFile" value="" />
-      <setting name="fixLineNumbers" value="false" />
-      <method v="2" />
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <configuration name="Server Unit Tests" type="JavaScriptTestRunnerJest">
-      <config-file value="$PROJECT_DIR$/server/jest.config.js" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server:serve" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="ALL" />
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="server:serve" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="SyncSchedulerService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="web:build" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$/packages/server" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" />
-      <test-names>
-        <test-name value="SyncSchedulerService" />
-      </test-names>
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="web:build" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="Web Unit Tests" type="JavaScriptTestRunnerJest">
-      <config-file value="$PROJECT_DIR$/web/config/jest/jest.config.js" />
+    <configuration name="web:serve" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/web/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/web" />
-      <envs />
-      <scope-kind value="ALL" />
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="web:serve" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="NodeJSConfigurationType" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="esImporter.js" type="NodeJSConfigurationType" temporary="true" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" path-to-js-file="dist/data-sync/es-import/esImporter.js" working-dir="$PROJECT_DIR$/packages/server">
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm">
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start server" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/packages/server/package.json" />
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start web" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/packages/web/package.json" />
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start:debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start:debug" />
-      </scripts>
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Jest.Server Unit Tests" />
-      <item itemvalue="Jest.Web Unit Tests" />
-      <item itemvalue="Jest.SyncSchedulerService" />
-      <item itemvalue="Node.js.Unnamed" />
-      <item itemvalue="Node.js.esImporter.js" />
-      <item itemvalue="npm.start server" />
-      <item itemvalue="npm.start web" />
-      <item itemvalue="npm.start:debug" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:debug" />
-        <item itemvalue="Node.js.esImporter.js" />
-        <item itemvalue="Jest.SyncSchedulerService" />
+        <item itemvalue="Nx.server:serve" />
+        <item itemvalue="Nx.web:serve" />
+        <item itemvalue="Nx.web:build" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="" />
-      <created>1578261478186</created>
+      <changelist id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="" />
+      <created>1611447650904</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1578261478186</updated>
-      <workItem from="1578261479569" duration="2186000" />
-      <workItem from="1578339398430" duration="47875000" />
-      <workItem from="1578582310572" duration="127339000" />
+      <updated>1611447650904</updated>
     </task>
-    <task id="LOCAL-00272" summary="remove tag service, cleaning up service hierarchy">
-      <created>1606511494537</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
+    <task id="LOCAL-00001" summary="initial commit of nx project">
+      <created>1611447726053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1606511494537</updated>
+      <updated>1611447726053</updated>
     </task>
-    <task id="LOCAL-00273" summary="expose user preferences">
-      <created>1606512376541</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512376541</updated>
-    </task>
-    <task id="LOCAL-00274" summary="remove duplicate model defs, add syncPrefs">
-      <created>1606512483549</created>
-      <option name="number" value="00274" />
-      <option name="presentableId" value="LOCAL-00274" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512483550</updated>
-    </task>
-    <task id="LOCAL-00275" summary="remove redundant model inject">
-      <created>1606512515970</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512515970</updated>
-    </task>
-    <task id="LOCAL-00276" summary="simplify token fetch code">
-      <created>1606512549695</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512549695</updated>
-    </task>
-    <task id="LOCAL-00277" summary="clean up references, remove unused params, refactoring">
-      <created>1606512621319</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512621319</updated>
-    </task>
-    <task id="LOCAL-00278" summary="update types">
-      <created>1606512812528</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512812528</updated>
-    </task>
-    <task id="LOCAL-00279" summary="make paging optional for query">
-      <created>1606512832588</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1606512832588</updated>
-    </task>
-    <task id="LOCAL-00280" summary="implement activity creation and append/update">
-      <created>1606583196835</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1606583196835</updated>
-    </task>
-    <task id="LOCAL-00281" summary="remove unused ref">
-      <created>1606583219196</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1606583219196</updated>
-    </task>
-    <task id="LOCAL-00282" summary="utilize services rather than directly interacting with model">
-      <created>1606583247885</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1606583247885</updated>
-    </task>
-    <task id="LOCAL-00283" summary="use vehicle timestamp for filtering recent activity">
-      <created>1606583408257</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1606583408257</updated>
-    </task>
-    <task id="LOCAL-00284" summary="move current activity fetch to service">
-      <created>1606585599260</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
-      <option name="project" value="LOCAL" />
-      <updated>1606585599260</updated>
-    </task>
-    <task id="LOCAL-00285" summary="cleanup sync service">
-      <created>1606585633253</created>
-      <option name="number" value="00285" />
-      <option name="presentableId" value="LOCAL-00285" />
-      <option name="project" value="LOCAL" />
-      <updated>1606585633253</updated>
-    </task>
-    <task id="LOCAL-00286" summary="sync service upstream sync fixed">
-      <created>1606588319135</created>
-      <option name="number" value="00286" />
-      <option name="presentableId" value="LOCAL-00286" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588319135</updated>
-    </task>
-    <task id="LOCAL-00287" summary="persist data from upstream sync">
-      <created>1606588356510</created>
-      <option name="number" value="00287" />
-      <option name="presentableId" value="LOCAL-00287" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588356510</updated>
-    </task>
-    <task id="LOCAL-00288" summary="move data sync to overview and post to product endpoint for upstream sync with state">
-      <created>1606588396978</created>
-      <option name="number" value="00288" />
-      <option name="presentableId" value="LOCAL-00288" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588396978</updated>
-    </task>
-    <task id="LOCAL-00289" summary="only sync charge/drive activities">
-      <created>1606669293667</created>
-      <option name="number" value="00289" />
-      <option name="presentableId" value="LOCAL-00289" />
-      <option name="project" value="LOCAL" />
-      <updated>1606669293667</updated>
-    </task>
-    <task id="LOCAL-00290" summary="use new column for rename to VehicleActivity">
-      <created>1606669341987</created>
-      <option name="number" value="00290" />
-      <option name="presentableId" value="LOCAL-00290" />
-      <option name="project" value="LOCAL" />
-      <updated>1606669341987</updated>
-    </task>
-    <task id="LOCAL-00291" summary="flatten vehicleData in schema">
-      <created>1606675651244</created>
-      <option name="number" value="00291" />
-      <option name="presentableId" value="LOCAL-00291" />
-      <option name="project" value="LOCAL" />
-      <updated>1606675651244</updated>
-    </task>
-    <task id="LOCAL-00292" summary="Model updates, flatten incoming data before persisting">
-      <created>1606681989638</created>
-      <option name="number" value="00292" />
-      <option name="presentableId" value="LOCAL-00292" />
-      <option name="project" value="LOCAL" />
-      <updated>1606681989639</updated>
-    </task>
-    <task id="LOCAL-00293" summary="correct issue with activity determination">
-      <created>1606682019602</created>
-      <option name="number" value="00293" />
-      <option name="presentableId" value="LOCAL-00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682019602</updated>
-    </task>
-    <task id="LOCAL-00294" summary="clean up and use new model">
-      <created>1606682035696</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682035696</updated>
-    </task>
-    <task id="LOCAL-00295" summary="delete returns count of deleted documents">
-      <created>1606682070638</created>
-      <option name="number" value="00295" />
-      <option name="presentableId" value="LOCAL-00295" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682070638</updated>
-    </task>
-    <task id="LOCAL-00296" summary="model updates, implement actions">
-      <created>1606682121289</created>
-      <option name="number" value="00296" />
-      <option name="presentableId" value="LOCAL-00296" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682121289</updated>
-    </task>
-    <task id="LOCAL-00297" summary="fix storing of last state into activity">
-      <created>1606682645766</created>
-      <option name="number" value="00297" />
-      <option name="presentableId" value="LOCAL-00297" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682645766</updated>
-    </task>
-    <task id="LOCAL-00298" summary="minor style update to product list item layout">
-      <created>1606688352316</created>
-      <option name="number" value="00298" />
-      <option name="presentableId" value="LOCAL-00298" />
-      <option name="project" value="LOCAL" />
-      <updated>1606688352317</updated>
-    </task>
-    <task id="LOCAL-00299" summary="minor style update">
-      <created>1606784312976</created>
-      <option name="number" value="00299" />
-      <option name="presentableId" value="LOCAL-00299" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784312976</updated>
-    </task>
-    <task id="LOCAL-00300" summary="log unused predicates">
-      <created>1606784335058</created>
-      <option name="number" value="00300" />
-      <option name="presentableId" value="LOCAL-00300" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784335058</updated>
-    </task>
-    <task id="LOCAL-00301" summary="additional sync fields">
-      <created>1606784446124</created>
-      <option name="number" value="00301" />
-      <option name="presentableId" value="LOCAL-00301" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784446124</updated>
-    </task>
-    <task id="LOCAL-00302" summary="remove unused field">
-      <created>1606787849659</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1606787849659</updated>
-    </task>
-    <task id="LOCAL-00303" summary="remove unused field">
-      <created>1606787856557</created>
-      <option name="number" value="00303" />
-      <option name="presentableId" value="LOCAL-00303" />
-      <option name="project" value="LOCAL" />
-      <updated>1606787856557</updated>
-    </task>
-    <task id="LOCAL-00304" summary="set default timout on activities to 10 minutes for now">
-      <created>1607139243301</created>
-      <option name="number" value="00304" />
-      <option name="presentableId" value="LOCAL-00304" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139243302</updated>
-    </task>
-    <task id="LOCAL-00305" summary="add sorting and use new helper for converting predicates to mongo query params">
-      <created>1607139314843</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139314843</updated>
-    </task>
-    <task id="LOCAL-00306" summary="convert predicate to mongo criteria, just handle comparisons for single values">
-      <created>1607139372651</created>
-      <option name="number" value="00306" />
-      <option name="presentableId" value="LOCAL-00306" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139372651</updated>
-    </task>
-    <task id="LOCAL-00307" summary="minor cleanup and reorg of functional component">
-      <created>1607183932777</created>
-      <option name="number" value="00307" />
-      <option name="presentableId" value="LOCAL-00307" />
-      <option name="project" value="LOCAL" />
-      <updated>1607183932777</updated>
-    </task>
-    <task id="LOCAL-00308" summary="rescope if block">
-      <created>1607183969328</created>
-      <option name="number" value="00308" />
-      <option name="presentableId" value="LOCAL-00308" />
-      <option name="project" value="LOCAL" />
-      <updated>1607183969328</updated>
-    </task>
-    <task id="LOCAL-00309" summary="reformat">
-      <created>1607185289516</created>
-      <option name="number" value="00309" />
-      <option name="presentableId" value="LOCAL-00309" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185289516</updated>
-    </task>
-    <task id="LOCAL-00310" summary="fix session tagging, remove tags from default query">
-      <created>1607185422257</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185422257</updated>
-    </task>
-    <task id="LOCAL-00311" summary="use updateOne since update is deprecated">
-      <created>1607185760813</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185760813</updated>
-    </task>
-    <task id="LOCAL-00312" summary="ensure activity states get deleted as well">
-      <created>1607186891468</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1607186891469</updated>
-    </task>
-    <task id="LOCAL-00313" summary="handle sleeping state, ignore for now">
-      <created>1607222520792</created>
-      <option name="number" value="00313" />
-      <option name="presentableId" value="LOCAL-00313" />
-      <option name="project" value="LOCAL" />
-      <updated>1607222520792</updated>
-    </task>
-    <task id="LOCAL-00314" summary="combine mongo populate params">
-      <created>1607271710379</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1607271710379</updated>
-    </task>
-    <task id="LOCAL-00315" summary="simplify case">
-      <created>1607271732898</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1607271732898</updated>
-    </task>
-    <task id="LOCAL-00316" summary="redirect to dashboard page upon successful login">
-      <created>1607560741339</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1607560741343</updated>
-    </task>
-    <task id="LOCAL-00317" summary="allow that a url param will be a string">
-      <created>1607560784933</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1607560784933</updated>
-    </task>
-    <task id="LOCAL-00318" summary="Create basic tabs component">
-      <created>1609436070618</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436070619</updated>
-    </task>
-    <task id="LOCAL-00319" summary="Use common tabs component">
-      <created>1609436085896</created>
-      <option name="number" value="00319" />
-      <option name="presentableId" value="LOCAL-00319" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436085896</updated>
-    </task>
-    <task id="LOCAL-00320" summary="New vehicle settings view">
-      <created>1609436107982</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436107982</updated>
-    </task>
-    <option name="localTasksCounter" value="321" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -660,46 +409,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/server" />
-      <path value="$PROJECT_DIR$/web" />
-    </ignored-roots>
-    <MESSAGE value="delete returns count of deleted documents" />
-    <MESSAGE value="model updates, implement actions" />
-    <MESSAGE value="fix storing of last state into activity" />
-    <MESSAGE value="minor style update to product list item layout" />
-    <MESSAGE value="minor style update" />
-    <MESSAGE value="log unused predicates" />
-    <MESSAGE value="additional sync fields" />
-    <MESSAGE value="remove unused field" />
-    <MESSAGE value="set default timout on activities to 10 minutes for now" />
-    <MESSAGE value="add sorting and use new helper for converting predicates to mongo query params" />
-    <MESSAGE value="convert predicate to mongo criteria, just handle comparisons for single values" />
-    <MESSAGE value="minor cleanup and reorg of functional component" />
-    <MESSAGE value="rescope if block" />
-    <MESSAGE value="reformat" />
-    <MESSAGE value="fix session tagging, remove tags from default query" />
-    <MESSAGE value="use updateOne since update is deprecated" />
-    <MESSAGE value="ensure activity states get deleted as well" />
-    <MESSAGE value="handle sleeping state, ignore for now" />
-    <MESSAGE value="combine mongo populate params" />
-    <MESSAGE value="simplify case" />
-    <MESSAGE value="redirect to dashboard page upon successful login" />
-    <MESSAGE value="allow that a url param will be a string" />
-    <MESSAGE value="Create basic tabs component" />
-    <MESSAGE value="Use common tabs component" />
-    <MESSAGE value="New vehicle settings view" />
-    <option name="LAST_COMMIT_MESSAGE" value="New vehicle settings view" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/packages/server/src/session/session.service.ts</url>
-          <line>28</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="initial commit of nx project" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit of nx project" />
   </component>
 </project>
