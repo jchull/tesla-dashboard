@@ -1,1 +1,211 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'apps/web/src/base';
+
+body,
+#root,
+.app {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+
+  .card {
+    background: #ffffff;
+    margin: 4px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px #555555;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    section {
+      padding: 10px 6px;
+    }
+
+    .card-footer {
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column-reverse;
+      flex-grow: inherit;
+    }
+  }
+}
+
+.app {
+  .header {
+    background-color: #222;
+    text-transform: uppercase;
+    position: fixed;
+    width: 100%;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 50px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    word-spacing: 10px;
+    //font-family: $font-family;
+    font-weight: 400;
+    border-bottom: 1px solid #000000;
+
+    .logo {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 100px;
+      height: 50px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTMiPjxwYXRoIGQ9Ik0wIDBjLjMgMS4xIDEuMyAyLjMgMi42IDIuNmg0LjFsLjIuMVYxM2gyLjVWMi43bC4yLS4xaDQuMWMxLjQtLjQgMi4zLTEuNSAyLjYtMi42SDB6bTc3LjggMTNjMS4zLS41IDItMS41IDIuMi0yLjZINjguN1YtLjFoLTIuNXYxM2gxMS42ek00Ny4zIDIuNmg5YzEuMy0uNCAyLjUtMS40IDIuNy0yLjZINDQuOHY3LjdoMTEuNnYyLjdoLTkuMWMtMS40LjQtMi42IDEuNC0zLjIgMi42SDU5VjUuMkg0Ny4zVjIuNnptMzguMSAyLjZWMTNIODhWNy44aDkuMVYxM2gyLjZWNS4yTTI1LjIgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjEgMS40IDIuMyAyLjcgMi42bTAgNS4yaDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42aC0xNWMuNCAxLjIgMS40IDIuNCAyLjcgMi42TTg3LjcgMi42aDkuN2MxLjMtLjMgMi40LTEuNSAyLjYtMi42SDg1Yy4zIDEuMiAxLjMgMi40IDIuNyAyLjYiIGZpbGw9IiNGRkYiLz48L3N2Zz4=') no-repeat 50%;
+    }
+  }
+
+  .content {
+    overflow: hidden;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 21px;
+    background: #f0ede2;
+
+    div.row {
+      display: flex;
+    }
+
+    .centered.narrow {
+      width: 400px;
+      margin: 40px auto;
+    }
+
+    .clickable {
+      line-height: 24px;
+      border-radius: 12px;
+      width: 160px;
+      margin: 4px;
+      padding: 2px 12px;
+      box-shadow: 1px 1px 3px rgba(102, 102, 102, 0.2);
+      transition-duration: 300ms;
+    }
+
+    .clickable:hover {
+      transition-duration: 150ms;
+      box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+      transform: translate3d(1px, -1px, 3px);
+    }
+
+    button {
+      line-height: 24px;
+      background: #e1e1e1;
+      margin: 4px;
+    }
+
+    form {
+      margin: 20px;
+
+      input {
+        display: block;
+        line-height: 24px;
+        border-radius: 4px;
+        width: 100%;
+        margin: 0 0 20px 0;
+      }
+    }
+
+    .links {
+      margin: 20px 12px;
+      display: flex;
+
+      a {
+        text-align: center;
+        flex: 0 1 100%;
+        display: block;
+        color: #333333;
+        text-decoration: none;
+
+        &:hover {
+          text-shadow: 1px 1px 2px #555555;
+        }
+      }
+    }
+
+    .form-submit {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #e1e1e1;
+      background: #333333;
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+
+  .card {
+    padding: 5px;
+  }
+
+  .not-found {
+    padding: 200px;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #555555;
+    height: 20px;
+  }
+}
+
+.home {
+  a {
+    display: inline-block;
+    width: 140px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-decoration: none;
+    text-align: center;
+    margin: 10px 5px;
+    padding: 10px 2px;
+    color: #333;
+  }
+}
+
+.block-flow {
+  display: flex;
+  flex: auto;
+  max-height: 90%;
+}
+
+.columns {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+
+  &.three > * {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    /* center column in 3-column layout */
+    &:nth-child(2) {
+      flex: 1 0 auto;
+    }
+  }
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+
+  &.stretch {
+    flex: 1 1 auto;
+  }
+
+  > div {
+    flex: 1 1 100%;
+  }
+}
