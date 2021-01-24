@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/_base.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611515108043</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix font and material icons loading, add script to serve all apps, and to clean/purge">
+      <created>1611519113323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1611519113323</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +270,7 @@
     <MESSAGE value="clean up unused files" />
     <MESSAGE value="format only" />
     <MESSAGE value="re-added" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-added" />
+    <MESSAGE value="fix font and material icons loading, add script to serve all apps, and to clean/purge" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix font and material icons loading, add script to serve all apps, and to clean/purge" />
   </component>
 </project>
