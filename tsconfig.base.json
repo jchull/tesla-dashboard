@@ -1,25 +1,27 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "target": "es6",
-    "noLib": false,
-    "module": "commonjs",
-    "removeComments": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es6"
-    ]
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tesla-dashboard/components": ["libs/components/src/index.ts"],
+      "@tesla-dashboard/types": ["libs/types/src/index.ts"],
+      "@tesla-dashboard/schemas": ["libs/schemas/src/index.ts"],
+      "@tesla-dashboard/tesla-types": ["libs/tesla-types/src/index.ts"],
+      "@tesla-dashboard/util": ["libs/util/src/index.ts"],
+      "@tesla-dashboard/client": ["libs/client/src/index.ts"]
+    }
   },
-  "exclude": [
-    "node_modules",
-    "__mocks__",
-    "**/*.spec.*",
-    "**/*.test.*"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

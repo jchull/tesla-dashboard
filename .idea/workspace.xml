@@ -1,77 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </select>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="formatting">
-      <change afterPath="$PROJECT_DIR$/packages/server/src/data-migration/01_merge_charge_drive_to_session.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/server/src/data-sync/tesla-sync/tesla-sync.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/Account.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/SyncPreferences.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/account/TeslaAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Forgot.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/common/Tabs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/session/session.style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/Overview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/vehicle/Overview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/vehicle/VehicleSettings.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/web/src/component/view/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
-  </component>
-  <component name="DatabaseLocalColorSettings">
-    <colors>
-      <entry key="f1129d11-a335-481b-9bdf-bafe293f74ec" value="Orange" />
-    </colors>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -80,6 +17,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -91,12 +36,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="tax_stats" />
-                    <option name="lastUsedInstant" value="1591478201" />
+                    <option name="branchName" value="nx" />
+                    <option name="lastUsedInstant" value="1611506647" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1591478200" />
+                    <option name="lastUsedInstant" value="1611506646" />
                   </RecentBranch>
                 </list>
               </option>
@@ -108,544 +53,201 @@
     </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/packages/common/package.json" />
-    <dismissed value="$PROJECT_DIR$/packages/server/package.json" />
-    <dismissed value="$PROJECT_DIR$/packages/web/package.json" />
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectId" id="1VzgkDXywWnf1ywrjColpI67Vj8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1nUbWqT3qf76TvAVv3HhdKBpCz7" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
-    <property name="javascript.nodejs.core.library.typings.version" value="14.14.10" />
-    <property name="jdk.selected.JAVA_MODULE" value="1.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/web/src/component/account" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
-    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="prettier.import.notification.dismissed" value="true" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
-    <property name="ts.rename.search.for.dynamic.occurrences" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.karateca.jstoolbox.config.JsToolboxConfigurable" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/web/src/component/account" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/common" />
-      <recent name="$PROJECT_DIR$/packages/web/src/component/vehicle" />
-      <recent name="$PROJECT_DIR$/packages/web/src/hooks" />
-      <recent name="$PROJECT_DIR$/bin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/server/src/data-migration" />
-      <recent name="$PROJECT_DIR$/packages/server/src" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model/schema" />
-      <recent name="$PROJECT_DIR$/packages/common/src/model/types" />
+      <recent name="$PROJECT_DIR$/apps/web/src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start web">
-    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
-      <setting name="replType" value="NREPL" />
-      <setting name="execution" value="LEININGEN" />
-      <setting name="jvmArgs" value="" />
-      <setting name="parameters" value="" />
-      <setting name="workingDir" value="" />
-      <setting name="profiles" value="" />
-      <setting name="aliases" value="" />
-      <setting name="fixLineNumbers" value="false" />
-      <method v="2" />
+  <component name="RunManager" selected="Nx.server:serve">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
     </configuration>
-    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
-      <setting name="host" value="" />
-      <setting name="port" value="0" />
-      <setting name="replType" value="SOCKET" />
-      <setting name="configType" value="SPECIFY" />
-      <setting name="replPortFileType" value="STANDARD" />
-      <setting name="customPortFile" value="" />
-      <setting name="fixLineNumbers" value="false" />
-      <method v="2" />
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
-    <configuration name="Server Unit Tests" type="JavaScriptTestRunnerJest">
-      <config-file value="$PROJECT_DIR$/server/jest.config.js" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server:serve" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/server" />
-      <envs />
-      <scope-kind value="ALL" />
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="server:serve" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="SyncSchedulerService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="web:build" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$/packages/server" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/packages/server/src/data-sync/sync-scheduler/sync-scheduler.service.spec.ts" />
-      <test-names>
-        <test-name value="SyncSchedulerService" />
-      </test-names>
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="web:build" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="Web Unit Tests" type="JavaScriptTestRunnerJest">
-      <config-file value="$PROJECT_DIR$/web/config/jest/jest.config.js" />
+    <configuration name="web:serve" type="js.build_tools.nx" temporary="true">
       <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/web/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/web" />
-      <envs />
-      <scope-kind value="ALL" />
+      <nxfile value="$PROJECT_DIR$/nx.json" />
+      <tasks>
+        <task value="web:serve" />
+      </tasks>
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="NodeJSConfigurationType" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="esImporter.js" type="NodeJSConfigurationType" temporary="true" application-parameters="dump/tesla-es-dump.json jchull" nameIsGenerated="true" path-to-js-file="dist/data-sync/es-import/esImporter.js" working-dir="$PROJECT_DIR$/packages/server">
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm">
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start server" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/packages/server/package.json" />
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start web" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/packages/web/package.json" />
-      <command value="start" />
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start:debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/packages/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start:debug" />
-      </scripts>
-      <node-interpreter value="project" />
-      <package-manager value="yarn" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Jest.Server Unit Tests" />
-      <item itemvalue="Jest.Web Unit Tests" />
-      <item itemvalue="Jest.SyncSchedulerService" />
-      <item itemvalue="Node.js.Unnamed" />
-      <item itemvalue="Node.js.esImporter.js" />
-      <item itemvalue="npm.start server" />
-      <item itemvalue="npm.start web" />
-      <item itemvalue="npm.start:debug" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:debug" />
-        <item itemvalue="Node.js.esImporter.js" />
-        <item itemvalue="Jest.SyncSchedulerService" />
+        <item itemvalue="Nx.web:serve" />
+        <item itemvalue="Nx.server:serve" />
+        <item itemvalue="Nx.web:build" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="246a8bc9-9bfe-4ae6-8818-228539a357ba" name="Default Changelist" comment="" />
-      <created>1578261478186</created>
+      <changelist id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="" />
+      <created>1611447650904</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1578261478186</updated>
-      <workItem from="1578261479569" duration="2186000" />
-      <workItem from="1578339398430" duration="47875000" />
-      <workItem from="1578582310572" duration="127339000" />
+      <updated>1611447650904</updated>
     </task>
-    <task id="LOCAL-00272" summary="remove tag service, cleaning up service hierarchy">
-      <created>1606511494537</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
+    <task id="LOCAL-00001" summary="initial commit of nx project">
+      <created>1611447726053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1606511494537</updated>
+      <updated>1611447726053</updated>
     </task>
-    <task id="LOCAL-00273" summary="expose user preferences">
-      <created>1606512376541</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
+    <task id="LOCAL-00002" summary="migrated to nx monorepo">
+      <created>1611507046083</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1606512376541</updated>
+      <updated>1611507046083</updated>
     </task>
-    <task id="LOCAL-00274" summary="remove duplicate model defs, add syncPrefs">
-      <created>1606512483549</created>
-      <option name="number" value="00274" />
-      <option name="presentableId" value="LOCAL-00274" />
+    <task id="LOCAL-00003" summary="reorg styles and add favicon">
+      <created>1611508763517</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1606512483550</updated>
+      <updated>1611508763517</updated>
     </task>
-    <task id="LOCAL-00275" summary="remove redundant model inject">
-      <created>1606512515970</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
+    <task id="LOCAL-00004" summary="reorg styles and add favicon">
+      <created>1611508782292</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1606512515970</updated>
+      <updated>1611508782292</updated>
     </task>
-    <task id="LOCAL-00276" summary="simplify token fetch code">
-      <created>1606512549695</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
+    <task id="LOCAL-00005" summary="nx proxy config">
+      <created>1611508796508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1606512549695</updated>
+      <updated>1611508796508</updated>
     </task>
-    <task id="LOCAL-00277" summary="clean up references, remove unused params, refactoring">
-      <created>1606512621319</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
+    <task id="LOCAL-00006" summary="updated packages">
+      <created>1611511792983</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1606512621319</updated>
+      <updated>1611511792983</updated>
     </task>
-    <task id="LOCAL-00278" summary="update types">
-      <created>1606512812528</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
+    <task id="LOCAL-00007" summary="clean up unused files">
+      <created>1611512155990</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1606512812528</updated>
+      <updated>1611512155990</updated>
     </task>
-    <task id="LOCAL-00279" summary="make paging optional for query">
-      <created>1606512832588</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
+    <task id="LOCAL-00008" summary="format only">
+      <created>1611512362088</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1606512832588</updated>
+      <updated>1611512362088</updated>
     </task>
-    <task id="LOCAL-00280" summary="implement activity creation and append/update">
-      <created>1606583196835</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
+    <task id="LOCAL-00009" summary="re-added">
+      <created>1611514820602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1606583196835</updated>
+      <updated>1611514820602</updated>
     </task>
-    <task id="LOCAL-00281" summary="remove unused ref">
-      <created>1606583219196</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
+    <task id="LOCAL-00010" summary="re-added">
+      <created>1611514909981</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1606583219196</updated>
+      <updated>1611514909981</updated>
     </task>
-    <task id="LOCAL-00282" summary="utilize services rather than directly interacting with model">
-      <created>1606583247885</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
+    <task id="LOCAL-00011" summary="re-added">
+      <created>1611514966103</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1606583247885</updated>
+      <updated>1611514966103</updated>
     </task>
-    <task id="LOCAL-00283" summary="use vehicle timestamp for filtering recent activity">
-      <created>1606583408257</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
+    <task id="LOCAL-00012" summary="re-added">
+      <created>1611515108043</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1606583408257</updated>
+      <updated>1611515108043</updated>
     </task>
-    <task id="LOCAL-00284" summary="move current activity fetch to service">
-      <created>1606585599260</created>
-      <option name="number" value="00284" />
-      <option name="presentableId" value="LOCAL-00284" />
+    <task id="LOCAL-00013" summary="fix font and material icons loading, add script to serve all apps, and to clean/purge">
+      <created>1611519113323</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1606585599260</updated>
+      <updated>1611519113323</updated>
     </task>
-    <task id="LOCAL-00285" summary="cleanup sync service">
-      <created>1606585633253</created>
-      <option name="number" value="00285" />
-      <option name="presentableId" value="LOCAL-00285" />
-      <option name="project" value="LOCAL" />
-      <updated>1606585633253</updated>
-    </task>
-    <task id="LOCAL-00286" summary="sync service upstream sync fixed">
-      <created>1606588319135</created>
-      <option name="number" value="00286" />
-      <option name="presentableId" value="LOCAL-00286" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588319135</updated>
-    </task>
-    <task id="LOCAL-00287" summary="persist data from upstream sync">
-      <created>1606588356510</created>
-      <option name="number" value="00287" />
-      <option name="presentableId" value="LOCAL-00287" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588356510</updated>
-    </task>
-    <task id="LOCAL-00288" summary="move data sync to overview and post to product endpoint for upstream sync with state">
-      <created>1606588396978</created>
-      <option name="number" value="00288" />
-      <option name="presentableId" value="LOCAL-00288" />
-      <option name="project" value="LOCAL" />
-      <updated>1606588396978</updated>
-    </task>
-    <task id="LOCAL-00289" summary="only sync charge/drive activities">
-      <created>1606669293667</created>
-      <option name="number" value="00289" />
-      <option name="presentableId" value="LOCAL-00289" />
-      <option name="project" value="LOCAL" />
-      <updated>1606669293667</updated>
-    </task>
-    <task id="LOCAL-00290" summary="use new column for rename to VehicleActivity">
-      <created>1606669341987</created>
-      <option name="number" value="00290" />
-      <option name="presentableId" value="LOCAL-00290" />
-      <option name="project" value="LOCAL" />
-      <updated>1606669341987</updated>
-    </task>
-    <task id="LOCAL-00291" summary="flatten vehicleData in schema">
-      <created>1606675651244</created>
-      <option name="number" value="00291" />
-      <option name="presentableId" value="LOCAL-00291" />
-      <option name="project" value="LOCAL" />
-      <updated>1606675651244</updated>
-    </task>
-    <task id="LOCAL-00292" summary="Model updates, flatten incoming data before persisting">
-      <created>1606681989638</created>
-      <option name="number" value="00292" />
-      <option name="presentableId" value="LOCAL-00292" />
-      <option name="project" value="LOCAL" />
-      <updated>1606681989639</updated>
-    </task>
-    <task id="LOCAL-00293" summary="correct issue with activity determination">
-      <created>1606682019602</created>
-      <option name="number" value="00293" />
-      <option name="presentableId" value="LOCAL-00293" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682019602</updated>
-    </task>
-    <task id="LOCAL-00294" summary="clean up and use new model">
-      <created>1606682035696</created>
-      <option name="number" value="00294" />
-      <option name="presentableId" value="LOCAL-00294" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682035696</updated>
-    </task>
-    <task id="LOCAL-00295" summary="delete returns count of deleted documents">
-      <created>1606682070638</created>
-      <option name="number" value="00295" />
-      <option name="presentableId" value="LOCAL-00295" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682070638</updated>
-    </task>
-    <task id="LOCAL-00296" summary="model updates, implement actions">
-      <created>1606682121289</created>
-      <option name="number" value="00296" />
-      <option name="presentableId" value="LOCAL-00296" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682121289</updated>
-    </task>
-    <task id="LOCAL-00297" summary="fix storing of last state into activity">
-      <created>1606682645766</created>
-      <option name="number" value="00297" />
-      <option name="presentableId" value="LOCAL-00297" />
-      <option name="project" value="LOCAL" />
-      <updated>1606682645766</updated>
-    </task>
-    <task id="LOCAL-00298" summary="minor style update to product list item layout">
-      <created>1606688352316</created>
-      <option name="number" value="00298" />
-      <option name="presentableId" value="LOCAL-00298" />
-      <option name="project" value="LOCAL" />
-      <updated>1606688352317</updated>
-    </task>
-    <task id="LOCAL-00299" summary="minor style update">
-      <created>1606784312976</created>
-      <option name="number" value="00299" />
-      <option name="presentableId" value="LOCAL-00299" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784312976</updated>
-    </task>
-    <task id="LOCAL-00300" summary="log unused predicates">
-      <created>1606784335058</created>
-      <option name="number" value="00300" />
-      <option name="presentableId" value="LOCAL-00300" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784335058</updated>
-    </task>
-    <task id="LOCAL-00301" summary="additional sync fields">
-      <created>1606784446124</created>
-      <option name="number" value="00301" />
-      <option name="presentableId" value="LOCAL-00301" />
-      <option name="project" value="LOCAL" />
-      <updated>1606784446124</updated>
-    </task>
-    <task id="LOCAL-00302" summary="remove unused field">
-      <created>1606787849659</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1606787849659</updated>
-    </task>
-    <task id="LOCAL-00303" summary="remove unused field">
-      <created>1606787856557</created>
-      <option name="number" value="00303" />
-      <option name="presentableId" value="LOCAL-00303" />
-      <option name="project" value="LOCAL" />
-      <updated>1606787856557</updated>
-    </task>
-    <task id="LOCAL-00304" summary="set default timout on activities to 10 minutes for now">
-      <created>1607139243301</created>
-      <option name="number" value="00304" />
-      <option name="presentableId" value="LOCAL-00304" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139243302</updated>
-    </task>
-    <task id="LOCAL-00305" summary="add sorting and use new helper for converting predicates to mongo query params">
-      <created>1607139314843</created>
-      <option name="number" value="00305" />
-      <option name="presentableId" value="LOCAL-00305" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139314843</updated>
-    </task>
-    <task id="LOCAL-00306" summary="convert predicate to mongo criteria, just handle comparisons for single values">
-      <created>1607139372651</created>
-      <option name="number" value="00306" />
-      <option name="presentableId" value="LOCAL-00306" />
-      <option name="project" value="LOCAL" />
-      <updated>1607139372651</updated>
-    </task>
-    <task id="LOCAL-00307" summary="minor cleanup and reorg of functional component">
-      <created>1607183932777</created>
-      <option name="number" value="00307" />
-      <option name="presentableId" value="LOCAL-00307" />
-      <option name="project" value="LOCAL" />
-      <updated>1607183932777</updated>
-    </task>
-    <task id="LOCAL-00308" summary="rescope if block">
-      <created>1607183969328</created>
-      <option name="number" value="00308" />
-      <option name="presentableId" value="LOCAL-00308" />
-      <option name="project" value="LOCAL" />
-      <updated>1607183969328</updated>
-    </task>
-    <task id="LOCAL-00309" summary="reformat">
-      <created>1607185289516</created>
-      <option name="number" value="00309" />
-      <option name="presentableId" value="LOCAL-00309" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185289516</updated>
-    </task>
-    <task id="LOCAL-00310" summary="fix session tagging, remove tags from default query">
-      <created>1607185422257</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185422257</updated>
-    </task>
-    <task id="LOCAL-00311" summary="use updateOne since update is deprecated">
-      <created>1607185760813</created>
-      <option name="number" value="00311" />
-      <option name="presentableId" value="LOCAL-00311" />
-      <option name="project" value="LOCAL" />
-      <updated>1607185760813</updated>
-    </task>
-    <task id="LOCAL-00312" summary="ensure activity states get deleted as well">
-      <created>1607186891468</created>
-      <option name="number" value="00312" />
-      <option name="presentableId" value="LOCAL-00312" />
-      <option name="project" value="LOCAL" />
-      <updated>1607186891469</updated>
-    </task>
-    <task id="LOCAL-00313" summary="handle sleeping state, ignore for now">
-      <created>1607222520792</created>
-      <option name="number" value="00313" />
-      <option name="presentableId" value="LOCAL-00313" />
-      <option name="project" value="LOCAL" />
-      <updated>1607222520792</updated>
-    </task>
-    <task id="LOCAL-00314" summary="combine mongo populate params">
-      <created>1607271710379</created>
-      <option name="number" value="00314" />
-      <option name="presentableId" value="LOCAL-00314" />
-      <option name="project" value="LOCAL" />
-      <updated>1607271710379</updated>
-    </task>
-    <task id="LOCAL-00315" summary="simplify case">
-      <created>1607271732898</created>
-      <option name="number" value="00315" />
-      <option name="presentableId" value="LOCAL-00315" />
-      <option name="project" value="LOCAL" />
-      <updated>1607271732898</updated>
-    </task>
-    <task id="LOCAL-00316" summary="redirect to dashboard page upon successful login">
-      <created>1607560741339</created>
-      <option name="number" value="00316" />
-      <option name="presentableId" value="LOCAL-00316" />
-      <option name="project" value="LOCAL" />
-      <updated>1607560741343</updated>
-    </task>
-    <task id="LOCAL-00317" summary="allow that a url param will be a string">
-      <created>1607560784933</created>
-      <option name="number" value="00317" />
-      <option name="presentableId" value="LOCAL-00317" />
-      <option name="project" value="LOCAL" />
-      <updated>1607560784933</updated>
-    </task>
-    <task id="LOCAL-00318" summary="Create basic tabs component">
-      <created>1609436070618</created>
-      <option name="number" value="00318" />
-      <option name="presentableId" value="LOCAL-00318" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436070619</updated>
-    </task>
-    <task id="LOCAL-00319" summary="Use common tabs component">
-      <created>1609436085896</created>
-      <option name="number" value="00319" />
-      <option name="presentableId" value="LOCAL-00319" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436085896</updated>
-    </task>
-    <task id="LOCAL-00320" summary="New vehicle settings view">
-      <created>1609436107982</created>
-      <option name="number" value="00320" />
-      <option name="presentableId" value="LOCAL-00320" />
-      <option name="project" value="LOCAL" />
-      <updated>1609436107982</updated>
-    </task>
-    <option name="localTasksCounter" value="321" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -660,46 +262,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/server" />
-      <path value="$PROJECT_DIR$/web" />
-    </ignored-roots>
-    <MESSAGE value="delete returns count of deleted documents" />
-    <MESSAGE value="model updates, implement actions" />
-    <MESSAGE value="fix storing of last state into activity" />
-    <MESSAGE value="minor style update to product list item layout" />
-    <MESSAGE value="minor style update" />
-    <MESSAGE value="log unused predicates" />
-    <MESSAGE value="additional sync fields" />
-    <MESSAGE value="remove unused field" />
-    <MESSAGE value="set default timout on activities to 10 minutes for now" />
-    <MESSAGE value="add sorting and use new helper for converting predicates to mongo query params" />
-    <MESSAGE value="convert predicate to mongo criteria, just handle comparisons for single values" />
-    <MESSAGE value="minor cleanup and reorg of functional component" />
-    <MESSAGE value="rescope if block" />
-    <MESSAGE value="reformat" />
-    <MESSAGE value="fix session tagging, remove tags from default query" />
-    <MESSAGE value="use updateOne since update is deprecated" />
-    <MESSAGE value="ensure activity states get deleted as well" />
-    <MESSAGE value="handle sleeping state, ignore for now" />
-    <MESSAGE value="combine mongo populate params" />
-    <MESSAGE value="simplify case" />
-    <MESSAGE value="redirect to dashboard page upon successful login" />
-    <MESSAGE value="allow that a url param will be a string" />
-    <MESSAGE value="Create basic tabs component" />
-    <MESSAGE value="Use common tabs component" />
-    <MESSAGE value="New vehicle settings view" />
-    <option name="LAST_COMMIT_MESSAGE" value="New vehicle settings view" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/packages/server/src/session/session.service.ts</url>
-          <line>28</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="initial commit of nx project" />
+    <MESSAGE value="migrated to nx monorepo" />
+    <MESSAGE value="reorg styles and add favicon" />
+    <MESSAGE value="nx proxy config" />
+    <MESSAGE value="updated packages" />
+    <MESSAGE value="clean up unused files" />
+    <MESSAGE value="format only" />
+    <MESSAGE value="re-added" />
+    <MESSAGE value="fix font and material icons loading, add script to serve all apps, and to clean/purge" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix font and material icons loading, add script to serve all apps, and to clean/purge" />
   </component>
 </project>

@@ -1,0 +1,102 @@
+.session-list {
+  margin: 4px;
+  width: 378px;
+
+  .sessions {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .list-item {
+      padding: 6px;
+      border-top: 1px solid rgb(153, 154, 156);
+      flex-direction: row;
+      background: #ffffff;
+
+      &:nth-child(1) {
+        border-top: none;
+      }
+
+      &:hover {
+        transition-duration: 150ms;
+        box-shadow: 1px 2px 4px rgba(102, 102, 102, 0.2);
+        transform: translate3d(1px, -1px, 3px);
+      }
+
+      &:active {
+        transform: translate(-1px, 1px);
+        border-color: #000000;
+      }
+
+      &.drive {
+        h5 {
+          color: rgb(102, 102, 102);
+        }
+
+        i.material-icons {
+          color: rgb(174, 176, 178);
+        }
+      }
+
+      &.charge {
+        h5 {
+          color: #ffffff;
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-radius: 10px;
+          text-align: center;
+          padding-top: 3px;
+          box-sizing: border-box;
+        }
+      }
+
+      &.selected {
+        background: #eeeeee;
+      }
+
+      .row {
+        display: flex;
+        line-height: 30px;
+
+        span {
+          margin-right: 6px;
+        }
+      }
+
+      .start {
+        margin: 0 4px;
+        vertical-align: bottom;
+      }
+
+      .end {
+        flex: auto;
+        text-align: end;
+        margin: 0 4px;
+      }
+
+      .smtxt {
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+.selected-view {
+  display: inline-block;
+}
+
+h3 {
+  margin: 6px;
+}
+
+h4 {
+  margin: 12px 20px 10px 10px;
+  padding: 10px 10px 6px 12px;
+  text-transform: uppercase;
+  background: linear-gradient(20deg, rgb(255, 255, 255), rgb(201, 203, 204));
+  color: rgb(227, 25, 55);
+  box-shadow: 1px 2px 2px rgb(113, 114, 115);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
