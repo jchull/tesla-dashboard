@@ -10,9 +10,7 @@ import { DataSyncModule } from '../data-sync/data-sync.module'
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'Vehicle', schema: VehicleSchema }]),
-    MongooseModule.forFeature([
-      { name: 'SyncPreferences', schema: SyncPreferencesSchema },
-    ]),
+    MongooseModule.forFeature([{ name: 'SyncPreferences', schema: SyncPreferencesSchema }]),
     forwardRef(() => TeslaAccountModule),
     forwardRef(() => DataSyncModule),
   ],

@@ -8,9 +8,7 @@ import { User, UserRoles } from '@tesla-dashboard/types'
 
 @Injectable()
 export class AccountService {
-  constructor(
-    @InjectModel('User') private readonly userModel: Model<UserType>
-  ) {}
+  constructor(@InjectModel('User') private readonly userModel: Model<UserType>) {}
 
   sanitizeUser(user: User): Partial<User> {
     const { username, email, role } = user

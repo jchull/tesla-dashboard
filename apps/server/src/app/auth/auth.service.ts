@@ -7,19 +7,11 @@ import { User } from '@tesla-dashboard/types'
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly accountService: AccountService,
-    private readonly jwtService: JwtService
-  ) {}
+  constructor(private readonly accountService: AccountService, private readonly jwtService: JwtService) {}
 
-  async validate(
-    username: string,
-    password: string
-  ): Promise<Partial<User> | null> {
+  async validate(username: string, password: string): Promise<Partial<User> | null> {
     const user = await this.accountService.get(username)
-    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash)
-      ? this.accountService.sanitizeUser(user)
-      : null
+    return user?.pwdHash && bcrypt.compareSync(password, user.pwdHash) ? this.accountService.sanitizeUser(user) : null
   }
 
   async decode(token: string): Promise<any> {

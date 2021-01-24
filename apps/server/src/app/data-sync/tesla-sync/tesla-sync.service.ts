@@ -23,30 +23,20 @@ export class TeslaSyncService {
   async syncVehicle(id: string): Promise<Vehicle> {
     const product = await this.productService.findById(id)
     if (!product) {
-      throw new Error(
-        'Invalid state, ensure products exist before updating data!'
-      )
+      throw new Error('Invalid state, ensure products exist before updating data!')
     } else {
-      const teslaAccounts = await this.teslaAccountService.getAccounts(
-        product.username
-      )
+      const teslaAccounts = await this.teslaAccountService.getAccounts(product.username)
       // TODO: verify this is still true: we should not have more than one result when providing both parameters
       if (teslaAccounts?.length === 1) {
         try {
-          const vehicleData = await this.teslaOwnerService.getVehicleData(
-            teslaAccounts[0],
-            product.id_s
-          )
+          const vehicleData = await this.teslaOwnerService.getVehicleData(teslaAccounts[0], product.id_s)
           if (vehicleData) {
-            console.log(
-              `${vehicleData.display_name} is currently ${product.state}`
-            )
+            console.log(`${vehicleData.display_name} is currently ${product.state}`)
             product.odometer = vehicleData.vehicle_state.odometer
             product.charge_limit_soc = vehicleData.charge_state.charge_limit_soc
             product.battery_range = vehicleData.charge_state.battery_range
             product.display_name = vehicleData.display_name
-            product.time_to_full_charge =
-              vehicleData.charge_state.time_to_full_charge
+            product.time_to_full_charge = vehicleData.charge_state.time_to_full_charge
             product.battery_level = vehicleData.charge_state.battery_level
             product.state = this.findVehicleState(vehicleData)
             product.timestamp = vehicleData.vehicle_state.timestamp
@@ -55,36 +45,22 @@ export class TeslaSyncService {
             // TODO: get from sync preferences
             const activityTimeoutMs = 600000 // 10 minutes
 
-            if (
-              product.state === ActivityType.DRIVING ||
-              product.state === ActivityType.CHARGING
-            ) {
+            if (product.state === ActivityType.DRIVING || product.state === ActivityType.CHARGING) {
               const activeSession = await this.sessionService.findCurrentActivity(
                 product,
                 product.state,
                 vehicleData.vehicle_state.timestamp - activityTimeoutMs
               )
               activeSession
-                ? await this.sessionService.appendVehicleState(
-                    activeSession,
-                    vehicleData
-                  )
-                : await this.sessionService.createNewActivity(
-                    product,
-                    product.state,
-                    vehicleData
-                  )
+                ? await this.sessionService.appendVehicleState(activeSession, vehicleData)
+                : await this.sessionService.createNewActivity(product, product.state, vehicleData)
             }
           } else {
             console.error('unable to fetch vehicle data from Tesla')
           }
         } catch (e) {
           if (e?.response?.status === 408) {
-            console.log(
-              `${product.display_name} is sleeping, last updated: ${new Date(
-                product.timestamp
-              )}`
-            )
+            console.log(`${product.display_name} is sleeping, last updated: ${new Date(product.timestamp)}`)
           } else {
             console.error(JSON.stringify(e))
           }

@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Get,
-  HttpException,
-  Post,
-  Put,
-  Request,
-  UseGuards,
-} from '@nestjs/common'
+import { Controller, Get, HttpException, Post, Put, Request, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { AccountService } from './account.service'
 
@@ -17,9 +9,7 @@ export class AccountController {
   @UseGuards(AuthGuard('jwt'))
   @Get()
   async getMyAccount(@Request() req) {
-    return this.accountService.sanitizeUser(
-      await this.accountService.get(req.user.username)
-    )
+    return this.accountService.sanitizeUser(await this.accountService.get(req.user.username))
   }
 
   @Put()
@@ -33,9 +23,7 @@ export class AccountController {
     if (errorMessage) {
       throw new HttpException(errorMessage, 500)
     }
-    return this.accountService.sanitizeUser(
-      await this.accountService.create(newUser)
-    )
+    return this.accountService.sanitizeUser(await this.accountService.create(newUser))
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -49,9 +37,7 @@ export class AccountController {
     if (user && user.username === req.user.username) {
       user.password = password
       user.email = email
-      return this.accountService.sanitizeUser(
-        await this.accountService.update(user)
-      )
+      return this.accountService.sanitizeUser(await this.accountService.update(user))
     } else {
       throw new HttpException('wrong user', 401)
     }

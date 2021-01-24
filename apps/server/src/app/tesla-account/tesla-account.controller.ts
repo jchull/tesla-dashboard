@@ -1,13 +1,4 @@
-import {
-  Controller,
-  Get,
-  HttpException,
-  Param,
-  Post,
-  Put,
-  Request,
-  UseGuards,
-} from '@nestjs/common'
+import { Controller, Get, HttpException, Param, Post, Put, Request, UseGuards } from '@nestjs/common'
 import { AuthGuard } from '@nestjs/passport'
 import { TeslaAccountService } from './tesla-account.service'
 
@@ -27,9 +18,7 @@ export class TeslaAccountController {
     if (req.user.username !== req.body.username) {
       throw new HttpException('data validation error', 401)
     }
-    return this.teslaAccountService.sanitizeAccount(
-      await this.teslaAccountService.createAccount(req.body)
-    )
+    return this.teslaAccountService.sanitizeAccount(await this.teslaAccountService.createAccount(req.body))
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -38,9 +27,7 @@ export class TeslaAccountController {
     if (id !== req.body._id || req.user.username !== req.body.username) {
       throw new HttpException('data validation error', 401)
     }
-    return this.teslaAccountService.sanitizeAccount(
-      await this.teslaAccountService.updateAccount(req.body)
-    )
+    return this.teslaAccountService.sanitizeAccount(await this.teslaAccountService.updateAccount(req.body))
   }
 
   @UseGuards(AuthGuard('jwt'))

@@ -8,12 +8,7 @@ import { TeslaOwnerService } from './tesla-owner/tesla-owner.service'
 import { ConfigurationModule } from '../configuration/configuration.module'
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: 'TeslaAccount', schema: TeslaAccountSchema },
-    ]),
-    ConfigurationModule,
-  ],
+  imports: [MongooseModule.forFeature([{ name: 'TeslaAccount', schema: TeslaAccountSchema }]), ConfigurationModule],
   providers: [TeslaAccountService, TeslaOwnerService],
   controllers: [TeslaAccountController],
   exports: [TeslaAccountService, TeslaOwnerService],

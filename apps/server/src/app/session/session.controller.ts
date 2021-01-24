@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Request,
-  UseGuards,
-} from '@nestjs/common'
+import { Controller, Delete, Get, Param, Post, Request, UseGuards } from '@nestjs/common'
 import { SessionService } from './session.service'
 import { AuthGuard } from '@nestjs/passport'
 import { decodeRequest, QueryResult } from '@tesla-dashboard/util'
@@ -19,10 +11,7 @@ export class SessionController {
   @Post()
   async findSessions(@Request() req): Promise<QueryResult> {
     const findQuery = decodeRequest(req.body)
-    return await this.sessionService.findActivities(
-      req.user.username,
-      findQuery
-    )
+    return await this.sessionService.findActivities(req.user.username, findQuery)
   }
 
   @UseGuards(AuthGuard('jwt'))

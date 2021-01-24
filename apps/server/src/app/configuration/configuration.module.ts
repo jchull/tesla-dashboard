@@ -5,11 +5,7 @@ import { ConfigurationService } from './configuration.service'
 import { ConfigurationSchema } from '@tesla-dashboard/schemas'
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([
-      { name: 'Configuration', schema: ConfigurationSchema },
-    ]),
-  ],
+  imports: [MongooseModule.forFeature([{ name: 'Configuration', schema: ConfigurationSchema }])],
   controllers: [ConfigurationController],
   providers: [ConfigurationService],
   exports: [ConfigurationService],

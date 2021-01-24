@@ -29,9 +29,7 @@ export class ProductService {
   async upsert(products: Vehicle[]) {
     return products.map(async (product) => {
       const existing = await this.productModel.findOne({ vin: product.vin })
-      return existing
-        ? this.productModel.updateOne({ _id: existing._id }, product)
-        : this.productModel.create(product)
+      return existing ? this.productModel.updateOne({ _id: existing._id }, product) : this.productModel.create(product)
     })
   }
 
@@ -39,10 +37,7 @@ export class ProductService {
     if (syncUpstream != false) {
       await this.teslaSyncService.syncVehiclesByAccount(username)
     }
-    return this.productModel
-      .find({ username })
-      .populate(['sync_preferences'])
-      .sort({ $natural: -1 })
+    return this.productModel.find({ username }).populate(['sync_preferences']).sort({ $natural: -1 })
   }
 
   async findByVin(vin: string) {

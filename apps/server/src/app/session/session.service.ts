@@ -1,21 +1,11 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import {
-  VehicleActivityType,
-  VehicleStateType,
-  VehicleType,
-} from '@tesla-dashboard/schemas'
+import { VehicleActivityType, VehicleStateType, VehicleType } from '@tesla-dashboard/schemas'
 
 import { ProductService } from '../product/product.service'
 import { ActivityType } from '@tesla-dashboard/types'
-import {
-  decodePredicates,
-  flattenVehicleData,
-  Operator,
-  QueryResult,
-  QuerySet,
-} from '@tesla-dashboard/util'
+import { decodePredicates, flattenVehicleData, Operator, QueryResult, QuerySet } from '@tesla-dashboard/util'
 import { VehicleData } from '@tesla-dashboard/tesla-types'
 
 @Injectable()
@@ -31,9 +21,7 @@ export class SessionService {
 
   async getSessionDetails(username: string, id: string) {
     const activity = await this.vehicleSessionModel.findById(id)
-    return this.vehicleStateModel
-      .find({ vehicleActivity: activity })
-      .sort({ timestamp: 1 })
+    return this.vehicleStateModel.find({ vehicleActivity: activity }).sort({ timestamp: 1 })
   }
 
   async deleteSession(username: string, id: string) {
@@ -44,9 +32,7 @@ export class SessionService {
         vehicleActivity: { _id: id },
       })
       if (deleteItemCount.deletedCount) {
-        return (
-          (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0)
-        )
+        return (deleteCount.deletedCount || 0) + (deleteItemCount.deletedCount || 0)
       }
     }
     return 0
@@ -57,10 +43,7 @@ export class SessionService {
     const vehicleSession = await this.vehicleSessionModel.findOne(conditions)
     if (vehicleSession && !vehicleSession.tags.includes(tag)) {
       vehicleSession.tags = [...vehicleSession.tags, tag]
-      const result = await this.vehicleSessionModel.updateOne(
-        conditions,
-        vehicleSession
-      )
+      const result = await this.vehicleSessionModel.updateOne(conditions, vehicleSession)
       return result.nModified ? vehicleSession.tags : []
     }
   }
@@ -70,18 +53,12 @@ export class SessionService {
     const vehicleSession = await this.vehicleSessionModel.findOne(conditions)
     if (vehicleSession && vehicleSession.tags.includes(tag)) {
       vehicleSession.tags.splice(vehicleSession.tags.indexOf(tag), 1)
-      const result = await this.vehicleSessionModel.updateOne(
-        conditions,
-        vehicleSession
-      )
+      const result = await this.vehicleSessionModel.updateOne(conditions, vehicleSession)
       return result.tags
     }
   }
 
-  async findActivities(
-    username: string,
-    query: QuerySet
-  ): Promise<QueryResult> {
+  async findActivities(username: string, query: QuerySet): Promise<QueryResult> {
     const vehicleId = query.predicates.find((p) => p.field === 'vehicle')?.value
     if (!vehicleId) {
       throw Error('vehicle/product required in session predicate')
@@ -89,9 +66,7 @@ export class SessionService {
     //    const tags = query.predicates.filter((p) => p.field === 'tags')
     //TODO: handle other predicates here!
     const skipPredicates = new Set(['vehicle'])
-    const restPredicates = decodePredicates(
-      query.predicates.filter((p) => !skipPredicates.has(p.field))
-    )
+    const restPredicates = decodePredicates(query.predicates.filter((p) => !skipPredicates.has(p.field)))
     const skip = query.page.start
     // set up criteria for count and query
     const criteria = {
@@ -126,14 +101,8 @@ export class SessionService {
     }
   }
 
-  async createNewActivity(
-    vehicle: VehicleType,
-    activity: ActivityType,
-    vehicleData: VehicleData
-  ) {
-    const vehicleState = await this.vehicleStateModel.create(
-      flattenVehicleData(vehicleData)
-    )
+  async createNewActivity(vehicle: VehicleType, activity: ActivityType, vehicleData: VehicleData) {
+    const vehicleState = await this.vehicleStateModel.create(flattenVehicleData(vehicleData))
     const {
       charge_current_request_max,
       charge_enable_request,
@@ -196,10 +165,7 @@ export class SessionService {
     }
     const newActivity = await this.vehicleSessionModel.create(session)
     vehicleState.vehicleActivity = newActivity
-    await this.vehicleStateModel.updateOne(
-      { _id: vehicleState._id },
-      vehicleState
-    )
+    await this.vehicleStateModel.updateOne({ _id: vehicleState._id }, vehicleState)
     return newActivity
   }
 
@@ -229,24 +195,15 @@ export class SessionService {
     vehicleState.vehicleActivity = vehicleActivity
     vehicleActivity.last = await this.vehicleStateModel.create(vehicleState)
     vehicleActivity.end_date = vehicleState.timestamp
-    vehicleActivity.duration_seconds =
-      (vehicleActivity.end_date - vehicleActivity.start_date) / 1000
-    vehicleActivity.distance =
-      vehicleState.odometer - vehicleActivity.first.odometer
+    vehicleActivity.duration_seconds = (vehicleActivity.end_date - vehicleActivity.start_date) / 1000
+    vehicleActivity.distance = vehicleState.odometer - vehicleActivity.first.odometer
 
     // TODO: any other data aggregation for this activity
 
-    return this.vehicleSessionModel.updateOne(
-      { _id: vehicleActivity._id },
-      vehicleActivity
-    )
+    return this.vehicleSessionModel.updateOne({ _id: vehicleActivity._id }, vehicleActivity)
   }
 
-  async findCurrentActivity(
-    product: VehicleType,
-    vehicleStatus: ActivityType,
-    after: number
-  ) {
+  async findCurrentActivity(product: VehicleType, vehicleStatus: ActivityType, after: number) {
     const result = await this.findActivities(product.username, {
       predicates: [
         { operator: Operator.EQ, value: product._id, field: 'vehicle' },
