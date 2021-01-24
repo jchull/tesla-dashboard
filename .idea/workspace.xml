@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/src/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/_base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +204,42 @@
       <option name="project" value="LOCAL" />
       <updated>1611512155990</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="format only">
+      <created>1611512362088</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611512362088</updated>
+    </task>
+    <task id="LOCAL-00009" summary="re-added">
+      <created>1611514820602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611514820602</updated>
+    </task>
+    <task id="LOCAL-00010" summary="re-added">
+      <created>1611514909981</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611514909981</updated>
+    </task>
+    <task id="LOCAL-00011" summary="re-added">
+      <created>1611514966103</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1611514966103</updated>
+    </task>
+    <task id="LOCAL-00012" summary="re-added">
+      <created>1611515108043</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611515108043</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +264,8 @@
     <MESSAGE value="nx proxy config" />
     <MESSAGE value="updated packages" />
     <MESSAGE value="clean up unused files" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up unused files" />
+    <MESSAGE value="format only" />
+    <MESSAGE value="re-added" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-added" />
   </component>
 </project>

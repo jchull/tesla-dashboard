@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve",
+    "start": "concurrently -p=\"{name}\" -n=\"WEB,SERVER\" -c=\"magenta,blue\" \"nx run web:serve\" \"nx run server:serve\"",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
@@ -23,7 +23,9 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "purge": "rimraf node_modules",
+    "clean": "rimraf dist"
   },
   "private": true,
   "dependencies": {
@@ -108,6 +110,7 @@
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-preset-react-app": "10.0.0",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "concurrently": "^5.3.0",
     "css-loader": "^5.0.1",
     "cypress": "^6.0.1",
     "dotenv": "8.2.0",

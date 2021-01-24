@@ -1,4 +1,13 @@
 @use 'apps/web/src/base';
+$material-icons-font-path: '~material-icons/iconfont/';
+
+@import '~material-icons/iconfont/material-icons.scss';
+* {
+  margin: 0;
+  font-family: Arial, Gotham Medium, system, sans-serif, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 body,
 #root,
