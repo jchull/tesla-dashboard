@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common'
-import { MongooseModule } from '@nestjs/mongoose'
-import { ConfigurationController } from './configuration.controller'
-import { ConfigurationService } from './configuration.service'
-import { ConfigurationSchema } from '@tesla-dashboard/schemas'
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigurationController } from './configuration.controller';
+import { ConfigurationService } from './configuration.service';
+import { ConfigurationSchema } from '@tesla-dashboard/schemas';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: 'Configuration', schema: ConfigurationSchema }])],

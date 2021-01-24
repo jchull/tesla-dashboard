@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { Vehicle } from '@tesla-dashboard/types'
+import { Vehicle } from '@tesla-dashboard/types';
 
-import { ProductListItem } from './ProductListItem'
-import { fetchProductListAction, ProductState, selectProduct } from './actions'
+import { ProductListItem } from './ProductListItem';
+import { fetchProductListAction, ProductState, selectProduct } from './actions';
 
-import './product.style.scss'
-import { NavLink } from 'react-router-dom'
+import './product.style.scss';
+import { NavLink } from 'react-router-dom';
 
 export const ProductList: React.FC<ProductState> = (props: ProductState) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(false);
 
   React.useEffect(() => {
-    dispatch(fetchProductListAction())
-  }, [])
+    dispatch(fetchProductListAction());
+  }, []);
 
   return (
     <div className={`product-list ${collapsed ? 'collapsed' : ''}`}>
@@ -28,12 +28,10 @@ export const ProductList: React.FC<ProductState> = (props: ProductState) => {
           selected={props.selectedProductId === product._id}
         />
       ))}
-      <NavLink to='/tesla-account'
-               className='add-more'>
+      <NavLink to="/tesla-account" className="add-more">
         add more linked accounts
       </NavLink>
-      <button className='toggle'
-              onClick={() => setCollapsed(!collapsed)} />
+      <button className="toggle" onClick={() => setCollapsed(!collapsed)} />
     </div>
-  )
-}
+  );
+};

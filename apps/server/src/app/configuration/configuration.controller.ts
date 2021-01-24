@@ -1,5 +1,5 @@
-import { Controller, Get } from '@nestjs/common'
-import { ConfigurationService } from './configuration.service'
+import { Controller, Get } from '@nestjs/common';
+import { ConfigurationService } from './configuration.service';
 
 @Controller('configuration')
 export class ConfigurationController {
@@ -7,6 +7,6 @@ export class ConfigurationController {
 
   @Get()
   async getConfiguration() {
-    return this.configurationService.getConfiguration()
+    return this.configurationService.getConfiguration();
   }
 }

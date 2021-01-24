@@ -1,10 +1,10 @@
-import { forwardRef, Inject, Injectable } from '@nestjs/common'
-import { TeslaAccount } from '@tesla-dashboard/types'
-import { TeslaAccountType } from '@tesla-dashboard/schemas'
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
+import { TeslaAccount } from '@tesla-dashboard/types';
+import { TeslaAccountType } from '@tesla-dashboard/schemas';
 
-import { InjectModel } from '@nestjs/mongoose'
-import { Model } from 'mongoose'
-import { TeslaOwnerService } from './tesla-owner/tesla-owner.service'
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { TeslaOwnerService } from './tesla-owner/tesla-owner.service';
 
 @Injectable()
 export class TeslaAccountService {
@@ -16,18 +16,15 @@ export class TeslaAccountService {
   ) {}
 
   async createAccount(teslaAccount: TeslaAccount) {
-    return this.teslaAccountModel.create(teslaAccount)
+    return this.teslaAccountModel.create(teslaAccount);
   }
 
   async updateAccount(teslaAccount: TeslaAccount) {
-    return this.teslaAccountModel.updateOne(
-      { _id: teslaAccount._id },
-      teslaAccount
-    )
+    return this.teslaAccountModel.updateOne({ _id: teslaAccount._id }, teslaAccount);
   }
 
   sanitizeAccount(account: TeslaAccountType): TeslaAccount {
-    const { _id, email, token_created_at, token_expires_in, username } = account
+    const { _id, email, token_created_at, token_expires_in, username } = account;
     return {
       _id,
       email,
@@ -36,31 +33,25 @@ export class TeslaAccountService {
       token_created_at,
       token_expires_in,
       username,
-    }
+    };
   }
 
   async getAccounts(username: string): Promise<TeslaAccount[]> {
-    return this.teslaAccountModel.find({ username })
+    return this.teslaAccountModel.find({ username });
   }
 
   async validate(id: string): Promise<boolean> {
-    const teslaAccount = await this.getById(id)
-    const resultTeslaAccount = await this.teslaOwnerService.checkToken(
-      teslaAccount
-    )
-    return !!resultTeslaAccount
+    const teslaAccount = await this.getById(id);
+    const resultTeslaAccount = await this.teslaOwnerService.checkToken(teslaAccount);
+    return !!resultTeslaAccount;
   }
 
   async requestTeslaToken(id: string, password: string) {
-    const teslaAccount = await this.getById(id)
-    return this.teslaOwnerService.updateToken(
-      teslaAccount,
-      'password',
-      password
-    )
+    const teslaAccount = await this.getById(id);
+    return this.teslaOwnerService.updateToken(teslaAccount, 'password', password);
   }
 
   private async getById(id: string) {
-    return this.teslaAccountModel.findOne({ _id: id })
+    return this.teslaAccountModel.findOne({ _id: id });
   }
 }

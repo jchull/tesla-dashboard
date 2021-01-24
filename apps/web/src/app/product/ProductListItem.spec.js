@@ -1,23 +1,23 @@
-import { act, render } from '@testing-library/react'
-import pretty          from 'pretty'
-import React           from 'react'
+import { act, render } from '@testing-library/react';
+import pretty from 'pretty';
+import React from 'react';
 
-import { ProductListItem } from './ProductListItem'
+import { ProductListItem } from './ProductListItem';
 
-let wrapper
+let wrapper;
 
-beforeEach(() => {})
+beforeEach(() => {});
 
 afterEach(() => {
-  if(wrapper) {
-    if(wrapper.unmount) {
-      wrapper.unmount()
+  if (wrapper) {
+    if (wrapper.unmount) {
+      wrapper.unmount();
     }
-    if(wrapper.container) {
-      wrapper.container = null
+    if (wrapper.container) {
+      wrapper.container = null;
     }
   }
-})
+});
 
 it('renders product list item', () => {
   const product = {
@@ -39,19 +39,12 @@ it('renders product list item', () => {
     time_to_full_charge: 0,
     charge_limit_soc: 83,
     charge_limit_soc_min: 50,
-    last_session_id: 'aadzfsfdsfa'
-  }
-  const handler = (selectedProduct) => console.log(selectedProduct.display_name)
+    last_session_id: 'aadzfsfdsfa',
+  };
+  const handler = (selectedProduct) => console.log(selectedProduct.display_name);
 
   act(() => {
-    wrapper = render(
-      <ProductListItem
-        selected={false}
-        product={product}
-        handleSelection={handler}
-      />
-    )
-  })
-  expect(pretty(wrapper.container.innerHTML))
-    .toMatchSnapshot()
-})
+    wrapper = render(<ProductListItem selected={false} product={product} handleSelection={handler} />);
+  });
+  expect(pretty(wrapper.container.innerHTML)).toMatchSnapshot();
+});

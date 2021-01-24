@@ -1,11 +1,11 @@
-import { forwardRef, Module } from '@nestjs/common'
-import { ProductController } from './product.controller'
-import { ProductService } from './product.service'
-import { MongooseModule } from '@nestjs/mongoose'
-import { SyncPreferencesSchema, VehicleSchema } from '@tesla-dashboard/schemas'
+import { forwardRef, Module } from '@nestjs/common';
+import { ProductController } from './product.controller';
+import { ProductService } from './product.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { SyncPreferencesSchema, VehicleSchema } from '@tesla-dashboard/schemas';
 
-import { TeslaAccountModule } from '../tesla-account/tesla-account.module'
-import { DataSyncModule } from '../data-sync/data-sync.module'
+import { TeslaAccountModule } from '../tesla-account/tesla-account.module';
+import { DataSyncModule } from '../data-sync/data-sync.module';
 
 @Module({
   imports: [

@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { GuiSettings } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { GuiSettings } from '@tesla-dashboard/types';
 
-export type GuiSettingsType = GuiSettings & Document
+export type GuiSettingsType = GuiSettings & Document;
 
 export const GuiSettingsSchema = new Schema<GuiSettingsType>({
   vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
@@ -11,5 +11,5 @@ export const GuiSettingsSchema = new Schema<GuiSettingsType>({
   gui_range_display: { type: String },
   gui_temperature_units: { type: String },
   show_range_units: { type: Boolean },
-  timestamp: { type: Number }
-})
+  timestamp: { type: Number },
+});

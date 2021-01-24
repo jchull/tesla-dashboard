@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { User } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { User } from '@tesla-dashboard/types';
 
-export type UserType = User & Document
+export type UserType = User & Document;
 
 export const UserSchema = new Schema<UserType>({
   username: { type: String, required: true, unique: true },
@@ -9,5 +9,5 @@ export const UserSchema = new Schema<UserType>({
   role: { type: Number, required: true, unique: false },
   pwdHash: { type: String, required: true },
   teslaAccounts: [{ type: Schema.Types.ObjectId, ref: 'TeslaAccount' }],
-  vehicles: [{ type: Schema.Types.ObjectId, ref: 'Vehicle' }]
-})
+  vehicles: [{ type: Schema.Types.ObjectId, ref: 'Vehicle' }],
+});

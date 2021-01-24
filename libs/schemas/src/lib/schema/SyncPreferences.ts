@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { SyncPreferences } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { SyncPreferences } from '@tesla-dashboard/types';
 
-export type SyncPreferencesType = SyncPreferences & Document
+export type SyncPreferencesType = SyncPreferences & Document;
 
 export const SyncPreferencesSchema = new Schema<SyncPreferencesType>({
   enabled: { type: Boolean },
@@ -14,8 +14,8 @@ export const SyncPreferencesSchema = new Schema<SyncPreferencesType>({
   charging_costPerKwhHome: { type: Number },
   charging_costPerKwhSupercharging: { type: Number },
   charging_pollingIntervalsSeconds: { type: [Number, Number, Number] },
-  charging_maxGapSeconds: { type: Number }
-})
+  charging_maxGapSeconds: { type: Number },
+});
 
 export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   _id: 'default',
@@ -28,5 +28,5 @@ export const DEFAULT_SYNC_PREFERENCES: SyncPreferences = {
   drivingMaxGapSeconds: 300,
   drivingPollingIntervalSeconds: 60,
   drivingMinDurationMinutes: 5,
-  sleepTriggerSeconds: 300
-}
+  sleepTriggerSeconds: 300,
+};

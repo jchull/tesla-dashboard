@@ -1,4 +1,3 @@
-import { Entity } from './Entity'
+import { Entity } from './Entity';
 
-export interface Product extends Entity {
-}
+export interface Product extends Entity {}

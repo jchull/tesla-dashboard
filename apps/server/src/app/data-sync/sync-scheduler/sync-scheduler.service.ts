@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common'
-import { SchedulerRegistry } from '@nestjs/schedule'
+import { Injectable } from '@nestjs/common';
+import { SchedulerRegistry } from '@nestjs/schedule';
 
 @Injectable()
 export class SyncSchedulerService {

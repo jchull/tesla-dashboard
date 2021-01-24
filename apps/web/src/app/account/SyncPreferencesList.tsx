@@ -1,19 +1,17 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Vehicle } from '@tesla-dashboard/types'
-import { services } from '@tesla-dashboard/client'
+import React, { FC, useEffect, useState } from 'react';
+import { Vehicle } from '@tesla-dashboard/types';
+import { services } from '@tesla-dashboard/client';
 
 export const SyncPreferencesList: FC = () => {
-  const [products, setProducts] = useState([] as Vehicle[])
-  const [selectedProduct, setSelectedProduct] = useState({} as Vehicle)
+  const [products, setProducts] = useState([] as Vehicle[]);
+  const [selectedProduct, setSelectedProduct] = useState({} as Vehicle);
 
   useEffect(() => {
-    const username = services.auth.getUsername()
+    const username = services.auth.getUsername();
     if (username) {
-      services.queryService
-              .getProducts()
-              .then((data: Vehicle[] | undefined) => data && setProducts(data))
+      services.queryService.getProducts().then((data: Vehicle[] | undefined) => data && setProducts(data));
     }
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -22,11 +20,7 @@ export const SyncPreferencesList: FC = () => {
       {products && products.length ? (
         <div>
           {products.map((vehicle) => (
-            <div
-              key={vehicle.vin}
-              className='clickable'
-              onClick={() => setSelectedProduct(vehicle)}
-            >
+            <div key={vehicle.vin} className="clickable" onClick={() => setSelectedProduct(vehicle)}>
               {vehicle.display_name}
             </div>
           ))}
@@ -42,5 +36,5 @@ export const SyncPreferencesList: FC = () => {
       {/*  <span>Select a product</span>*/}
       {/*}*/}
     </div>
-  )
-}
+  );
+};

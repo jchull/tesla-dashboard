@@ -1,11 +1,11 @@
-import React from 'react'
-import './Tabs.scss'
+import React from 'react';
+import './Tabs.scss';
 
 interface TabProps {
-  tabs: string[]
-  selectedIndex: number
+  tabs: string[];
+  selectedIndex: number;
 
-  onSelect(index: number): any
+  onSelect(index: number): any;
 }
 
 export const Tabs: React.FC<TabProps> = (props) => {
@@ -18,10 +18,10 @@ export const Tabs: React.FC<TabProps> = (props) => {
       >
         {item}
       </button>
-    ))
+    ));
   }
 
-  const content = mapItemsToElements(props.tabs, props.selectedIndex)
+  const content = mapItemsToElements(props.tabs, props.selectedIndex);
 
-  return <div className='tab-buttons'>{content}</div>
-}
+  return <div className="tab-buttons">{content}</div>;
+};

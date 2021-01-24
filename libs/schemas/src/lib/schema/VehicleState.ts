@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { VehicleState } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { VehicleState } from '@tesla-dashboard/types';
 
-export type VehicleStateType = VehicleState & Document
+export type VehicleStateType = VehicleState & Document;
 
 export const VehicleStateSchema = new Schema<VehicleStateType>({
   is_key_state: { type: Boolean },
@@ -189,5 +189,5 @@ export const VehicleStateSchema = new Schema<VehicleStateType>({
   valet_mode: { type: Boolean },
   valet_pin_needed: { type: Boolean },
   vehicle_name: { type: String },
-  vehicleActivity: { type: Schema.Types.ObjectId, ref: 'VehicleActivity' }
-})
+  vehicleActivity: { type: Schema.Types.ObjectId, ref: 'VehicleActivity' },
+});

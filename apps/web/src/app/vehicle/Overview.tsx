@@ -1,20 +1,20 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useProduct } from '../hooks'
-import { syncUpstreamAction } from '../product/actions'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useProduct } from '../hooks';
+import { syncUpstreamAction } from '../product/actions';
 
 export interface OverviewProps {
-  productId: string
+  productId: string;
 }
 
 export const Overview: React.FC<OverviewProps> = (props) => {
-  const dispatch = useDispatch()
-  const { productId } = props
+  const dispatch = useDispatch();
+  const { productId } = props;
 
-  const product = useProduct(productId)
+  const product = useProduct(productId);
 
   async function syncNow() {
-    dispatch(syncUpstreamAction(productId))
+    dispatch(syncUpstreamAction(productId));
   }
 
   return (
@@ -25,10 +25,10 @@ export const Overview: React.FC<OverviewProps> = (props) => {
           <span>{product.display_name}</span>
 
           <button onClick={() => syncNow()}>
-            <i className='material-icons'>sync</i>
+            <i className="material-icons">sync</i>
           </button>
         </>
       )}
     </>
-  )
-}
+  );
+};

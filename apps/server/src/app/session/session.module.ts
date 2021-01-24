@@ -1,10 +1,10 @@
-import { forwardRef, Module } from '@nestjs/common'
-import { SessionController } from './session.controller'
-import { SessionService } from './session.service'
-import { MongooseModule } from '@nestjs/mongoose'
-import { VehicleActivitySchema, VehicleStateSchema } from '@tesla-dashboard/schemas'
+import { forwardRef, Module } from '@nestjs/common';
+import { SessionController } from './session.controller';
+import { SessionService } from './session.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { VehicleActivitySchema, VehicleStateSchema } from '@tesla-dashboard/schemas';
 
-import { ProductModule } from '../product/product.module'
+import { ProductModule } from '../product/product.module';
 
 @Module({
   imports: [

@@ -1,42 +1,42 @@
-import React from 'react'
+import React from 'react';
 
 interface TagInputProps {
-  addListener(tag: string): any
+  addListener(tag: string): any;
 }
 
 export const TagInput: React.FC<TagInputProps> = (props: TagInputProps) => {
-  const tagInput = React.createRef<HTMLInputElement>()
-  const [inputExpanded, setInputExpanded] = React.useState(false)
+  const tagInput = React.createRef<HTMLInputElement>();
+  const [inputExpanded, setInputExpanded] = React.useState(false);
 
   function handleKeyDown(event: any) {
     if (event.key === 'Enter' && tagInput.current) {
-      props.addListener(tagInput.current.value)
-      tagInput.current.value = ''
-      setInputExpanded(false)
+      props.addListener(tagInput.current.value);
+      tagInput.current.value = '';
+      setInputExpanded(false);
     }
   }
 
   React.useEffect(() => {
     if (inputExpanded && tagInput.current) {
-      tagInput.current.focus()
+      tagInput.current.focus();
     }
-  }, [inputExpanded])
+  }, [inputExpanded]);
 
   return (
-    <div className='tag-input'>
+    <div className="tag-input">
       <button
-        className='add'
-        aria-label='Show new tag entry'
+        className="add"
+        aria-label="Show new tag entry"
         onClick={() => props.addListener && setInputExpanded(!inputExpanded)}
       >
-        <i className='material-icons'>add</i>
+        <i className="material-icons">add</i>
       </button>
       <input
         onKeyDown={handleKeyDown}
         className={inputExpanded ? 'show' : 'hide'}
         ref={tagInput}
-        aria-label='Enter new tag'
+        aria-label="Enter new tag"
       />
     </div>
-  )
-}
+  );
+};

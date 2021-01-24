@@ -1,6 +1,6 @@
-import { Controller, forwardRef, Get, Inject, Param, Request, UseGuards } from '@nestjs/common'
-import { AuthGuard } from '@nestjs/passport'
-import { SessionService } from '../session/session.service'
+import { Controller, forwardRef, Get, Inject, Param, Request, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { SessionService } from '../session/session.service';
 
 @Controller('tag')
 export class TagController {
@@ -24,6 +24,6 @@ export class TagController {
   @UseGuards(AuthGuard('jwt'))
   @Get(':productId')
   getSessionTags(@Request() req, @Param('productId') productId) {
-    return this.sessionService.findTags(req.user.username, productId)
+    return this.sessionService.findTags(req.user.username, productId);
   }
 }

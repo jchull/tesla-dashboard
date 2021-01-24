@@ -1,34 +1,34 @@
-import { act, render } from '@testing-library/react'
-import pretty from 'pretty'
-import React from 'react'
-import { getMockProvider } from '../__mocks__/ReduxMockWrapper'
+import { act, render } from '@testing-library/react';
+import pretty from 'pretty';
+import React from 'react';
+import { getMockProvider } from '../__mocks__/ReduxMockWrapper';
 
-import { SessionTagList } from './SessionTagList'
+import { SessionTagList } from './SessionTagList';
 
-let wrapper
+let wrapper;
 
-beforeEach(() => {})
+beforeEach(() => {});
 
 afterEach(() => {
   if (wrapper) {
     if (wrapper.unmount) {
-      wrapper.unmount()
+      wrapper.unmount();
     }
     if (wrapper.container) {
-      wrapper.container = null
+      wrapper.container = null;
     }
   }
-})
+});
 
 it('renders empty tag list', () => {
-  const { ReduxMockWrapper } = getMockProvider({ session: { sessions: [] } })
+  const { ReduxMockWrapper } = getMockProvider({ session: { sessions: [] } });
 
   act(() => {
     wrapper = render(
       <ReduxMockWrapper>
         <SessionTagList />
       </ReduxMockWrapper>
-    )
-  })
-  expect(pretty(wrapper.container.innerHTML)).toMatchSnapshot()
-})
+    );
+  });
+  expect(pretty(wrapper.container.innerHTML)).toMatchSnapshot();
+});

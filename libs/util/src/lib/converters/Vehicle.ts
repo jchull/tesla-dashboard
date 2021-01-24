@@ -1,17 +1,8 @@
-import { VehicleData } from '@tesla-dashboard/tesla-types'
-import { VehicleState } from '@tesla-dashboard/types'
+import { VehicleData } from '@tesla-dashboard/tesla-types';
+import { VehicleState } from '@tesla-dashboard/types';
 
-export const flattenVehicleData = (
-  vehicleData: VehicleData
-): Partial<VehicleState> => {
-  const {
-    charge_state,
-    climate_state,
-    drive_state,
-    vehicle_state,
-    gui_settings,
-    vehicle_config
-  } = vehicleData
+export const flattenVehicleData = (vehicleData: VehicleData): Partial<VehicleState> => {
+  const { charge_state, climate_state, drive_state, vehicle_state, gui_settings, vehicle_config } = vehicleData;
   return {
     id: vehicleData.id,
     id_s: vehicleData.id_s,
@@ -125,8 +116,7 @@ export const flattenVehicleData = (
     show_range_units: gui_settings.show_range_units,
 
     // vehicle_config: {
-    can_accept_navigation_requests:
-    vehicle_config.can_accept_navigation_requests,
+    can_accept_navigation_requests: vehicle_config.can_accept_navigation_requests,
     can_actuate_trunks: vehicle_config.can_actuate_trunks,
     car_special_type: vehicle_config.car_special_type,
     car_type: vehicle_config.car_type,
@@ -202,6 +192,6 @@ export const flattenVehicleData = (
     sun_roof_state: vehicle_state.sun_roof_state,
     valet_mode: vehicle_state.valet_mode,
     valet_pin_needed: vehicle_state.valet_pin_needed,
-    vehicle_name: vehicle_state.vehicle_name
-  }
-}
+    vehicle_name: vehicle_state.vehicle_name,
+  };
+};

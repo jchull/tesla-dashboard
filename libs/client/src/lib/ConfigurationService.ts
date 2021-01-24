@@ -4,9 +4,9 @@ export enum ConfigurationKeys {
 }
 
 // eslint-disable-next-line no-undef
-const env = process.env
+const env = process.env;
 
-export type ConfigurationKeysType = keyof typeof ConfigurationKeys
+export type ConfigurationKeysType = keyof typeof ConfigurationKeys;
 
 /**
  * Loads configuration from:
@@ -15,16 +15,16 @@ export type ConfigurationKeysType = keyof typeof ConfigurationKeys
  *
  */
 export class ConfigurationService {
-  private readonly values: Map<ConfigurationKeysType, string>
+  private readonly values: Map<ConfigurationKeysType, string>;
 
   constructor() {
     // eslint-disable-next-line no-undef
-    this.values = new Map<ConfigurationKeysType, string>()
+    this.values = new Map<ConfigurationKeysType, string>();
     // TODO: load local env configuration first
     for (const configurationKey in ConfigurationKeys) {
-      const val = env[configurationKey]
+      const val = env[configurationKey];
       if (val) {
-        this.values.set(configurationKey as ConfigurationKeysType, val)
+        this.values.set(configurationKey as ConfigurationKeysType, val);
       }
     }
 
@@ -32,6 +32,6 @@ export class ConfigurationService {
   }
 
   get(key: ConfigurationKeysType): string | undefined {
-    return this.values.get(key)
+    return this.values.get(key);
   }
 }

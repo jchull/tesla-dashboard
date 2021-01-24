@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { Vehicle } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { Vehicle } from '@tesla-dashboard/types';
 
-export type VehicleType = Vehicle & Document
+export type VehicleType = Vehicle & Document;
 
 export const VehicleSchema = new Schema<VehicleType>({
   id_s: { type: String, required: true, unique: true },
@@ -23,5 +23,5 @@ export const VehicleSchema = new Schema<VehicleType>({
   charge_limit_soc_min: { type: Number },
   username: { type: String },
   sync_preferences: { type: Schema.Types.ObjectId, ref: 'SyncPreferences' },
-  sync_state: { type: String }
-})
+  sync_state: { type: String },
+});

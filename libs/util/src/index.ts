@@ -1,2 +1,2 @@
-export * from './lib/query'
-export * from './lib/converters'
+export * from './lib/query';
+export * from './lib/converters';

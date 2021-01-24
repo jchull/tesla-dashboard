@@ -1,5 +1,5 @@
-import { Vehicle as TeslaVehicle } from '@tesla-dashboard/tesla-types'
-import { Entity } from './Entity'
+import { Vehicle as TeslaVehicle } from '@tesla-dashboard/tesla-types';
+import { Entity } from './Entity';
 
 export enum ActivityType {
   CHARGING = 'CHARGING',
@@ -7,4 +7,4 @@ export enum ActivityType {
   PARKED = 'PARKED',
 }
 
-export type Vehicle = TeslaVehicle & Entity
+export type Vehicle = TeslaVehicle & Entity;

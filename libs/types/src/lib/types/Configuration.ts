@@ -1,8 +1,8 @@
-import { Entity } from './Entity'
+import { Entity } from './Entity';
 
 export interface Configuration extends Entity {
-  apiPort: number
-  ownerBaseUrl: string
-  teslaClientKey: string
-  teslaClientSecret: string
+  apiPort: number;
+  ownerBaseUrl: string;
+  teslaClientKey: string;
+  teslaClientSecret: string;
 }

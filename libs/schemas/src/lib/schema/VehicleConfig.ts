@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { VehicleConfig } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { VehicleConfig } from '@tesla-dashboard/types';
 
-export type VehicleConfigType = VehicleConfig & Document
+export type VehicleConfigType = VehicleConfig & Document;
 
 export const VehicleConfigSchema = new Schema<VehicleConfigType>({
   id_s: { type: String, required: true },
@@ -27,5 +27,5 @@ export const VehicleConfigSchema = new Schema<VehicleConfigType>({
   third_row_seats: { type: String },
   timestamp: { type: Number },
   use_range_badging: { type: Boolean },
-  wheel_type: { type: String }
-})
+  wheel_type: { type: String },
+});

@@ -1,11 +1,11 @@
-import { AuthenticationService } from './AuthenticationService'
-import { ConfigurationService } from './ConfigurationService'
-import { UserService } from './UserService'
-import { QueryService } from './QueryService'
+import { AuthenticationService } from './AuthenticationService';
+import { ConfigurationService } from './ConfigurationService';
+import { UserService } from './UserService';
+import { QueryService } from './QueryService';
 
-import axios from 'axios'
+import axios from 'axios';
 
-export const configurationService = new ConfigurationService()
+export const configurationService = new ConfigurationService();
 
 export const api = axios.create({
   withCredentials: true,
@@ -13,18 +13,18 @@ export const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    'Access-Control-Allow-Origin': 'localhost'
-  }
-})
+    'Access-Control-Allow-Origin': 'localhost',
+  },
+});
 
-const authenticationService = new AuthenticationService(api)
-const userService = new UserService(api)
-const queryService = new QueryService(api)
+const authenticationService = new AuthenticationService(api);
+const userService = new UserService(api);
+const queryService = new QueryService(api);
 
 export const services = {
   api,
   auth: authenticationService,
   userService,
-  queryService
-}
-export type ApiType = typeof services
+  queryService,
+};
+export type ApiType = typeof services;

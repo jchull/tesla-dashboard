@@ -1,7 +1,7 @@
-import { Document, Schema } from 'mongoose'
-import { VehicleActivity } from '@tesla-dashboard/types'
+import { Document, Schema } from 'mongoose';
+import { VehicleActivity } from '@tesla-dashboard/types';
 
-export type VehicleActivityType = VehicleActivity & Document
+export type VehicleActivityType = VehicleActivity & Document;
 
 export const VehicleActivitySchema = new Schema<VehicleActivityType>({
   start_date: { type: Number, required: true },
@@ -36,5 +36,5 @@ export const VehicleActivitySchema = new Schema<VehicleActivityType>({
   duration_seconds: { type: Number },
   first: { type: Schema.Types.ObjectId, ref: 'VehicleState' },
   last: { type: Schema.Types.ObjectId, ref: 'VehicleState' },
-  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' }
-})
+  vehicle: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
+});

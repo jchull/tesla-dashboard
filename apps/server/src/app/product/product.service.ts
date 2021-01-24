@@ -1,11 +1,11 @@
-import { forwardRef, Inject, Injectable } from '@nestjs/common'
-import { InjectModel } from '@nestjs/mongoose'
-import { Model } from 'mongoose'
-import { Vehicle } from '@tesla-dashboard/types'
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Vehicle } from '@tesla-dashboard/types';
 
-import { SyncPreferencesType, VehicleType } from '@tesla-dashboard/schemas'
+import { SyncPreferencesType, VehicleType } from '@tesla-dashboard/schemas';
 
-import { TeslaSyncService } from '../data-sync/tesla-sync/tesla-sync.service'
+import { TeslaSyncService } from '../data-sync/tesla-sync/tesla-sync.service';
 
 @Injectable()
 export class ProductService {
@@ -19,36 +19,36 @@ export class ProductService {
   ) {}
 
   async create(product: VehicleType) {
-    return this.productModel.create(product)
+    return this.productModel.create(product);
   }
 
   async update(product: VehicleType) {
-    return this.productModel.updateOne({ id_s: product.id_s }, product)
+    return this.productModel.updateOne({ id_s: product.id_s }, product);
   }
 
   async upsert(products: Vehicle[]) {
     return products.map(async (product) => {
-      const existing = await this.productModel.findOne({ vin: product.vin })
-      return existing ? this.productModel.updateOne({ _id: existing._id }, product) : this.productModel.create(product)
-    })
+      const existing = await this.productModel.findOne({ vin: product.vin });
+      return existing ? this.productModel.updateOne({ _id: existing._id }, product) : this.productModel.create(product);
+    });
   }
 
   async getMyProducts(username: string, syncUpstream: boolean = false) {
     if (syncUpstream != false) {
-      await this.teslaSyncService.syncVehiclesByAccount(username)
+      await this.teslaSyncService.syncVehiclesByAccount(username);
     }
-    return this.productModel.find({ username }).populate(['sync_preferences']).sort({ $natural: -1 })
+    return this.productModel.find({ username }).populate(['sync_preferences']).sort({ $natural: -1 });
   }
 
   async findByVin(vin: string) {
-    return this.productModel.findOne({ vin })
+    return this.productModel.findOne({ vin });
   }
 
   async findById(id: string) {
-    return this.productModel.findOne({ _id: id })
+    return this.productModel.findOne({ _id: id });
   }
 
   async syncVehicleState(id: string) {
-    return this.teslaSyncService.syncVehicle(id)
+    return this.teslaSyncService.syncVehicle(id);
   }
 }
