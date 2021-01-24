@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e9f058e8-b0b3-484d-81ee-d75ff20bda8f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/app/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/_base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/app/app.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/app/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/app/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/app/setupProxy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +18,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -51,12 +53,8 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1nUbWqT3qf76TvAVv3HhdKBpCz7" />
   <component name="ProjectViewState">
@@ -140,8 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Nx.web:serve" />
         <item itemvalue="Nx.server:serve" />
+        <item itemvalue="Nx.web:serve" />
         <item itemvalue="Nx.web:build" />
       </list>
     </recent_temporary>
@@ -169,7 +167,28 @@
       <option name="project" value="LOCAL" />
       <updated>1611507046083</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="reorg styles and add favicon">
+      <created>1611508763517</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611508763517</updated>
+    </task>
+    <task id="LOCAL-00004" summary="reorg styles and add favicon">
+      <created>1611508782292</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611508782292</updated>
+    </task>
+    <task id="LOCAL-00005" summary="nx proxy config">
+      <created>1611508796508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611508796508</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +209,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit of nx project" />
     <MESSAGE value="migrated to nx monorepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="migrated to nx monorepo" />
+    <MESSAGE value="reorg styles and add favicon" />
+    <MESSAGE value="nx proxy config" />
+    <option name="LAST_COMMIT_MESSAGE" value="nx proxy config" />
   </component>
 </project>
