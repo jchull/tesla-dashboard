@@ -1,90 +1,66 @@
-# TeslaDashboard
 
-This project was generated using [Nx](https://nx.dev).
+**Yet another dashboard to archive and visualize data collected from the Tesla owner API.** 
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+**_This is a work in-progress!_**
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Adding capabilities to your workspace
+Here is some charging data at a V2 Supercharger. 
+![charging](./images/Charging.png)
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Here is a drive.
+![driving](./images/Driving.png)
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-Below are our core plugins:
+## Architecture
+Programming Language: TypeScript
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+Server Framework: Nest.js
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+UI: React + Redux
 
-## Generate an application
+Database: MongoDB
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
 
-> You can use any of the plugins above to generate applications as well.
+##Environments
+Development: Docker-compose, Webpack
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+Test: Jenkins + Docker-compose
 
-## Generate a library
+Production: Docker Swarm, HTTPS
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-> You can also use any of the plugins above to generate libraries as well.
+## Installing from source
 
-Libraries are sharable across libraries and applications. They can be imported from `@tesla-dashboard/mylib`.
+###### Clone this repository
 
-## Development server
+`git clone https://github.com/jchull/tesla-dashboard.git`
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+###### Configure secrets
+Copy server/env/sample.env to server/env/production.env
 
-## Code scaffolding
+Use a complex, 32-ish char string for JWT_SECRET
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+Generate SSL certs
+TODO
 
-## Build
+#### Building
+Use docker-compose to build
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`docker-compose build`
 
-## Running unit tests
+This creates images for DB and App services
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+#### Tests
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+yarn test
 
-## Running end-to-end tests
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+#### Starting services
+Use docker-compose to run
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+`docker-compose up`
 
-## Understand your workspace
+This should start the database, and build the web+server projects and start the prod server.
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+TODO: add scripts to build/update 

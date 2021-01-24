@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  database:
+    image: 'mongo'
+    container_name: 'tesladb'
+    volumes:
+      - ./bin/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
+      - tesladb:/data/db
+    expose:
+      - '7056'
+    ports:
+      - '7056:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "testRootPass123"
+      MONGO_INITDB_DATABASE: "tesladb"
+      MONGO_INITDB_USERNAME: "tsla"
+      MONGO_INITDB_PASSWORD: "testAppPass123"
+
+  server:
+    build: .
+    container_name: 'teslapp'
+    depends_on:
+      - database
+    ports:
+      - '7057:7057'
+    expose:
+      - '7057'
+    environment:
+      NODE_ENV: 'production'
+      PORT: 7057
+      DB_PASS: "testAppPass123"
+      DB_PORT: 27017
+      DB_HOST: tesladb
+volumes:
+  tesladb:
