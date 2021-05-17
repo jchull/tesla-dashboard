@@ -63,7 +63,8 @@
     "resolve": "^1.17.0",
     "rxjs": "^6.6.3",
     "semver": "^7.3.2",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "urlsafe-base64": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
