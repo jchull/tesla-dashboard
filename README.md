@@ -14,16 +14,13 @@ Programming Language: TypeScript
 
 Server Framework: Nest.js
 
-UI: React + Redux
+UI: React
+
+State management: Redux w/ Redux Toolkit
 
 Database: MongoDB
 
-##Environments
-Development: Docker-compose, Webpack
-
-Test: Jenkins + Docker-compose
-
-Production: Docker Swarm, HTTPS
+Monorepo: NX
 
 ## Installing from source
 
@@ -33,20 +30,27 @@ Production: Docker Swarm, HTTPS
 
 ###### Configure secrets
 
-Copy server/env/sample.env to server/env/production.env
+Copy apps/server/env/sample.env to apps/server/.local.env
 
 Use a complex, 32-ish char string for JWT_SECRET
 
 Generate SSL certs
 TODO
 
-#### Building
+#### Development Server
+Just two steps to start up a development server:
+
+`yarn`
+
+`yarn start`
+
+#### Building Docker images
 
 Use docker-compose to build
 
 `docker-compose build`
 
-This creates images for DB and App services
+This creates images for Mongo DB and App server
 
 #### Tests
 
